@@ -10,7 +10,8 @@
         <link rel="manifest" href="{{ asset('/site.webmanifest') }}">
         <link rel="apple-touch-icon" href="{{ asset('/icon.png') }}">
         <!-- Place favicon.ico in the root directory -->
-
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="{{ asset('/css/bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ asset('/css/normalize.css') }}">
         <link rel="stylesheet" href="{{ asset('/css/main.css') }}">
@@ -28,6 +29,7 @@
         <script>window.jQuery || document.write('<script src="<?php echo asset('js/vendor/jquery-3.2.1.min.js'); ?>"><\/script>')</script>
         <script src="{{ asset('js/plugins.js') }}"></script>
         <script src="{{ asset('js/main.js') }}"></script>
+        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
 
         <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
         <script>
