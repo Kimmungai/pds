@@ -1,3 +1,16 @@
+@font-face {
+    font-family: futura;
+    src: url('/fonts/Futura.ttf');
+}
+@font-face {
+    font-family: Archivo;
+    src: url('/fonts/Archivo.ttf');
+}
+@font-face {
+    font-family: NunitoSans;
+    src: url('/fonts/NunitoSans.ttf');
+}
+
 header{
   overflow: hidden;
 }
@@ -14,11 +27,12 @@ header{
 {
   background-color: #f00;
   border-color: #f00;
+  opacity: 0.8;
 }
 .provider-btn a:hover
 {
   background-color: #f00;
-  opacity: 0.5;
+  opacity: 1;
   border-color: #f00;
 }
 .pds-email
@@ -42,13 +56,71 @@ header{
 {
   color: #fff !important;
 }
+.pds-menu-bar a:hover
+{
+  opacity:0.9 !important;
+}
 .active
 {
   background-color: #333333;
 }
 .slider
 {
-  height: 250px;
+  overflow: hidden;
   background:url('/img/slider.jpg') no-repeat center;
   background-size: cover;
 }
+.slider h1
+{
+  font-family: Archivo;
+  margin: 0;
+  padding: 0;
+  color:#fff;
+  text-align: center;
+  font-size: 3.5em;
+  text-shadow: 0.05em 0.05em #333333;
+  text-transform: uppercase;
+  margin-bottom: 1em;
+}
+.slider p
+{
+  font-family: Archivo;
+  margin: 0;
+  padding: 0;
+  color:#fff;
+  text-align: center;
+  font-size: 2em;
+  -webkit-text-stroke-width: 0.05em;
+  -webkit-text-stroke-color: #333;
+  font-weight: bold;
+}
+.project-btn a
+{
+  background-color: #f00;
+  border-color: #f00;
+  opacity:1;
+  border-radius: 0 !important;
+  margin:1em 0;
+  font-size: 1em;
+}
+.project-btn a:hover
+{
+  background-color: #f00;
+  cursor: pointer;
+  border-color: #f00;
+}
+/*main body starts here*/
+.main-body h2
+{
+  font-family: NunitoSans;
+  text-align: center;
+  margin-bottom:0;
+  padding: 0;
+}
+.strip
+{
+  height: 0.2em;
+  margin: 0.2em 0;
+  background-color: #00b450;
+}
+/*main body ends here*/
