@@ -110,17 +110,158 @@ header{
   border-color: #f00;
 }
 /*main body starts here*/
+.main-body
+{
+  background-color: #f5f5f5;
+}
 .main-body h2
 {
   font-family: NunitoSans;
   text-align: center;
-  margin-bottom:0;
-  padding: 0;
+  margin:0;
+  padding-top: 0.3em;
 }
 .strip
 {
   height: 0.2em;
-  margin: 0.2em 0;
+  margin: 0.3em 0;
   background-color: #00b450;
 }
+.second-nav nav
+{
+  margin-bottom: 0.2em;
+  padding: 0;
+  background-color: #f5f5f5;
+  overflow: hidden;
+}
+.second-nav  a:link a:active a:visited, .breadcrumb-item
+{
+  text-decoration: none !important;
+  color: #fff !important;
+  background-color:#333333;
+  font-size: 1.2em;
+  padding: 0.3em;
+  margin: 0.2em;
+}
+.second-nav  a:link a:active a:visited .breadcrumb-item:hover
+{
+  text-decoration: none !important;
+  color: #fff!important;
+}
+.active
+{
+  color: #fff !important;
+  background-color: #00b450 !important;
+}
+.sort-panel
+{
+  font-size: 1.2em;
+}
+.sort-panel select
+{
+  border-radius: 0!important;
+}
+.sort-label
+{
+  padding-top: 0.3em;
+  font-size: 1.2em;
+}
+.project-area article
+{
+  background-color: #eeeeee;
+  box-shadow: 0.25em 0.25em 0.25em #333333;
+}
+.project-area article h3, h4
+{
+  text-align: center;
+  font-family: NunitoSans;
+}
+.project-pic
+{
+  width: 250px;
+  height: 156px;
+  margin: 0 auto;
+  background:url('/img/project-pic.png') no-repeat center;
+  background-size: cover;
+  border-radius: 5px;
+}
+.desired-feature
+{
+  height: 7em;
+  width: 7em;
+  background-color: #e5e5e5;
+  margin: 0.1em auto;
+  border-radius: 50%;
+  text-align: center;
+  padding-top: 2em;
+  font-weight: bold;
+}
+.project-info table
+{
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+.green
+{
+  color: #00b450;
+}
+.bid-time-count-down
+{
+  color: #f00;
+}
+.project-actions
+{
+  width: 80%;
+  margin: 2em auto;
+}
+.details-btn
+{
+  background-color: #333333;
+  border: 0;
+  opacity: 0.8;
+}
+.bid-btn
+{
+  background-color: #f00;
+  border: 0;
+  opacity: 0.8;
+}
+.details-btn:hover
+{
+  background-color: #333333;
+  opacity: 1;
+}
+
+.bid-btn:hover
+{
+  background-color: #f00;
+  opacity: 1;
+}
+.view-more
+{
+  padding: 2em;
+  text-align: center;
+  font-family: NunitoSans;
+  font-style: italic;
+  font-size: 1.2em;
+  text-decoration: none;
+}
+.view-more a:link
+{
+  color: #333333;
+}
 /*main body ends here*/
+/*service providers starts here*/
+.service-providers
+{
+  background-color: #eeeeee;
+}
+.service-providers h2
+{
+  font-family: NunitoSans;
+  text-align: center;
+  margin:0;
+  padding: 0;
+}
+/*service providers ends here*/
