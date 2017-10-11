@@ -8,9 +8,9 @@
       <div class="row second-nav">
         <div class="col-md-8">
           <nav class="breadcrumb">
-            <a class="breadcrumb-item active" href="#">All bids <span class="glyphicon glyphicon-list"></span></a>
-            <a class="breadcrumb-item" href="#">Closed bids <span class="glyphicon glyphicon-folder-close"></span></a>
-            <a class="breadcrumb-item" href="#">Open bids <span class="glyphicon glyphicon-folder-open"></span></a>
+            <a class="btn btn-default active" href="#">All bids <span class="glyphicon glyphicon-list"></span></a>
+            <a class="btn btn-default" href="#">Closed bids <span class="glyphicon glyphicon-folder-close"></span></a>
+            <a class="btn btn-default" href="#">Open bids <span class="glyphicon glyphicon-folder-open"></span></a>
           </nav>
        </div>
        <div class="col-md-1 col-md-offset-1 sort-label">
@@ -30,69 +30,51 @@
   </div>
   <div class="container"><!--projects start here-->
    <div class="row project-area">
-    <div class="col-md-6">
-      <article>
-        <h3>E-commerce website</h3>
-        <div class="row">
+     <div class="col-md-6">
+       <article>
+         <h3>E-learning website</h3>
+         <div class="row">
+           <div class="col-md-6">
+             <h4>Desired features</h4>
+             <div class="row">
+               <div class="col-md-6"><div class="desired-feature"><i class="fa fa-desktop"></i> <i class="fa fa-tablet"></i> <i class="fa  fa-mobile"></i><p>Responsive</p></div></div>
+               <div class="col-md-6"><div class="desired-feature"><i class="fa fa-users"></i><p>Membership</p></div></div>
+             </div>
+             <div class="row">
+               <div class="col-md-6"><div class="desired-feature"><i class="fa fa-cloud-upload"></i><p>Cloud based</p></div></div>
+               <div class="col-md-6"><div class="desired-feature"><i class="fa fa-cart-plus"></i><p>Check out</p></div></div>
+             </div>
+           </div>
+           <div class="col-md-6">
+             <div class="project-pic"></div>
+           </div>
+         </div>
+        <div class="row project-info">
           <div class="col-md-6">
-            <h4>Desired features</h4>
-            <div class="row">
-              <div class="col-md-6"><div class="desired-feature"><i class="fa fa-desktop"></i> <i class="fa fa-tablet"></i> <i class="fa  fa-mobile"></i><p>Responsive</p></div></div>
-              <div class="col-md-6"><div class="desired-feature"><i class="fa fa-users"></i><p>Membership</p></div></div>
+            <h4>Bidding information</h4>
+             <ul>
+                <li>Status: <span class="green">OPEN</span></li>
+                <li>No. of placed bids: <span class="bold">1000</span></li>
+                <li>Average price: <span class="bold red">Ksh. 100,000</span></li>
+                <li>Remaining time: <span class="bold">7:4:33</span></li>
+              </ul>
             </div>
-            <div class="row">
-              <div class="col-md-6"><div class="desired-feature"><i class="fa fa-cloud-upload"></i><p>Cloud based</p></div></div>
-              <div class="col-md-6"><div class="desired-feature"><i class="fa fa-cart-plus"></i><p>Check out</p></div></div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="project-pic"></div>
-          </div>
-        </div>
-       <h4>Bidding information</h4>
-       <div class="row project-info">
-         <div class="col-md-12">
-           <table class="table table-bordered">
-             <thead>
-               <tr>
-                 <th>Status</th>
-                 <th>No. of placed bids</th>
-                 <th>Average price</th>
-                 <th>Remaining time</th>
-               </tr>
-             </thead>
-             <tbody>
-               <td><p class="green">OPEN</p></td>
-               <td>10</td>
-               <td>100,000</td>
-               <td>7:14:32</td>
-             </tbody>
-           </table>
-           <h4>Client information</h4>
-           <div class="row project-info">
-             <div class="col-md-12">
-               <table class="table table-bordered">
-                 <thead>
-                   <tr>
-                     <th>Name</th>
-                     <th>previous projects</th>
-                     <th>Star rating</th>
-                     <th>view profile</th>
-                   </tr>
-                 </thead>
-                 <tbody>
-                   <td>Peter</td>
-                   <td>10</td>
-                   <td><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></td>
-                   <td><a href="#">profile</a></td>
-                 </tbody>
-               </table>
-               <div class="project-actions">
-                 <a class="btn btn-primary details-btn"><i class="fa  fa-list"></i> Details</a>
-                 <a class="btn btn-primary bid-btn pull-right"><i class="fa  fa-bell-o"></i> Details</a>
-              </div>
-      </article>
-      </div>
+            <div class="row project-info">
+              <div class="col-md-6">
+                <h4>Client information</h4>
+                  <ul>
+                      <li>Name: <span class="bold">Peter</span></th>
+                      <li>previous projects: <span class="bold">10</span></th>
+                      <li>Star rating: <span class="bold"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></span></th>
+                      <li>view profile: <span class="bold"><a href="#">profile</a></span></th>
+                  </ul>
+                </div>
+                <div class="project-actions">
+                  <a class="btn btn-primary details-btn"><i class="fa  fa-list"></i> Details</a>
+                  <a class="btn btn-primary bid-btn pull-right"><i class="fa  fa-bell-o"></i> Place bid</a>
+               </div>
+       </article>
+     </div>
    <div class="col-md-6">
      <article>
        <h3>E-commerce website</h3>
@@ -112,47 +94,29 @@
            <div class="project-pic"></div>
          </div>
        </div>
-      <h4>Bidding information</h4>
       <div class="row project-info">
-        <div class="col-md-12">
-          <table class="table table-bordered table-responsive">
-            <thead>
-              <tr>
-                <th>Status</th>
-                <th>No. of placed bids</th>
-                <th>Average price</th>
-                <th>Remaining time</th>
-              </tr>
-            </thead>
-            <tbody>
-              <td><p class="green">OPEN</p></td>
-              <td>10</td>
-              <td>100,000</td>
-              <td>7:14:32</td>
-            </tbody>
-          </table>
-          <h4>Client information</h4>
+        <div class="col-md-6">
+          <h4>Bidding information</h4>
+           <ul>
+              <li>Status: <span class="green">OPEN</span></li>
+              <li>No. of placed bids: <span class="bold">1000</span></li>
+              <li>Average price: <span class="bold red">Ksh. 100,000</span></li>
+              <li>Remaining time: <span class="bold">7:4:33</span></li>
+            </ul>
+          </div>
           <div class="row project-info">
-            <div class="col-md-12">
-              <table class="table table-bordered table-responsive">
-                <thead>
-                  <tr>
-                    <th>Name</th>
-                    <th>previous projects</th>
-                    <th>Star rating</th>
-                    <th>view profile</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <td>Peter</td>
-                  <td>10</td>
-                  <td><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></td>
-                  <td><a href="#">profile</a></td>
-                </tbody>
-              </table>
+            <div class="col-md-6">
+              <h4>Client information</h4>
+                <ul>
+                    <li>Name: <span class="bold">Peter</span></th>
+                    <li>previous projects: <span class="bold">10</span></th>
+                    <li>Star rating: <span class="bold"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></span></th>
+                    <li>view profile: <span class="bold"><a href="#">profile</a></span></th>
+                </ul>
+              </div>
               <div class="project-actions">
                 <a class="btn btn-primary details-btn"><i class="fa  fa-list"></i> Details</a>
-                <a class="btn btn-primary bid-btn pull-right"><i class="fa  fa-bell-o"></i> Details</a>
+                <a class="btn btn-primary bid-btn pull-right"><i class="fa  fa-bell-o"></i> Place bid</a>
              </div>
      </article>
    </div>
@@ -303,16 +267,74 @@
   <div class="container">
     <div class="row working-steps">
       <div class="col-md-3">
-        <div class="step"></div>
+        <div class="step"><p><span class="badge">1</span><br /><i class="fa   fa-list"></i><br />Post the details of your project</p></div>
       </div>
       <div class="col-md-3">
-        <div class="step"></div>
+        <div class="step"><p><span class="badge">2</span><br /><i class="fa fa-briefcase"></i> <i class="fa fa-briefcase"></i><br />Let companies bid for your project</p></div>
       </div>
       <div class="col-md-3">
-        <div class="step"></div>
+        <div class="step"><p><span class="badge">3</span><br /><i class="fa fa-bell-o"></i><br />Select the best bid!</p></div>
       </div>
       <div class="col-md-3">
-        <div class="step"></div>
+        <div class="step"><p><span class="badge">4</span><br /><i class="fa fa-weixin"></i><br />Chat with the winner and finalize the deal</p></div>
+      </div>
+    </div>
+    <div class="row project-btn pull-right">
+      <div class="col-md-3"><a class="btn btn-primary" href="#">Post a new project</a></div>
+    </div>
+  </div>
+</section>
+<section class="enquire">
+  <h2>Make an enquiry</h2>
+  <div class="strip"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="map">
+
+        </div>
+      </div>
+      <div class="col-md-6">
+        <article>
+          <h5>Contact Form</h5>
+          <div class="row">
+            <div class="col-md-2">
+              <label for="name">Name</label>
+            </div>
+            <div class="col-md-10">
+              <input type="text" class="form-control" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-2">
+              <label for="name">Email</label>
+            </div>
+            <div class="col-md-10">
+              <input type="email" class="form-control" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-2">
+              <label for="name">Phone</label>
+            </div>
+            <div class="col-md-10">
+              <input type="text" class="form-control" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-2">
+              <label for="name">Message</label>
+            </div>
+            <div class="col-md-10">
+              <textarea class="form-control"></textarea>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3 pull-right">
+              <a class="btn btn-primary btn-lg" href="#"><i class="fa fa-send"></i> Send</a>
+            </div>
+          </div>
+        </article>
       </div>
     </div>
   </div>

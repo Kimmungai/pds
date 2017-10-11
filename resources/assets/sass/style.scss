@@ -196,15 +196,36 @@ header{
   padding-top: 2em;
   font-weight: bold;
 }
-.project-info table
+.project-info
 {
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
-  text-align: center;
 }
+.project-info ul
+{
+  font-size: 1.1em;
+  font-family: NunitoSans;
+}
+.project-info li
+{
+  padding-top: 0.1em;
+}
+.project-info h4
+{
+  text-decoration: underline;
+}
+
 .green
 {
   color: #00b450;
+}
+.bold
+{
+  font-weight: bold;
+}
+.red
+{
+  color:#f00;
 }
 .bid-time-count-down
 {
@@ -349,4 +370,89 @@ header{
   background-color: #373b3e;
   margin:1em auto;
 }
+.step p
+{
+  color: #fff;
+  text-align: center;
+  font-size: 1.4em;
+  max-width: 195px;
+}
+.step p i
+{
+  font-size: 1.5em;
+}
+.step p span
+{
+  font-size: 1em;
+  margin: 0.2em 0 1em 0;
+}
+.how-it-works btn-primary
+{
+  margin-bottom: 1em;
+}
 /*How it works ends here*/
+/*Enquire starts here*/
+.enquire
+{
+  background-color: #aaaaaa;
+  overflow: hidden;
+}
+.enquire h2
+{
+  font-family: NunitoSans;
+  text-align: center;
+  margin:0;
+  padding-top: 0.3em;
+}
+.enquire article, .map
+{
+  overflow: hidden;
+  margin: 1em 0;
+  background-color: #fff;
+  border-radius: 5px;
+}
+.enquire article h5
+{
+  text-align: center;
+  font-size: 1.2em;
+  margin: 0;
+  padding: 1em;
+  font-family: NunitoSans;
+}
+.map
+{
+  height: 400px;
+  background:url('/img/map.PNG') no-repeat center;
+  background-size: cover;
+}
+.enquire article .row
+{
+  width: 90%;
+  margin: 1.5em auto;
+}
+/*Enquire ends here*/
+/*footer starts here*/
+footer
+{
+  overflow: hidden;
+  background-color: #141414;
+  color: #fff;
+}
+.triangle
+{
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid #fff;
+  margin: 0 auto;
+}
+footer a
+{
+  color: #fff;
+}
+.social
+{
+  font-size: 2em;
+}
+/*footer ends here*/

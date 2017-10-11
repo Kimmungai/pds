@@ -84,6 +84,30 @@
         </div>
         @yield('content')
         <!--Page content ends here-->
+        <footer>
+          <div class="triangle"></div>
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-6">
+                <p><i class="fa fa-copyright"></i> webdesignerscenter.com</p>
+              </div>
+              <div class="col-md-6">
+                <ul class="list-inline pull-right">
+                  <li><a href="#">About</a></li>
+                  <li><a href="#">Terms & privacy</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 pull-right col-md-offset-2 social">
+                <ul class="list-inline pull-right">
+                  <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
+                  <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </footer>
         <script src="{{ asset('/js/vendor/modernizr-3.5.0.min.js') }}"></script>
         <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
         <script>window.jQuery || document.write('<script src="<?php echo asset('js/vendor/jquery-3.2.1.min.js'); ?>"><\/script>')</script>
