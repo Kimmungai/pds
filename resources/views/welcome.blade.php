@@ -182,6 +182,139 @@
     </div>
    </div>
    <!---***********************-->
+   <div class="container">
+     <div class="row provider">
+       <div class="col-md-3">
+         <article>
+           <h4>Necky technologies</h4>
+           <div class="row provider-details">
+             <div class="col-md-5">
+               <div class="provider-logo">
+               </div>
+             </div>
+             <div class="col-md-7">
+              <ul>
+                <li>Established: <span>2005</span></li>
+                <li>Completed bids: <span>2005</span></li>
+                <li>Rating: <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></li>
+              </ul>
+             </div>
+             <div class="row provider-details">
+               <div class="col-md-12">
+                 <h5>Description</h5>
+                 <p>We are commited to completing our client's projects in time and within budget</p>
+               </div>
+            </div>
+           <div class="provider-actions">
+             <a class="btn btn-primary"><i class="fa  fa-building-o"></i> Profile</a>
+             <a class="btn btn-primary pull-right"><i class="fa fa-external-link "></i> Website</a>
+          </div>
+         </article>
+       </div>
+       <div class="col-md-3">
+         <article>
+           <h4>Necky technologies</h4>
+           <div class="row provider-details">
+             <div class="col-md-5">
+               <div class="provider-logo">
+               </div>
+             </div>
+             <div class="col-md-7">
+              <ul>
+                <li>Established: <span>2005</span></li>
+                <li>Completed bids: <span>2005</span></li>
+                <li>Rating: <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></li>
+              </ul>
+             </div>
+             <div class="row provider-details">
+               <div class="col-md-12">
+                 <h5>Description</h5>
+                 <p>We are commited to completing our client's projects in time and within budget</p>
+               </div>
+            </div>
+           <div class="provider-actions">
+             <a class="btn btn-primary"><i class="fa  fa-building-o"></i> Profile</a>
+             <a class="btn btn-primary pull-right"><i class="fa fa-external-link "></i> Website</a>
+          </div>
+         </article>
+       </div>
+       <div class="col-md-3">
+         <article>
+           <h4>Necky technologies</h4>
+           <div class="row provider-details">
+             <div class="col-md-5">
+               <div class="provider-logo">
+               </div>
+             </div>
+             <div class="col-md-7">
+              <ul>
+                <li>Established: <span>2005</span></li>
+                <li>Completed bids: <span>2005</span></li>
+                <li>Rating: <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></li>
+              </ul>
+             </div>
+             <div class="row provider-details">
+               <div class="col-md-12">
+                 <h5>Description</h5>
+                 <p>We are commited to completing our client's projects in time and within budget</p>
+               </div>
+            </div>
+           <div class="provider-actions">
+             <a class="btn btn-primary"><i class="fa  fa-building-o"></i> Profile</a>
+             <a class="btn btn-primary pull-right"><i class="fa fa-external-link "></i> Website</a>
+          </div>
+         </article>
+       </div>
+       <div class="col-md-3">
+         <article>
+           <h4>Necky technologies</h4>
+           <div class="row provider-details">
+             <div class="col-md-5">
+               <div class="provider-logo">
+               </div>
+             </div>
+             <div class="col-md-7">
+              <ul>
+                <li>Established: <span>2005</span></li>
+                <li>Completed bids: <span>2005</span></li>
+                <li>Rating: <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></li>
+              </ul>
+             </div>
+             <div class="row provider-details">
+               <div class="col-md-12">
+                 <h5>Description</h5>
+                 <p>We are commited to completing our client's projects in time and within budget</p>
+               </div>
+            </div>
+           <div class="provider-actions">
+             <a class="btn btn-primary"><i class="fa  fa-building-o"></i> Profile</a>
+             <a class="btn btn-primary pull-right"><i class="fa fa-external-link "></i> Website</a>
+          </div>
+         </article>
+       </div>
+     </div>
+     <p class="view-more"><a href="#">View more</a></p>
+   </div>
     <!---***********************-->
+</section>
+<section class="how-it-works">
+  <h2>How it works</h2>
+  <div class="strip"></div>
+  <div class="container">
+    <div class="row working-steps">
+      <div class="col-md-3">
+        <div class="step"></div>
+      </div>
+      <div class="col-md-3">
+        <div class="step"></div>
+      </div>
+      <div class="col-md-3">
+        <div class="step"></div>
+      </div>
+      <div class="col-md-3">
+        <div class="step"></div>
+      </div>
+    </div>
+  </div>
 </section>
 @endsection

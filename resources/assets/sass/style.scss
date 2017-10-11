@@ -264,4 +264,89 @@ header{
   margin:0;
   padding: 0;
 }
+.provider
+{
+  margin:1em auto;
+}
+.provider article
+{
+  overflow: hidden;
+  background-color: #adbbbc;
+  margin-top: 1em;
+}
+.provider article h4
+{
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  padding-top: 0.5em;
+}
+.provider-logo
+{
+  height: 6em;
+  width: 6em;
+  border-radius: 50%;
+  background:url('/img/project-pic.png') no-repeat center;
+  background-size: cover;
+  box-shadow: 0.25em 0.25em 0.25em #333333;
+  margin: 0 auto;
+}
+.provider-details
+{
+  margin-top: 0.5em;
+}
+.provider-details ul
+{
+  margin:0;
+  padding: 1em 0;
+  list-style-type: none;
+  font-family: NunitoSans;
+}
+.provider-details ul span
+{
+  font-weight: bold;
+}
+.provider-details h5
+{
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+}
+.provider-details p
+{
+  margin: 0;
+  padding:0.1em 2em;
+  font-style: italic;
+}
+.provider-actions
+{
+  width: 80%;
+  margin: 0.5em auto;
+}
 /*service providers ends here*/
+/*How it works starts here*/
+.how-it-works
+{
+  background-color: #dcdcdc;
+}
+.how-it-works h2
+{
+  font-family: NunitoSans;
+  text-align: center;
+  margin:0;
+  padding-top: 0.3em;
+}
+.working-steps
+{
+  margin: 2em auto;
+}
+.step
+{
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: #373b3e;
+  margin:1em auto;
+}
+/*How it works ends here*/
