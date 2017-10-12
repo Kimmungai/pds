@@ -14,3 +14,21 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/projects', function () {
+    return view('projects');
+});
+Route::get('/about-us', function () {
+    return view('about-us');
+});
+Route::get('/new-project', function () {
+    return view('new-project');
+});
+Route::get('/sign-up', function () {
+    return view('client-register');
+});
+Route::get('/service-provider-sign-up', function () {
+    return view('bidder-register');
+});
+Route::get('/user-login', function () {
+    return view('user-login');
+});

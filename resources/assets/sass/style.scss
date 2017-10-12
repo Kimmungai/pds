@@ -90,9 +90,8 @@ header{
   color:#fff;
   text-align: center;
   font-size: 2em;
-  -webkit-text-stroke-width: 0.05em;
-  -webkit-text-stroke-color: #333;
   font-weight: bold;
+  text-shadow: 0.2em 0.2em #333;
 }
 .project-btn a
 {
@@ -112,7 +111,7 @@ header{
 /*main body starts here*/
 .main-body
 {
-  background-color: #f5f5f5;
+  background-color: #fff;
 }
 .main-body h2
 {
@@ -131,7 +130,7 @@ header{
 {
   margin-bottom: 0.2em;
   padding: 0;
-  background-color: #f5f5f5;
+  background-color: #fff;
   overflow: hidden;
 }
 .second-nav  a:link a:active a:visited, .breadcrumb-item
@@ -169,7 +168,7 @@ header{
 .project-area article
 {
   background-color: #eeeeee;
-  box-shadow: 0.25em 0.25em 0.25em #333333;
+  box-shadow: 0.1em 0.1em 0.1em #333333;
 }
 .project-area article h3, h4
 {
@@ -178,9 +177,8 @@ header{
 }
 .project-pic
 {
-  width: 250px;
   height: 156px;
-  margin: 0 auto;
+  margin: 0 1em;
   background:url('/img/project-pic.png') no-repeat center;
   background-size: cover;
   border-radius: 5px;
@@ -294,6 +292,7 @@ header{
   overflow: hidden;
   background-color: #adbbbc;
   margin-top: 1em;
+  box-shadow: 0.1em 0.1em 0.1em #333333;
 }
 .provider article h4
 {

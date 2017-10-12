@@ -1,6 +1,49 @@
 @extends('layouts.main')
 
 @section('content')
+<nav class="navbar navbar-inverse pds-menu-bar">
+<div class="container">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+  </div>
+  <div class="collapse navbar-collapse" id="myNavbar">
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="/">Home</a></li>
+      <li><a href="/projects">Projects</a></li>
+      <li><a href="/#how-it-works">How it works</a></li>
+      <li><a href="/about-us">About us</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="/new-project">New Project</a></li>
+      <li><a href="/sign-up"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="/user-login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
+  </div>
+</div>
+</nav>
+<div class="slider">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <h1>Power to choose!</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <p>Have companies bid for your project and select the best!</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-5 project-btn pull-right">
+        <a class="btn btn-primary" href="/new-project">Post a new project</a>
+      </div>
+    </div>
+ </div>
+</div>
   <section class="main-body">
     <h2>Latest projects</h2>
     <div class="strip"></div>
@@ -261,7 +304,7 @@
    </div>
     <!---***********************-->
 </section>
-<section class="how-it-works">
+<section class="how-it-works" id="how-it-works">
   <h2>How it works</h2>
   <div class="strip"></div>
   <div class="container">
@@ -280,7 +323,7 @@
       </div>
     </div>
     <div class="row project-btn pull-right">
-      <div class="col-md-3"><a class="btn btn-primary" href="#">Post a new project</a></div>
+      <div class="col-md-3"><a class="btn btn-primary" href="/new-project">Post a new project</a></div>
     </div>
   </div>
 </section>

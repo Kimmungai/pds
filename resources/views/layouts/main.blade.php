@@ -32,7 +32,7 @@
                 </div>
               </div>
               <div class="col-md-2 provider-btn hidden-xs">
-                <a class="btn btn-primary" href="#">Become a service provider</a>
+                <a class="btn btn-primary" href="/service-provider-sign-up">Become a service provider</a>
               </div>
               <div class="col-md-4 pds-email">
                 <p>info@webdesignercenter.com</p>
@@ -40,48 +40,6 @@
             </div>
           </div>
         </header>
-        <nav class="navbar navbar-inverse pds-menu-bar">
-        <div class="container">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-          </div>
-          <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="#">Projects</a></li>
-              <li><a href="#">How it works</a></li>
-              <li><a href="#">About us</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-              <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-              <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-            </ul>
-          </div>
-        </div>
-        </nav>
-        <div class="slider">
-          <div class="container">
-            <div class="row">
-              <div class="col-sm-8 col-sm-offset-2">
-                <h1>Power to choose!</h1>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-sm-6 col-sm-offset-3">
-                <p>Have companies bid for your project and select the best!</p>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-sm-5 project-btn pull-right">
-                <a class="btn btn-primary" href="#">Post a new project</a>
-              </div>
-            </div>
-         </div>
-        </div>
         @yield('content')
         <!--Page content ends here-->
         <footer>
