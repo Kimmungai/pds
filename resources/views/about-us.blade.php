@@ -1,7 +1,9 @@
 @extends('layouts.main')
 
 @section('content')
-<nav class="navbar navbar-inverse pds-menu-bar">
+<div class="container">
+<div class="row">
+<nav class="navbar-inverse pds-menu-bar">
 <div class="container">
   <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -12,10 +14,10 @@
   </div>
   <div class="collapse navbar-collapse" id="myNavbar">
     <ul class="nav navbar-nav">
-      <li class="active"><a href="/">Home</a></li>
+      <li><a href="/">Home</a></li>
       <li><a href="/projects">Projects</a></li>
       <li><a href="/#how-it-works">How it works</a></li>
-      <li><a href="/about-us">About us</a></li>
+      <li class="active"><a href="/about-us">About us</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li><a href="/new-project">New Project</a></li>
@@ -25,6 +27,10 @@
   </div>
 </div>
 </nav>
+</div>
+</div>
+<div class="container">
+<div class="row">
 <div class="slider">
   <div class="container">
     <div class="row">
@@ -34,7 +40,7 @@
     </div>
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
-        <p>Have companies bid for your project and select the best!</p>
+        <p>Brief overview of Web Designers Center</p>
       </div>
     </div>
     <div class="row">
@@ -43,5 +49,7 @@
       </div>
     </div>
  </div>
+</div>
+</div>
 </div>
 @endsection

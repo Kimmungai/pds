@@ -30,19 +30,18 @@
           <div class="container">
             <div class="row">
               <div class="col-md-1">
-                <div class="pds-logo" style="background-color:#fff;">
-                  <img class="img-responsive" src="{{ asset('/img/logo.png') }}" alt="WebDesignersCenter.com">
+                <div class="pds-logo">
+                  <!--<img class="img-responsive" src="{{ asset('/img/logo.png') }}" alt="WebDesignersCenter.com">-->
                 </div>
               </div>
-              <div class="col-md-5">
+              <div class="col-md-7">
                 <h1>Web Designers Center</h1>
               </div>
-              <div class="col-md-2 provider-btn hidden-xs">
+              <div class="col-md-3 provider-btn">
                 <a class="btn btn-primary" href="/service-provider-sign-up">Become a service provider</a>
-              </div>
-              <div class="col-md-4 pds-email">
+              </div>            <!--<div class="col-md-4 pds-email">
                 <p>info@webdesignercenter.com</p>
-              </div>
+              </div>-->
             </div>
           </div>
         </header>

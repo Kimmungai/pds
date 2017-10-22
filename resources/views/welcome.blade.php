@@ -90,12 +90,12 @@
            <div class="col-md-6">
              <h4>Desired features</h4>
              <div class="row">
-               <div class="col-md-6"><div class="desired-feature"><i class="fa fa-desktop"></i> <i class="fa fa-tablet"></i> <i class="fa  fa-mobile"></i><p>Responsive</p></div></div>
-               <div class="col-md-6"><div class="desired-feature"><i class="fa fa-users"></i><p>Membership</p></div></div>
+               <div class="col-xs-6"><div class="desired-feature"><i class="fa fa-desktop"></i> <i class="fa fa-tablet"></i> <i class="fa  fa-mobile"></i><p>Responsive</p></div></div>
+               <div class="col-xs-6"><div class="desired-feature"><i class="fa fa-users"></i><p>Membership</p></div></div>
              </div>
              <div class="row">
-               <div class="col-md-6"><div class="desired-feature"><i class="fa fa-cloud-upload"></i><p>Cloud based</p></div></div>
-               <div class="col-md-6"><div class="desired-feature"><i class="fa fa-cart-plus"></i><p>Check out</p></div></div>
+               <div class="col-xs-6"><div class="desired-feature"><i class="fa fa-cloud-upload"></i><p>Cloud based</p></div></div>
+               <div class="col-xs-6"><div class="desired-feature"><i class="fa fa-cart-plus"></i><p>Check out</p></div></div>
              </div>
            </div>
            <div class="col-md-6">
@@ -135,12 +135,12 @@
          <div class="col-md-6">
            <h4>Desired features</h4>
            <div class="row">
-             <div class="col-md-6"><div class="desired-feature"><i class="fa fa-desktop"></i> <i class="fa fa-tablet"></i> <i class="fa  fa-mobile"></i><p>Responsive</p></div></div>
-             <div class="col-md-6"><div class="desired-feature"><i class="fa fa-users"></i><p>Membership</p></div></div>
+             <div class="col-xs-6"><div class="desired-feature"><i class="fa fa-desktop"></i> <i class="fa fa-tablet"></i> <i class="fa  fa-mobile"></i><p>Responsive</p></div></div>
+             <div class="col-xs-6"><div class="desired-feature"><i class="fa fa-users"></i><p>Membership</p></div></div>
            </div>
            <div class="row">
-             <div class="col-md-6"><div class="desired-feature"><i class="fa fa-cloud-upload"></i><p>Cloud based</p></div></div>
-             <div class="col-md-6"><div class="desired-feature"><i class="fa fa-cart-plus"></i><p>Check out</p></div></div>
+             <div class="col-xs-6"><div class="desired-feature"><i class="fa fa-cloud-upload"></i><p>Cloud based</p></div></div>
+             <div class="col-xs-6"><div class="desired-feature"><i class="fa fa-cart-plus"></i><p>Check out</p></div></div>
            </div>
          </div>
          <div class="col-md-6">

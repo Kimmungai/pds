@@ -19,15 +19,25 @@ html,body{
 header{
   overflow: hidden;
   background-color: #fff;
+  margin: 0;
+  padding: 0;
+}
+header h1{
+  font-family: Archivo;
+  text-align: center;
+  margin: 2em;
 }
 .pds-logo
 {
-  max-height: 100px;
-  max-width: 100px;
+  height: 122px;
+  width: 180px;
+  background: url('/img/logo.png') no-repeat center;
+  margin: 0.5em;
 }
 .provider-btn
 {
-  line-height: 100px;
+  /*line-height: 100px;*/
+  margin: 2em;
 }
 .provider-btn a
 {
@@ -319,6 +329,7 @@ header{
   background-color: #adbbbc;
   margin-top: 1em;
   box-shadow: 0.1em 0.1em 0.1em #333333;
+  border-radius: 5px;
 }
 .provider article h4
 {
