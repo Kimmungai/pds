@@ -23,8 +23,11 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
         <![endif]-->
         <!--page content starts here-->
+        <div class="container">
+          <div class="row">
+          <div class="strip"></div>
         <header>
-          <div class="container-fluid">
+          <div class="container">
             <div class="row">
               <div class="col-md-6">
                 <div class="pds-logo" style="background-color:#fff;">
@@ -40,11 +43,15 @@
             </div>
           </div>
         </header>
+      </div>
+    </div>
         @yield('content')
         <!--Page content ends here-->
+        <div class="container">
+          <div class="row">
         <footer>
           <div class="triangle"></div>
-          <div class="container-fluid">
+          <div class="container">
             <div class="row">
               <div class="col-md-6">
                 <p><i class="fa fa-copyright"></i> webdesignerscenter.com</p>
@@ -66,6 +73,8 @@
             </div>
           </div>
         </footer>
+      </div>
+     </div>
         <script src="{{ asset('/js/vendor/modernizr-3.5.0.min.js') }}"></script>
         <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
         <script>window.jQuery || document.write('<script src="<?php echo asset('js/vendor/jquery-3.2.1.min.js'); ?>"><\/script>')</script>

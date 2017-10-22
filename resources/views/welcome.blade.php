@@ -1,7 +1,9 @@
 @extends('layouts.main')
 
 @section('content')
-<nav class="navbar navbar-inverse pds-menu-bar">
+<div class="container">
+<div class="row">
+<nav class="navbar-inverse pds-menu-bar">
 <div class="container">
   <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -25,6 +27,10 @@
   </div>
 </div>
 </nav>
+</div>
+</div>
+<div class="container">
+<div class="row">
 <div class="slider">
   <div class="container">
     <div class="row">
@@ -34,7 +40,7 @@
     </div>
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
-        <p>Have companies bid for your project and select the best!</p>
+        <p>Let companies bid for your project and select the best!</p>
       </div>
     </div>
     <div class="row">
@@ -44,11 +50,15 @@
     </div>
  </div>
 </div>
+</div>
+</div>
+<div class="container">
+<div class="row">
   <section class="main-body">
-    <h2>Latest projects</h2>
-    <div class="strip"></div>
-    <div class="container">
+    <div class="container section-decoration">
       <div class="row second-nav">
+        <h2>Latest projects</h2>
+        <div class="strip"></div>
         <div class="col-md-8">
           <nav class="breadcrumb">
             <a class="btn btn-default active" href="#">All bids <span class="glyphicon glyphicon-list"></span></a>
@@ -71,7 +81,7 @@
        </div>
      </div>
   </div>
-  <div class="container"><!--projects start here-->
+  <div class="container section-decoration"><!--projects start here-->
    <div class="row project-area">
      <div class="col-md-6">
        <article>
@@ -168,11 +178,13 @@
  </div>`
 </div><!--projects end here-->
 </section>
+</div>
+</div>
 <section class="service-providers">
-  <h2>Service providers</h2>
-  <div class="strip"></div>
-  <div class="container">
+  <div class="container section-decoration">
     <div class="row second-nav">
+     <h2>Service providers</h2>
+     <div class="strip"></div>
      <div class="col-md-1 col-md-offset-9 sort-label">
        <label for="sort-projects"><span class="glyphicon glyphicon-sort-by-attributes"></span> Sort:</label>
      </div>
@@ -189,7 +201,7 @@
     </div>
    </div>
    <!---***********************-->
-   <div class="container">
+   <div class="container section-decoration">
      <div class="row provider">
        <div class="col-md-3">
          <article>
@@ -213,8 +225,8 @@
                </div>
             </div>
            <div class="provider-actions">
-             <a class="btn btn-primary"><i class="fa  fa-building-o"></i> Profile</a>
-             <a class="btn btn-primary pull-right"><i class="fa fa-external-link "></i> Website</a>
+             <a class="btn btn-primary details-btn"><i class="fa  fa-building-o"></i> Profile</a>
+             <a class="btn btn-primary pull-right details-btn"><i class="fa fa-external-link "></i> Website</a>
           </div>
          </article>
        </div>
@@ -240,8 +252,8 @@
                </div>
             </div>
            <div class="provider-actions">
-             <a class="btn btn-primary"><i class="fa  fa-building-o"></i> Profile</a>
-             <a class="btn btn-primary pull-right"><i class="fa fa-external-link "></i> Website</a>
+             <a class="btn btn-primary details-btn"><i class="fa  fa-building-o"></i> Profile</a>
+             <a class="btn btn-primary pull-right details-btn"><i class="fa fa-external-link "></i> Website</a>
           </div>
          </article>
        </div>
@@ -267,8 +279,8 @@
                </div>
             </div>
            <div class="provider-actions">
-             <a class="btn btn-primary"><i class="fa  fa-building-o"></i> Profile</a>
-             <a class="btn btn-primary pull-right"><i class="fa fa-external-link "></i> Website</a>
+             <a class="btn btn-primary details-btn"><i class="fa  fa-building-o"></i> Profile</a>
+             <a class="btn btn-primary pull-right details-btn"><i class="fa fa-external-link "></i> Website</a>
           </div>
          </article>
        </div>
@@ -294,8 +306,8 @@
                </div>
             </div>
            <div class="provider-actions">
-             <a class="btn btn-primary"><i class="fa  fa-building-o"></i> Profile</a>
-             <a class="btn btn-primary pull-right"><i class="fa fa-external-link "></i> Website</a>
+             <a class="btn btn-primary details-btn"><i class="fa  fa-building-o"></i> Profile</a>
+             <a class="btn btn-primary pull-right details-btn"><i class="fa fa-external-link "></i> Website</a>
           </div>
          </article>
        </div>
@@ -305,9 +317,8 @@
     <!---***********************-->
 </section>
 <section class="how-it-works" id="how-it-works">
-  <h2>How it works</h2>
-  <div class="strip"></div>
-  <div class="container">
+  <div class="container section-decoration">
+    <div class="row"><h2>How it works</h2><div class="strip"></div></div>
     <div class="row working-steps">
       <div class="col-md-3">
         <div class="step"><p><span class="badge">1</span><br /><i class="fa   fa-list"></i><br />Post the details of your project</p></div>
@@ -328,10 +339,10 @@
   </div>
 </section>
 <section class="enquire">
-  <h2>Make an enquiry</h2>
-  <div class="strip"></div>
-  <div class="container">
+  <div class="container"><div class="row"><h2>Make an enquiry</h2></div></div>
+  <div class="container section-decoration">
     <div class="row">
+      <div class="strip"></div>
       <div class="col-md-6">
         <div class="map">
 
@@ -373,7 +384,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-md-3 pull-right">
+            <div class="col-md-3 pull-right project-btn">
               <a class="btn btn-primary btn-lg" href="#"><i class="fa fa-send"></i> Send</a>
             </div>
           </div>
