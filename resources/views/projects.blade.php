@@ -272,4 +272,25 @@
 </section>
 </div>
 </div>
+<!--project details start here-->
+<div class="container">
+  <div class="row project-details-section">
+    <section>
+      <div class="container">
+        <div class="row section-decoration">
+          <div class="panel-chevron">
+            <span class="glyphicon glyphicon-circle-arrow-left"></span>
+          </div>
+          <div class="panel-central-area">
+            <h1>E-learning webisite</h1>
+          </div>
+          <div class="panel-chevron">
+            <span class="glyphicon glyphicon-circle-arrow-right"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+<!--project details end here-->
 @endsection
