@@ -154,7 +154,7 @@ header h1{
 }
 .second-nav nav
 {
-  margin-bottom: 0.2em;
+  margin: 0.2em 0;
   padding: 0;
   /*background-color: #fff;*/
   background-color: #eee;
@@ -202,6 +202,10 @@ header h1{
   text-align: center;
   font-family: NunitoSans;
 }
+.project-area article h3
+{
+  padding-top: 0.5em;
+}
 .project-pic
 {
   height: 156px;
@@ -238,7 +242,6 @@ header h1{
 }
 .project-info h4
 {
-  text-decoration: underline;
 }
 
 .green
@@ -494,46 +497,59 @@ footer a
   font-size: 2em;
 }
 /*footer ends here*/
-/*project-details-section starts here*/
-.project-details-section section
+/*project details page starts here*/
+.project-details-panel
 {
-  position: fixed;
-  top: 20%;
-  height: 600px;
-  overflow: hidden;
+  margin: 2em auto;
 }
-.project-details-section section h1
+.project-details-panel h4
 {
-  text-align: center;
-  font-family: NunitoSans;
   margin: 0;
-  padding: 0;
+  padding: 0.2em;
 }
-.panel-chevron
+.project-details-panel ul
 {
-  width: 5%;
-  background: #eee;
+  font-size: 1.2em;
+}
+.date-holder
+{
+  height: 7em;
+  width: 7em;
+  margin: 0.1em auto;
+  border-radius: 50%;
   text-align: center;
-  float: left;
-  height: 600px;
+  padding-top: 2em;
+  font-weight: bold;
+  text-transform: uppercase;
 }
-.panel-chevron span
+.schedule-line
 {
-  font-size: 2em;
-  line-height: 600px;
-  opacity: 0.8;
+  height: 2px;
+  background-color: #00b450;
+  margin-top: 3.5em;
 }
-.panel-chevron span:hover
+.tech-specification-holder
 {
-  cursor: pointer;
-  opacity: 1;
+  height: 7em;
+  width: 7em;
+  /*background-color: #e5e5e5;*/
+  margin: 0.1em auto;
+  text-align: center;
+  padding-top: 0.5em;
+  font-weight: bold;
+  border: 1px solid #e5e5e5;
 }
+.bidders-table
+{
+  margin: 1.2em 0;
+  background-color: #fff;
+}
+.bidders-table table
+{
+  font-size: 1.2em;
+}
+.bidders-table table tr th
+{
 
-.panel-central-area
-{
-  width: 90%;
-  float: left;
-  overflow-y: auto;
-  overflow-x: hidden;
 }
-/*project-details-section ends here*/
+/*project details page ends here*/

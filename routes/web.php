@@ -32,3 +32,6 @@ Route::get('/service-provider-sign-up', function () {
 Route::get('/user-login', function () {
     return view('user-login');
 });
+Route::get('/project-details/{project_id}', function () {
+    return view('project-details');
+});

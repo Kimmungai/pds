@@ -88,7 +88,7 @@
          <h3>E-learning website</h3>
          <div class="row">
            <div class="col-md-6">
-             <h4>Desired features</h4>
+             <h4 class="text-muted">Desired features</h4>
              <div class="row">
                <div class="col-xs-6"><div class="desired-feature"><i class="fa fa-desktop"></i> <i class="fa fa-tablet"></i> <i class="fa  fa-mobile"></i><p>Responsive</p></div></div>
                <div class="col-xs-6"><div class="desired-feature"><i class="fa fa-users"></i><p>Membership</p></div></div>
@@ -104,36 +104,36 @@
          </div>
         <div class="row project-info">
           <div class="col-md-6">
-            <h4>Bidding information</h4>
-             <ul>
-                <li>Status: <span class="green">OPEN</span></li>
-                <li>No. of placed bids: <span class="bold">1000</span></li>
-                <li>Average price: <span class="bold red">Ksh. 100,000</span></li>
-                <li>Remaining time: <span class="bold">7:4:33</span></li>
+            <h4 class="text-muted">Bidding information</h4>
+             <ul class="list-group">
+                <li class="list-group-item">Status: <span class="green">OPEN</span></li>
+                <li class="list-group-item">No. of placed bids: <span class="bold">1000</span></li>
+                <li class="list-group-item">Average price: <span class="bold red">Ksh. 100,000</span></li>
+                <li class="list-group-item">Remaining time: <span class="bold">7:4:33</span></li>
               </ul>
             </div>
             <div class="row project-info">
               <div class="col-md-6">
-                <h4>Client information</h4>
-                  <ul>
-                      <li>Name: <span class="bold">Peter</span></th>
-                      <li>previous projects: <span class="bold">10</span></th>
-                      <li>Star rating: <span class="bold"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></span></th>
-                      <li>view profile: <span class="bold"><a href="#">profile</a></span></th>
+                <h4 class="text-muted">Client information</h4>
+                  <ul class="list-group">
+                      <li class="list-group-item">Name: <span class="bold">Peter</span></th>
+                      <li class="list-group-item">previous projects: <span class="bold">10</span></th>
+                      <li class="list-group-item">Star rating: <span class="bold"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></span></th>
+                      <li class="list-group-item">view profile: <span class="bold"><a href="#">profile</a></span></th>
                   </ul>
                 </div>
                 <div class="project-actions">
-                  <a class="btn btn-primary details-btn"><i class="fa  fa-list"></i> Details</a>
-                  <a class="btn btn-primary bid-btn pull-right"><i class="fa  fa-bell-o"></i> Place bid</a>
+                  <a href="/project-details/1" class="btn btn-primary details-btn"><i class="fa  fa-list"></i> Details</a>
+                  <a href="/project-details/1" class="btn btn-primary bid-btn pull-right"><i class="fa  fa-bell-o"></i> Place bid</a>
                </div>
        </article>
      </div>
    <div class="col-md-6">
      <article>
-       <h3>E-commerce website</h3>
+       <h3>E-learning website</h3>
        <div class="row">
          <div class="col-md-6">
-           <h4>Desired features</h4>
+           <h4 class="text-muted">Desired features</h4>
            <div class="row">
              <div class="col-xs-6"><div class="desired-feature"><i class="fa fa-desktop"></i> <i class="fa fa-tablet"></i> <i class="fa  fa-mobile"></i><p>Responsive</p></div></div>
              <div class="col-xs-6"><div class="desired-feature"><i class="fa fa-users"></i><p>Membership</p></div></div>
@@ -149,27 +149,27 @@
        </div>
       <div class="row project-info">
         <div class="col-md-6">
-          <h4>Bidding information</h4>
-           <ul>
-              <li>Status: <span class="green">OPEN</span></li>
-              <li>No. of placed bids: <span class="bold">1000</span></li>
-              <li>Average price: <span class="bold red">Ksh. 100,000</span></li>
-              <li>Remaining time: <span class="bold">7:4:33</span></li>
+          <h4 class="text-muted">Bidding information</h4>
+           <ul class="list-group">
+              <li class="list-group-item">Status: <span class="green">OPEN</span></li>
+              <li class="list-group-item">No. of placed bids: <span class="bold">1000</span></li>
+              <li class="list-group-item">Average price: <span class="bold red">Ksh. 100,000</span></li>
+              <li class="list-group-item">Remaining time: <span class="bold">7:4:33</span></li>
             </ul>
           </div>
           <div class="row project-info">
             <div class="col-md-6">
-              <h4>Client information</h4>
-                <ul>
-                    <li>Name: <span class="bold">Peter</span></th>
-                    <li>previous projects: <span class="bold">10</span></th>
-                    <li>Star rating: <span class="bold"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></span></th>
-                    <li>view profile: <span class="bold"><a href="#">profile</a></span></th>
+              <h4 class="text-muted">Client information</h4>
+                <ul class="list-group">
+                    <li class="list-group-item">Name: <span class="bold">Peter</span></th>
+                    <li class="list-group-item">previous projects: <span class="bold">10</span></th>
+                    <li class="list-group-item">Star rating: <span class="bold"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></span></th>
+                    <li class="list-group-item">view profile: <span class="bold"><a href="#">profile</a></span></th>
                 </ul>
               </div>
               <div class="project-actions">
-                <a class="btn btn-primary details-btn"><i class="fa  fa-list"></i> Details</a>
-                <a class="btn btn-primary bid-btn pull-right"><i class="fa  fa-bell-o"></i> Place bid</a>
+                <a href="/project-details/1" class="btn btn-primary details-btn"><i class="fa  fa-list"></i> Details</a>
+                <a href="/project-details/1" class="btn btn-primary bid-btn pull-right"><i class="fa  fa-bell-o"></i> Place bid</a>
              </div>
      </article>
    </div>
@@ -180,7 +180,7 @@
        <h3>E-learning website</h3>
        <div class="row">
          <div class="col-md-6">
-           <h4>Desired features</h4>
+           <h4 class="text-muted">Desired features</h4>
            <div class="row">
              <div class="col-xs-6"><div class="desired-feature"><i class="fa fa-desktop"></i> <i class="fa fa-tablet"></i> <i class="fa  fa-mobile"></i><p>Responsive</p></div></div>
              <div class="col-xs-6"><div class="desired-feature"><i class="fa fa-users"></i><p>Membership</p></div></div>
@@ -196,36 +196,36 @@
        </div>
       <div class="row project-info">
         <div class="col-md-6">
-          <h4>Bidding information</h4>
-           <ul>
-              <li>Status: <span class="green">OPEN</span></li>
-              <li>No. of placed bids: <span class="bold">1000</span></li>
-              <li>Average price: <span class="bold red">Ksh. 100,000</span></li>
-              <li>Remaining time: <span class="bold">7:4:33</span></li>
+          <h4 class="text-muted">Bidding information</h4>
+           <ul class="list-group">
+              <li class="list-group-item">Status: <span class="green">OPEN</span></li>
+              <li class="list-group-item">No. of placed bids: <span class="bold">1000</span></li>
+              <li class="list-group-item">Average price: <span class="bold red">Ksh. 100,000</span></li>
+              <li class="list-group-item">Remaining time: <span class="bold">7:4:33</span></li>
             </ul>
           </div>
           <div class="row project-info">
             <div class="col-md-6">
-              <h4>Client information</h4>
-                <ul>
-                    <li>Name: <span class="bold">Peter</span></th>
-                    <li>previous projects: <span class="bold">10</span></th>
-                    <li>Star rating: <span class="bold"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></span></th>
-                    <li>view profile: <span class="bold"><a href="#">profile</a></span></th>
+              <h4 class="text-muted">Client information</h4>
+                <ul class="list-group">
+                    <li class="list-group-item">Name: <span class="bold">Peter</span></th>
+                    <li class="list-group-item">previous projects: <span class="bold">10</span></th>
+                    <li class="list-group-item">Star rating: <span class="bold"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></span></th>
+                    <li class="list-group-item">view profile: <span class="bold"><a href="#">profile</a></span></th>
                 </ul>
               </div>
               <div class="project-actions">
-                <a class="btn btn-primary details-btn"><i class="fa  fa-list"></i> Details</a>
-                <a class="btn btn-primary bid-btn pull-right"><i class="fa  fa-bell-o"></i> Place bid</a>
+                <a href="/project-details/1" class="btn btn-primary details-btn"><i class="fa  fa-list"></i> Details</a>
+                <a href="/project-details/1" class="btn btn-primary bid-btn pull-right"><i class="fa  fa-bell-o"></i> Place bid</a>
              </div>
      </article>
    </div>
  <div class="col-md-6">
    <article>
-     <h3>E-commerce website</h3>
+     <h3>E-learning website</h3>
      <div class="row">
        <div class="col-md-6">
-         <h4>Desired features</h4>
+         <h4 class="text-muted">Desired features</h4>
          <div class="row">
            <div class="col-xs-6"><div class="desired-feature"><i class="fa fa-desktop"></i> <i class="fa fa-tablet"></i> <i class="fa  fa-mobile"></i><p>Responsive</p></div></div>
            <div class="col-xs-6"><div class="desired-feature"><i class="fa fa-users"></i><p>Membership</p></div></div>
@@ -241,27 +241,27 @@
      </div>
     <div class="row project-info">
       <div class="col-md-6">
-        <h4>Bidding information</h4>
-         <ul>
-            <li>Status: <span class="green">OPEN</span></li>
-            <li>No. of placed bids: <span class="bold">1000</span></li>
-            <li>Average price: <span class="bold red">Ksh. 100,000</span></li>
-            <li>Remaining time: <span class="bold">7:4:33</span></li>
+        <h4 class="text-muted">Bidding information</h4>
+         <ul class="list-group">
+            <li class="list-group-item">Status: <span class="green">OPEN</span></li>
+            <li class="list-group-item">No. of placed bids: <span class="bold">1000</span></li>
+            <li class="list-group-item">Average price: <span class="bold red">Ksh. 100,000</span></li>
+            <li class="list-group-item">Remaining time: <span class="bold">7:4:33</span></li>
           </ul>
         </div>
         <div class="row project-info">
           <div class="col-md-6">
-            <h4>Client information</h4>
-              <ul>
-                  <li>Name: <span class="bold">Peter</span></th>
-                  <li>previous projects: <span class="bold">10</span></th>
-                  <li>Star rating: <span class="bold"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></span></th>
-                  <li>view profile: <span class="bold"><a href="#">profile</a></span></th>
+            <h4 class="text-muted">Client information</h4>
+              <ul class="list-group">
+                  <li class="list-group-item">Name: <span class="bold">Peter</span></th>
+                  <li class="list-group-item">previous projects: <span class="bold">10</span></th>
+                  <li class="list-group-item">Star rating: <span class="bold"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></span></th>
+                  <li class="list-group-item">view profile: <span class="bold"><a href="#">profile</a></span></th>
               </ul>
             </div>
             <div class="project-actions">
-              <a class="btn btn-primary details-btn"><i class="fa  fa-list"></i> Details</a>
-              <a class="btn btn-primary bid-btn pull-right"><i class="fa  fa-bell-o"></i> Place bid</a>
+              <a href="/project-details/1" class="btn btn-primary details-btn"><i class="fa  fa-list"></i> Details</a>
+              <a href="/project-details/1" class="btn btn-primary bid-btn pull-right"><i class="fa  fa-bell-o"></i> Place bid</a>
            </div>
    </article>
  </div>
@@ -272,25 +272,4 @@
 </section>
 </div>
 </div>
-<!--project details start here-->
-<div class="container">
-  <div class="row project-details-section">
-    <section>
-      <div class="container">
-        <div class="row section-decoration">
-          <div class="panel-chevron">
-            <span class="glyphicon glyphicon-circle-arrow-left"></span>
-          </div>
-          <div class="panel-central-area">
-            <h1>E-learning webisite</h1>
-          </div>
-          <div class="panel-chevron">
-            <span class="glyphicon glyphicon-circle-arrow-right"></span>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
-</div>
-<!--project details end here-->
 @endsection
