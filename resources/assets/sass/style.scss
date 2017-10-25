@@ -7,8 +7,16 @@
     src: url('/fonts/Archivo.ttf');
 }
 @font-face {
-    font-family: NunitoSans;
-    src: url('/fonts/NunitoSans.ttf');
+    font-family: OswaldBold;
+    src: url('/fonts/Oswald-Bold.ttf');
+}
+@font-face {
+    font-family: OswaldBold;
+    src: url('/fonts/Oswald-Bold.ttf');
+}
+@font-face {
+    font-family: OswaldMedium;
+    src: url('/fonts/Oswald-Medium.ttf');
 }
 html,body{
   background-color: #004D40;
@@ -611,3 +619,24 @@ footer a
   font-weight: bold;
   border: 1px solid #e5e5e5;
 }/*project details page ends here*/
+/*About us page begins here*/
+.company-history p
+{
+  padding: 1em 0;
+  font-size: 1.4em;
+}
+.office-pic
+{
+    margin: 1em auto;
+    background:url('/img/office.png') no-repeat center;
+    height: 350px;
+    background-size: cover;
+    box-shadow: 0.1em 0.1em 0.1em #333333;
+}
+/*About us page ends here*/
+/*login/ sign up starts here*/
+.login-create-account-p a
+{
+  line-height: 1.3em !important;
+}
+/*login/ sign up ends here*/

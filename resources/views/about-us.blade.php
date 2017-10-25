@@ -52,4 +52,73 @@
 </div>
 </div>
 </div>
+<section class="enquire">
+  <div class="container"><div class="row"><h2>Company History</h2></div></div>
+  <div class="container section-decoration">
+    <div class="row">
+      <div class="strip"></div>
+      <div class="col-md-6 company-history">
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+      </div>
+      <div class="col-md-6">
+        <div class="office-pic"></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="enquire">
+  <div class="container"><div class="row"><h2>Make an enquiry</h2></div></div>
+  <div class="container section-decoration">
+    <div class="row">
+      <div class="strip"></div>
+      <div class="col-md-6">
+        <div class="map">
+
+        </div>
+      </div>
+      <div class="col-md-6">
+        <article>
+          <h5>Contact Form</h5>
+          <div class="row">
+            <div class="col-md-2">
+              <label for="name">Name</label>
+            </div>
+            <div class="col-md-10">
+              <input type="text" class="form-control" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-2">
+              <label for="name">Email</label>
+            </div>
+            <div class="col-md-10">
+              <input type="email" class="form-control" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-2">
+              <label for="name">Phone</label>
+            </div>
+            <div class="col-md-10">
+              <input type="text" class="form-control" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-2">
+              <label for="name">Message</label>
+            </div>
+            <div class="col-md-10">
+              <textarea class="form-control"></textarea>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3 pull-right project-btn">
+              <a class="btn btn-primary btn-lg" href="#"><i class="fa fa-send"></i> Send</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
 @endsection

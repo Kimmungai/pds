@@ -20,8 +20,8 @@
       <li><a href="/about-us">About us</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li class="active"><a href="/new-project">New Project</a></li>
-      <li><a href="/sign-up"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="/new-project">New Project</a></li>
+      <li class="active"><a href="/sign-up"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
       <li><a href="/user-login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
     </ul>
   </div>
@@ -53,15 +53,15 @@
 </div>
 </div>
 <section class="enquire">
-  <div class="container"><div class="row"><h2>New project form</h2></div></div>
+  <div class="container"><div class="row"><h2>Service provider registration</h2></div></div>
   <div class="container section-decoration">
     <div class="row">
       <div class="strip"></div>
       <div class="col-md-8 col-md-offset-2">
         <div class="row">
           <div class="col-xs-4"><div class="desired-feature dark-bg white"><i class="fa">1</i><p>Basic details</p></div></div>
-          <div class="col-xs-4"><div class="desired-feature dark-bg white inactive-step"><i class="fa">2</i><p>Features</p></div></div>
-          <div class="col-xs-4"><div class="desired-feature dark-bg white inactive-step"><i class="fa">3</i><p>Plan</p></div></div>
+          <div class="col-xs-4"><div class="desired-feature dark-bg white inactive-step"><i class="fa">2</i><p>Company</p></div></div>
+          <div class="col-xs-4"><div class="desired-feature dark-bg white inactive-step"><i class="fa">3</i><p>Subscription</p></div></div>
         </div>
         <div class="row">
           <article>

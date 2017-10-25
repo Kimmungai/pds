@@ -33,7 +33,7 @@ Route::get('/sign-up', function () {
     return view('client-register');
 });
 Route::get('/service-provider-sign-up', function () {
-    return view('bidder-register');
+    return view('new-provider.bidder-register');
 });
 Route::get('/user-login', function () {
     return view('user-login');
@@ -41,3 +41,7 @@ Route::get('/user-login', function () {
 Route::get('/project-details/{project_id}', function () {
     return view('project-details');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

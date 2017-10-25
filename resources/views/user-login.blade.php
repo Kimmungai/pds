@@ -52,4 +52,52 @@
 </div>
 </div>
 </div>
+<section class="enquire">
+  <div class="container"><div class="row"><h2>User Login</h2></div></div>
+  <div class="container section-decoration">
+    <div class="row">
+      <div class="strip"></div>
+      <div class="col-md-8 col-md-offset-2">
+        <article>
+          <h5>Login Form</h5>
+          <div class="row">
+            <div class="col-md-2">
+              <label for="name">Email</label>
+            </div>
+            <div class="col-md-10">
+              <input type="text" class="form-control" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-2">
+              <label for="name">Password</label>
+            </div>
+            <div class="col-md-10">
+              <input type="password" class="form-control" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-2">
+              <label for="name"></label>
+            </div>
+            <div class="col-md-10">
+              <input type="checkbox"  /> remember me
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4 login-create-account-p">
+              <label for="name"><a href="">Create an account</a></label>
+            </div>
+            <div class="col-md-5 login-create-account-p">
+              <label for="name"><a href="">Reset password</a></label>
+            </div>
+            <div class="col-md-3 pull-right project-btn">
+              <a class="btn btn-primary btn-lg" href="#">Login</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
 @endsection

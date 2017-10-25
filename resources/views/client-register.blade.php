@@ -52,4 +52,54 @@
 </div>
 </div>
 </div>
+<section class="enquire">
+  <div class="container"><div class="row"><h2>New user registration</h2></div></div>
+  <div class="container section-decoration">
+    <div class="row">
+      <div class="strip"></div>
+      <div class="col-md-8 col-md-offset-2">
+        <article>
+          <h5>Registration Form</h5>
+          <div class="row">
+            <div class="col-md-2">
+              <label for="name">Name</label>
+            </div>
+            <div class="col-md-10">
+              <input type="text" class="form-control" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-2">
+              <label for="name">Email</label>
+            </div>
+            <div class="col-md-10">
+              <input type="email" class="form-control" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-2">
+              <label for="name">Phone</label>
+            </div>
+            <div class="col-md-10">
+              <input type="text" class="form-control" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-2">
+              <label for="name">Message</label>
+            </div>
+            <div class="col-md-10">
+              <textarea class="form-control"></textarea>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3 pull-right project-btn">
+              <a class="btn btn-primary btn-lg" href="#">Register</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
 @endsection

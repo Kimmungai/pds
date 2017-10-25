@@ -61,7 +61,7 @@
         <div class="row">
           <div class="col-xs-4"><div class="desired-feature dark-bg white inactive-step"><i class="fa">1</i><p>Basic details</p></div></div>
           <div class="col-xs-4"><div class="desired-feature dark-bg white"><i class="fa">2</i><p>Features</p></div></div>
-          <div class="col-xs-4"><div class="desired-feature dark-bg white inactive-step"><i class="fa">3</i><p>Schedule</p></div></div>
+          <div class="col-xs-4"><div class="desired-feature dark-bg white inactive-step"><i class="fa">3</i><p>Plan</p></div></div>
         </div>
         <div class="row">
           <article>
