@@ -552,4 +552,62 @@ footer a
 {
 
 }
-/*project details page ends here*/
+.white
+{
+  color: #fff !important;
+}
+.grey-bg
+{
+  background-color: #eee;
+}
+.white-bg
+{
+  background-color: #fff;
+}
+.green-bg span
+{
+  background-color: #00b450 !important;
+  border-color: #00b450 !important;
+}
+.bidders-nav
+{
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.project-details-controls
+{
+  background-color: #fff;
+}
+.project-details-controls-footer
+{
+  background-color: #eee;
+}
+.new-project-step article
+{
+  width: 80%;
+  margin: 0 auto;
+}
+.green-bg
+{
+  background-color: #00b450 !important;
+}
+.dark-bg
+{
+  background-color: #333 !important;
+}
+
+.inactive-step
+{
+  opacity: 0.5;
+}
+.new-project-desire-feature
+{
+  height: 7em;
+  width: 7em;
+  /*background-color: #e5e5e5;*/
+  margin: 0.1em auto;
+  text-align: center;
+  padding-top: 0.5em;
+  font-weight: bold;
+  border: 1px solid #e5e5e5;
+}/*project details page ends here*/

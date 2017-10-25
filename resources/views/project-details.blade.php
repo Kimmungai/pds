@@ -55,6 +55,41 @@
 <div class="container">
   <div class="row">
     <section class="main-body">
+      <div class="container project-details-controls">
+        <div class="row">
+          <div class="col-md-4">
+            <nav class="breadcrumb white-bg">
+              <a class="btn btn-default" href="/">Top</a>
+              <a class="btn btn-default" href="#">Project list <span class="glyphicon glyphicon-list"></span></a>
+              <a class="btn btn-default active" href="#">Project details <span class="glyphicon glyphicon-folder-open"></span></a>
+            </nav>
+         </div>
+         <div class="col-md-8">
+           <div class="row bidders-nav pull-right">
+             <div class="col-xs-12">
+               <nav aria-label="...">
+                 <ul class="pagination">
+                   <li class="page-item disabled">
+                     <span class="page-link">Previous</span>
+                   </li>
+                   <li class="page-item"><a class="page-link" href="#">1</a></li>
+                   <li class="page-item active green-bg">
+                     <span class="page-link">
+                       2
+                       <span class="sr-only">(current)</span>
+                     </span>
+                   </li>
+                   <li class="page-item"><a class="page-link" href="#">3</a></li>
+                   <li class="page-item">
+                     <a class="page-link" href="#">Next</a>
+                   </li>
+                 </ul>
+               </nav>
+             </div>
+           </div>
+         </div>
+       </div>
+    </div>
       <div class="container section-decoration">
         <div class="row">
           <h2>E-learning project</h2>
@@ -92,9 +127,9 @@
           <div class="col-md-4">
             <h4>Schedule</h4>
             <div class="row">
-              <div class="col-xs-5"><div class="desired-feature"><i class="fa fa-calendar-check-o"></i><p class="red">12/12/2017</p></div></div>
+              <div class="col-xs-5"><div class="desired-feature"><i class="fa fa-calendar-check-o"></i><p class="green">12/12/2017</p></div></div>
               <div class="col-xs-2 schedule-line"></div>
-              <div class="col-xs-5 pull-right"><div class="desired-feature"><i class="fa fa-calendar-check-o"></i><p class="red">12/12/2017</p></div></div>
+              <div class="col-xs-5 pull-right"><div class="desired-feature"><i class="fa fa-calendar-check-o"></i><p class="green">12/12/2017</p></div></div>
             </div>
             <div class="row">
               <div class="col-xs-4"><div class="date-holder"><p>Start</p></diV></div>
@@ -120,7 +155,7 @@
                   <li class="list-group-item">Name: <span class="bold">Peter</span></th>
                   <li class="list-group-item">previous projects: <span class="bold">10</span></th>
                   <li class="list-group-item">Star rating: <span class="bold"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></span></th>
-                  <li class="list-group-item">view profile: <span class="bold"><a href="#">profile</a></span></th>
+                  <li class="list-group-item">view profile: <span class="bold"><a href="#" class="green">profile</a></span></th>
               </ul>
           </div>
         </div>
@@ -192,28 +227,52 @@
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-xs-12">
-        <nav aria-label="...">
-          <ul class="pagination">
-            <li class="page-item disabled">
-              <span class="page-link">Previous</span>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item active">
-              <span class="page-link">
-                2
-                <span class="sr-only">(current)</span>
-              </span>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-              <a class="page-link" href="#">Next</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </div>
+    <p class="view-more"><a href="#">View more</a></p>
   </div>
 </section>
+<!--footer nav starts here-->
+<div class="container">
+  <div class="row">
+    <section class="main-body">
+      <div class="container project-details-controls-footer">
+        <div class="row">
+          <div class="col-md-4">
+            <nav class="breadcrumb grey-bg">
+              <a class="btn btn-default" href="/">Top</a>
+              <a class="btn btn-default" href="#">Project list <span class="glyphicon glyphicon-list"></span></a>
+              <a class="btn btn-default active" href="#">Project details <span class="glyphicon glyphicon-folder-open"></span></a>
+            </nav>
+         </div>
+         <div class="col-md-8">
+           <div class="row bidders-nav pull-right">
+             <div class="col-xs-12">
+               <nav aria-label="...">
+                 <ul class="pagination">
+                   <li class="page-item disabled">
+                     <span class="page-link">Previous</span>
+                   </li>
+                   <li class="page-item"><a class="page-link" href="#">1</a></li>
+                   <li class="page-item active">
+                     <span class="page-link">
+                       2
+                       <span class="sr-only">(current)</span>
+                     </span>
+                   </li>
+                   <li class="page-item"><a class="page-link" href="#">3</a></li>
+                   <li class="page-item">
+                     <a class="page-link" href="#">Next</a>
+                   </li>
+                 </ul>
+               </nav>
+             </div>
+           </div>
+         </div>
+       </div>
+    </div>
+
+      </div>
+    </section>
+  </div>
+</div>
+<!--footer nav ends here-->
 @endsection

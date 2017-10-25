@@ -21,7 +21,13 @@ Route::get('/about-us', function () {
     return view('about-us');
 });
 Route::get('/new-project', function () {
-    return view('new-project');
+    return view('new-project.new-project');
+});
+Route::get('/new-project-features', function () {
+    return view('new-project.new-project-features');
+});
+Route::get('/new-project-schedule', function () {
+    return view('new-project.new-project-schedule');
 });
 Route::get('/sign-up', function () {
     return view('client-register');
