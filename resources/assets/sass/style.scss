@@ -610,14 +610,18 @@ footer a
 }
 .new-project-desire-feature
 {
-  height: 7em;
-  width: 7em;
   /*background-color: #e5e5e5;*/
   margin: 0.1em auto;
   text-align: center;
   padding-top: 0.5em;
   font-weight: bold;
   border: 1px solid #e5e5e5;
+  border-radius: 5px;
+}
+.new-project-desire-feature:hover
+{
+  background-color: #00b450 !important;
+  cursor: pointer;
 }/*project details page ends here*/
 /*About us page begins here*/
 .company-history p

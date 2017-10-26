@@ -53,7 +53,7 @@
 </div>
 </div>
 <section class="enquire">
-  <div class="container"><div class="row"><h2>Make an enquiry</h2></div></div>
+  <div class="container"><div class="row"><h2>Project Features</h2></div></div>
   <div class="container section-decoration">
     <div class="row">
       <div class="strip"></div>
@@ -65,27 +65,27 @@
         </div>
         <div class="row">
           <article>
-            <h5>Project Features</h5>
+            <h5>Features selection form</h5>
             <div class="row">
               <div class="col-md-2">
-                <label for="name">Userbility<span class="red">*</span></label>
+                <label for="name">Userbility<span class="red">*</span>(click to select)</label>
               </div>
               <div class="col-md-10">
-                <div class="col-md-3"><div class="new-project-desire-feature"><i class="fa fa-desktop"></i> <i class="fa fa-tablet"></i> <i class="fa  fa-mobile"></i><p>Fully responsive</p> <input type="checkbox"  /></div></div>
-                <div class="col-md-3"><div class="new-project-desire-feature"><i class="fa fa-users"></i><p>Membership functionality</p> <input type="checkbox"  /></div></div>
-                <div class="col-md-3"><div class="new-project-desire-feature"><i class="fa fa-cart-plus"></i><p>Shopping cart functionality</p> <input type="checkbox"  /></div></div>
-                <div class="col-md-3"><div class="new-project-desire-feature"><i class="fa   fa-envelope-open"></i><p>Notifications services</p> <input type="checkbox"  /></div></div>
+                <div class="col-md-3"><div class="new-project-desire-feature "><i class="fa fa-desktop"></i> <i class="fa fa-tablet"></i> <i class="fa  fa-mobile"></i><p>Responsive</p> </div></div>
+                <div class="col-md-3"><div class="new-project-desire-feature "><i class="fa fa-users"></i><p>Membership</p> </div></div>
+                <div class="col-md-3"><div class="new-project-desire-feature "><i class="fa fa-cart-plus"></i><p>Shopping cart</p> </div></div>
+                <div class="col-md-3"><div class="new-project-desire-feature "><i class="fa   fa-envelope-open"></i><p>Notifications</p> </div></div>
               </div>
             </div>
             <div class="row">
               <div class="col-md-2">
-                <label for="name">Back-end<span class="red">*</span></label>
+                <label for="name">Back-end<span class="red">*</span>(click to select)</label>
               </div>
               <div class="col-md-10">
-                <div class="col-md-3"><div class="new-project-desire-feature"><i class="fa fa-cloud-upload"></i><p>Cloud based storage</p> <input type="checkbox"  /></div></div>
-                <div class="col-md-3"><div class="new-project-desire-feature"><i class="fa fa-users"></i><p>Administrator panel</p> <input type="checkbox"  /></div></div>
-                <div class="col-md-3"><div class="new-project-desire-feature"><i class="fa fa-hourglass"></i><p>Routine back-up</p> <input type="checkbox"  /></div></div>
-                <div class="col-md-3"><div class="new-project-desire-feature"><i class="fa   fa-envelope-open"></i><p>Notifications services</p> <input type="checkbox"  /></div></div>
+                <div class="col-md-3"><div class="new-project-desire-feature "><i class="fa fa-cloud-upload"></i><p>Cloud hosting</p> </div></div>
+                <div class="col-md-3"><div class="new-project-desire-feature "><i class="fa fa-users"></i><p>Admin panel</p> </div></div>
+                <div class="col-md-3"><div class="new-project-desire-feature "><i class="fa fa-hourglass"></i><p>Back-up</p> </div></div>
+                <div class="col-md-3"><div class="new-project-desire-feature "><i class="fa   fa-envelope-open"></i><p>Bulk Sms</p> </div></div>
               </div>
             </div>
             <div class="row">
@@ -127,10 +127,10 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-md-3  project-btn">
+              <div class="col-xs-3  project-btn">
                 <a class="btn btn-primary btn-lg" href="/new-project"><i class="fa  fa-chevron-left "></i> Back</a>
               </div>
-              <div class="col-md-3 pull-right project-btn">
+              <div class="col-xs-3 pull-right project-btn">
                 <a class="btn btn-primary btn-lg" href="/new-project-schedule">Next <i class="fa  fa-chevron-right "></i></a>
               </div>
             </div>

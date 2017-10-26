@@ -14,6 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/provider', function () {
+    return view('admin.provider.profile');
+});
 Route::get('/projects', function () {
     return view('projects');
 });
@@ -34,6 +37,12 @@ Route::get('/sign-up', function () {
 });
 Route::get('/service-provider-sign-up', function () {
     return view('new-provider.bidder-register');
+});
+Route::get('/service-provider-subscription', function () {
+    return view('new-provider.bidder-register-subscription-details');
+});
+Route::get('/new-provider-company', function () {
+    return view('new-provider.bidder-register-company-details');
 });
 Route::get('/user-login', function () {
     return view('user-login');

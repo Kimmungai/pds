@@ -14,69 +14,32 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="{{ asset('/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('/css/bootstrap-theme.css') }}">
         <link rel="stylesheet" href="{{ asset('/css/normalize.css') }}">
         <link rel="stylesheet" href="{{ asset('/css/main.css') }}">
-        <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
+        <link rel="stylesheet" href="{{ asset('/css/admin-style.css') }}">
+        <link href="{{ asset('/css/elegant-icons-style.css') }}" rel="stylesheet" />
+        <link href="{{ asset('/css/font-awesome.min.css') }}" rel="stylesheet" />
+        <link href="{{ asset('/css/bootstrap-fullcalendar.css') }}" rel="stylesheet" />
+        <link href="{{ asset('/css/fullcalendar.css') }}" rel="stylesheet" />
+        <link href="{{ asset('/css/jquery.easy-pie-chart.css') }}" rel="stylesheet" />
+        <link href="{{ asset('/css/owl.carousel.css') }}" rel="stylesheet" />
+        <link href="{{ asset('/css/jquery-jvectormap-1.2.2.css') }}" rel="stylesheet" />
+        <link href="{{ asset('/css/widgets.css') }}" rel="stylesheet" />
+        <link href="{{ asset('/css/style-responsive.css') }}" rel="stylesheet" />
+        <link href="{{ asset('/css/xcharts.min.css') }}" rel="stylesheet" />
+        <link href="{{ asset('/css/jquery-ui-1.10.4.min.css') }}" rel="stylesheet" />
+        <link href="{{ asset('/css/fullcalendar-new.css') }}" rel="stylesheet" />
     </head>
     <body>
         <!--[if lte IE 9]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
         <![endif]-->
         <!--page content starts here-->
-        <div class="container">
-          <div class="row">
-          <div class="strip"></div>
-        <header>
-          <div class="container">
-            <div class="row">
-              <div class="col-md-1">
-                <div class="pds-logo">
-                  <!--<img class="img-responsive" src="{{ asset('/img/logo.png') }}" alt="WebDesignersCenter.com">-->
-                </div>
-              </div>
-              <div class="col-md-7">
-                <h1>Web Designers Center</h1>
-              </div>
-              <div class="col-md-3 provider-btn">
-                <a class="btn btn-primary" href="/service-provider-sign-up">Become a service provider</a>wajui
-              </div>            <!--<div class="col-md-4 pds-email">
-                <p>info@webdesignercenter.com</p>
-              </div>-->
-            </div>
-          </div>
-        </header>
-      </div>
-    </div>
+
         @yield('content')
         <!--Page content ends here-->
-        <div class="container">
-          <div class="row">
-        <footer>
-          <div class="triangle"></div>
-          <div class="container">
-            <div class="row">
-              <div class="col-md-6">
-                <p><i class="fa fa-copyright"></i> webdesignerscenter.com</p>
-              </div>
-              <div class="col-md-6">
-                <ul class="list-inline pull-right">
-                  <li><a href="#">About</a></li>
-                  <li><a href="#">Terms & privacy</a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-6 pull-right col-md-offset-2 social">
-                <ul class="list-inline pull-right">
-                  <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
-                  <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </footer>
-      </div>
-     </div>
+
         <script src="{{ asset('/js/vendor/modernizr-3.5.0.min.js') }}"></script>
         <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
         <script>window.jQuery || document.write('<script src="<?php echo asset('js/vendor/jquery-3.2.1.min.js'); ?>"><\/script>')</script>
