@@ -258,7 +258,7 @@
           <div class="card text-white bg-primary o-hidden h-100">
             <div class="card-body">
               <div class="card-body-icon">
-                <i class="fa fa-fw fa-comments"></i>
+                <i class="fa fa-fw fa-graduation-cap"></i>
               </div>
               <div class="mr-5">E-learning website!</div>
             </div>
@@ -274,9 +274,9 @@
           <div class="card text-white bg-warning o-hidden h-100">
             <div class="card-body">
               <div class="card-body-icon">
-                <i class="fa fa-fw fa-list"></i>
+                <i class="fa fa-fw  fa-mobile-phone"></i>
               </div>
-              <div class="mr-5">11 New Tasks!</div>
+              <div class="mr-5">Mobile app</div>
             </div>
             <a class="card-footer text-white clearfix small z-1" href="#">
               <span class="float-left">View Details</span>
@@ -292,7 +292,7 @@
               <div class="card-body-icon">
                 <i class="fa fa-fw fa-shopping-cart"></i>
               </div>
-              <div class="mr-5">123 New Orders!</div>
+              <div class="mr-5">E-commerce</div>
             </div>
             <a class="card-footer text-white clearfix small z-1" href="#">
               <span class="float-left">Next</span>
@@ -306,9 +306,9 @@
           <div class="card text-white bg-danger o-hidden h-100">
             <div class="card-body">
               <div class="card-body-icon">
-                <i class="fa fa-fw fa-support"></i>
+                <i class="fa fa-fw fa-globe"></i>
               </div>
-              <div class="mr-5">13 New Tickets!</div>
+              <div class="mr-5">Website</div>
             </div>
             <a class="card-footer text-white clearfix small z-1" href="#">
               <span class="float-left">View Details</span>
@@ -344,7 +344,7 @@
       <!-- Area Chart Example-->
       <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-area-chart"></i> E-learning website</div>
+          <i class="fa fa-area-chart"></i> Bidding activity  - E-learning website</div>
         <div class="card-body">
           <canvas id="myAreaChart" width="100%" height="30"></canvas>
         </div>
@@ -355,7 +355,7 @@
           <!-- Example Bar Chart Card-->
           <div class="card mb-3">
             <div class="card-header">
-              <i class="fa fa-bar-chart"></i> Bar Chart Example</div>
+              <i class="fa fa-bar-chart"></i> Top bidders - E-learning website</div>
             <div class="card-body">
               <div class="row">
                 <div class="col-sm-8 my-auto">
@@ -377,7 +377,7 @@
           </div>
           <!-- Card Columns Example Social Feed-->
           <div class="mb-0 mt-4">
-            <i class="fa fa-newspaper-o"></i> News Feed</div>
+            <i class="fa fa-newspaper-o"></i> Project details  - E-learning website</div>
           <hr class="mt-2">
           <div class="card-columns">
             <!-- Example Social Card-->
@@ -571,7 +571,7 @@
           <!-- Example Pie Chart Card-->
           <div class="card mb-3">
             <div class="card-header">
-              <i class="fa fa-pie-chart"></i> Pie Chart Example</div>
+              <i class="fa fa-pie-chart"></i> Project bidding overview</div>
             <div class="card-body">
               <canvas id="myPieChart" width="100%" height="100"></canvas>
             </div>
@@ -580,7 +580,7 @@
           <!-- Example Notifications Card-->
           <div class="card mb-3">
             <div class="card-header">
-              <i class="fa fa-bell-o"></i> Feed Example</div>
+              <i class="fa fa-bell-o"></i> Quick action / New project</div>
             <div class="list-group list-group-flush small">
               <a class="list-group-item list-group-item-action" href="#">
                 <div class="media">
@@ -632,7 +632,7 @@
       <!-- Example DataTables Card-->
       <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-table"></i> Data Table Example</div>
+          <i class="fa fa-table"></i> All Projects</div>
         <div class="card-body">
           <div class="table-responsive">
             <table class="table table-bordered" id="dataTable"  cellspacing="0">
