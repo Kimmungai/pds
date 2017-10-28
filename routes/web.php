@@ -17,6 +17,9 @@ Route::get('/', function () {
 Route::get('/provider', function () {
     return view('admin.provider.profile');
 });
+Route::get('/client-profile', function () {
+    return view('admin.client.top');
+});
 Route::get('/projects', function () {
     return view('projects');
 });

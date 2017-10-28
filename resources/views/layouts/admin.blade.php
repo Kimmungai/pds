@@ -16,6 +16,7 @@
         <link rel="stylesheet" href="{{ asset('/css/normalize.css') }}">
         <link rel="stylesheet" href="{{ asset('/css/main.css') }}">
         <link rel="stylesheet" href="{{ asset('/css/admin-style.css') }}">
+        <link rel="stylesheet" href="{{ asset('/css/style-responsive.css') }}">
     </head>
     <body>
         <!--[if lte IE 9]>

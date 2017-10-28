@@ -8,7 +8,7 @@
     <header class="header dark-bg">
 
       <!--logo start-->
-      <a href="index.html" class="logo">Web Designers Center <span class="lite">Admin</span></a>
+      <a href="/" class="logo">Web Designers Center <span class="lite">Admin</span></a>
       <!--logo end-->
 
       <div class="nav search-row" id="top_menu">
@@ -207,38 +207,18 @@
           </li>
           <!-- alert notification end-->
           <!-- user login dropdown start-->
-          <li class="dropdown">
+          <li>
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span class="profile-ava">
-                                <img alt="" src="img/avatar1_small.jpg">
-                            </span>
-                            <span class="username">Jenifer Smith</span>
-                            <b class="caret"></b>
-                        </a>
-            <ul class="dropdown-menu extended logout">
-              <div class="log-arrow-up"></div>
-              <li class="eborder-top">
-                <a href="#"><i class="icon_profile"></i> My Profile</a>
-              </li>
-              <li>
-                <a href="#"><i class="icon_mail_alt"></i> My Inbox</a>
-              </li>
-              <li>
-                <a href="#"><i class="icon_clock_alt"></i> Timeline</a>
-              </li>
-              <li>
-                <a href="#"><i class="icon_chat_alt"></i> Chats</a>
-              </li>
-              <li>
-                <a href="login.html"><i class="icon_key_alt"></i> Log Out</a>
-              </li>
-              <li>
-                <a href="documentation.html"><i class="icon_key_alt"></i> Documentation</a>
-              </li>
-              <li>
-                <a href="documentation.html"><i class="icon_key_alt"></i> Documentation</a>
-              </li>
-            </ul>
+                <span class="profile-ava">
+                   <img alt="" src="{{ asset('/img/avatar.png') }}">
+                </span>
+               <span class="username">Jenifer Smith</span>
+            </a>
+          </li>
+          <li>
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+               <span class="username">Logout</span>
+            </a>
           </li>
           <!-- user login dropdown end -->
         </ul>
@@ -253,65 +233,40 @@
         <!-- sidebar menu start-->
         <ul class="sidebar-menu">
           <li class="active">
-            <a class="" href="index.html">
-                          <i class="icon_house_alt"></i>
-                          <span>Dashboard</span>
-                      </a>
+            <a href="#">
+                <span>My projects</span>
+            </a>
           </li>
           <li class="sub-menu">
-            <a href="#" class="">
-                          <i class="icon_document_alt"></i>
-                          <span>My projects</span>
-                          <span class="menu-arrow arrow_carrot-right"></span>
-                      </a>
-            <ul class="sub">
-              <li><a class="" href="form_component.html">Form Elements</a></li>
-              <li><a class="" href="form_validation.html">Form Validation</a></li>
-            </ul>
-          </li>
-          <li class="sub-menu">
-            <a href="#" class="">
-                          <i class="icon_desktop"></i>
-                          <span>My Subscription</span>
-                          <span class="menu-arrow arrow_carrot-right"></span>
-                      </a>
+            <a href="#">
+                <span>My Subscription</span>
+            </a>
           </li>
           <li>
-            <a class="" href="#">
-                          <i class="icon_piechart"></i>
-                          <span>My Providers</span>
-
-                      </a>
-
+            <a  href="#">
+                <span>My Providers</span>
+            </a>
           </li>
 
           <li class="sub-menu">
-            <a href="javascript:;" class="">
-                          <i class="icon_table"></i>
-                          <span>My profile</span>
-                          <span class="menu-arrow arrow_carrot-right"></span>
-                      </a>
+            <a href="#">
+                <span>My profile</span>
+            </a>
           </li>
           <li class="sub-menu">
-            <a href="javascript:;" class="">
-                          <i class="icon_table"></i>
-                          <span>All users</span>
-                          <span class="menu-arrow arrow_carrot-right"></span>
-                      </a>
+            <a href="#">
+                <span>All users</span>
+            </a>
           </li>
           <li class="sub-menu">
-            <a href="javascript:;" class="">
-                          <i class="icon_table"></i>
-                          <span>All providers</span>
-                          <span class="menu-arrow arrow_carrot-right"></span>
-                      </a>
+            <a href="#">
+                <span>All providers</span>
+            </a>
           </li>
           <li class="sub-menu">
-            <a href="javascript:;" class="">
-                          <i class="icon_table"></i>
-                          <span>Reports</span>
-                          <span class="menu-arrow arrow_carrot-right"></span>
-                      </a>
+            <a href="#">
+                <span>Reports</span>
+            </a>
           </li>
         </ul>
         <!-- sidebar menu end-->
@@ -325,10 +280,10 @@
         <!--overview start-->
         <div class="row">
           <div class="col-lg-12">
-            <h3 class="page-header"><i class="fa fa-laptop"></i> Dashboard</h3>
+            <h3 class="page-header"><i class="fa fa-laptop"></i> Dashboard - My projects</h3>
             <ol class="breadcrumb">
-              <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
-              <li><i class="fa fa-laptop"></i>Dashboard</li>
+              <li><i class="fa fa-home"></i><a href="/">Home</a></li>
+              <li><i class="fa fa-laptop"></i>Dashboard - My Projects</li>
             </ol>
           </div>
         </div>
