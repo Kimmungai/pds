@@ -46,7 +46,7 @@
             </li>
           </ul>
         </li>
-        <li class="nav-item active" data-toggle="tooltip" data-placement="right" title="Tables">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
           <a class="nav-link" href="/client-user-profile">
             <i class="fa fa-fw fa-user"></i>
             <span class="nav-link-text">My profile</span>
@@ -114,7 +114,7 @@
             </li>
           </ul>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
+        <li class="nav-item active" data-toggle="tooltip" data-placement="right" title="Link">
           <a class="nav-link" href="/client-chats">
             <i class="fa fa-fw fa-envelope"></i>
             <span class="nav-link-text">Chat <span class="badge badge-pill badge-primary">12 New</span></span>
@@ -232,138 +232,57 @@
         <li class="breadcrumb-item">
           <a href="#">Dashboard</a>
         </li>
-        <li class="breadcrumb-item active">My Profile</li>
+        <li class="breadcrumb-item active">My Chats</li>
       </ol>
-      <!-- Area Chart Example-->
       <div class="row">
-        <div class="col-lg-12">
-          <!-- Card Columns Example Social Feed-->
-          <div class="mb-0 mt-4">
-            <i class="fa fa-list"></i> Registration details</div>
-          <hr class="mt-2">
-          <div class="card-columns">
-            <!-- Example Social Card-->
-            <div class="card mb-3">
-              <div class="card-body">
-                <h6 class="card-title mb-1"><a href="#">Basic details</a></h6>
-                <div class="form-group row">
-                  <label for="example-search-input" class="col-2 col-form-label">1st name</label>
-                  <div class="col-10">
-                    <input class="form-control" type="text" value="10 sec">
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label for="example-search-input" class="col-2 col-form-label">2nd name</label>
-                  <div class="col-10">
-                    <input class="form-control" type="text" value="10 sec">
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label for="example-search-input" class="col-2 col-form-label">Last name</label>
-                  <div class="col-10">
-                    <input class="form-control" type="text" value="10 sec">
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label for="example-search-input" class="col-2 col-form-label">Birthday</label>
-                  <div class="col-10">
-                    <input class="form-control" type="text" value="10 sec">
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <div class="col-10">
-                    <a class="btn btn-success" href="#">Update</a>
-                  </div>
-                </div>
-              </div>
-              <hr class="my-0">
+        <div class="col-lg-8">
+          <!-- Example Bar Chart Card-->
+          <div class="card mb-3">
+            <div class="card-header">
+              <i class="fa fa-comment"></i> Wajui / Chat Messages</div>
+            <div class="card-body">
+              <ul class="list-group">
+                <li class="list-group-item">First item</li>
+                <li class="list-group-item">Second item</li>
+                <li class="list-group-item">Third item</li>
+              </ul>
+              <ul class="list-group pull-right">
+                <li class="list-group-item">First item</li>
+                <li class="list-group-item">Second item</li>
+                <li class="list-group-item">Third item</li>
+              </ul>
             </div>
-            <!-- Example Social Card-->
-            <div class="card mb-3">
-              <div class="card-body">
-                <h6 class="card-title mb-1"><a href="#">Basic details</a></h6>
-                <div class="form-group row">
-                  <label for="example-search-input" class="col-2 col-form-label">1st name</label>
-                  <div class="col-10">
-                    <input class="form-control" type="text" value="10 sec">
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label for="example-search-input" class="col-2 col-form-label">2nd name</label>
-                  <div class="col-10">
-                    <input class="form-control" type="text" value="10 sec">
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label for="example-search-input" class="col-2 col-form-label">Last name</label>
-                  <div class="col-10">
-                    <input class="form-control" type="text" value="10 sec">
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label for="example-search-input" class="col-2 col-form-label">Birthday</label>
-                  <div class="col-10">
-                    <input class="form-control" type="text" value="10 sec">
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <div class="col-10">
-                    <a class="btn btn-success" href="#">Update</a>
-                  </div>
-                </div>
+            <div class="form-group row">
+              <div class="col-10">
+                <input  class="form-control" type="text" placeholder="Type your message"/>
               </div>
-              <hr class="my-0">
-            </div>
-            <!-- Example Social Card-->
-            <div class="card mb-3">
-              <div class="card-body">
-                <h6 class="card-title mb-1"><a href="#">Basic details</a></h6>
-                <div class="form-group row">
-                  <label for="example-search-input" class="col-2 col-form-label">1st name</label>
-                  <div class="col-10">
-                    <input class="form-control" type="text" value="10 sec">
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label for="example-search-input" class="col-2 col-form-label">2nd name</label>
-                  <div class="col-10">
-                    <input class="form-control" type="text" value="10 sec">
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label for="example-search-input" class="col-2 col-form-label">Last name</label>
-                  <div class="col-10">
-                    <input class="form-control" type="text" value="10 sec">
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label for="example-search-input" class="col-2 col-form-label">Birthday</label>
-                  <div class="col-10">
-                    <input class="form-control" type="text" value="10 sec">
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <div class="col-10">
-                    <a class="btn btn-success" href="#">Update</a>
-                  </div>
-                </div>
+              <div class="col-2">
+                <button class="btn btn-success"><i class="fa fa-send"></i> Send</button>
               </div>
-              <hr class="my-0">
-            </div>
-            <!-- Example Social Card-->
-            <div class="card mb-3">
-              <div class="card-body">
-                <h6 class="card-title mb-1"><a href="#">Account Deactivation</a></h6>
-              </div>
-              <hr class="my-0">
-              <div class="card-body py-2 small"></div>
-              <hr class="my-0">
-              <a class="btn btn-danger" href="#">Update</a>
             </div>
           </div>
-          <!-- /Card Columns-->
+        </div>
+        <div class="col-lg-4">
+          <!-- Example Pie Chart Card-->
+          <div class="card mb-3">
+            <div class="card-header">
+              <i class="fa fa-users"></i> Contact list</div>
+            <div class="card-body">
+              <ul>
+                <li>wajui<span class="badge">12</span></li>
+                <li>wajui</li>
+                <li>wajui</li>
+                <li>wajui</li>
+                <li>wajui</li>
+                <li>wajui</li>
+              </ul>
+            </div>
+            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+          </div>
+          <!-- Example Notifications Card-->
         </div>
       </div>
+      <!-- Example DataTables Card-->
     </div>
     <!-- /.container-fluid-->
 @endsection

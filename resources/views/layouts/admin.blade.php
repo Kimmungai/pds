@@ -1,24 +1,25 @@
-<!doctype html>
-<html class="no-js" lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Welocome to WebDesignersCenter.com</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE html>
+<html lang="en">
 
-        <link rel="manifest" href="{{ asset('/site.webmanifest') }}">
-        <link rel="apple-touch-icon" href="{{ asset('/icon.png') }}">
-        <!-- Place favicon.ico in the root directory -->
-        <link rel="stylesheet" href="{{ asset('/css/bootstrap.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('/css/bootstrap-theme.css') }}">
-        <link rel="stylesheet" href="{{ asset('/css/font-awesome.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('/css/normalize.css') }}">
-        <link rel="stylesheet" href="{{ asset('/css/main.css') }}">
-        <link rel="stylesheet" href="{{ asset('/css/admin-style.css') }}">
-        <link rel="stylesheet" href="{{ asset('/css/style-responsive.css') }}">
-    </head>
-    <body>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Web designers center - Admin dashboard</title>
+    <!-- Bootstrap core CSS-->
+    <link href="{{asset('/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+    <!-- Custom fonts for this template-->
+    <link href="{{asset('/vendor/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
+    <!-- Page level plugin CSS-->
+    <link href="{{asset('/vendor/datatables/dataTables.bootstrap4.css')}}" rel="stylesheet">
+    <!-- Custom styles for this template-->
+    <link href="{{asset('/vendor/css/sb-admin.css')}}" rel="stylesheet">
+  </head>
+
+  <body class="fixed-nav sticky-footer bg-dark" id="page-top">
+
         <!--[if lte IE 9]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
         <![endif]-->
@@ -26,13 +27,53 @@
 
         @yield('content')
         <!--Page content ends here-->
-
+        <footer class="sticky-footer">
+          <div class="container">
+            <div class="text-center">
+              <small>Copyright © webdesignerscenter.com 2017</small>
+            </div>
+          </div>
+        </footer>
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+          <i class="fa fa-angle-up"></i>
+        </a>
+        <!-- Logout Modal-->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                </button>
+              </div>
+              <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+              <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                <a class="btn btn-primary" href="login.html">Logout</a>
+              </div>
+            </div>
+          </div>
+        </div>
         <script src="{{ asset('/js/vendor/modernizr-3.5.0.min.js') }}"></script>
         <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
         <script>window.jQuery || document.write('<script src="<?php echo asset('js/vendor/jquery-3.2.1.min.js'); ?>"><\/script>')</script>
         <script src="{{ asset('js/plugins.js') }}"></script>
-        <script src="{{ asset('js/main.js') }}"></script>
-        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+        <!-- Bootstrap core JavaScript-->
+        <script src="{{asset('/vendor/jquery/jquery.min.js')}}"></script>
+        <script src="{{asset('/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+        <!-- Core plugin JavaScript-->
+        <script src="{{asset('/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
+        <!-- Page level plugin JavaScript-->
+        <script src="{{asset('/vendor/chart.js/Chart.min.js')}}"></script>
+        <script src="{{asset('/vendor/datatables/jquery.dataTables.js')}}"></script>
+        <script src="{{asset('/vendor/datatables/dataTables.bootstrap4.js')}}"></script>
+        <!-- Custom scripts for all pages-->
+        <script src="{{asset('/vendor/js/sb-admin.min.js')}}"></script>
+        <!-- Custom scripts for this page-->
+        <script src="{{asset('/vendor/js/sb-admin-datatables.min.js')}}"></script>
+        <script src="{{asset('/vendor/js/sb-admin-charts.min.js')}}"></script>
 
         <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
         <script>
@@ -40,5 +81,6 @@
             ga('create','UA-XXXXX-Y','auto');ga('send','pageview')
         </script>
         <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+      </div>
     </body>
 </html>

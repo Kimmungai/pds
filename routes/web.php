@@ -15,10 +15,34 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/provider', function () {
-    return view('admin.provider.profile');
+    return view('admin.provider.top');
+});
+Route::get('/sys', function () {
+    return view('admin.sys.top');
 });
 Route::get('/client-profile', function () {
     return view('admin.client.top');
+});
+Route::get('/client-subscription', function () {
+    return view('admin.client.subscription');
+});
+Route::get('/client-bidders', function () {
+    return view('admin.client.bidders');
+});
+Route::get('/client-user-profile', function () {
+    return view('admin.client.profile');
+});
+Route::get('/client-users', function () {
+    return view('admin.client.users');
+});
+Route::get('/client-reports', function () {
+    return view('admin.client.reports');
+});
+Route::get('/client-campaigns', function () {
+    return view('admin.client.campaigns');
+});
+Route::get('/client-chats', function () {
+    return view('admin.client.chat');
 });
 Route::get('/projects', function () {
     return view('projects');

@@ -26,7 +26,7 @@
             </li>
           </ul>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
+        <li class="nav-item active" data-toggle="tooltip" data-placement="right" title="Tables">
           <a class="nav-link" href="/client-subscription">
             <i class="fa fa-fw fa-dollar"></i>
             <span class="nav-link-text">My subscription</span>
@@ -46,7 +46,7 @@
             </li>
           </ul>
         </li>
-        <li class="nav-item active" data-toggle="tooltip" data-placement="right" title="Tables">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
           <a class="nav-link" href="/client-user-profile">
             <i class="fa fa-fw fa-user"></i>
             <span class="nav-link-text">My profile</span>
@@ -232,137 +232,141 @@
         <li class="breadcrumb-item">
           <a href="#">Dashboard</a>
         </li>
-        <li class="breadcrumb-item active">My Profile</li>
+        <li class="breadcrumb-item active">My Subscription</li>
       </ol>
-      <!-- Area Chart Example-->
+      <!-- Icon Cards-->
       <div class="row">
-        <div class="col-lg-12">
-          <!-- Card Columns Example Social Feed-->
-          <div class="mb-0 mt-4">
-            <i class="fa fa-list"></i> Registration details</div>
-          <hr class="mt-2">
-          <div class="card-columns">
-            <!-- Example Social Card-->
-            <div class="card mb-3">
-              <div class="card-body">
-                <h6 class="card-title mb-1"><a href="#">Basic details</a></h6>
-                <div class="form-group row">
-                  <label for="example-search-input" class="col-2 col-form-label">1st name</label>
-                  <div class="col-10">
-                    <input class="form-control" type="text" value="10 sec">
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label for="example-search-input" class="col-2 col-form-label">2nd name</label>
-                  <div class="col-10">
-                    <input class="form-control" type="text" value="10 sec">
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label for="example-search-input" class="col-2 col-form-label">Last name</label>
-                  <div class="col-10">
-                    <input class="form-control" type="text" value="10 sec">
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label for="example-search-input" class="col-2 col-form-label">Birthday</label>
-                  <div class="col-10">
-                    <input class="form-control" type="text" value="10 sec">
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <div class="col-10">
-                    <a class="btn btn-success" href="#">Update</a>
-                  </div>
-                </div>
+        <div class="col-xl-3 col-sm-6 mb-3">
+          <div class="card text-white bg-primary o-hidden h-100">
+            <div class="card-body">
+              <div class="card-body-icon">
+                <i class="fa fa-fw fa-cc-diners-club"></i>
               </div>
-              <hr class="my-0">
+              <div class="mr-5"><big>Ksh. 1,000</big></div><small>Use this to bid in 10 projects</small>
             </div>
-            <!-- Example Social Card-->
-            <div class="card mb-3">
-              <div class="card-body">
-                <h6 class="card-title mb-1"><a href="#">Basic details</a></h6>
-                <div class="form-group row">
-                  <label for="example-search-input" class="col-2 col-form-label">1st name</label>
-                  <div class="col-10">
-                    <input class="form-control" type="text" value="10 sec">
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label for="example-search-input" class="col-2 col-form-label">2nd name</label>
-                  <div class="col-10">
-                    <input class="form-control" type="text" value="10 sec">
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label for="example-search-input" class="col-2 col-form-label">Last name</label>
-                  <div class="col-10">
-                    <input class="form-control" type="text" value="10 sec">
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label for="example-search-input" class="col-2 col-form-label">Birthday</label>
-                  <div class="col-10">
-                    <input class="form-control" type="text" value="10 sec">
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <div class="col-10">
-                    <a class="btn btn-success" href="#">Update</a>
-                  </div>
-                </div>
+            <a class="card-footer text-white clearfix small z-1">
+              <span class="float-left">Your current plan</span>
+              <span class="float-right">
+                <i class="fa fa-angle-right"></i>
+              </span>
+            </a>
+          </div>
+        </div>
+        <div class="col-xl-3 col-sm-6 mb-3">
+          <div class="card text-white bg-default o-hidden h-100">
+            <div class="card-body" style="color:#000;">
+              <div class="card-body-icon">
+                <i class="fa fa-fw fa-calendar"></i>
               </div>
-              <hr class="my-0">
+              <div class="mr-5"><big>Ksh. 20,000 /</big>month</div><small>Bid in all projects</small>
             </div>
-            <!-- Example Social Card-->
-            <div class="card mb-3">
-              <div class="card-body">
-                <h6 class="card-title mb-1"><a href="#">Basic details</a></h6>
-                <div class="form-group row">
-                  <label for="example-search-input" class="col-2 col-form-label">1st name</label>
-                  <div class="col-10">
-                    <input class="form-control" type="text" value="10 sec">
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label for="example-search-input" class="col-2 col-form-label">2nd name</label>
-                  <div class="col-10">
-                    <input class="form-control" type="text" value="10 sec">
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label for="example-search-input" class="col-2 col-form-label">Last name</label>
-                  <div class="col-10">
-                    <input class="form-control" type="text" value="10 sec">
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label for="example-search-input" class="col-2 col-form-label">Birthday</label>
-                  <div class="col-10">
-                    <input class="form-control" type="text" value="10 sec">
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <div class="col-10">
-                    <a class="btn btn-success" href="#">Update</a>
-                  </div>
-                </div>
+            <a class="card-footer text-white clearfix small z-1" href="#">
+              <span class="float-left" style="color:#000;">Choose</span>
+              <span class="float-right">
+                <i class="fa fa-angle-right"></i>
+              </span>
+            </a>
+          </div>
+        </div>
+        <div class="col-xl-3 col-sm-6 mb-3">
+          <div class="card text-white bg-default o-hidden h-100">
+            <div class="card-body" style="color:#000;">
+              <div class="card-body-icon">
+                <i class="fa fa-fw fa-calendar"></i>
               </div>
-              <hr class="my-0">
+              <div class="mr-5"><big>Ksh. 20,000 /</big>year</div><small>Bid in all projects</small>
             </div>
-            <!-- Example Social Card-->
-            <div class="card mb-3">
-              <div class="card-body">
-                <h6 class="card-title mb-1"><a href="#">Account Deactivation</a></h6>
+            <a class="card-footer text-white clearfix small z-1" href="#">
+              <span class="float-left" style="color:#000;">Choose</span>
+              <span class="float-right">
+                <i class="fa fa-angle-right"></i>
+              </span>
+            </a>
+          </div>
+        </div>
+        <div class="col-xl-3 col-sm-6 mb-3">
+          <div class="card text-white bg-default o-hidden h-100">
+            <div class="card-body" style="color:#000;">
+              <div class="card-body-icon">
+                <i class="fa fa-fw fa-calendar"></i>
               </div>
-              <hr class="my-0">
-              <div class="card-body py-2 small"></div>
-              <hr class="my-0">
-              <a class="btn btn-danger" href="#">Update</a>
+              <div class="mr-5"><big>Ksh. 200, 000 /</big>3 years</div><small>Bid in all projects</small>
+            </div>
+            <a class="card-footer text-white clearfix small z-1" href="#">
+              <span class="float-left" style="color:#000;">Choose</span>
+              <span class="float-right">
+                <i class="fa fa-angle-right"></i>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- Area Chart Example-->
+      <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-list"></i> Your subscription details</div>
+        <div class="card-body">
+          <div class="form-group row">
+            <label for="example-search-input" class="col-2 col-form-label">Subscription start date</label>
+            <div class="col-10">
+              <input class="form-control" type="text" value="12/12/1963" disabled>
             </div>
           </div>
-          <!-- /Card Columns-->
+          <div class="form-group row">
+            <label for="example-search-input" class="col-2 col-form-label">Subscription end date</label>
+            <div class="col-10">
+              <input class="form-control" type="text" value="12/12/1963" disabled>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="example-search-input" class="col-2 col-form-label">Subscription remaining time</label>
+            <div class="col-10">
+              <input class="form-control" type="text" value="10 sec" disabled>
+            </div>
+          </div>
+          </div>
         </div>
+        <div class="card-footer small text-muted"></div>
+        <div class="card mb-3">
+          <div class="card-header">
+            <i class="fa fa-cc-visa"></i> <i class="fa fa-cc-mastercard"></i> <i class="fa fa-cc-paypal"></i> Subscription renewal</div>
+          <div class="card-body">
+            <div class="form-group row">
+              <label for="example-search-input" class="col-2 col-form-label">Subscription Plan</label>
+              <div class="col-10">
+                <select class="form-control">
+                  <option value="">Ksh. 20,000 / month</option>
+                  <option value="">Ksh. 20,000 / month</option>
+                  <option value="">Ksh. 20,000 / year</option>
+                  <option value="">Ksh. 20,000 / 3 years</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="example-search-input" class="col-2 col-form-label">Payment method</label>
+              <div class="col-10">
+                <select class="form-control">
+                  <option value="">Credit card</option>
+                  <option value="">Debit Card</option>
+                  <option value="">Pay pal</option>
+                  <option value="">Mpesa</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="example-search-input" class="col-2 col-form-label">Email my receipt</label>
+              <div class="col-10">
+                <input  type="radio"> No &nbsp;<input  type="radio"> Yes
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="example-search-input" class="col-2 col-form-label"></label>
+              <div class="col-10">
+                <button class="btn btn-success btn-lg"><i class="fa fa-dollar"></i> Proceed to payment <i class="fa  fa-angle-double-right"></i></button>
+              </div>
+            </div>
+            </div>
+          </div>
       </div>
     </div>
     <!-- /.container-fluid-->
