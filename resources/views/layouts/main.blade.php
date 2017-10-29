@@ -55,7 +55,7 @@
           <div class="container">
             <div class="row">
               <div class="col-md-6">
-                <p><i class="fa fa-copyright"></i> webdesignerscenter.com</p>
+                <p><i class="fa fa-copyright"></i> Copyright © webdesignerscenter.com 2017</p>
               </div>
               <div class="col-md-6">
                 <ul class="list-inline pull-right">

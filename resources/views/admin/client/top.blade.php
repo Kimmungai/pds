@@ -34,18 +34,18 @@
           </a>
           <ul class="sidenav-second-level collapse" id="collapseComponents">
             <li>
-              <a href="navbar.html">All projects</a>
+              <a href="#">All projects</a>
             </li>
             <li>
-              <a href="cards.html">Closed projects</a>
+              <a href="#">Closed projects</a>
             </li>
             <li>
-              <a href="cards.html">Active Projects</a>
+              <a href="#">Active Projects</a>
             </li>
           </ul>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-          <a class="nav-link" href="tables.html">
+          <a class="nav-link" href="#">
             <i class="fa fa-fw fa-dollar"></i>
             <span class="nav-link-text">My subscription</span>
           </a>
@@ -57,15 +57,15 @@
           </a>
           <ul class="sidenav-second-level collapse" id="collapseComponents1">
             <li>
-              <a href="navbar.html">All registered bidders</a>
+              <a href="#">All registered bidders</a>
             </li>
             <li>
-              <a href="cards.html">My projects bidders</a>
+              <a href="#">My projects bidders</a>
             </li>
           </ul>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-          <a class="nav-link" href="tables.html">
+          <a class="nav-link" href="#">
             <i class="fa fa-fw fa-user"></i>
             <span class="nav-link-text">My profile</span>
           </a>
@@ -77,13 +77,13 @@
           </a>
           <ul class="sidenav-second-level collapse" id="collapseComponents2">
             <li>
-              <a href="navbar.html">Clients</a>
+              <a href="#">Clients</a>
             </li>
             <li>
-              <a href="cards.html">Bidders</a>
+              <a href="#">Bidders</a>
             </li>
             <li>
-              <a href="cards.html">Administrators</a>
+              <a href="#">Administrators</a>
             </li>
           </ul>
         </li>
@@ -94,16 +94,16 @@
           </a>
           <ul class="sidenav-second-level collapse" id="collapseExamplePages">
             <li>
-              <a href="login.html">Projects report</a>
+              <a href="#">Projects report</a>
             </li>
             <li>
-              <a href="register.html">Users Report</a>
+              <a href="#">Users Report</a>
             </li>
             <li>
-              <a href="forgot-password.html">Mailing list</a>
+              <a href="#">Mailing list</a>
             </li>
             <li>
-              <a href="blank.html">Bulk sms list</a>
+              <a href="#">Bulk sms list</a>
             </li>
           </ul>
         </li>
@@ -260,7 +260,7 @@
               <div class="card-body-icon">
                 <i class="fa fa-fw fa-graduation-cap"></i>
               </div>
-              <div class="mr-5">E-learning website!</div>
+              <div class="mr-5">E-learning website</div>
             </div>
             <a class="card-footer text-white clearfix small z-1" href="#">
               <span class="float-left">View Details</span>
@@ -383,186 +383,107 @@
             <!-- Example Social Card-->
             <div class="card mb-3">
               <a href="#">
-                <img class="card-img-top img-fluid w-100" src="https://unsplash.it/700/450?image=610" alt="">
+                <img class="card-img-top img-fluid w-100" src="{{ asset('/img/project-pic.png') }}" alt="">
               </a>
               <div class="card-body">
-                <h6 class="card-title mb-1"><a href="#">David Miller</a></h6>
-                <p class="card-text small">These waves are looking pretty good today!
-                  <a href="#">#surfsup</a>
-                </p>
+                <h6 class="card-title mb-1"><a href="#">Project Title and category</a></h6>
+                <label for="project-title"></label><b>Title</b></label><input type="text" class="form-control" name="project-title" value="E-commerce website" />
+                <hr class="my-0">
+                <div class="card-body py-2 small"></div>
+                <hr class="my-0">
+                <label for="project-title"></label><b>Start date</b></label><input type="text" class="form-control" name="project-title" value="12/12/2017" />
+                <hr class="my-0">
+                <div class="card-body py-2 small"></div>
+                <label for="project-title"></label><b>End date</b></label><input type="text" class="form-control" name="project-title" value="12/12/2017" />
+                <div class="card-body py-2 small"></div>
+                <label for="project-category"></label><b>Caption</b></label>
+                  <label class="btn btn-primary btn-file">
+                    Browse (max 1mb) <input type="file" style="display: none;">
+                  </label>
               </div>
               <hr class="my-0">
-              <div class="card-body py-2 small">
-                <a class="mr-3 d-inline-block" href="#">
-                  <i class="fa fa-fw fa-thumbs-up"></i>Like</a>
-                <a class="mr-3 d-inline-block" href="#">
-                  <i class="fa fa-fw fa-comment"></i>Comment</a>
-                <a class="d-inline-block" href="#">
-                  <i class="fa fa-fw fa-share"></i>Share</a>
-              </div>
-              <hr class="my-0">
-              <div class="card-body small bg-faded">
-                <div class="media">
-                  <img class="d-flex mr-3" src="http://placehold.it/45x45" alt="">
-                  <div class="media-body">
-                    <h6 class="mt-0 mb-1"><a href="#">John Smith</a></h6>Very nice! I wish I was there! That looks amazing!
-                    <ul class="list-inline mb-0">
-                      <li class="list-inline-item">
-                        <a href="#">Like</a>
-                      </li>
-                      <li class="list-inline-item">·</li>
-                      <li class="list-inline-item">
-                        <a href="#">Reply</a>
-                      </li>
-                    </ul>
-                    <div class="media mt-3">
-                      <a class="d-flex pr-3" href="#">
-                        <img src="http://placehold.it/45x45" alt="">
-                      </a>
-                      <div class="media-body">
-                        <h6 class="mt-0 mb-1"><a href="#">David Miller</a></h6>Next time for sure!
-                        <ul class="list-inline mb-0">
-                          <li class="list-inline-item">
-                            <a href="#">Like</a>
-                          </li>
-                          <li class="list-inline-item">·</li>
-                          <li class="list-inline-item">
-                            <a href="#">Reply</a>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="card-footer small text-muted">Posted 32 mins ago</div>
+              <a class="btn btn-success form-control" href="#">Update</a>
             </div>
             <!-- Example Social Card-->
             <div class="card mb-3">
               <a href="#">
-                <img class="card-img-top img-fluid w-100" src="https://unsplash.it/700/450?image=180" alt="">
+                <img class="card-img-top img-fluid w-100" src="{{ asset('/img/tech-details.jpg') }}" alt="">
               </a>
               <div class="card-body">
-                <h6 class="card-title mb-1"><a href="#">John Smith</a></h6>
-                <p class="card-text small">Another day at the office...
-                  <a href="#">#workinghardorhardlyworking</a>
-                </p>
-              </div>
-              <hr class="my-0">
-              <div class="card-body py-2 small">
-                <a class="mr-3 d-inline-block" href="#">
-                  <i class="fa fa-fw fa-thumbs-up"></i>Like</a>
-                <a class="mr-3 d-inline-block" href="#">
-                  <i class="fa fa-fw fa-comment"></i>Comment</a>
-                <a class="d-inline-block" href="#">
-                  <i class="fa fa-fw fa-share"></i>Share</a>
-              </div>
-              <hr class="my-0">
-              <div class="card-body small bg-faded">
-                <div class="media">
-                  <img class="d-flex mr-3" src="http://placehold.it/45x45" alt="">
-                  <div class="media-body">
-                    <h6 class="mt-0 mb-1"><a href="#">Jessy Lucas</a></h6>Where did you get that camera?! I want one!
-                    <ul class="list-inline mb-0">
-                      <li class="list-inline-item">
-                        <a href="#">Like</a>
-                      </li>
-                      <li class="list-inline-item">·</li>
-                      <li class="list-inline-item">
-                        <a href="#">Reply</a>
-                      </li>
-                    </ul>
-                  </div>
+                <h6 class="card-title mb-1"><a href="#">Project technical details</a></h6>
+                <label for="project-title"></label><b>Description</b></label>
+                <textarea rows="5" class="form-control" name="project-title">Do it using formal methods</textarea>
+                <hr class="my-0">
+                <div class="card-body py-2 small">
+
                 </div>
+                <hr class="my-0">
+                <div class="card-body py-2 small"></div>
+                <label for="project-category"></label><b>Technical Specification (PDF)</b></label>
+                  <label class="btn btn-primary btn-file">
+                    doc 1 (max 1mb) <input type="file" style="display: none;">
+                  </label>
+                  <hr class="my-0">
+                  <div class="card-body py-2 small"></div>
+                  <label for="project-category"></label><b>Technical Specification (PDF)</b></label>
+                    <label class="btn btn-primary btn-file">
+                      doc 2 (max 1mb) <input type="file" style="display: none;">
+                    </label>
+                    <hr class="my-0">
+                    <div class="card-body py-2 small"></div>
+                    <label for="project-category"></label><b>Technical Specification (PDF)</b></label>
+                      <label class="btn btn-primary btn-file">
+                        doc 3 (max 1mb) <input type="file" style="display: none;">
+                      </label>
               </div>
-              <div class="card-footer small text-muted">Posted 46 mins ago</div>
+              <hr class="my-0">
+              <a class="btn btn-success form-control" href="#">Update</a>
             </div>
             <!-- Example Social Card-->
             <div class="card mb-3">
               <a href="#">
-                <img class="card-img-top img-fluid w-100" src="https://unsplash.it/700/450?image=281" alt="">
+                <img class="card-img-top img-fluid w-100" src="{{ asset('/img/mobile-app-category.PNG') }}" alt="">
               </a>
               <div class="card-body">
-                <h6 class="card-title mb-1"><a href="#">Jeffery Wellings</a></h6>
-                <p class="card-text small">Nice shot from the skate park!
-                  <a href="#">#kickflip</a>
-                  <a href="#">#holdmybeer</a>
-                  <a href="#">#igotthis</a>
-                </p>
+                <h6 class="card-title mb-1"><a href="#">Project category, features and sharing</a></h6>
+                <label for="project-category"></label><b>Category</b></label>
+                <select class="form-control" name="project-category">
+                  <option selected disabled>Project category</option>
+                  <option>Mobile App</option>
+                  <option>E-commerce</option>
+                  <option>Blog</option>
+                  <option>Website</option>
+                </select>
+                <hr class="my-0">
+                <div class="card-body py-2 small"></div>
+                <hr class="my-0">
+                <label for="project-category"></label><b>Userbility features</b></label>
+                </br><input type="checkbox"  />&nbsp;Shopping cart&nbsp;</br>
+                <input type="checkbox"  />&nbsp;Responsive&nbsp;</br>
+                <input type="checkbox"  />&nbsp;Membership&nbsp;</br>
+                <input type="checkbox"  />&nbsp;Notification&nbsp;</br>
+                <div class="card-body py-2 small"></div>
+                <label for="project-category"></label><b>Back-end features</b></label>
+                </br><input type="checkbox"  />&nbsp;Cloud hosting&nbsp;</br>
+                <input type="checkbox"  />&nbsp;Admin panel&nbsp;</br>
+                <input type="checkbox"  />&nbsp;Back-up&nbsp;</br>
+                <input type="checkbox"  />&nbsp;Bulk sms&nbsp;
+                <div class="card-body py-2 small"></div>
+                <label for="project-category"></label><b>Share this project</b></label>
+                <a href="#" style="font-size:1.3em;"><i class="fa fa-facebook-square"></a></i> <a href="#" style="font-size:1.3em;"> <i class="fa fa-twitter-square"></i></a>
               </div>
               <hr class="my-0">
-              <div class="card-body py-2 small">
-                <a class="mr-3 d-inline-block" href="#">
-                  <i class="fa fa-fw fa-thumbs-up"></i>Like</a>
-                <a class="mr-3 d-inline-block" href="#">
-                  <i class="fa fa-fw fa-comment"></i>Comment</a>
-                <a class="d-inline-block" href="#">
-                  <i class="fa fa-fw fa-share"></i>Share</a>
-              </div>
-              <div class="card-footer small text-muted">Posted 1 hr ago</div>
+              <a class="btn btn-success form-control" href="#">Update</a>
             </div>
             <!-- Example Social Card-->
             <div class="card mb-3">
-              <a href="#">
-                <img class="card-img-top img-fluid w-100" src="https://unsplash.it/700/450?image=185" alt="">
-              </a>
               <div class="card-body">
-                <h6 class="card-title mb-1"><a href="#">David Miller</a></h6>
-                <p class="card-text small">It's hot, and I might be lost...
-                  <a href="#">#desert</a>
-                  <a href="#">#water</a>
-                  <a href="#">#anyonehavesomewater</a>
-                  <a href="#">#noreally</a>
-                  <a href="#">#thirsty</a>
-                  <a href="#">#dehydration</a>
-                </p>
+                <h6 class="card-title mb-1"><a href="#">Project cancellation</a></h6>
               </div>
               <hr class="my-0">
-              <div class="card-body py-2 small">
-                <a class="mr-3 d-inline-block" href="#">
-                  <i class="fa fa-fw fa-thumbs-up"></i>Like</a>
-                <a class="mr-3 d-inline-block" href="#">
-                  <i class="fa fa-fw fa-comment"></i>Comment</a>
-                <a class="d-inline-block" href="#">
-                  <i class="fa fa-fw fa-share"></i>Share</a>
-              </div>
+              <div class="card-body py-2 small"></div>
               <hr class="my-0">
-              <div class="card-body small bg-faded">
-                <div class="media">
-                  <img class="d-flex mr-3" src="http://placehold.it/45x45" alt="">
-                  <div class="media-body">
-                    <h6 class="mt-0 mb-1"><a href="#">John Smith</a></h6>The oasis is a mile that way, or is that just a mirage?
-                    <ul class="list-inline mb-0">
-                      <li class="list-inline-item">
-                        <a href="#">Like</a>
-                      </li>
-                      <li class="list-inline-item">·</li>
-                      <li class="list-inline-item">
-                        <a href="#">Reply</a>
-                      </li>
-                    </ul>
-                    <div class="media mt-3">
-                      <a class="d-flex pr-3" href="#">
-                        <img src="http://placehold.it/45x45" alt="">
-                      </a>
-                      <div class="media-body">
-                        <h6 class="mt-0 mb-1"><a href="#">David Miller</a></h6>
-                        <img class="img-fluid w-100 mb-1" src="https://unsplash.it/700/450?image=789" alt="">I'm saved, I found a cactus. How do I open this thing?
-                        <ul class="list-inline mb-0">
-                          <li class="list-inline-item">
-                            <a href="#">Like</a>
-                          </li>
-                          <li class="list-inline-item">·</li>
-                          <li class="list-inline-item">
-                            <a href="#">Reply</a>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="card-footer small text-muted">Posted yesterday</div>
+              <a class="btn btn-danger form-control" href="#">Cancel Project</a>
             </div>
           </div>
           <!-- /Card Columns-->
@@ -582,50 +503,117 @@
             <div class="card-header">
               <i class="fa fa-bell-o"></i> Quick action / New project</div>
             <div class="list-group list-group-flush small">
-              <a class="list-group-item list-group-item-action" href="#">
+              <a class="list-group-item list-group-item-action">
                 <div class="media">
-                  <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/45x45" alt="">
+                  <img class="d-flex mr-3 rounded-circle" src="{{asset('/img/required.png')}}" alt="">
                   <div class="media-body">
-                    <strong>David Miller</strong>posted a new article to
-                    <strong>David Miller Website</strong>.
-                    <div class="text-muted smaller">Today at 5:43 PM - 5m ago</div>
+                    <input type="text" class="form-control" placeholder="Project title"/>
                   </div>
                 </div>
               </a>
-              <a class="list-group-item list-group-item-action" href="#">
+              <a class="list-group-item list-group-item-action">
                 <div class="media">
-                  <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/45x45" alt="">
+                  <img class="d-flex mr-3 rounded-circle" src="{{asset('/img/required.png')}}" alt="">
                   <div class="media-body">
-                    <strong>Samantha King</strong>sent you a new message!
-                    <div class="text-muted smaller">Today at 4:37 PM - 1hr ago</div>
+                    <select class="form-control">
+                      <option selected disabled>Project category</option>
+                      <option>Mobile App</option>
+                      <option>E-commerce</option>
+                      <option>Blog</option>
+                      <option>Website</option>
+                    </select>
                   </div>
                 </div>
               </a>
-              <a class="list-group-item list-group-item-action" href="#">
+              <a class="list-group-item list-group-item-action">
                 <div class="media">
-                  <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/45x45" alt="">
+                  <img class="d-flex mr-3 rounded-circle" src="{{asset('/img/required.png')}}" alt="">
                   <div class="media-body">
-                    <strong>Jeffery Wellings</strong>added a new photo to the album
-                    <strong>Beach</strong>.
-                    <div class="text-muted smaller">Today at 4:31 PM - 1hr ago</div>
+                    <input type="checkbox"  />&nbsp;Shopping cart&nbsp;</br>
+                    <input type="checkbox"  />&nbsp;Responsive&nbsp;</br>
+                    <input type="checkbox"  />&nbsp;Membership&nbsp;</br>
+                    <input type="checkbox"  />&nbsp;Notification&nbsp;</br>
+                    <input type="checkbox"  />&nbsp;Cloud hosting&nbsp;</br>
+                    <input type="checkbox"  />&nbsp;Admin panel&nbsp;</br>
+                    <input type="checkbox"  />&nbsp;Back-up&nbsp;</br>
+                    <input type="checkbox"  />&nbsp;Bulk sms&nbsp;
                   </div>
                 </div>
               </a>
-              <a class="list-group-item list-group-item-action" href="#">
+              <a class="list-group-item list-group-item-action">
                 <div class="media">
-                  <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/45x45" alt="">
+                  <img class="d-flex mr-3 rounded-circle" src="{{asset('/img/required.png')}}" alt="">
                   <div class="media-body">
-                    <i class="fa fa-code-fork"></i>
-                    <strong>Monica Dennis</strong>forked the
-                    <strong>startbootstrap-sb-admin</strong>repository on
-                    <strong>GitHub</strong>.
-                    <div class="text-muted smaller">Today at 3:54 PM - 2hrs ago</div>
+                    <input type="text" class="form-control" placeholder="Start date"/>
                   </div>
                 </div>
               </a>
-              <a class="list-group-item list-group-item-action" href="#">View all activity...</a>
+              <a class="list-group-item list-group-item-action">
+                <div class="media">
+                  <img class="d-flex mr-3 rounded-circle" src="{{asset('/img/required.png')}}" alt="">
+                  <div class="media-body">
+                    <input type="text" class="form-control" placeholder="End date"/>
+                  </div>
+                </div>
+              </a>
+              <a class="list-group-item list-group-item-action">
+                <div class="media">
+                  <img class="d-flex mr-3 rounded-circle" src="{{asset('/img/required.png')}}" alt="">
+                  <div class="media-body">
+                    <textarea type="text" class="form-control" placeholder="Give a brief overview of the project goals"></textarea>
+                  </div>
+                </div>
+              </a>
+              <a class="list-group-item list-group-item-action">
+                <div class="media">
+                  <img class="d-flex mr-3 rounded-circle" src="{{asset('/img/not-required.png')}}" alt="">
+                  <div class="media-body">
+                    <input type="text" class="form-control" placeholder="Ready to pay price"/>
+                  </div>
+                </div>
+              </a>
+              <a class="list-group-item list-group-item-action">
+                <div class="media">
+
+                  <div class="media-body">
+                    <label class="btn btn-primary btn-file">
+                      Caption (max 1mb) <input type="file" style="display: none;">
+                  </label>
+                  </div>
+                </div>
+              </a>
+              <a class="list-group-item list-group-item-action">
+                <div class="media">
+
+                  <div class="media-body">
+                    <label class="btn btn-primary btn-file">
+                      specification 1 (doc 1mb) <input type="file" style="display: none;">
+                  </label>
+                  </div>
+                </div>
+              </a>
+              <a class="list-group-item list-group-item-action">
+                <div class="media">
+
+                  <div class="media-body">
+                    <label class="btn btn-primary btn-file">
+                      specification 2 (doc 1mb) <input type="file" style="display: none;">
+                  </label>
+                  </div>
+                </div>
+              </a>
+              <a class="list-group-item list-group-item-action">
+                <div class="media">
+
+                  <div class="media-body">
+                    <label class="btn btn-primary btn-file">
+                      specification 3 (doc 1mb) <input type="file" style="display: none;">
+                  </label>
+                  </div>
+                </div>
+              </a>
+              <a class="btn btn-success btn-lg" href="#">Post</a>
             </div>
-            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
           </div>
         </div>
       </div>
@@ -1125,7 +1113,7 @@
     <footer class="sticky-footer">
       <div class="container">
         <div class="text-center">
-          <small>Copyright © Your Website 2017</small>
+          <small>Copyright © webdesignerscenter.com 2017</small>
         </div>
       </div>
     </footer>
