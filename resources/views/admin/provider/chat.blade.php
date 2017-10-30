@@ -241,24 +241,19 @@
             <div class="card-header">
               <i class="fa fa-comment"></i> Wajui / Chat Messages</div>
             <div class="card-body">
-              <ul class="list-group">
-                <li class="list-group-item">First item</li>
-                <li class="list-group-item">Second item</li>
-                <li class="list-group-item">Third item</li>
-              </ul>
-              <ul class="list-group pull-right">
-                <li class="list-group-item">First item</li>
-                <li class="list-group-item">Second item</li>
-                <li class="list-group-item">Third item</li>
-              </ul>
+              <!-- Chat template starts here-->
+              <article class="message-article from">
+                <small>12/12/2016 at 21:30hrs</small>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+              </article>
+              <article class="message-article pull-right to">
+                <small>12/12/2016 at 21:30hrs</small>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+              </article>
+              <!-- Chat template ends here-->
             </div>
-            <div class="form-group row">
-              <div class="col-10">
-                <input  class="form-control" type="text" placeholder="Type your message"/>
-              </div>
-              <div class="col-2">
-                <button class="btn btn-success"><i class="fa fa-send"></i> Send</button>
-              </div>
+            <div class="msg-type-field">
+              <input class="form-control" type="text" placeholder="Type your message" /><button class="btn btn-primary msg-send-btn" type="submit"><i class="fa fa-send"></i> Send</button>
             </div>
           </div>
         </div>
@@ -268,13 +263,12 @@
             <div class="card-header">
               <i class="fa fa-users"></i> Contact list</div>
             <div class="card-body">
-              <ul>
-                <li>wajui<span class="badge">12</span></li>
-                <li>wajui</li>
-                <li>wajui</li>
-                <li>wajui</li>
-                <li>wajui</li>
-                <li>wajui</li>
+              <ul class="list-group contact-list list-hovered">
+                <li class="list-group-item">wajui <span class="badge badge-pill badge-danger">12</span></li>
+                <li class="list-group-item">wajui <span class="badge badge-pill badge-danger">12</span></li>
+                <li class="list-group-item">wajui <span class="badge badge-pill badge-danger">12</span></li>
+                <li class="list-group-item">wajui <span class="badge badge-pill badge-danger">12</span></li>
+                <li class="list-group-item">wajui <span class="badge badge-pill badge-danger">12</span></li>
               </ul>
             </div>
             <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>

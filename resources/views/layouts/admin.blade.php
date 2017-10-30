@@ -16,6 +16,8 @@
     <link href="{{asset('/vendor/datatables/dataTables.bootstrap4.css')}}" rel="stylesheet">
     <!-- Custom styles for this template-->
     <link href="{{asset('/vendor/css/sb-admin.css')}}" rel="stylesheet">
+    <!-- Custom styles for chat-->
+    <link href="{{asset('/css/chat.css')}}" rel="stylesheet">
   </head>
 
   <body class="fixed-nav sticky-footer bg-dark" id="page-top">
