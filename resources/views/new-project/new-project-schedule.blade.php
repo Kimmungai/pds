@@ -108,10 +108,10 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-md-3  project-btn">
+              <div class="col-xs-3  project-btn">
                 <a class="btn btn-primary btn-lg" href="/new-project-features"><i class="fa  fa-chevron-left "></i> Back</a>
               </div>
-              <div class="col-md-3 pull-right project-btn">
+              <div class="col-xs-offset-6 col-xs-3  project-btn">
                 <a class="btn btn-primary btn-lg" href="/projects"><i class="fa fa-send"></i> Post</a>
               </div>
             </div>

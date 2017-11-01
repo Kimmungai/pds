@@ -107,7 +107,7 @@
               <div class="col-xs-3  project-btn">
                 <a class="btn btn-primary btn-lg" href="/"><i class="fa  fa-chevron-left "></i> Home</a>
               </div>
-              <div class="col-xs-3 pull-right project-btn">
+              <div class="col-xs-offset-6 col-xs-3  project-btn">
                 <a class="btn btn-primary btn-lg" href="/new-project-features">Next <i class="fa  fa-chevron-right "></i></a>
               </div>
             </div>

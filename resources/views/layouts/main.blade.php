@@ -29,12 +29,12 @@
           <div class="container">
             <div class="row">
               <div class="col-md-1 hidden-xs">
-                <div class="pds-logo">
+                <a href="/"><div class="pds-logo">
                   <!--<img class="img-responsive" src="{{ asset('/img/logo.png') }}" alt="WebDesignersCenter.com">-->
-                </div>
+                </div></a>
               </div>
               <div class="col-md-7">
-                <h1><a href="/">Web Designers Center</a></h1>
+                <h1 class="site-title"><a  href="/">Web Designers Center</a></h1>
               </div>
               <div class="col-md-3 provider-btn hidden-xs">
                 <a class="btn btn-primary" href="/service-provider-sign-up">Become a service provider</a>

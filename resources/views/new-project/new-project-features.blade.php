@@ -130,7 +130,7 @@
               <div class="col-xs-3  project-btn">
                 <a class="btn btn-primary btn-lg" href="/new-project"><i class="fa  fa-chevron-left "></i> Back</a>
               </div>
-              <div class="col-xs-3 pull-right project-btn">
+              <div class="col-xs-3 col-xs-offset-6 project-btn">
                 <a class="btn btn-primary btn-lg" href="/new-project-schedule">Next <i class="fa  fa-chevron-right "></i></a>
               </div>
             </div>

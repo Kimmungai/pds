@@ -104,10 +104,10 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-md-3  project-btn">
+              <div class="col-xs-3  project-btn">
                 <a class="btn btn-primary btn-lg" href="/service-provider-sign-up"><i class="fa  fa-chevron-left "></i> Back</a>
               </div>
-              <div class="col-md-3 pull-right project-btn">
+              <div class="col-xs-3 col-xs-offset-6 project-btn">
                 <a class="btn btn-primary btn-lg" href="/service-provider-subscription">Next <i class="fa  fa-chevron-right "></i></a>
               </div>
             </div>
