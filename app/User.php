@@ -29,10 +29,6 @@ class User extends Authenticatable
     {
       return $this->hasMany('App\Project');
     }
-    public function project()
-    {
-      return $this->hasMany('App\Project');
-    }
     public function userMembership()
     {
       return $this->hasOne('App\UserMembership');
