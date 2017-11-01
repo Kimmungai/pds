@@ -33,7 +33,10 @@ header{
 header h1{
   font-family: Archivo;
   text-align: center;
-  margin: 2em;
+}
+header h1 a:link{
+  text-decoration: none;
+  color: inherit;
 }
 .pds-logo
 {

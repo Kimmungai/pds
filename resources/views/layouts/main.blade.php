@@ -28,15 +28,15 @@
         <header>
           <div class="container">
             <div class="row">
-              <div class="col-md-1">
+              <div class="col-md-1 hidden-xs">
                 <div class="pds-logo">
                   <!--<img class="img-responsive" src="{{ asset('/img/logo.png') }}" alt="WebDesignersCenter.com">-->
                 </div>
               </div>
               <div class="col-md-7">
-                <h1>Web Designers Center</h1>
+                <h1><a href="/">Web Designers Center</a></h1>
               </div>
-              <div class="col-md-3 provider-btn">
+              <div class="col-md-3 provider-btn hidden-xs">
                 <a class="btn btn-primary" href="/service-provider-sign-up">Become a service provider</a>
               </div>            <!--<div class="col-md-4 pds-email">
                 <p>info@webdesignercenter.com</p>
