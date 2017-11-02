@@ -81,3 +81,7 @@ Route::get('/project-details/{project_id}', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::redirect('/home', '/', 301);
+Route::redirect('/login', '/user-login', 301);
+Route::redirect('/register', '/sign-up', 301);
+Route::post('/sign-up', 'clients@create')->name('create_client');

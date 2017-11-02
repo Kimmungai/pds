@@ -126,21 +126,21 @@ header h1{
   background-color:#000;
   border-radius: 5px;
 }
-.project-btn a
+.project-btn a, button
 {
-  background-color: #fff;
-  border-color: #000;
+  background-color: #fff !important;
+  border-color: #000 !important;
   opacity:1;
-  color: #000;
+  color: #000 !important;
   margin:1em 0;
   font-size: 1em;
 }
-.project-btn a:hover
+.project-btn a:hover, button:hover
 {
-  background-color: #fff;
+  background-color: #fff !important;
   cursor: pointer;
-  border-color: #000;
-  color: #000;
+  border-color: #000 !important;
+  color: #000 !important;
 }
 /*main body starts here*/
 .main-body
