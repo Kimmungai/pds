@@ -37,4 +37,10 @@ class User extends Authenticatable
     {
       return $this->hasMany('App\Chat');
     }
+    public function verified()
+    {
+      $this->verified=1;
+      $this->email_token=null;
+      $this->save();
+    }
 }

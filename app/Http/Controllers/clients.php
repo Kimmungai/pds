@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Mail\EmailVerification;
 use App\User;
+use Mail;
+use Session;
 
 class clients extends Controller
 {
@@ -27,7 +29,10 @@ class clients extends Controller
       $newUser->email=$request->input('email');
       $newUser->password=$request->input('password');
       $newUser->email_token=$email_token;
+      $email=new EmailVerification($newUser);
       $newUser->save();
-      return $request;
+      Mail::to($request->input('email'))->send($email);
+      session::flash('message', 'We have sent you an email to '.$request->input('email'). '. Check your inbox to complete registration!');
+      return back();
     }
 }

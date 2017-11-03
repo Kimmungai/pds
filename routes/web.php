@@ -85,3 +85,4 @@ Route::redirect('/home', '/', 301);
 Route::redirect('/login', '/user-login', 301);
 Route::redirect('/register', '/sign-up', 301);
 Route::post('/sign-up', 'clients@create')->name('create_client');
+Route::get('register/verify/{token}','Auth\RegisterController@verify');//verify email addresses

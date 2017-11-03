@@ -60,6 +60,9 @@
       <div class="col-md-8 col-md-offset-2">
         <article>
           <h5>Registration Form</h5>
+          @if (Session::has('message'))
+            <h5 class="green">Session::get('message')</h5>
+          @endif
           <form method="POST" action="{{ url('sign-up') }}">
             {{ csrf_field() }}
             <div class="row">

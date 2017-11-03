@@ -72,4 +72,16 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+    public function verify($token)
+    {
+      if(Auth::attempt(['email_token' => $token, 'website' => '']))
+      {
+        User::where('email_token',$token)->firstOrFail()->verified();
+        return redirect('profile');
+      }
+      else
+      {
+        return back('/');
+      }
+    }
 }
