@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
+use DB;
+use Mail;
 use App\User;
+use Illuminate\Http\Request;
+use App\Mail\EmailVerification;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
