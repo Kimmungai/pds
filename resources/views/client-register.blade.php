@@ -61,7 +61,14 @@
         <article>
           <h5>Registration Form</h5>
           @if (Session::has('message'))
-            <h5 class="green">Session::get('message')</h5>
+            <div class="alert alert-success">
+                {{ Session::get('message') }}
+            </div>
+          @endif
+          @if (Session::has('error_message'))
+            <div class="alert alert-danger">
+                {{ Session::get('error_message') }}
+            </div>
           @endif
           <form method="POST" action="{{ url('sign-up') }}">
             {{ csrf_field() }}

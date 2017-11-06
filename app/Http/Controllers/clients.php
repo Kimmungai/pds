@@ -7,6 +7,7 @@ use App\Mail\EmailVerification;
 use App\User;
 use Mail;
 use Session;
+use Carbon;
 
 class clients extends Controller
 {
@@ -27,12 +28,18 @@ class clients extends Controller
       $newUser->middle_name=$request->input('middle_name');
       $newUser->last_name=$request->input('last_name');
       $newUser->email=$request->input('email');
-      $newUser->password=$request->input('password');
+      $newUser->password=bcrypt($request->input('password'));
       $newUser->email_token=$email_token;
       $email=new EmailVerification($newUser);
-      $newUser->save();
-      Mail::to($request->input('email'))->send($email);
-      session::flash('message', 'We have sent you an email to '.$request->input('email'). '. Check your inbox to complete registration!');
+      if($newUser->save())
+      {
+        Mail::to($request->input('email'))->send($email);
+        session::flash('message', 'We have sent you an email to '.$request->input('email'). '. Check your inbox to complete registration!');
+      }
+      else
+      {
+        session::flash('error_message', 'Error!! please contact support@webdesignerscenter.com for help');
+      }
       return back();
     }
 }

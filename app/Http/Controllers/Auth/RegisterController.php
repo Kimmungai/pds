@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Auth;
 use DB;
 use Mail;
 use App\User;
+use App\UserMembership;
+use Carbon\Carbon;
+use Session;
 use Illuminate\Http\Request;
 use App\Mail\EmailVerification;
 use App\Http\Controllers\Controller;
@@ -74,10 +77,27 @@ class RegisterController extends Controller
     }
     public function verify($token)
     {
-      if(Auth::attempt(['email_token' => $token, 'website' => '']))
+      if($user=User::where('email_token',$token)->firstOrFail())
       {
-        User::where('email_token',$token)->firstOrFail()->verified();
-        return redirect('profile');
+        $user->verified();
+        $period=Carbon::now();
+        //assign the user a membership
+        $membership=new UserMembership;
+        $membership->user_id=$user['id'];
+        $membership->type=0;
+        $membership->price=0;
+        $membership->discount=0;
+        $membership->start_date=$period;
+        $membership->end_date=$period->addYears(10);
+        if($membership->save())
+        {
+          session::flash('email_verified', 'Email verified, you can now log in to your account!');
+        }
+        else
+        {
+          session::flash('email_verified_error', 'Email not verified, contact '.env('MAIL_FROM_ADDRESS', 'support@webdesignerscenter.com').' for help');
+        }
+        return redirect('/login');
       }
       else
       {

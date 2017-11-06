@@ -60,6 +60,16 @@
       <div class="col-md-8 col-md-offset-2">
         <article>
           <h5>Login Form</h5>
+          @if (Session::has('email_verified'))
+            <div class="alert alert-success">
+                {{ Session::get('email_verified') }}
+            </div>
+          @endif
+          @if (Session::has('email_verified_error'))
+            <div class="alert alert-danger">
+                {{ Session::get('email_verified_error') }}
+            </div>
+          @endif
           <div class="row">
             <div class="col-md-2">
               <label for="name">Email</label>
