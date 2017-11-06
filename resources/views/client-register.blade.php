@@ -22,7 +22,7 @@
     <ul class="nav navbar-nav navbar-right">
       <li><a href="/new-project">New Project</a></li>
       <li class="active"><a href="/sign-up"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="/user-login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
     </ul>
   </div>
 </div>
@@ -151,6 +151,9 @@
               </div>
             </div>
             <div class="row">
+              <div class="col-md-4 login-create-account-p">
+                <p><a href="/login">Already registered? Login here</a></p>
+              </div>
               <div class="col-md-3 pull-right project-btn">
                 <button class="btn btn-primary btn-lg" type="submit">Register</button>
               </div>

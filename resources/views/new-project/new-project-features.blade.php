@@ -22,7 +22,7 @@
     <ul class="nav navbar-nav navbar-right">
       <li class="active"><a href="/new-project">New Project</a></li>
       <li><a href="/sign-up"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="/user-login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
     </ul>
   </div>
 </div>

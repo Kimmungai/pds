@@ -29,9 +29,6 @@ Route::get('/client-subscription', function () {
 Route::get('/client-bidders', function () {
     return view('admin.client.bidders');
 });
-Route::get('/client-user-profile', function () {
-    return view('admin.client.profile');
-});
 Route::get('/client-users', function () {
     return view('admin.client.users');
 });
@@ -71,9 +68,6 @@ Route::get('/service-provider-subscription', function () {
 Route::get('/new-provider-company', function () {
     return view('new-provider.bidder-register-company-details');
 });
-Route::get('/user-login', function () {
-    return view('user-login');
-});
 Route::get('/project-details/{project_id}', function () {
     return view('project-details');
 });
@@ -82,7 +76,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::redirect('/home', '/', 301);
-Route::redirect('/login', '/user-login', 301);
 Route::redirect('/register', '/sign-up', 301);
 Route::post('/sign-up', 'clients@create')->name('create_client');
 Route::get('register/verify/{token}','Auth\RegisterController@verify');//verify email addresses
+Route::get('/profile','admin@profile')->name('profile')->middleware('auth');
+Route::get('/client-user-profile','admin@client_profile')->name('client_profile')->middleware('auth');

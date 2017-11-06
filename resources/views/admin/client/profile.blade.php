@@ -249,25 +249,25 @@
                 <div class="form-group row">
                   <label for="example-search-input" class="col-2 col-form-label">1st name</label>
                   <div class="col-10">
-                    <input class="form-control" type="text" value="10 sec">
+                    <input class="form-control" type="text" value="{{$user['first_name']}}">
                   </div>
                 </div>
                 <div class="form-group row">
                   <label for="example-search-input" class="col-2 col-form-label">2nd name</label>
                   <div class="col-10">
-                    <input class="form-control" type="text" value="10 sec">
+                    <input class="form-control" type="text" value="{{$user['middle_name']}}">
                   </div>
                 </div>
                 <div class="form-group row">
                   <label for="example-search-input" class="col-2 col-form-label">Last name</label>
                   <div class="col-10">
-                    <input class="form-control" type="text" value="10 sec">
+                    <input class="form-control" type="text" value="{{$user['last_name']}}">
                   </div>
                 </div>
                 <div class="form-group row">
-                  <label for="example-search-input" class="col-2 col-form-label">Birthday</label>
+                  <label for="example-search-input" class="col-2 col-form-label">Picture</label>
                   <div class="col-10">
-                    <input class="form-control" type="text" value="10 sec">
+                    <input class="form-control" type="text" value="{{$user['avatar']}}">
                   </div>
                 </div>
                 <div class="form-group row">
