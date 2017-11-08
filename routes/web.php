@@ -80,4 +80,9 @@ Route::redirect('/register', '/sign-up', 301);
 Route::post('/sign-up', 'clients@create')->name('create_client');
 Route::get('register/verify/{token}','Auth\RegisterController@verify');//verify email addresses
 Route::get('/profile','admin@profile')->name('profile')->middleware('auth');
-Route::get('/client-user-profile','admin@client_profile')->name('client_profile')->middleware('auth');
+Route::get('/client-user-profile','clients@client_profile')->name('client_profile')->middleware('auth');
+Route::put('/update-basic-details','admin@update_basic_details')->name('Basic_details_update')->middleware('auth');
+Route::put('/update-personal-details','admin@update_personal_details')->name('Personal_details_update')->middleware('auth');
+Route::put('/update-password-change','admin@update_password_change')->name('Password_update')->middleware('auth');
+Route::put('/update-contact-details','admin@update_contact_details')->name('Contact_details_update')->middleware('auth');
+Route::post('/delete-account', 'admin@delete_account')->name('delete_account')->middleware('auth');

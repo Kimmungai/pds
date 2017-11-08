@@ -18,6 +18,10 @@
     <link href="{{asset('/vendor/css/sb-admin.css')}}" rel="stylesheet">
     <!-- Custom styles for chat-->
     <link href="{{asset('/css/chat.css')}}" rel="stylesheet">
+    <!-- Admin Custom styles for chat-->
+    <link href="{{asset('/css/adm-cutom-style.css')}}" rel="stylesheet">
+    <!-- Admin Custom styles for calender-->
+    <link href="{{asset('/css/jquery-ui.min.css')}}" rel="stylesheet">
   </head>
 
   <body class="fixed-nav sticky-footer bg-dark" id="page-top">
@@ -61,6 +65,27 @@
             </div>
           </div>
         </div>
+        <!-- Deactivate Modal-->
+        <div class="modal fade" id="deactivateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Delete your account?</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                </button>
+              </div>
+              <div class="modal-body">Click below to delete your account.</div>
+              <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                <a class="btn btn-danger" href="#" onclick="document.getElementById('delete-account-form').submit()">Delete</a>
+                <form id="delete-account-form" action="/delete-account" method="POST" style="display: none;">
+                    {{ csrf_field() }}
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
         <script src="{{ asset('/js/vendor/modernizr-3.5.0.min.js') }}"></script>
         <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
         <script>window.jQuery || document.write('<script src="<?php echo asset('js/vendor/jquery-3.2.1.min.js'); ?>"><\/script>')</script>
@@ -79,6 +104,8 @@
         <!-- Custom scripts for this page-->
         <script src="{{asset('/vendor/js/sb-admin-datatables.min.js')}}"></script>
         <script src="{{asset('/vendor/js/sb-admin-charts.min.js')}}"></script>
+        <!-- Custom scripts for calender-->
+        <script src="{{asset('/js/jquery-ui.min.js')}}"></script>
 
         <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
         <script>

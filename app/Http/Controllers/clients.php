@@ -8,6 +8,7 @@ use App\User;
 use Mail;
 use Session;
 use Carbon;
+use Auth;
 
 class clients extends Controller
 {
@@ -41,5 +42,10 @@ class clients extends Controller
         session::flash('error_message', 'Error!! please contact support@webdesignerscenter.com for help');
       }
       return back();
+    }
+    public function client_profile()
+    {
+      $user=User::with('UserMembership')->where('id','=',Auth::id())->first();
+      return view('admin.client.profile',compact('user'));
     }
 }
