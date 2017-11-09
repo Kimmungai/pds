@@ -273,6 +273,11 @@
                     <label for="example-search-input" class="col-md-3 col-form-label">Picture</label>
                     <div class="col-md-9">
                         <input name="avatar" type="file" class="form-control" style="height:auto;">
+                        @if ($errors->has('avatar'))
+                          <span class="red">
+                              <strong>{{ $errors->first('avatar') }}</strong>
+                          </span>
+                        @endif
                     </div>
                   </div>
                   <div class="form-group row">
@@ -365,16 +370,6 @@
                </form>
               </div>
               <hr class="my-0">
-            </div>
-            <!-- Example Social Card-->
-            <div class="card mb-3">
-              <div class="card-body">
-                <h6 class="card-title mb-1"><a href="#">Account Deactivation</a></h6>
-              </div>
-              <hr class="my-0">
-              <div class="card-body py-2 small"></div>
-              <hr class="my-0">
-              <button class="btn btn-danger" data-toggle="modal" data-target="#deactivateModal">Delete my account</button>
             </div>
             <!-- Example Social Card-->
             <form class="" action="/update-personal-details" method="post">
@@ -486,8 +481,18 @@
               </div>
               <hr class="my-0">
             </div>
-            <!-- Example Social Card-->
 
+            <!-- Example Social Card-->
+            <div class="card mb-3">
+              <div class="card-body">
+                <h6 class="card-title mb-1"><a href="#">Account Deactivation</a></h6>
+              </div>
+              <hr class="my-0">
+              <div class="card-body py-2 small"></div>
+              <hr class="my-0">
+              <button class="btn btn-danger" data-toggle="modal" data-target="#deactivateModal">Delete my account</button>
+            </div>
+            <!-- Example Social Card-->
           </div>
           <!-- /Card Columns-->
         </div>

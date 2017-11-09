@@ -85,4 +85,5 @@ Route::put('/update-basic-details','admin@update_basic_details')->name('Basic_de
 Route::put('/update-personal-details','admin@update_personal_details')->name('Personal_details_update')->middleware('auth');
 Route::put('/update-password-change','admin@update_password_change')->name('Password_update')->middleware('auth');
 Route::put('/update-contact-details','admin@update_contact_details')->name('Contact_details_update')->middleware('auth');
-Route::post('/delete-account', 'admin@delete_account')->name('delete_account')->middleware('auth');
+Route::get('/delete-account', 'admin@delete_account')->name('delete_account')->middleware('auth');
+Route::post('/provider-registration', 'providers@create')->name('create_provider');

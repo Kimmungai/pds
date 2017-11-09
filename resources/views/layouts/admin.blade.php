@@ -78,10 +78,10 @@
               <div class="modal-body">Click below to delete your account.</div>
               <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-danger" href="#" onclick="document.getElementById('delete-account-form').submit()">Delete</a>
-                <form id="delete-account-form" action="/delete-account" method="POST" style="display: none;">
+                <a class="btn btn-danger" href="/delete-account">Delete</a>
+                <!--<form id="delete-account-form" action="/delete-account" method="POST" style="display: none;">
                     {{ csrf_field() }}
-                </form>
+                </form>-->
               </div>
             </div>
           </div>

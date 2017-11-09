@@ -33,9 +33,9 @@ class admin extends Controller
     {
       $validatedData = $request->validate([
         'first_name' => 'required|max:255',
-        'middle_name' => 'max:255',
+        'middle_name' => 'nullable|max:255',
         'last_name' => 'required|max:255',
-        'avatar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'avatar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
       ]);
       if(User::where('id','=',Auth::id())->update([
         'first_name' => $request->input('first_name'),
@@ -64,16 +64,17 @@ class admin extends Controller
     public function update_personal_details(Request $request)
     {
       $validatedData = $request->validate([
-        'id_no' => 'numeric|min:5',
-        'passport' => 'max:255',
+        'id_no' => 'nullable|numeric|min:5',
+        'passport' => 'nullable|max:255',
         'nationality' => 'max:255',
         'dob' => 'nullable|max:255|date_format:m/d/Y',
       ]);
+      if($request->input('dob')!=''){$dob=Carbon::createFromTimestamp(strtotime($request->input('dob')))->toDateString('m/d/Y');}else{$dob='';}
       if(User::where('id','=',Auth::id())->update([
         'id_no' => $request->input('id_no'),
         'passport' => $request->input('passport'),
         'nationality' => $request->input('nationality'),
-        'dob' => Carbon::createFromTimestamp(strtotime($request->input('dob')))->toDateString(),
+        'dob' => $dob,
       ])){
           session::flash('update_success', 'Update succesful!');
          }
@@ -111,9 +112,9 @@ class admin extends Controller
     public function update_contact_details(Request $request)
     {
       $validatedData = $request->validate([
-        'phone' => 'numeric|min:5',
-        'address' => 'max:255',
-        'website' => "max:255",
+        'phone' => 'nullable|numeric|min:5',
+        'address' => 'nullable|max:255',
+        'website' => "nullable|max:255",
       ]);
       if(User::where('id','=',Auth::id())->update([
         'phone' => $request->input('phone'),
@@ -136,6 +137,7 @@ class admin extends Controller
       $user->chat()->delete();
       $user->project()->delete();
       $user->delete();
-      return Auth::logout();
+      Auth::logout();
+      return redirect('/');
     }
 }

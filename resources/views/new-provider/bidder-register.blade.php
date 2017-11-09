@@ -66,49 +66,106 @@
         <div class="row">
           <article>
             <h5>Service provider registration form</h5>
-            <div class="row">
-              <div class="col-md-2">
-                <label for="name">Name<span class="red">*</span></label>
+            @if (Session::has('message'))
+              <div class="alert alert-success">
+                  {{ Session::get('message') }}
               </div>
-              <div class="col-md-10">
-                <input type="text" class="form-control" />
+            @endif
+            @if (Session::has('error_message'))
+              <div class="alert alert-danger">
+                  {{ Session::get('error_message') }}
               </div>
-            </div>
-            <div class="row">
-              <div class="col-md-2">
-                <label for="name">Category<span class="red">*</span></label>
+            @endif
+            <form method="POST" action="{{ url('provider-registration') }}">
+              {{ csrf_field() }}
+              <div class="row">
+                <div class="col-md-2">
+                  <label for="name">First name<span class="red">*</span></label>
+                </div>
+                <div class="col-md-10">
+                  <input type="text" class="form-control" name="first_name" value="{{ old('first_name') }}"  required autofocus/>
+                  @if ($errors->has('first_name'))
+                    <span class="red">
+                        <strong>{{ $errors->first('first_name') }}</strong>
+                    </span>
+                  @endif
+                </div>
               </div>
-              <div class="col-md-10">
-                <div class="col-md-3"><input type="checkbox"  />&nbsp;Mobile App</div>
-                <div class="col-md-3"><input type="checkbox"  />&nbsp;E-commerce</div>
-                <div class="col-md-3"><input type="checkbox"  />&nbsp;Blog</div>
-                <div class="col-md-3"><input type="checkbox"  />&nbsp;Website</div>
+              <div class="row">
+                <div class="col-md-2">
+                  <label for="name">Middle name</label>
+                </div>
+                <div class="col-md-10">
+                  <input type="text" class="form-control" name="middle_name" value="{{ old('middle_name') }}" />
+                  @if ($errors->has('middle_name'))
+                    <span class="red">
+                        <strong>{{ $errors->first('middle_name') }}</strong>
+                    </span>
+                  @endif
+                </div>
               </div>
-            </div>
-            <div class="row">
-              <div class="col-md-2">
-                <label for="name">Caption</label>
+              <div class="row">
+                <div class="col-md-2">
+                  <label for="name">Last name<span class="red">*</span></label>
+                </div>
+                <div class="col-md-10">
+                  <input type="text" class="form-control" name="last_name" value="{{ old('last_name') }}" required/>
+                  @if ($errors->has('last_name'))
+                    <span class="red">
+                        <strong>{{ $errors->first('last_name') }}</strong>
+                    </span>
+                  @endif
+                </div>
               </div>
-              <div class="col-md-10">
-                <label class="btn btn-default btn-file">
-                  Browse (max 500kb) <input type="file" style="display: none;">
-              </label> <span>An image to describe the project</span>
+              <div class="row">
+                <div class="col-md-2">
+                  <label for="name">Email<span class="red">*</span></label>
+                </div>
+                <div class="col-md-10">
+                  <input type="email" class="form-control" name="email" value="{{ old('email') }}" required/>
+                  @if ($errors->has('email'))
+                    <span class="red">
+                        <strong>{{ $errors->first('email') }}</strong>
+                    </span>
+                  @endif
+                </div>
               </div>
-            </div>
-            <div class="row">
-              <div class="col-md-2">
-                <label for="name">Description<span class="red">*</span></label>
+              <div class="row">
+                <div class="col-md-2">
+                  <label for="name">Password<span class="red">*</span></label>
+                </div>
+                <div class="col-md-10">
+                  <input type="password" class="form-control" name="password" required/>
+                  @if ($errors->has('password'))
+                    <span class="red">
+                        <strong>{{ $errors->first('password') }}</strong>
+                    </span>
+                  @endif
+                </div>
               </div>
-              <div class="col-md-10">
-                <textarea rows="5" class="form-control" placeholder="Give a brief overview of the project goals"></textarea>
+              <div class="row">
+                <div class="col-md-2">
+                  <label for="name">Confirm password<span class="red">*</span></label>
+                </div>
+                <div class="col-md-10">
+                  <input type="password" class="form-control" name="password_confirmation" required/>
+                  @if ($errors->has('password_confirmation'))
+                    <span class="red">
+                        <strong>{{ $errors->first('password_confirmation') }}</strong>
+                    </span>
+                  @endif
+                </div>
               </div>
-            </div>
             <div class="row">
               <div class="col-xs-3  project-btn">
                 <a class="btn btn-primary btn-lg" href="/"><i class="fa  fa-chevron-left "></i> Home</a>
               </div>
               <div class="col-xs-3 col-xs-offset-6 project-btn">
-                <a class="btn btn-primary btn-lg" href="/new-provider-company">Next <i class="fa  fa-chevron-right "></i></a>
+                @if (Session::has('deactivate-next'))
+                  <button class="btn btn-primary btn-lg" disabled>Next <i class="fa  fa-chevron-right "></i></button>
+                @else
+                  <button class="btn btn-primary btn-lg" type="submit">Next <i class="fa  fa-chevron-right "></i></button>
+                @endif
               </div>
             </div>
           </article>
