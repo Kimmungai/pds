@@ -29,6 +29,10 @@ class User extends Authenticatable
     {
       return $this->hasMany('App\Project');
     }
+    public function company()
+    {
+      return $this->hasOne('App\Company');
+    }
     public function userMembership()
     {
       return $this->hasOne('App\UserMembership');
@@ -41,6 +45,6 @@ class User extends Authenticatable
     {
       $this->verified=1;
       $this->email_token=null;
-      $this->save();
+      if($this->save()){return 1;}else{return 0;}
     }
 }

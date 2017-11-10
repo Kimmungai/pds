@@ -21,7 +21,7 @@
     <!-- Admin Custom styles for chat-->
     <link href="{{asset('/css/adm-cutom-style.css')}}" rel="stylesheet">
     <!-- Admin Custom styles for calender-->
-    <link href="{{asset('/css/jquery-ui.min.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
   </head>
 
   <body class="fixed-nav sticky-footer bg-dark" id="page-top">

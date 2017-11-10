@@ -64,10 +64,10 @@ Route::get('/service-provider-sign-up', function () {
 });
 Route::get('/service-provider-subscription', function () {
     return view('new-provider.bidder-register-subscription-details');
-});
+})->middleware('auth');
 Route::get('/new-provider-company', function () {
     return view('new-provider.bidder-register-company-details');
-});
+})->middleware('auth');
 Route::get('/project-details/{project_id}', function () {
     return view('project-details');
 });
@@ -87,3 +87,5 @@ Route::put('/update-password-change','admin@update_password_change')->name('Pass
 Route::put('/update-contact-details','admin@update_contact_details')->name('Contact_details_update')->middleware('auth');
 Route::get('/delete-account', 'admin@delete_account')->name('delete_account')->middleware('auth');
 Route::post('/provider-registration', 'providers@create')->name('create_provider');
+Route::get('register/provider-verify/{token}','Auth\RegisterController@provider_verify');//verify provideremail addresses
+Route::post('/provider-company-registration', 'providers@create_provider_company')->name('provider_company');

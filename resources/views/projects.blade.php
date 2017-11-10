@@ -21,8 +21,23 @@
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li><a href="/new-project">New Project</a></li>
-      <li><a href="/sign-up"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      @if(Auth::id())
+        <li><a href="/profile"><span class="glyphicon glyphicon-user"></span> {{Auth::user()->first_name}}</a></li>
+        <li>
+            <a href="{{ route('logout') }}"
+                onclick="event.preventDefault();
+                         document.getElementById('logout-form').submit();">
+                Logout
+            </a>
+
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                {{ csrf_field() }}
+            </form>
+        </li>
+      @else
+        <li><a href="/sign-up"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      @endif
     </ul>
   </div>
 </div>

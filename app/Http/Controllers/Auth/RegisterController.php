@@ -13,6 +13,7 @@ use App\Mail\EmailVerification;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Auth;
 
 class RegisterController extends Controller
 {
@@ -98,6 +99,26 @@ class RegisterController extends Controller
           session::flash('email_verified_error', 'Email not verified, contact '.env('MAIL_FROM_ADDRESS', 'support@webdesignerscenter.com').' for help');
         }
         return redirect('/login');
+      }
+      else
+      {
+        return back('/');
+      }
+    }
+    public function provider_verify($token)
+    {
+      if($user=User::where('email_token',$token)->firstOrFail())
+      {
+        if($user->verified())
+        {
+          Auth::login($user, true);
+          session::flash('email_verified', 'Email verified!! Please continue by providing your company detail');
+        }
+        else
+        {
+          session::flash('email_verified_error', 'Email not verified, contact '.env('MAIL_FROM_ADDRESS', 'support@webdesignerscenter.com').' for help');
+        }
+        return redirect('/new-provider-company');
       }
       else
       {

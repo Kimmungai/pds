@@ -16,6 +16,8 @@
         <link rel="stylesheet" href="{{ asset('/css/normalize.css') }}">
         <link rel="stylesheet" href="{{ asset('/css/main.css') }}">
         <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
+        <!-- Admin Custom styles for calender-->
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
     </head>
     <body>
         <!--[if lte IE 9]>
@@ -82,6 +84,8 @@
         <script src="{{ asset('js/plugins.js') }}"></script>
         <script src="{{ asset('js/main.js') }}"></script>
         <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+        <!-- Custom scripts for calender-->
+        <script src="{{asset('/js/jquery-ui.min.js')}}"></script>
 
         <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
         <script>
