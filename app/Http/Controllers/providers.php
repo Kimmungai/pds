@@ -6,9 +6,10 @@ use Illuminate\Http\Request;
 use App\Mail\ProviderEmailVerification;
 use App\User;
 use App\Company;
+use App\UserMembership;
 use Mail;
 use Session;
-use Carbon;
+use Carbon\Carbon;
 use Auth;
 
 
@@ -80,7 +81,112 @@ class providers extends Controller
     else
     {
       session::flash('company_update_error', 'Company not saved! Please contact support@webdesignerscenter.com for help');
-      return back('/');
+      return back();
+    }
+  }
+  public function provider_membership(Request $request)
+  {
+    $validatedData = $request->validate([
+      'type' => 'required|numeric|max:10',
+    ]);
+    //assign the user a membership
+    $membership_type=$request->input('type');
+    $start_date=Carbon::now();
+    if($membership_type==1){
+      $end_date=Carbon::now()->addMonths(3);
+      $price=0;
+      $plan='Promotional Plan';
+      session(['plan'=>1]);
+    }else if($membership_type==2){
+      $end_date=Carbon::now()->addMonths(1);
+      $price=10000;
+      $plan='Basic Plan';
+      session(['plan'=>2]);
+    }else if($membership_type==3){
+      $end_date=Carbon::now()->addMonths(4);
+      $price=27500;
+      $plan='Silver Plan';
+      session(['plan'=>3]);
+    }else if($membership_type==4){
+      $end_date=Carbon::now()->addYears(1);
+      $price=100000;
+      $plan='Gold Plan';
+      session(['plan'=>4]);
+    }
+    if(!UserMembership::where('user_id','=',Auth::id())->firstOrFail())//check if user already choose a membership
+    {
+      $membership=new UserMembership;
+      $membership->user_id=Auth::id();
+      $membership->type=$membership_type;
+      $membership->price=$price;
+      $membership->discount=0;
+      $membership->start_date=$start_date;
+      $membership->end_date=$end_date;
+      if($membership->save())
+      {
+          session::flash('plan_success', $plan.' Has been successfully selected!');
+      }
+      else
+      {
+          session::flash('plan_error', $plan.' Has not been selected! Contact info@webdesignerscenter.com for help.');
+      }
+    }
+    else
+    {
+      if(UserMembership::where('user_id','=',Auth::id())->update([
+        'type' => $membership_type,
+        'price'=> $price,
+        'discount' => 0,
+        'start_date' => $start_date,
+        'end_date' => $end_date,
+      ])){
+        session::flash('plan_success', $plan.' Has been successfully updated!');
+      }
+      else {
+        session::flash('plan_error', $plan.' Has not been updated! Contact info@webdesignerscenter.com for help.');
+      }
+    }
+    return back();
+  }
+  public function create_provider_company_back()
+  {
+    $data=Company::where('user_id','=',Auth::id())->firstOrFail();
+    return view('new-provider.bidder-register-company-details',compact('data'));
+  }
+  public function update_provider_company(Request $request)
+  {
+    $validatedData = $request->validate([
+      'company_name' => 'required|max:255',
+      'company_legal_name' => 'required|max:255',
+      'company_reg_no' => 'required|max:255',
+      'company_incoporation_date' => 'nullable|max:255|date_format:m/d/Y',
+      'company_address' => 'required|max:255',
+      'company_fax' => 'nullable|max:255',
+      'company_tel' => 'required|numeric|min:5',
+      'company_industry' => 'required|max:255',
+      'company_website' => 'required|max:255',
+      'company_description' => 'required|max:255',
+    ]);
+    if(Company::where('user_id','=',Auth::id())->update([
+      'company_name' => $request->input('company_name'),
+      'company_legal_name' => $request->input('company_legal_name'),
+      'company_reg_no' => $request->input('company_reg_no'),
+      'company_incoporation_date' => $request->input('company_incoporation_date'),
+      'company_address' => $request->input('company_address'),
+      'company_fax' => $request->input('company_fax'),
+      'company_tel' => $request->input('company_tel'),
+      'company_industry' => $request->input('company_industry'),
+      'company_website' => $request->input('company_website'),
+      'company_description' => $request->input('company_description'),
+    ]))
+    {
+      session::flash('update_success', 'Company Updated!');
+      return redirect('/service-provider-subscription');
+    }
+    else
+    {
+      session::flash('company_update_error', 'Company details not updated! Please contact support@webdesignerscenter.com for help');
+      return back();
     }
   }
 }

@@ -88,4 +88,7 @@ Route::put('/update-contact-details','admin@update_contact_details')->name('Cont
 Route::get('/delete-account', 'admin@delete_account')->name('delete_account')->middleware('auth');
 Route::post('/provider-registration', 'providers@create')->name('create_provider');
 Route::get('register/provider-verify/{token}','Auth\RegisterController@provider_verify');//verify provideremail addresses
-Route::post('/provider-company-registration', 'providers@create_provider_company')->name('provider_company');
+Route::post('/provider-company-registration', 'providers@create_provider_company')->name('provider_company')->middleware('auth');
+Route::post('/provider-membership', 'providers@provider_membership')->name('provider membership')->middleware('auth');
+Route::get('/provider-company-registration-back', 'providers@create_provider_company_back')->name('provider company back')->middleware('auth');
+Route::put('/provider-company-registration-update', 'providers@update_provider_company')->name('provider company update')->middleware('auth');

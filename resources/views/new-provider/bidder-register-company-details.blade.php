@@ -96,6 +96,155 @@
                   {{ Session::get('company_update_error') }}
               </div>
             @endif
+            @if(isset($data))
+              <form method="POST" action="{{ url('provider-company-registration-update') }}">
+                {{ csrf_field() }}
+                <input type="hidden" name="_method" value="PUT"/>
+              <div class="row">
+                <div class="col-md-2">
+                  <label for="name">Company name<span class="red">*</span></label>
+                </div>
+                <div class="col-md-10">
+                  <input type="text" name="company_name" class="form-control" value="{{ $data['company_name'] }}" />
+                  @if ($errors->has('company_name'))
+                    <span class="red">
+                        <strong>{{ $errors->first('company_name') }}</strong>
+                    </span>
+                  @endif
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-2">
+                  <label for="name">Company legal name<span class="red">*</span></label>
+                </div>
+                <div class="col-md-10">
+                  <input type="text" name="company_legal_name" class="form-control" value="{{ $data['company_legal_name'] }}"/>
+                  @if ($errors->has('company_legal_name'))
+                    <span class="red">
+                        <strong>{{ $errors->first('company_legal_name') }}</strong>
+                    </span>
+                  @endif
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-2">
+                  <label for="name">Reg no<span class="red">*</span></label>
+                </div>
+                <div class="col-md-10">
+                  <input type="text" name="company_reg_no" class="form-control" value="{{ $data['company_reg_no'] }}"/>
+                  @if ($errors->has('company_reg_no'))
+                    <span class="red">
+                        <strong>{{ $errors->first('company_reg_no') }}</strong>
+                    </span>
+                  @endif
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-2">
+                  <label for="name">Incorporation date<span class="red">*</span></label>
+                </div>
+                <div class="col-md-10">
+                  <input id="incorporation_date" type="text" name="company_incoporation_date" class="form-control" value="{{ $data['company_incoporation_date'] }}"/>
+                  @if ($errors->has('company_incoporation_date'))
+                    <span class="red">
+                        <strong>{{ $errors->first('company_incoporation_date') }}</strong>
+                    </span>
+                  @endif
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-2">
+                  <label for="name">Address<span class="red">*</span></label>
+                </div>
+                <div class="col-md-10">
+                  <input type="text" name="company_address" class="form-control" value="{{ $data['company_address'] }}"/>
+                  @if ($errors->has('company_address'))
+                    <span class="red">
+                        <strong>{{ $errors->first('company_address') }}</strong>
+                    </span>
+                  @endif
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-2">
+                  <label for="name">Telephone<span class="red">*</span></label>
+                </div>
+                <div class="col-md-10">
+                  <input type="text" name="company_tel" class="form-control" value="{{ $data['company_tel'] }}"/>
+                  @if ($errors->has('company_tel'))
+                    <span class="red">
+                        <strong>{{ $errors->first('company_tel') }}</strong>
+                    </span>
+                  @endif
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-2">
+                  <label for="name">Fax</label>
+                </div>
+                <div class="col-md-10">
+                  <input type="text" name="company_fax" class="form-control" value="{{ $data['company_fax'] }}"/>
+                  @if ($errors->has('company_fax'))
+                    <span class="red">
+                        <strong>{{ $errors->first('company_fax') }}</strong>
+                    </span>
+                  @endif
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-2">
+                  <label for="name">Industry<span class="red">*</span></label>
+                </div>
+                <div class="col-md-10">
+                  <select class="form-control" name="company_industry">
+                    <option value="1" <?php if($data['company_industry']==1){?>selected<?php }?>>Software industry</option>
+                    <option value="2" <?php if($data['company_industry']==2){?>selected<?php }?>>Telco industry</option>
+                    <option value="3" <?php if($data['company_industry']==3){?>selected<?php }?>>Business industry</option>
+                    <option value="4" <?php if($data['company_industry']==4){?>selected<?php }?>>Marketing industry</option>
+                  </select>
+                  @if ($errors->has('company_industry'))
+                    <span class="red">
+                        <strong>{{ $errors->first('company_industry') }}</strong>
+                    </span>
+                  @endif
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-2">
+                  <label for="name">Website url<span class="red">*</span></label>
+                </div>
+                <div class="col-md-10">
+                  <input type="text" name="company_website" class="form-control" value="{{ $data['company_website'] }}"/>
+                  @if ($errors->has('company_website'))
+                    <span class="red">
+                        <strong>{{ $errors->first('company_website') }}</strong>
+                    </span>
+                  @endif
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-2">
+                  <label for="name">Description<span class="red">*</span></label>
+                </div>
+                <div class="col-md-10">
+                  <textarea rows="5" class="form-control" name="company_description" placeholder="Give a brief description of your company">{{ $data['company_description'] }}</textarea>
+                  @if ($errors->has('company_description'))
+                    <span class="red">
+                        <strong>{{ $errors->first('company_description') }}</strong>
+                    </span>
+                  @endif
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-3  project-btn">
+                  <a class="btn btn-primary" href="/service-provider-sign-up"><i class="fa  fa-chevron-left "></i> Back</a>
+                </div>
+                <div class="col-xs-3 col-xs-offset-6 project-btn">
+                  <button class="btn btn-primary" type="submit">Next <i class="fa  fa-chevron-right "></i></button>
+                </div>
+              </div>
+             </form>
+            @else
             <form method="POST" action="{{ url('provider-company-registration') }}">
               {{ csrf_field() }}
             <div class="row">
@@ -242,6 +391,7 @@
               </div>
             </div>
            </form>
+            @endif
           </article>
         </div>
       </div>

@@ -647,3 +647,40 @@ footer a
   line-height: 1.3em !important;
 }
 /*login/ sign up ends here*/
+/*Membership plan card starts here*/
+.membership-plan
+{
+  box-shadow: 0.1em 0.1em 0.1em #333333;
+}
+.membership-plan table
+{
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+}
+.membership-plan button
+{
+  border: 0;
+  border-radius: 0;
+  color: #fff !important;
+}
+.membership-plan button:hover
+{
+  border: 0 !important;
+  border-radius: 0 !important;
+  background-color: #00b450 !important;
+  color: #fff !important;
+  opacity: 1;
+}
+.subscription-area p
+{
+  width: 80%;
+  margin: 0 auto;
+  font-family: Archivo;
+  text-align: center;
+}
+.payment-icons
+{
+  font-size: 1.5em;
+}
+/*Membership plan card ends here*/

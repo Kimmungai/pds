@@ -79,56 +79,199 @@
           <div class="col-xs-4"><div class="desired-feature dark-bg white"><i class="fa">3</i><p>Subscribe</p></div></div>
         </div>
         <div class="row">
-          <article>
+          <article class="subscription-area">
             <h5>Service Subscription Form</h5>
             @if (Session::has('update_success'))
               <div class="alert alert-success">
                   {{ Session::get('update_success') }}
               </div>
             @endif
-            <div class="row">
-              <div class="col-md-2">
-                <label for="name">Name<span class="red">*</span></label>
+            @if (Session::has('plan_success'))
+              <div class="alert alert-success">
+                  {{ Session::get('plan_success') }}
               </div>
-              <div class="col-md-10">
-                <input type="text" class="form-control" />
+            @endif
+            @if (Session::has('plan_error'))
+              <div class="alert alert-danger">
+                  {{ Session::get('plan_error') }}
+              </div>
+            @endif
+            <p>Please select one of the plans. For paid plans, all payments will be processed through paypal</p>
+            <p class="payment-icons"><i class="fa fa-cc-paypal"></i> <i class="fa fa-cc-visa"></i> <i class="fa fa-cc-mastercard"></i></p>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="membership-plan">
+                  <form method="post" action="/provider-membership" />
+                    {{csrf_field()}}
+                    <input type="hidden" name="type" value="1" />
+                    <h5>Promotional
+                      @if (Session::has('plan') && Session('plan')==1)
+                      <i class="fa fa-check-circle green"></i>
+                      @endif
+                    </h5>
+                    <div class="table-responsive">
+                      <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th>Feature</th><td>Present?</td>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th>Bidding access</th><td><i class="fa fa-check green"></i></td>
+                          </tr>
+                          <tr>
+                            <th>Advertising space</th><td><i class="fa fa-check green"></i></td>
+                          </tr>
+                          <tr>
+                            <th>Unlimited bidding</th><td><i class="fa fa-close red"></i></td>
+                          </tr>
+                          <tr>
+                            <th>Validity</th><td><strong>3 months</strong></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    @if((Session::has('plan') && Session('plan')!=1) || !Session::has('plan'))
+                      <button class="btn btn-primary form-control green-bg inactive-step" type="submit"> Subscribe (FREE)</button>
+                    @else
+                      <button class="btn btn-primary form-control green-bg" type="submit"> Current plan (FREE)</button>
+                    @endif
+                  </div>
+                </div>
+              </form>
+              <div class="col-md-6">
+                <div class="membership-plan">
+                  <form method="post" action="/provider-membership" />
+                    {{csrf_field()}}
+                    <input type="hidden" name="type" value="2" />
+                  <h5>Basic
+                    @if (Session::has('plan') && Session('plan')==2)
+                    <i class="fa fa-check-circle green"></i>
+                    @endif
+                  </h5>
+                  <div class="table-responsive">
+                    <table class="table table-bordered">
+                      <thead>
+                        <tr>
+                          <th>Feature</th><td>Present?</td>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th>Bidding access</th><td><i class="fa fa-check green"></i></td>
+                        </tr>
+                        <tr>
+                          <th>Advertising space</th><td><i class="fa fa-check green"></i></td>
+                        </tr>
+                        <tr>
+                          <th>Unlimited bidding</th><td><i class="fa fa-check green"></i></td>
+                        </tr>
+                        <tr>
+                          <th>Billing cycle</th><td><strong>Monthly</strong></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  @if((Session::has('plan') && Session('plan')!=2) || !Session::has('plan'))
+                    <button class="btn btn-primary form-control green-bg inactive-step" type="submit"> Subscribe (Ksh. 10,000)</button>
+                  @else
+                    <button class="btn btn-primary form-control green-bg" type="submit"> Current plan (Ksh. 10,000)</button>
+                  @endif
+                </form>
+                </div>
               </div>
             </div>
             <div class="row">
-              <div class="col-md-2">
-                <label for="name">Category<span class="red">*</span></label>
+              <div class="col-md-6">
+                <div class="membership-plan">
+                  <form method="post" action="/provider-membership" />
+                    {{csrf_field()}}
+                    <input type="hidden" name="type" value="3" />
+                  <h5>Silver
+                    @if (Session::has('plan') && Session('plan')==3)
+                    <i class="fa fa-check-circle green"></i>
+                    @endif
+                  </h5>
+                  <div class="table-responsive">
+                    <table class="table table-bordered">
+                      <thead>
+                        <tr>
+                          <th>Feature</th><td>Present?</td>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th>Bidding access</th><td><i class="fa fa-check green"></i></td>
+                        </tr>
+                        <tr>
+                          <th>Advertising space</th><td><i class="fa fa-check green"></i></td>
+                        </tr>
+                        <tr>
+                          <th>Unlimited bidding</th><td><i class="fa fa-check green"></i></td>
+                        </tr>
+                        <tr>
+                          <th>Billing cycle</th><td><strong>Quarterly</strong></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  @if((Session::has('plan') && Session('plan')!=3) || !Session::has('plan'))
+                    <button class="btn btn-primary form-control green-bg inactive-step" type="submit"> Subscribe (Ksh. 27,500)</button>
+                  @else
+                    <button class="btn btn-primary form-control green-bg" type="submit"> Current plan (Ksh. 27,500)</button>
+                  @endif
+                </form>
+                </div>
               </div>
-              <div class="col-md-10">
-                <div class="col-md-3"><input type="checkbox"  />&nbsp;Mobile App</div>
-                <div class="col-md-3"><input type="checkbox"  />&nbsp;E-commerce</div>
-                <div class="col-md-3"><input type="checkbox"  />&nbsp;Blog</div>
-                <div class="col-md-3"><input type="checkbox"  />&nbsp;Website</div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-2">
-                <label for="name">Caption</label>
-              </div>
-              <div class="col-md-10">
-                <label class="btn btn-default btn-file">
-                  Browse (max 500kb) <input type="file" style="display: none;">
-              </label> <span>An image to describe the project</span>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-2">
-                <label for="name">Description<span class="red">*</span></label>
-              </div>
-              <div class="col-md-10">
-                <textarea rows="5" class="form-control" placeholder="Give a brief overview of the project goals"></textarea>
+              <div class="col-md-6">
+                <div class="membership-plan">
+                  <form method="post" action="/provider-membership" />
+                    {{csrf_field()}}
+                    <input type="hidden" name="type" value="4" />
+                  <h5>Gold
+                    @if (Session::has('plan') && Session('plan')==4)
+                    <i class="fa fa-check-circle green"></i>
+                    @endif
+                  </h5>
+                  <div class="table-responsive">
+                    <table class="table table-bordered">
+                      <thead>
+                        <tr>
+                          <th>Feature</th><td>Present?</td>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th>Bidding access</th><td><i class="fa fa-check green"></i></td>
+                        </tr>
+                        <tr>
+                          <th>Advertising space</th><td><i class="fa fa-check green"></i></td>
+                        </tr>
+                        <tr>
+                          <th>Unlimited bidding</th><td><i class="fa fa-check green"></i></td>
+                        </tr>
+                        <tr>
+                          <th>Billing cycle</th><td><strong>Yearly</strong></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  @if((Session::has('plan') && Session('plan')!=4) || !Session::has('plan'))
+                    <button class="btn btn-primary form-control green-bg inactive-step" type="submit"> Subscribe (Ksh. 100,000)</button>
+                  @else
+                    <button class="btn btn-primary form-control green-bg" type="submit"> Current plan (Ksh. 100,000)</button>
+                  @endif
+                </div>
+              </form>
               </div>
             </div>
             <div class="row">
               <div class="col-xs-3  project-btn">
-                <a class="btn btn-primary btn-lg" href="/new-provider-company"><i class="fa  fa-chevron-left "></i> Back</a>
+                <a class="btn btn-primary " href="/provider-company-registration-back"><i class="fa  fa-chevron-left "></i> Back</a>
               </div>
               <div class="col-xs-3 col-xs-offset-6 project-btn">
-                <a class="btn btn-primary btn-lg" href="#"><i class="fa fa-plus"></i> Join</a>
+                <a class="btn btn-primary " href="#">Finish</a>
               </div>
             </div>
           </article>
