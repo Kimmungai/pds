@@ -39,7 +39,9 @@
                 <h1 class="site-title"><a  href="/">Web Designers Center</a></h1>
               </div>
               <div class="col-md-3 provider-btn hidden-xs">
+                @if(!Auth::id())
                 <a class="btn btn-primary" href="/service-provider-sign-up">Become a service provider</a>
+                @endif
               </div>            <!--<div class="col-md-4 pds-email">
                 <p>info@webdesignercenter.com</p>
               </div>-->

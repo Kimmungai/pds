@@ -113,7 +113,7 @@ class providers extends Controller
       $plan='Gold Plan';
       session(['plan'=>4]);
     }
-    if(!UserMembership::where('user_id','=',Auth::id())->firstOrFail())//check if user already choose a membership
+    if(!count(UserMembership::where('user_id','=',Auth::id())->get()))//check if user already choose a membership
     {
       $membership=new UserMembership;
       $membership->user_id=Auth::id();
@@ -125,6 +125,7 @@ class providers extends Controller
       if($membership->save())
       {
           session::flash('plan_success', $plan.' Has been successfully selected!');
+          session(['finish_registration'=>1]);
       }
       else
       {
@@ -141,12 +142,13 @@ class providers extends Controller
         'end_date' => $end_date,
       ])){
         session::flash('plan_success', $plan.' Has been successfully updated!');
+        session(['finish_registration'=>1]);
       }
       else {
         session::flash('plan_error', $plan.' Has not been updated! Contact info@webdesignerscenter.com for help.');
       }
     }
-    return back();
+    return redirect('service-provider-subscription');
   }
   public function create_provider_company_back()
   {
@@ -180,13 +182,13 @@ class providers extends Controller
       'company_description' => $request->input('company_description'),
     ]))
     {
-      session::flash('update_success', 'Company Updated!');
+      session::flash('update_success', 'Company Details Updated!');
       return redirect('/service-provider-subscription');
     }
     else
     {
       session::flash('company_update_error', 'Company details not updated! Please contact support@webdesignerscenter.com for help');
-      return back();
+      return back('new-provider.bidder-register-subscription-details');
     }
   }
 }

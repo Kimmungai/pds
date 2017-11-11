@@ -92,3 +92,5 @@ Route::post('/provider-company-registration', 'providers@create_provider_company
 Route::post('/provider-membership', 'providers@provider_membership')->name('provider membership')->middleware('auth');
 Route::get('/provider-company-registration-back', 'providers@create_provider_company_back')->name('provider company back')->middleware('auth');
 Route::put('/provider-company-registration-update', 'providers@update_provider_company')->name('provider company update')->middleware('auth');
+Route::get('/service-provider-sign-up-back', 'providers@create_provider_back')->name('sign up update_success')->middleware('auth');
+Route::put('/provider-registration-update', 'providers@provider_registration_update')->name('provider sign up update')->middleware('auth');

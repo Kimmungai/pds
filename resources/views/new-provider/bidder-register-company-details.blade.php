@@ -74,7 +74,7 @@
       <div class="strip"></div>
       <div class="col-md-8 col-md-offset-2">
         <div class="row">
-          <div class="col-xs-4"><div class="desired-feature dark-bg white inactive-step"><i class="fa">1</i><p>Contacts</p></div></div>
+          <div class="col-xs-4"><div class="desired-feature dark-bg white inactive-step"><i class="fa">1</i><p>Contacts <br /><i class="fa fa-check"></i></p></div></div>
           <div class="col-xs-4"><div class="desired-feature dark-bg white"><i class="fa">2</i><p>Company</p></div></div>
           <div class="col-xs-4"><div class="desired-feature dark-bg white inactive-step"><i class="fa">3</i><p>Subscribe</p></div></div>
         </div>
@@ -118,7 +118,7 @@
                   <label for="name">Company legal name<span class="red">*</span></label>
                 </div>
                 <div class="col-md-10">
-                  <input type="text" name="company_legal_name" class="form-control" value="{{ $data['company_legal_name'] }}"/>
+                  <input type="text" name="company_legal_name" class="form-control" value="{{ $data['company_legal_name'] }}" required/>
                   @if ($errors->has('company_legal_name'))
                     <span class="red">
                         <strong>{{ $errors->first('company_legal_name') }}</strong>
@@ -131,7 +131,7 @@
                   <label for="name">Reg no<span class="red">*</span></label>
                 </div>
                 <div class="col-md-10">
-                  <input type="text" name="company_reg_no" class="form-control" value="{{ $data['company_reg_no'] }}"/>
+                  <input type="text" name="company_reg_no" class="form-control" value="{{ $data['company_reg_no'] }}" required/>
                   @if ($errors->has('company_reg_no'))
                     <span class="red">
                         <strong>{{ $errors->first('company_reg_no') }}</strong>
@@ -144,7 +144,7 @@
                   <label for="name">Incorporation date<span class="red">*</span></label>
                 </div>
                 <div class="col-md-10">
-                  <input id="incorporation_date" type="text" name="company_incoporation_date" class="form-control" value="{{ $data['company_incoporation_date'] }}"/>
+                  <input id="incorporation_date" type="text" name="company_incoporation_date" class="form-control" value="{{ $data['company_incoporation_date'] }}" required/>
                   @if ($errors->has('company_incoporation_date'))
                     <span class="red">
                         <strong>{{ $errors->first('company_incoporation_date') }}</strong>
@@ -157,7 +157,7 @@
                   <label for="name">Address<span class="red">*</span></label>
                 </div>
                 <div class="col-md-10">
-                  <input type="text" name="company_address" class="form-control" value="{{ $data['company_address'] }}"/>
+                  <input type="text" name="company_address" class="form-control" value="{{ $data['company_address'] }}" required/>
                   @if ($errors->has('company_address'))
                     <span class="red">
                         <strong>{{ $errors->first('company_address') }}</strong>
@@ -170,7 +170,7 @@
                   <label for="name">Telephone<span class="red">*</span></label>
                 </div>
                 <div class="col-md-10">
-                  <input type="text" name="company_tel" class="form-control" value="{{ $data['company_tel'] }}"/>
+                  <input type="text" name="company_tel" class="form-control" value="{{ $data['company_tel'] }}" required/>
                   @if ($errors->has('company_tel'))
                     <span class="red">
                         <strong>{{ $errors->first('company_tel') }}</strong>
@@ -214,7 +214,7 @@
                   <label for="name">Website url<span class="red">*</span></label>
                 </div>
                 <div class="col-md-10">
-                  <input type="text" name="company_website" class="form-control" value="{{ $data['company_website'] }}"/>
+                  <input type="text" name="company_website" class="form-control" value="{{ $data['company_website'] }}" required/>
                   @if ($errors->has('company_website'))
                     <span class="red">
                         <strong>{{ $errors->first('company_website') }}</strong>
@@ -227,7 +227,7 @@
                   <label for="name">Description<span class="red">*</span></label>
                 </div>
                 <div class="col-md-10">
-                  <textarea rows="5" class="form-control" name="company_description" placeholder="Give a brief description of your company">{{ $data['company_description'] }}</textarea>
+                  <textarea rows="5" class="form-control" name="company_description" placeholder="Give a brief description of your company" required>{{ $data['company_description'] }}</textarea>
                   @if ($errors->has('company_description'))
                     <span class="red">
                         <strong>{{ $errors->first('company_description') }}</strong>
@@ -237,7 +237,7 @@
               </div>
               <div class="row">
                 <div class="col-xs-3  project-btn">
-                  <a class="btn btn-primary" href="/service-provider-sign-up"><i class="fa  fa-chevron-left "></i> Back</a>
+
                 </div>
                 <div class="col-xs-3 col-xs-offset-6 project-btn">
                   <button class="btn btn-primary" type="submit">Next <i class="fa  fa-chevron-right "></i></button>
@@ -252,7 +252,7 @@
                 <label for="name">Company name<span class="red">*</span></label>
               </div>
               <div class="col-md-10">
-                <input type="text" name="company_name" class="form-control" value="{{ old('company_name') }}" />
+                <input type="text" name="company_name" class="form-control" value="{{ old('company_name') }}" required/>
                 @if ($errors->has('company_name'))
                   <span class="red">
                       <strong>{{ $errors->first('company_name') }}</strong>
@@ -265,7 +265,7 @@
                 <label for="name">Company legal name<span class="red">*</span></label>
               </div>
               <div class="col-md-10">
-                <input type="text" name="company_legal_name" class="form-control" value="{{ old('company_legal_name') }}"/>
+                <input type="text" name="company_legal_name" class="form-control" value="{{ old('company_legal_name') }}" required/>
                 @if ($errors->has('company_legal_name'))
                   <span class="red">
                       <strong>{{ $errors->first('company_legal_name') }}</strong>
@@ -278,7 +278,7 @@
                 <label for="name">Reg no<span class="red">*</span></label>
               </div>
               <div class="col-md-10">
-                <input type="text" name="company_reg_no" class="form-control" value="{{ old('company_reg_no') }}"/>
+                <input type="text" name="company_reg_no" class="form-control" value="{{ old('company_reg_no') }}" required/>
                 @if ($errors->has('company_reg_no'))
                   <span class="red">
                       <strong>{{ $errors->first('company_reg_no') }}</strong>
@@ -291,7 +291,7 @@
                 <label for="name">Incorporation date<span class="red">*</span></label>
               </div>
               <div class="col-md-10">
-                <input id="incorporation_date" type="text" name="company_incoporation_date" class="form-control" value="{{ old('company_incoporation_date') }}"/>
+                <input id="incorporation_date" type="text" name="company_incoporation_date" class="form-control" value="{{ old('company_incoporation_date') }}" required/>
                 @if ($errors->has('company_incoporation_date'))
                   <span class="red">
                       <strong>{{ $errors->first('company_incoporation_date') }}</strong>
@@ -304,7 +304,7 @@
                 <label for="name">Address<span class="red">*</span></label>
               </div>
               <div class="col-md-10">
-                <input type="text" name="company_address" class="form-control" value="{{ old('company_address') }}"/>
+                <input type="text" name="company_address" class="form-control" value="{{ old('company_address') }}" required/>
                 @if ($errors->has('company_address'))
                   <span class="red">
                       <strong>{{ $errors->first('company_address') }}</strong>
@@ -317,7 +317,7 @@
                 <label for="name">Telephone<span class="red">*</span></label>
               </div>
               <div class="col-md-10">
-                <input type="text" name="company_tel" class="form-control" value="{{ old('company_tel') }}"/>
+                <input type="text" name="company_tel" class="form-control" value="{{ old('company_tel') }}" required/>
                 @if ($errors->has('company_tel'))
                   <span class="red">
                       <strong>{{ $errors->first('company_tel') }}</strong>
@@ -361,7 +361,7 @@
                 <label for="name">Website url<span class="red">*</span></label>
               </div>
               <div class="col-md-10">
-                <input type="text" name="company_website" class="form-control" value="{{ old('company_website') }}"/>
+                <input type="text" name="company_website" class="form-control" value="{{ old('company_website') }}" required/>
                 @if ($errors->has('company_website'))
                   <span class="red">
                       <strong>{{ $errors->first('company_website') }}</strong>
@@ -374,7 +374,7 @@
                 <label for="name">Description<span class="red">*</span></label>
               </div>
               <div class="col-md-10">
-                <textarea rows="5" class="form-control" name="company_description" placeholder="Give a brief description of your company">{{ old('company_description') }}</textarea>
+                <textarea rows="5" class="form-control" name="company_description" placeholder="Give a brief description of your company" required>{{ old('company_description') }}</textarea>
                 @if ($errors->has('company_description'))
                   <span class="red">
                       <strong>{{ $errors->first('company_description') }}</strong>
@@ -384,7 +384,7 @@
             </div>
             <div class="row">
               <div class="col-xs-3  project-btn">
-                <a class="btn btn-primary" href="/service-provider-sign-up"><i class="fa  fa-chevron-left "></i> Back</a>
+
               </div>
               <div class="col-xs-3 col-xs-offset-6 project-btn">
                 <button class="btn btn-primary" type="submit">Next <i class="fa  fa-chevron-right "></i></button>
