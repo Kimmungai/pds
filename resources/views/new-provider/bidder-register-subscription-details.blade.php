@@ -174,7 +174,7 @@
                     </table>
                   </div>
                   @if((Session::has('plan') && Session('plan')!=2) || !Session::has('plan'))
-                    <button class="btn btn-primary form-control green-bg inactive-step paypal-button" type="submit"> Subscribe (Ksh. 10,000)</button>
+                    <button class="btn btn-primary form-control green-bg inactive-step" type="submit"> Subscribe (Ksh. 10,000)</button>
                   @else
                     <button class="btn btn-primary form-control green-bg" type="submit"> Current plan (Ksh. 10,000)</button>
                   @endif
@@ -284,54 +284,4 @@
     </div>
   </div>
 </section>
-<script src="https://www.paypalobjects.com/api/checkout.js"></script>
-<script>
-        paypal.Button.render({
-
-            env: 'sandbox', // Or 'sandbox',
-
-            client:{
-              sandbox:    'access_token$sandbox$6vs789sbz2445hvc$bb5f4a60e8b5ef9711eea999f819c10f',
-              production: 'access_token$production$6csgx2862fq2nw4v$8845a9dbc9ca548b4c8ffe38754d5956'
-            },
-
-            commit: true, // Show a 'Pay Now' button
-
-            style: {
-                color: 'gold',
-                size: 'small'
-            },
-
-            payment: function(data, actions) {
-                    return actions.payment.create({
-                    payment: {
-                        transactions: [
-                            {
-                                amount: { total: '1.00', currency: 'USD' }
-                            }
-                        ]
-                    }
-                });
-            },
-
-            onAuthorize: function(data, actions) {
-              return actions.payment.execute().then(function(payment) {
-                alert('how good');
-              });
-            },
-
-            onCancel: function(data, actions) {
-                /*
-                 * Buyer cancelled the payment
-                 */
-            },
-
-            onError: function(err) {
-                /*
-                 * An error occurred during the transaction
-                 */
-            }
-
-        }, '.paypal-button');
-    </script>
 @endsection
