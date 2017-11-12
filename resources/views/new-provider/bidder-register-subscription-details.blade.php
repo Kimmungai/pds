@@ -96,9 +96,10 @@
                   {{ Session::get('plan_error') }}
               </div>
             @endif
-            <p>Please select one of the plans. For paid plans, all payments will be processed through paypal</p>
-            <p class="payment-icons"><i class="fa fa-cc-paypal"></i> <i class="fa fa-cc-visa"></i> <i class="fa fa-cc-mastercard"></i></p>
             <div class="row">
+              <p class="p-center">Please select one of the plans. For paid plans, all payments will be processed through paypal</p>
+              <p class="payment-icons p-center"><i class="fa fa-cc-paypal"></i> <i class="fa fa-cc-visa"></i> <i class="fa fa-cc-mastercard"></i></p>
+
               <div class="col-md-6">
                 <div class="membership-plan">
                   <form method="post" action="/provider-membership" />
@@ -274,7 +275,7 @@
                 @if(Session::has('finish_registration'))
                 <a class="btn btn-primary" href="/profile">Finish Registration</a>
                 @else
-                <a class="btn btn-primary" href="" onclick="alert('PLease select a membership plan first')">Finish Registration</a>
+                <a class="btn btn-primary" href="#" onclick="alert('PLease select a membership plan first')">Finish Registration</a>
                 @endif
               </div>
             </div>

@@ -91,7 +91,6 @@ class providers extends Controller
     ]);
     //assign the user a membership
     $membership_type=$request->input('type');
-    $start_date=Carbon::now();
     if($membership_type==1){
       $end_date=Carbon::now()->addMonths(3);
       $price=0;
@@ -150,6 +149,7 @@ class providers extends Controller
   }
   public function payment_basic_sucess()
   {
+    $start_date=Carbon::now();
     $end_date=Carbon::now()->addMonths(1);
     $price=10000;
     $plan='Basic Plan';
@@ -161,11 +161,14 @@ class providers extends Controller
   public function payment_basic_aborted()
   {
     $plan='Basic Plan';
+    session()->forget('plan');
+    session()->forget('finish_registration');
     session::flash('plan_error', $plan.' Has not been selected!.');
     return redirect('service-provider-subscription');
   }
   public function payment_silver_sucess()
   {
+    $start_date=Carbon::now();
     $end_date=Carbon::now()->addMonths(4);
     $price=27500;
     $plan='Silver Plan';
@@ -176,11 +179,14 @@ class providers extends Controller
   public function payment_silver_aborted()
   {
     $plan='Silver Plan';
+    session()->forget('plan');
+    session()->forget('finish_registration');
     session::flash('plan_error', $plan.' Has not been selected!.');
     return redirect('service-provider-subscription');
   }
   public function payment_gold_sucess()
   {
+    $start_date=Carbon::now();
     $end_date=Carbon::now()->addYears(1);
     $price=100000;
     $plan='Gold Plan';
@@ -191,10 +197,12 @@ class providers extends Controller
   public function payment_gold_aborted()
   {
     $plan='Gold Plan';
+    session()->forget('plan');
+    session()->forget('finish_registration');
     session::flash('plan_error', $plan.' Has not been selected!.');
     return redirect('service-provider-subscription');
   }
-  private function create_membership($membership_type,$price,$start_date,$end_date)
+  private function create_membership($membership_type,$price,$start_date,$end_date,$plan)
   {
     if(!count(UserMembership::where('user_id','=',Auth::id())->get()))//check if user already choose a membership
     {
