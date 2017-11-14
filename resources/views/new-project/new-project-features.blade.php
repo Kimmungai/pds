@@ -81,6 +81,16 @@
         <div class="row">
           <article>
             <h5>Features selection form</h5>
+            @if (Session::has('project_basic_saved'))
+              <div class="alert alert-success">
+                  {{ Session::get('project_basic_saved') }}
+              </div>
+            @endif
+            @if (Session::has('project_basic_updated'))
+              <div class="alert alert-success">
+                  {{ Session::get('project_basic_updated') }}
+              </div>
+            @endif
             <div class="row">
               <div class="col-md-2">
                 <label for="name">Userbility<span class="red">*</span>(click to select)</label>
@@ -143,7 +153,7 @@
             </div>
             <div class="row">
               <div class="col-xs-3  project-btn">
-                <a class="btn btn-primary btn-lg" href="/new-project"><i class="fa  fa-chevron-left "></i> Back</a>
+                <a class="btn btn-primary btn-lg" href="/project-basic-back/{{session('new_project_id')}}"><i class="fa  fa-chevron-left "></i> Back</a>
               </div>
               <div class="col-xs-3 col-xs-offset-6 project-btn">
                 <a class="btn btn-primary btn-lg" href="/new-project-schedule">Next <i class="fa  fa-chevron-right "></i></a>

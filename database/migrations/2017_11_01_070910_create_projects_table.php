@@ -19,8 +19,8 @@ class CreateProjectsTable extends Migration
             $table->string('title');
             $table->text('description')->nullable();
             $table->string('caption')->nullable();
-            $table->dateTime('start_date');
-            $table->dateTime('end_date');
+            $table->dateTime('start_date')->nullable();
+            $table->dateTime('end_date')->nullable();
             $table->string('desired_price')->nullable();
             $table->string('avg_price')->nullable();
             $table->dateTime('valid_period')->nullable();

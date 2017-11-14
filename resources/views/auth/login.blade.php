@@ -179,7 +179,7 @@
                 <label for="name"><a href="{{ route('password.request') }}">Reset password</a></label>
               </div>
               <div class="col-md-3 pull-right project-btn">
-                <button type="submit" class="btn btn-primary btn-lg">Login</button>
+                <button type="submit" class="btn btn-primary">Login</button>
               </div>
             </div>
           </form>

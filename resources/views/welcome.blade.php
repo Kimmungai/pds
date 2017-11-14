@@ -195,6 +195,7 @@
 </section>
 </div>
 </div>
+@if(count($provider_companies))
 <section class="service-providers">
   <div class="container section-decoration">
     <div class="row second-nav">
@@ -218,17 +219,22 @@
    <!---***********************-->
    <div class="container section-decoration">
      <div class="row provider">
-       <div class="col-md-3">
+       @foreach($provider_companies as $provider_company)
+       <div class="col-md-3"> <!--provider companies begins here-->
          <article>
-           <h4>Necky technologies</h4>
+           <h4>{{$provider_company['company_name']}}</h4>
            <div class="row provider-details">
              <div class="col-md-5">
-               <div class="provider-logo">
+               @if($provider_company['company_reg_cert']=='')
+                 <div class="provider-logo" style="background:url('{{asset('/avatar/avatar.jpg')}}') center no-repeat;"></div>
+               @else
+                 <div class="provider-logo" style="background:url('{{ url($provider_company['company_reg_cert']) }}') no-repeat center;">
+               @endif
                </div>
              </div>
              <div class="col-md-7">
               <ul>
-                <li>Established: <span>2005</span></li>
+                <li>Established: <span>{{$provider_company['company_incoporation_date']}}</span></li>
                 <li>Completed bids: <span>2005</span></li>
                 <li>Rating: <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></li>
               </ul>
@@ -236,101 +242,22 @@
              <div class="row provider-details">
                <div class="col-md-12">
                  <h5>Description</h5>
-                 <p>We are commited to completing our client's projects in time and within budget</p>
+                 <p>{{$provider_company['company_description']}}</p>
                </div>
             </div>
            <div class="provider-actions">
              <a class="btn btn-primary details-btn"><i class="fa  fa-building-o"></i> Profile</a>
-             <a class="btn btn-primary pull-right details-btn"><i class="fa fa-external-link "></i> Website</a>
+             <a href="{{$provider_company['company_website']}}" class="btn btn-primary pull-right details-btn"><i class="fa fa-external-link "></i> Website</a>
           </div>
          </article>
        </div>
-       <div class="col-md-3">
-         <article>
-           <h4>Necky technologies</h4>
-           <div class="row provider-details">
-             <div class="col-md-5">
-               <div class="provider-logo">
-               </div>
-             </div>
-             <div class="col-md-7">
-              <ul>
-                <li>Established: <span>2005</span></li>
-                <li>Completed bids: <span>2005</span></li>
-                <li>Rating: <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></li>
-              </ul>
-             </div>
-             <div class="row provider-details">
-               <div class="col-md-12">
-                 <h5>Description</h5>
-                 <p>We are commited to completing our client's projects in time and within budget</p>
-               </div>
-            </div>
-           <div class="provider-actions">
-             <a class="btn btn-primary details-btn"><i class="fa  fa-building-o"></i> Profile</a>
-             <a class="btn btn-primary pull-right details-btn"><i class="fa fa-external-link "></i> Website</a>
-          </div>
-         </article>
-       </div>
-       <div class="col-md-3">
-         <article>
-           <h4>Necky technologies</h4>
-           <div class="row provider-details">
-             <div class="col-md-5">
-               <div class="provider-logo">
-               </div>
-             </div>
-             <div class="col-md-7">
-              <ul>
-                <li>Established: <span>2005</span></li>
-                <li>Completed bids: <span>2005</span></li>
-                <li>Rating: <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></li>
-              </ul>
-             </div>
-             <div class="row provider-details">
-               <div class="col-md-12">
-                 <h5>Description</h5>
-                 <p>We are commited to completing our client's projects in time and within budget</p>
-               </div>
-            </div>
-           <div class="provider-actions">
-             <a class="btn btn-primary details-btn"><i class="fa  fa-building-o"></i> Profile</a>
-             <a class="btn btn-primary pull-right details-btn"><i class="fa fa-external-link "></i> Website</a>
-          </div>
-         </article>
-       </div>
-       <div class="col-md-3">
-         <article>
-           <h4>Necky technologies</h4>
-           <div class="row provider-details">
-             <div class="col-md-5">
-               <div class="provider-logo">
-               </div>
-             </div>
-             <div class="col-md-7">
-              <ul>
-                <li>Established: <span>2005</span></li>
-                <li>Completed bids: <span>2005</span></li>
-                <li>Rating: <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></li>
-              </ul>
-             </div>
-             <div class="row provider-details">
-               <div class="col-md-12">
-                 <h5>Description</h5>
-                 <p>We are commited to completing our client's projects in time and within budget</p>
-               </div>
-            </div>
-           <div class="provider-actions">
-             <a class="btn btn-primary details-btn"><i class="fa  fa-building-o"></i> Profile</a>
-             <a class="btn btn-primary pull-right details-btn"><i class="fa fa-external-link "></i> Website</a>
-          </div>
-         </article>
-       </div>
-     </div>
+     </div><!--provider companies ends here-->
+     @endforeach
      <p class="view-more"><a href="#">View more</a></p>
    </div>
     <!---***********************-->
 </section>
+@endif
 <section class="how-it-works" id="how-it-works">
   <div class="container section-decoration">
     <div class="row"><h2>How it works</h2><div class="strip"></div></div>
