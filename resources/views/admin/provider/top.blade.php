@@ -9,113 +9,32 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-dashboard"></i>
-            <span class="nav-link-text">My projects</span>
-          </a>
-          <ul class="sidenav-second-level collapse" id="collapseComponents">
-            <li class="active">
-              <a href="/client-profile">All projects</a>
-            </li>
-            <li>
-              <a href="/client-profile">Closed projects</a>
-            </li>
-            <li>
-              <a href="/client-profile">Active Projects</a>
-            </li>
-          </ul>
-        </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-          <a class="nav-link" href="/client-subscription">
-            <i class="fa fa-fw fa-dollar"></i>
-            <span class="nav-link-text">My subscription</span>
-          </a>
-        </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents1" data-parent="#exampleAccordion">
+        <li class="nav-item active" data-toggle="tooltip" data-placement="right" title="Tables">
+          <a class="nav-link" href="/profile">
             <i class="fa fa-fw fa-bell"></i>
-            <span class="nav-link-text">Bidders</span>
+            <span class="nav-link-text">Projects</span>
           </a>
-          <ul class="sidenav-second-level collapse" id="collapseComponents1">
-            <li>
-              <a href="/client-bidders">All registered bidders</a>
-            </li>
-            <li>
-              <a href="/client-bidders">My projects bidders</a>
-            </li>
-          </ul>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-          <a class="nav-link" href="/client-user-profile">
+          <a class="nav-link" href="/provider-membership">
+            <i class="fa fa-fw fa-dollar"></i>
+            <span class="nav-link-text">Membership Plan</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
+          <a class="nav-link" href="/provider-company">
+            <i class="fa fa-fw fa-building"></i>
+            <span class="nav-link-text">Company</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
+          <a class="nav-link" href="/provider-user-profile">
             <i class="fa fa-fw fa-user"></i>
-            <span class="nav-link-text">My profile</span>
+            <span class="nav-link-text">Contact person</span>
           </a>
-        </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents2" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-users"></i>
-            <span class="nav-link-text">Users</span>
-          </a>
-          <ul class="sidenav-second-level collapse" id="collapseComponents2">
-            <li>
-              <a href="/client-users">Clients</a>
-            </li>
-            <li>
-              <a href="/client-users">Bidders</a>
-            </li>
-            <li>
-              <a href="/client-users">Administrators</a>
-            </li>
-          </ul>
-        </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExamplePages" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-file"></i>
-            <span class="nav-link-text">Reports</span>
-          </a>
-          <ul class="sidenav-second-level collapse" id="collapseExamplePages">
-            <li>
-              <a href="/client-reports">Projects report</a>
-            </li>
-            <li>
-              <a href="/client-reports">Users Report</a>
-            </li>
-            <li>
-              <a href="/client-reports">Mailing list</a>
-            </li>
-            <li>
-              <a href="/client-reports">Bulk sms list</a>
-            </li>
-          </ul>
-        </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-sitemap"></i>
-            <span class="nav-link-text">Campaigns</span>
-          </a>
-          <ul class="sidenav-second-level collapse" id="collapseMulti">
-            <li>
-              <a href="/client-campaigns">Email campaign</a>
-            </li>
-            <li>
-              <a href="/client-campaigns">SMS campaign</a>
-            </li>
-            <li>
-              <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti2">Social media campaign</a>
-              <ul class="sidenav-third-level collapse" id="collapseMulti2">
-                <li>
-                  <a href="/client-campaigns">Facebook</a>
-                </li>
-                <li>
-                  <a href="/client-campaigns">Twitter</a>
-                </li>
-              </ul>
-            </li>
-          </ul>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
-          <a class="nav-link" href="/client-chats">
+          <a class="nav-link" href="/provider-chats">
             <i class="fa fa-fw fa-envelope"></i>
             <span class="nav-link-text">Chat <span class="badge badge-pill badge-primary">12 New</span></span>
           </a>
@@ -359,116 +278,6 @@
             <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
           </div>
           <!-- Card Columns Example Social Feed-->
-          <div class="mb-0 mt-4">
-            <i class="fa fa-newspaper-o"></i> Project details  - E-learning website</div>
-          <hr class="mt-2">
-          <div class="card-columns">
-            <!-- Example Social Card-->
-            <div class="card mb-3">
-              <a href="#">
-                <img class="card-img-top img-fluid w-100" src="{{ asset('/img/project-pic.png') }}" alt="">
-              </a>
-              <div class="card-body">
-                <h6 class="card-title mb-1"><a href="#">Project Title and category</a></h6>
-                <label for="project-title"></label><b>Title</b></label><input type="text" class="form-control" name="project-title" value="E-commerce website" />
-                <hr class="my-0">
-                <div class="card-body py-2 small"></div>
-                <hr class="my-0">
-                <label for="project-title"></label><b>Start date</b></label><input type="text" class="form-control" name="project-title" value="12/12/2017" />
-                <hr class="my-0">
-                <div class="card-body py-2 small"></div>
-                <label for="project-title"></label><b>End date</b></label><input type="text" class="form-control" name="project-title" value="12/12/2017" />
-                <div class="card-body py-2 small"></div>
-                <label for="project-category"></label><b>Caption</b></label>
-                  <label class="btn btn-primary btn-file">
-                    Browse (max 1mb) <input type="file" style="display: none;">
-                  </label>
-              </div>
-              <hr class="my-0">
-              <a class="btn btn-success form-control" href="#">Update</a>
-            </div>
-            <!-- Example Social Card-->
-            <div class="card mb-3">
-              <a href="#">
-                <img class="card-img-top img-fluid w-100" src="{{ asset('/img/tech-details.jpg') }}" alt="">
-              </a>
-              <div class="card-body">
-                <h6 class="card-title mb-1"><a href="#">Project technical details</a></h6>
-                <label for="project-title"></label><b>Description</b></label>
-                <textarea rows="5" class="form-control" name="project-title">Do it using formal methods</textarea>
-                <hr class="my-0">
-                <div class="card-body py-2 small">
-
-                </div>
-                <hr class="my-0">
-                <div class="card-body py-2 small"></div>
-                <label for="project-category"></label><b>Technical Specification (PDF)</b></label>
-                  <label class="btn btn-primary btn-file">
-                    doc 1 (max 1mb) <input type="file" style="display: none;">
-                  </label>
-                  <hr class="my-0">
-                  <div class="card-body py-2 small"></div>
-                  <label for="project-category"></label><b>Technical Specification (PDF)</b></label>
-                    <label class="btn btn-primary btn-file">
-                      doc 2 (max 1mb) <input type="file" style="display: none;">
-                    </label>
-                    <hr class="my-0">
-                    <div class="card-body py-2 small"></div>
-                    <label for="project-category"></label><b>Technical Specification (PDF)</b></label>
-                      <label class="btn btn-primary btn-file">
-                        doc 3 (max 1mb) <input type="file" style="display: none;">
-                      </label>
-              </div>
-              <hr class="my-0">
-              <a class="btn btn-success form-control" href="#">Update</a>
-            </div>
-            <!-- Example Social Card-->
-            <div class="card mb-3">
-              <a href="#">
-                <img class="card-img-top img-fluid w-100" src="{{ asset('/img/mobile-app-category.PNG') }}" alt="">
-              </a>
-              <div class="card-body">
-                <h6 class="card-title mb-1"><a href="#">Project category, features and sharing</a></h6>
-                <label for="project-category"></label><b>Category</b></label>
-                <select class="form-control" name="project-category">
-                  <option selected disabled>Project category</option>
-                  <option>Mobile App</option>
-                  <option>E-commerce</option>
-                  <option>Blog</option>
-                  <option>Website</option>
-                </select>
-                <hr class="my-0">
-                <div class="card-body py-2 small"></div>
-                <hr class="my-0">
-                <label for="project-category"></label><b>Userbility features</b></label>
-                </br><input type="checkbox"  />&nbsp;Shopping cart&nbsp;</br>
-                <input type="checkbox"  />&nbsp;Responsive&nbsp;</br>
-                <input type="checkbox"  />&nbsp;Membership&nbsp;</br>
-                <input type="checkbox"  />&nbsp;Notification&nbsp;</br>
-                <div class="card-body py-2 small"></div>
-                <label for="project-category"></label><b>Back-end features</b></label>
-                </br><input type="checkbox"  />&nbsp;Cloud hosting&nbsp;</br>
-                <input type="checkbox"  />&nbsp;Admin panel&nbsp;</br>
-                <input type="checkbox"  />&nbsp;Back-up&nbsp;</br>
-                <input type="checkbox"  />&nbsp;Bulk sms&nbsp;
-                <div class="card-body py-2 small"></div>
-                <label for="project-category"></label><b>Share this project</b></label>
-                <a href="#" style="font-size:1.3em;"><i class="fa fa-facebook-square"></a></i> <a href="#" style="font-size:1.3em;"> <i class="fa fa-twitter-square"></i></a>
-              </div>
-              <hr class="my-0">
-              <a class="btn btn-success form-control" href="#">Update</a>
-            </div>
-            <!-- Example Social Card-->
-            <div class="card mb-3">
-              <div class="card-body">
-                <h6 class="card-title mb-1"><a href="#">Project cancellation</a></h6>
-              </div>
-              <hr class="my-0">
-              <div class="card-body py-2 small"></div>
-              <hr class="my-0">
-              <a class="btn btn-danger form-control" href="#">Cancel Project</a>
-            </div>
-          </div>
           <!-- /Card Columns-->
         </div>
         <div class="col-lg-4">
@@ -482,122 +291,6 @@
             <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
           </div>
           <!-- Example Notifications Card-->
-          <div class="card mb-3">
-            <div class="card-header">
-              <i class="fa fa-bell-o"></i> Quick action / New project</div>
-            <div class="list-group list-group-flush small">
-              <a class="list-group-item list-group-item-action">
-                <div class="media">
-                  <img class="d-flex mr-3 rounded-circle" src="{{asset('/img/required.png')}}" alt="">
-                  <div class="media-body">
-                    <input type="text" class="form-control" placeholder="Project title"/>
-                  </div>
-                </div>
-              </a>
-              <a class="list-group-item list-group-item-action">
-                <div class="media">
-                  <img class="d-flex mr-3 rounded-circle" src="{{asset('/img/required.png')}}" alt="">
-                  <div class="media-body">
-                    <select class="form-control">
-                      <option selected disabled>Project category</option>
-                      <option>Mobile App</option>
-                      <option>E-commerce</option>
-                      <option>Blog</option>
-                      <option>Website</option>
-                    </select>
-                  </div>
-                </div>
-              </a>
-              <a class="list-group-item list-group-item-action">
-                <div class="media">
-                  <img class="d-flex mr-3 rounded-circle" src="{{asset('/img/required.png')}}" alt="">
-                  <div class="media-body">
-                    <input type="checkbox"  />&nbsp;Shopping cart&nbsp;</br>
-                    <input type="checkbox"  />&nbsp;Responsive&nbsp;</br>
-                    <input type="checkbox"  />&nbsp;Membership&nbsp;</br>
-                    <input type="checkbox"  />&nbsp;Notification&nbsp;</br>
-                    <input type="checkbox"  />&nbsp;Cloud hosting&nbsp;</br>
-                    <input type="checkbox"  />&nbsp;Admin panel&nbsp;</br>
-                    <input type="checkbox"  />&nbsp;Back-up&nbsp;</br>
-                    <input type="checkbox"  />&nbsp;Bulk sms&nbsp;
-                  </div>
-                </div>
-              </a>
-              <a class="list-group-item list-group-item-action">
-                <div class="media">
-                  <img class="d-flex mr-3 rounded-circle" src="{{asset('/img/required.png')}}" alt="">
-                  <div class="media-body">
-                    <input type="text" class="form-control" placeholder="Start date"/>
-                  </div>
-                </div>
-              </a>
-              <a class="list-group-item list-group-item-action">
-                <div class="media">
-                  <img class="d-flex mr-3 rounded-circle" src="{{asset('/img/required.png')}}" alt="">
-                  <div class="media-body">
-                    <input type="text" class="form-control" placeholder="End date"/>
-                  </div>
-                </div>
-              </a>
-              <a class="list-group-item list-group-item-action">
-                <div class="media">
-                  <img class="d-flex mr-3 rounded-circle" src="{{asset('/img/required.png')}}" alt="">
-                  <div class="media-body">
-                    <textarea type="text" class="form-control" placeholder="Give a brief overview of the project goals"></textarea>
-                  </div>
-                </div>
-              </a>
-              <a class="list-group-item list-group-item-action">
-                <div class="media">
-                  <img class="d-flex mr-3 rounded-circle" src="{{asset('/img/not-required.png')}}" alt="">
-                  <div class="media-body">
-                    <input type="text" class="form-control" placeholder="Ready to pay price"/>
-                  </div>
-                </div>
-              </a>
-              <a class="list-group-item list-group-item-action">
-                <div class="media">
-
-                  <div class="media-body">
-                    <label class="btn btn-primary btn-file">
-                      Caption (max 1mb) <input type="file" style="display: none;">
-                  </label>
-                  </div>
-                </div>
-              </a>
-              <a class="list-group-item list-group-item-action">
-                <div class="media">
-
-                  <div class="media-body">
-                    <label class="btn btn-primary btn-file">
-                      specification 1 (doc 1mb) <input type="file" style="display: none;">
-                  </label>
-                  </div>
-                </div>
-              </a>
-              <a class="list-group-item list-group-item-action">
-                <div class="media">
-
-                  <div class="media-body">
-                    <label class="btn btn-primary btn-file">
-                      specification 2 (doc 1mb) <input type="file" style="display: none;">
-                  </label>
-                  </div>
-                </div>
-              </a>
-              <a class="list-group-item list-group-item-action">
-                <div class="media">
-
-                  <div class="media-body">
-                    <label class="btn btn-primary btn-file">
-                      specification 3 (doc 1mb) <input type="file" style="display: none;">
-                  </label>
-                  </div>
-                </div>
-              </a>
-              <a class="btn btn-success btn-lg" href="#">Post</a>
-            </div>
-          </div>
         </div>
       </div>
       <!-- Example DataTables Card-->

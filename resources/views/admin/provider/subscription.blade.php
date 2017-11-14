@@ -9,122 +9,34 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-dashboard"></i>
-            <span class="nav-link-text">My projects</span>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
+          <a class="nav-link" href="/profile">
+            <i class="fa fa-fw fa-bell"></i>
+            <span class="nav-link-text">Projects</span>
           </a>
-          <ul class="sidenav-second-level collapse" id="collapseComponents">
-            <li>
-              <a href="/client-profile">All projects</a>
-            </li>
-            <li>
-              <a href="/client-profile">Closed projects</a>
-            </li>
-            <li>
-              <a href="/client-profile">Active Projects</a>
-            </li>
-          </ul>
         </li>
         <li class="nav-item active" data-toggle="tooltip" data-placement="right" title="Tables">
-          <a class="nav-link" href="/client-subscription">
+          <a class="nav-link" href="/provider-membership">
             <i class="fa fa-fw fa-dollar"></i>
-            <span class="nav-link-text">My subscription</span>
+            <span class="nav-link-text">Membership Plan</span>
           </a>
-        </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents1" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-bell"></i>
-            <span class="nav-link-text">Bidders</span>
-          </a>
-          <ul class="sidenav-second-level collapse" id="collapseComponents1">
-            <li>
-              <a href="/client-bidders">All registered bidders</a>
-            </li>
-            <li>
-              <a href="/client-bidders">My projects bidders</a>
-            </li>
-          </ul>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-          <a class="nav-link" href="/client-user-profile">
+          <a class="nav-link" href="/provider-company">
+            <i class="fa fa-fw fa-building"></i>
+            <span class="nav-link-text">Company</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
+          <a class="nav-link" href="/provider-user-profile">
             <i class="fa fa-fw fa-user"></i>
-            <span class="nav-link-text">My profile</span>
+            <span class="nav-link-text">Contact person</span>
           </a>
-        </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents2" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-users"></i>
-            <span class="nav-link-text">Users</span>
-          </a>
-          <ul class="sidenav-second-level collapse" id="collapseComponents2">
-            <li>
-              <a href="/client-users">Clients</a>
-            </li>
-            <li>
-              <a href="/client-users">Bidders</a>
-            </li>
-            <li>
-              <a href="/client-users">Administrators</a>
-            </li>
-          </ul>
-        </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExamplePages" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-file"></i>
-            <span class="nav-link-text">Reports</span>
-          </a>
-          <ul class="sidenav-second-level collapse" id="collapseExamplePages">
-            <li>
-              <a href="/client-reports">Projects report</a>
-            </li>
-            <li>
-              <a href="/client-reports">Users Report</a>
-            </li>
-            <li>
-              <a href="/client-reports">Mailing list</a>
-            </li>
-            <li>
-              <a href="/client-reports">Bulk sms list</a>
-            </li>
-          </ul>
-        </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-sitemap"></i>
-            <span class="nav-link-text">Campaigns</span>
-          </a>
-          <ul class="sidenav-second-level collapse" id="collapseMulti">
-            <li>
-              <a href="/client-campaigns">Email campaign</a>
-            </li>
-            <li>
-              <a href="/client-campaigns">SMS campaign</a>
-            </li>
-            <li>
-              <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti2">Social media campaign</a>
-              <ul class="sidenav-third-level collapse" id="collapseMulti2">
-                <li>
-                  <a href="/client-campaigns">Facebook</a>
-                </li>
-                <li>
-                  <a href="/client-campaigns">Twitter</a>
-                </li>
-              </ul>
-            </li>
-          </ul>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
-          <a class="nav-link" href="/client-chats">
+          <a class="nav-link" href="/provider-chats">
             <i class="fa fa-fw fa-envelope"></i>
             <span class="nav-link-text">Chat <span class="badge badge-pill badge-primary">12 New</span></span>
-          </a>
-        </li>
-      </ul>
-      <ul class="navbar-nav sidenav-toggler">
-        <li class="nav-item">
-          <a class="nav-link text-center" id="sidenavToggler">
-            <i class="fa fa-fw fa-angle-left"></i>
           </a>
         </li>
       </ul>
@@ -242,10 +154,10 @@
               <div class="card-body-icon">
                 <i class="fa fa-fw fa-cc-diners-club"></i>
               </div>
-              <div class="mr-5"><big>Ksh. 1,000</big></div><small>Use this to bid in 10 projects</small>
+              <div class="mr-5"><big>Promotional</big></div>
             </div>
             <a class="card-footer text-white clearfix small z-1">
-              <span class="float-left">Your current plan</span>
+              <span class="float-left">Your current plan (FREE)</span>
               <span class="float-right">
                 <i class="fa fa-angle-right"></i>
               </span>
@@ -258,10 +170,10 @@
               <div class="card-body-icon">
                 <i class="fa fa-fw fa-calendar"></i>
               </div>
-              <div class="mr-5"><big>Ksh. 20,000 /</big>month</div><small>Bid in all projects</small>
+              <div class="mr-5"><big>Ksh. 10,000 /</big>Monthly</div><small>Bid in all projects</small>
             </div>
             <a class="card-footer text-white clearfix small z-1" href="#">
-              <span class="float-left" style="color:#000;">Choose</span>
+              <span class="float-left" style="color:#000;">Choose (BASIC)</span>
               <span class="float-right">
                 <i class="fa fa-angle-right"></i>
               </span>
@@ -274,10 +186,10 @@
               <div class="card-body-icon">
                 <i class="fa fa-fw fa-calendar"></i>
               </div>
-              <div class="mr-5"><big>Ksh. 20,000 /</big>year</div><small>Bid in all projects</small>
+              <div class="mr-5"><big>Ksh. 27,500</big> Quartely</div><small>Bid in all projects</small>
             </div>
             <a class="card-footer text-white clearfix small z-1" href="#">
-              <span class="float-left" style="color:#000;">Choose</span>
+              <span class="float-left" style="color:#000;">Choose (Silver)</span>
               <span class="float-right">
                 <i class="fa fa-angle-right"></i>
               </span>
@@ -290,10 +202,10 @@
               <div class="card-body-icon">
                 <i class="fa fa-fw fa-calendar"></i>
               </div>
-              <div class="mr-5"><big>Ksh. 200, 000 /</big>3 years</div><small>Bid in all projects</small>
+              <div class="mr-5"><big>Ksh. 100, 000 /</big>Yearly</div><small>Bid in all projects</small>
             </div>
             <a class="card-footer text-white clearfix small z-1" href="#">
-              <span class="float-left" style="color:#000;">Choose</span>
+              <span class="float-left" style="color:#000;">Choose (Gold)</span>
               <span class="float-right">
                 <i class="fa fa-angle-right"></i>
               </span>
@@ -309,13 +221,13 @@
           <div class="form-group row">
             <label for="example-search-input" class="col-2 col-form-label">Subscription start date</label>
             <div class="col-10">
-              <input class="form-control" type="text" value="12/12/1963" disabled>
+              <input class="form-control" type="text" value="{{$membership['start_date']}}" disabled>
             </div>
           </div>
           <div class="form-group row">
             <label for="example-search-input" class="col-2 col-form-label">Subscription end date</label>
             <div class="col-10">
-              <input class="form-control" type="text" value="12/12/1963" disabled>
+              <input class="form-control" type="text" value="{{$membership['end_date']}}" disabled>
             </div>
           </div>
           <div class="form-group row">
@@ -346,17 +258,14 @@
               <label for="example-search-input" class="col-2 col-form-label">Payment method</label>
               <div class="col-10">
                 <select class="form-control">
-                  <option value="">Credit card</option>
-                  <option value="">Debit Card</option>
-                  <option value="">Pay pal</option>
-                  <option value="">Mpesa</option>
+                  <option value="1">Pay pal</option>
                 </select>
               </div>
             </div>
             <div class="form-group row">
               <label for="example-search-input" class="col-2 col-form-label">Email my receipt</label>
               <div class="col-10">
-                <input  type="radio"> No &nbsp;<input  type="radio"> Yes
+                <input name="receipt"  type="radio"> No &nbsp;<input name="receipt"  type="radio"> Yes
               </div>
             </div>
             <div class="form-group row">

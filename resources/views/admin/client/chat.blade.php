@@ -9,110 +9,17 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-dashboard"></i>
-            <span class="nav-link-text">My projects</span>
-          </a>
-          <ul class="sidenav-second-level collapse" id="collapseComponents">
-            <li>
-              <a href="/client-profile">All projects</a>
-            </li>
-            <li>
-              <a href="/client-profile">Closed projects</a>
-            </li>
-            <li>
-              <a href="/client-profile">Active Projects</a>
-            </li>
-          </ul>
-        </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-          <a class="nav-link" href="/client-subscription">
-            <i class="fa fa-fw fa-dollar"></i>
-            <span class="nav-link-text">My subscription</span>
+          <a class="nav-link" href="/profile">
+            <i class="fa fa-fw fa-list"></i>
+            <span class="nav-link-text">My Projects</span>
           </a>
-        </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents1" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-bell"></i>
-            <span class="nav-link-text">Bidders</span>
-          </a>
-          <ul class="sidenav-second-level collapse" id="collapseComponents1">
-            <li>
-              <a href="/client-bidders">All registered bidders</a>
-            </li>
-            <li>
-              <a href="/client-bidders">My projects bidders</a>
-            </li>
-          </ul>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
           <a class="nav-link" href="/client-user-profile">
             <i class="fa fa-fw fa-user"></i>
             <span class="nav-link-text">My profile</span>
           </a>
-        </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents2" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-users"></i>
-            <span class="nav-link-text">Users</span>
-          </a>
-          <ul class="sidenav-second-level collapse" id="collapseComponents2">
-            <li>
-              <a href="/client-users">Clients</a>
-            </li>
-            <li>
-              <a href="/client-users">Bidders</a>
-            </li>
-            <li>
-              <a href="/client-users">Administrators</a>
-            </li>
-          </ul>
-        </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExamplePages" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-file"></i>
-            <span class="nav-link-text">Reports</span>
-          </a>
-          <ul class="sidenav-second-level collapse" id="collapseExamplePages">
-            <li>
-              <a href="/client-reports">Projects report</a>
-            </li>
-            <li>
-              <a href="/client-reports">Users Report</a>
-            </li>
-            <li>
-              <a href="/client-reports">Mailing list</a>
-            </li>
-            <li>
-              <a href="/client-reports">Bulk sms list</a>
-            </li>
-          </ul>
-        </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-sitemap"></i>
-            <span class="nav-link-text">Campaigns</span>
-          </a>
-          <ul class="sidenav-second-level collapse" id="collapseMulti">
-            <li>
-              <a href="/client-campaigns">Email campaign</a>
-            </li>
-            <li>
-              <a href="/client-campaigns">SMS campaign</a>
-            </li>
-            <li>
-              <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti2">Social media campaign</a>
-              <ul class="sidenav-third-level collapse" id="collapseMulti2">
-                <li>
-                  <a href="/client-campaigns">Facebook</a>
-                </li>
-                <li>
-                  <a href="/client-campaigns">Twitter</a>
-                </li>
-              </ul>
-            </li>
-          </ul>
         </li>
         <li class="nav-item active" data-toggle="tooltip" data-placement="right" title="Link">
           <a class="nav-link" href="/client-chats">

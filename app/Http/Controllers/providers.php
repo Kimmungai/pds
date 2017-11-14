@@ -92,6 +92,7 @@ class providers extends Controller
     //assign the user a membership
     $membership_type=$request->input('type');
     if($membership_type==1){
+      $start_date=Carbon::now();
       $end_date=Carbon::now()->addMonths(3);
       $price=0;
       $plan='Promotional Plan';
@@ -144,7 +145,7 @@ class providers extends Controller
     else
     {
       session::flash('company_update_error', 'Company details not updated! Please contact support@webdesignerscenter.com for help');
-      return back('new-provider.bidder-register-subscription-details');
+      return back();
     }
   }
   public function payment_basic_sucess()
@@ -239,5 +240,100 @@ class providers extends Controller
         session::flash('plan_error', $plan.' Has not been updated! Contact info@webdesignerscenter.com for help.');
       }
     }
+  }
+  public function provider_profile()
+  {
+    $user=User::with('UserMembership')->where('id','=',Auth::id())->first();
+    $user_category=$user['UserMembership']['type'];
+    return view('admin.provider.profile',compact('user'));
+  }
+  public function update_company_incorp_details(Request $request)
+  {
+    $validatedData = $request->validate([
+      'company_name' => 'required|max:255',
+      'company_legal_name' => 'required|max:255',
+      'company_reg_no' => 'required|max:255',
+      'company_incoporation_date' => 'nullable|max:255|date_format:m/d/Y',
+      'company_reg_cert' => 'nullable|image|mimes:jpeg,png,jpg,svg|max:2048',
+    ]);
+    if(Company::where('user_id','=',Auth::id())->update([
+      'company_name' => $request->input('company_name'),
+      'company_legal_name' => $request->input('company_legal_name'),
+      'company_reg_no' => $request->input('company_reg_no'),
+      'company_incoporation_date' => $request->input('company_incoporation_date'),
+    ]))
+    {
+      if($request->hasFile('company_reg_cert'))
+      {
+        $image=$request->company_reg_cert;
+        $destinationPath = 'Inc_certs';
+        $extension=$request->company_reg_cert->extension();
+        $name=$request->input('company_name').'.'.$extension;
+        $path='Inc_certs/'.$name;
+        $image->move($destinationPath, $name);
+        Company::where('user_id','=',Auth::id())->update(['company_reg_cert'=>$path]);
+      }
+      session::flash('update_success', 'Company Details Updated!');
+      return back();
+    }
+    else
+    {
+      session::flash('company_update_error', 'Company details not updated! Please contact support@webdesignerscenter.com for help');
+      return back();
+    }
+  }
+  public function company_contacts_update(Request $request)
+  {
+    $validatedData = $request->validate([
+      'company_address' => 'required|max:255',
+      'company_fax' => 'nullable|max:255',
+      'company_tel' => 'required|numeric|min:5',
+      'company_website' => 'required|max:255',
+      'company_email' => 'required|email',
+    ]);
+    if(Company::where('user_id','=',Auth::id())->update([
+      'company_address' => $request->input('company_address'),
+      'company_fax' => $request->input('company_fax'),
+      'company_tel' => $request->input('company_tel'),
+      'company_website' => $request->input('company_website'),
+      'company_email' => $request->input('company_email')
+    ]))
+    {
+      session::flash('update_success', 'Company Details Updated!');
+    }
+    else
+    {
+      session::flash('company_update_error', 'Company details not updated! Please contact support@webdesignerscenter.com for help');
+    }
+    return back();
+  }
+  public function update_company_promotion(Request $request)
+  {
+    $validatedData = $request->validate([
+      'company_industry' => 'required|max:255',
+      'company_description' => 'required|max:255',
+    ]);
+    if(Company::where('user_id','=',Auth::id())->update([
+      'company_industry' => $request->input('company_industry'),
+      'company_description' => $request->input('company_description'),
+    ]))
+    {
+      session::flash('update_success', 'Company Details Updated!');
+    }
+    else
+    {
+      session::flash('company_update_error', 'Company details not updated! Please contact support@webdesignerscenter.com for help');
+    }
+    return back();
+  }
+  function membership()
+  {
+    $membership=UserMembership::where('user_id','=',Auth::id())->first();
+    return view('admin.provider.subscription',compact('membership'));
+  }
+  function chats()
+  {
+    $membership=UserMembership::where('user_id','=',Auth::id())->first();
+    return view('admin.provider.chat',compact('membership'));
   }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\UserMembership;
+use App\Company;
 use Auth;
 use Session;
 use Carbon\Carbon;
@@ -17,14 +18,17 @@ class admin extends Controller
       $user_category=$user['UserMembership']['type'];
       switch($user_category)
       {
-        case 0://Client = 0
+        case 0://Client = 0 zero
           return view('admin.client.top',compact('user'));
         break;
-        case 1://provider=1,
+        case 1://provider=1 positive numbers,
           return view('admin.provider.top',compact('user'));
         break;
-        case 2://sys admin=2
+        case -1://sys admin=negative numbers
           return view('admin.sys.top',compact('user'));
+        break;
+        default://provider=1 positive numbers,
+          return view('admin.provider.top',compact('user'));
         break;
       }
       return back('/');
@@ -139,5 +143,10 @@ class admin extends Controller
       $user->delete();
       Auth::logout();
       return redirect('/');
+    }
+    public function company_details()
+    {
+      $company=Company::where('user_id','=',Auth::id())->first();
+      return view('admin.provider.company',compact('company'));
     }
 }

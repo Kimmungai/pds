@@ -100,3 +100,11 @@ Route::get('/payment-silver-sucess','providers@payment_silver_sucess')->name('Si
 Route::get('/payment-silver-aborted','providers@payment_silver_aborted')->name('silver Aborted')->middleware('auth');
 Route::get('/payment-gold-sucess','providers@payment_gold_sucess')->name('Gold Sucess')->middleware('auth');
 Route::get('/payment-gold-aborted','providers@payment_gold_aborted')->name('Gold Aborted')->middleware('auth');
+//provider
+Route::get('/provider-user-profile','providers@provider_profile')->name('Provider Profile')->middleware('auth');
+Route::get('/provider-company','admin@company_details')->name('Company Details')->middleware('auth');
+Route::put('/incorp-details', 'providers@update_company_incorp_details')->name('Incorp details update')->middleware('auth');
+Route::put('/contacts-update', 'providers@company_contacts_update')->name('company contacts update')->middleware('auth');
+Route::put('/company-promotion-update', 'providers@update_company_promotion')->name('company promotion update')->middleware('auth');
+Route::get('/provider-membership','providers@membership')->name('Provider Membership')->middleware('auth');
+Route::get('/provider-chats','providers@chats')->name('Provider Chats')->middleware('auth');

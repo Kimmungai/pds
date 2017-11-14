@@ -19,6 +19,7 @@ class CreateCompaniesTable extends Migration
             $table->string('company_name');
             $table->string('company_legal_name');
             $table->string('company_reg_no');
+            $table->string('company_reg_cert')->nullable();
             $table->string('company_incoporation_date');
             $table->string('company_address');
             $table->string('company_tel');
