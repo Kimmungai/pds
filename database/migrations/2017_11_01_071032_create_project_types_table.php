@@ -29,6 +29,7 @@ class CreateProjectTypesTable extends Migration
             $table->text('feature9')->nullable();
             $table->text('feature10')->nullable();
             $table->text('feature11')->nullable();
+            $table->text('other_features')->nullable();
             $table->timestamps();
         });
     }

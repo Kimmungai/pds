@@ -48,12 +48,7 @@ Route::get('/about-us', function () {
 Route::get('/new-project', function () {
     return view('new-project.new-project');
 });
-Route::get('/new-project-features', function () {
-    return view('new-project.new-project-features');
-});
-Route::get('/new-project-schedule', function () {
-    return view('new-project.new-project-schedule');
-});
+
 Route::get('/sign-up', function () {
     return view('client-register');
 });
@@ -110,3 +105,8 @@ Route::get('/provider-chats','providers@chats')->name('Provider Chats')->middlew
 Route::post('/new-project', 'projects@create')->name('Create Project')->middleware('auth');
 Route::get('/project-basic-back/{id}','projects@basic_back')->name('Back to basic')->middleware('auth');
 Route::put('/new-project-basic-update', 'projects@project_basic_update')->name('project basic update')->middleware('auth');
+Route::post('/new-project-features', 'projects@project_features_create')->name('Project Features')->middleware('auth');
+Route::get('/new-project-features-back','projects@new_project_features_back')->name('Back to features')->middleware('auth');
+Route::post('/new-project-schedule', 'projects@project_schedule_create')->name('Project Schedule')->middleware('auth');
+Route::get('/new-project-schedule','projects@new_project_schedule_form')->name('Project schedule form');
+Route::get('/new-project-features','projects@new_project_features_form')->name('Project schedule form');

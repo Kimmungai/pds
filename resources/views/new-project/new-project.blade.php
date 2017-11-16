@@ -108,25 +108,25 @@
                   <label for="name">Category<span class="red">*</span></label>
                 </div>
                 <div class="col-md-10">
-                  <div class="col-md-3"><input type="checkbox" value="1" name="mobile-app"  <?php if(strpos($data['project_type']['category'],'1')){ ?> checked  <?php } ?>/>&nbsp;Mobile App</div>
+                  <div class="col-md-3"><input type="checkbox" value="1" name="mobile-app"  <?php if(preg_match('/1/',$category['category'])){ ?>checked  <?php } ?>/>&nbsp;Mobile App</div>
                   @if ($errors->has('mobile-app'))
                     <span class="red">
                         <strong>{{ $errors->first('mobile-app') }}</strong>
                     </span>
                   @endif
-                  <div class="col-md-3"><input type="checkbox" value="2" name="e-commerce"  <?php if(strpos($data['project_type']['category'],'2')){ ?>checked  <?php } ?>/>&nbsp;E-commerce</div>
+                  <div class="col-md-3"><input type="checkbox" value="2" name="e-commerce"  <?php if(preg_match('/2/',$category['category'])){ ?>checked  <?php } ?>/>&nbsp;E-commerce</div>
                   @if ($errors->has('e-commerce'))
                     <span class="red">
                         <strong>{{ $errors->first('e-commerce') }}</strong>
                     </span>
                   @endif
-                  <div class="col-md-3"><input type="checkbox" value="3" name="blog"  <?php if(strpos($data['project_type']['category'],'3')){ ?>checked  <?php } ?>/>&nbsp;Blog</div>
+                  <div class="col-md-3"><input type="checkbox" value="3" name="blog"  <?php if(preg_match('/3/',$category['category'])){ ?>checked  <?php } ?>/>&nbsp;Blog</div>
                   @if ($errors->has('blog'))
                     <span class="red">
                         <strong>{{ $errors->first('blog') }}</strong>
                     </span>
                   @endif
-                  <div class="col-md-3"><input type="checkbox" value="4" name="website" <?php if(strpos($data['project_type']['category'],'4')){?>checked  <?php } ?>/>&nbsp;Website</div>
+                  <div class="col-md-3"><input type="checkbox" value="4" name="website" <?php if(preg_match('/4/',$category['category'])){?>checked  <?php } ?>/>&nbsp;Website</div>
                   @if ($errors->has('website'))
                     <span class="red">
                         <strong>{{ $errors->first('website') }}</strong>
@@ -139,9 +139,12 @@
                   <label for="name">Caption</label>
                 </div>
                 <div class="col-md-10">
-                  <label class="btn btn-default btn-file">
-                    Browse (max 500kb) <input name="caption" type="file" style="display: none;">
-                </label> <span>An image to describe the project</span>
+                  @if($data['caption']=='')
+                    <span>An image to describe the project</span>
+                  @else
+                    <span>Choose new file</span>
+                  @endif
+                  <input name="caption" type="file" class="form-control"  style="height:auto;">
                 </div>
               </div>
               <div class="row">
@@ -226,9 +229,8 @@
                   <label for="name">Caption</label>
                 </div>
                 <div class="col-md-10">
-                  <label class="btn btn-default btn-file">
-                    Browse (max 500kb) <input name="caption" type="file" style="display: none;">
-                </label> <span>An image to describe the project</span>
+                  <span>An image to describe the project</span>
+                  <input name="caption" type="file" class="form-control"  style="height:auto;">
                 </div>
               </div>
               <div class="row">

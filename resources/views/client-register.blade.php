@@ -170,7 +170,7 @@
                 <p><a href="/login">Already registered? Login here</a></p>
               </div>
               <div class="col-md-3 pull-right project-btn">
-                <button class="btn btn-primary btn-lg" type="submit">Register</button>
+                <button class="btn btn-primary" type="submit">Register</button>
               </div>
             </div>
          </form>

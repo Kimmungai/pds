@@ -19,12 +19,13 @@ class CreateProjectsTable extends Migration
             $table->string('title');
             $table->text('description')->nullable();
             $table->string('caption')->nullable();
-            $table->dateTime('start_date')->nullable();
-            $table->dateTime('end_date')->nullable();
+            $table->string('start_date')->nullable();
+            $table->string('end_date')->nullable();
             $table->string('desired_price')->nullable();
             $table->string('avg_price')->nullable();
-            $table->dateTime('valid_period')->nullable();
+            $table->string('valid_period')->nullable();
             $table->string('final_price')->nullable();
+            $table->string('message_to_bidders')->nullable();
             $table->timestamps();
         });
     }

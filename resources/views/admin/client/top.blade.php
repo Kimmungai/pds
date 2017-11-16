@@ -142,6 +142,11 @@
         <li class="breadcrumb-item active">My Projects</li>
         <li class="breadcrumb-item active">All Projects</li>
       </ol>
+      @if (Session::has('update_success'))
+        <div class="alert alert-success">
+            {{ Session::get('update_success') }}
+        </div>
+      @endif
       <!-- Icon Cards-->
       <div class="row">
         <div class="col-xl-3 col-sm-6 mb-3">
