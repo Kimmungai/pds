@@ -271,19 +271,24 @@
           <div class="card-columns">
             <!-- Example Social Card-->
             <div class="card mb-3">
-              <a href="#">
-                <img class="card-img-top img-fluid w-100" src="{{ asset('/img/project-pic.png') }}" alt="">
-              </a>
+              @if($user['project'][0]['caption']=='')
+
+              @else
+              
+              @endif
               <div class="card-body">
-                <h6 class="card-title mb-1"><a href="#">Project Title and category</a></h6>
-                <label for="project-title"></label><b>Title</b></label><input type="text" class="form-control" name="project-title" value="E-commerce website" />
+                 <h6 class="card-title mb-1"><a href="#">Project technical details</a></h6>
+                </div>
+                <hr class="my-0">
+                <div class="card-body">
+                <label for="project-title"></label><b>Title</b></label><input type="text" class="form-control" name="project-title" value="{{$user['project'][0]['title']}}" />
                 <hr class="my-0">
                 <div class="card-body py-2 small"></div>
                 <hr class="my-0">
-                <label for="project-title"></label><b>Start date</b></label><input type="text" class="form-control" name="project-title" value="12/12/2017" />
+                <label for="project-title"></label><b>Start date</b></label><input type="text" class="form-control" name="project-title" value="{{$user['project'][0]['start_date']}}" />
                 <hr class="my-0">
                 <div class="card-body py-2 small"></div>
-                <label for="project-title"></label><b>End date</b></label><input type="text" class="form-control" name="project-title" value="12/12/2017" />
+                <label for="project-title"></label><b>End date</b></label><input type="text" class="form-control" name="project-title" value="{{$user['project'][0]['end_date']}}" />
                 <div class="card-body py-2 small"></div>
                 <label for="project-category"></label><b>Caption</b></label>
                   <label class="btn btn-primary btn-file">
@@ -295,11 +300,11 @@
             </div>
             <!-- Example Social Card-->
             <div class="card mb-3">
-              <a href="#">
-                <img class="card-img-top img-fluid w-100" src="{{ asset('/img/tech-details.jpg') }}" alt="">
-              </a>
               <div class="card-body">
                 <h6 class="card-title mb-1"><a href="#">Project technical details</a></h6>
+              </div>
+              <hr class="my-0">
+              <div class="card-body">
                 <label for="project-title"></label><b>Description</b></label>
                 <textarea rows="5" class="form-control" name="project-title">Do it using formal methods</textarea>
                 <hr class="my-0">
@@ -308,33 +313,26 @@
                 </div>
                 <hr class="my-0">
                 <div class="card-body py-2 small"></div>
-                <label for="project-category"></label><b>Technical Specification (PDF)</b></label>
-                  <label class="btn btn-primary btn-file">
-                    doc 1 (max 1mb) <input type="file" style="display: none;">
-                  </label>
+                <label for="project-category"></label><b>Technical Specification doc 1</b></label>
+                     <input class="form-control" type="file" style="display: auto;">
                   <hr class="my-0">
                   <div class="card-body py-2 small"></div>
-                  <label for="project-category"></label><b>Technical Specification (PDF)</b></label>
-                    <label class="btn btn-primary btn-file">
-                      doc 2 (max 1mb) <input type="file" style="display: none;">
-                    </label>
-                    <hr class="my-0">
+                  <label for="project-category"></label><b>Technical Specification doc 2</b></label>
+                    <input class="form-control" type="file" style="display: auto;">
                     <div class="card-body py-2 small"></div>
-                    <label for="project-category"></label><b>Technical Specification (PDF)</b></label>
-                      <label class="btn btn-primary btn-file">
-                        doc 3 (max 1mb) <input type="file" style="display: none;">
-                      </label>
+                    <label for="project-category"></label><b>Technical Specification doc 3</b></label>
+                    <input class="form-control" type="file" style="display: auto;">
               </div>
               <hr class="my-0">
               <a class="btn btn-success form-control" href="#">Update</a>
             </div>
             <!-- Example Social Card-->
             <div class="card mb-3">
-              <a href="#">
-                <img class="card-img-top img-fluid w-100" src="{{ asset('/img/mobile-app-category.PNG') }}" alt="">
-              </a>
               <div class="card-body">
                 <h6 class="card-title mb-1"><a href="#">Project category, features and sharing</a></h6>
+              </div>
+              <hr class="my-0">
+              <div class="card-body">
                 <label for="project-category"></label><b>Category</b></label>
                 <select class="form-control" name="project-category">
                   <option selected disabled>Project category</option>
@@ -388,7 +386,7 @@
             <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
           </div>
           <!-- Example Notifications Card-->
-          <form method="post" action="/quick-new-project" />
+          <form method="post" action="/quick-new-project" enctype="multipart/form-data" />
             {{csrf_field()}}
             <input type="hidden" name="_method" value="PUT" />
             <div class="card mb-3">
@@ -615,7 +613,7 @@
                   @else
                   <td>{{$project['final_price']}}</td>
                   @endif
-                  <td>{{$project['created_at']->format('M d Y')}}</td>
+                  <td>{{$project['created_at']->format('m/d/Y')}}</td>
                 </tr>
                 @endforeach
               </tbody>

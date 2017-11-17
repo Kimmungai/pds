@@ -11,7 +11,7 @@ class site extends Controller
     public function index()
     {
       $provider_companies=Company::paginate(4);
-      $projects=Project::with('user','projectType')->paginate(2);
+      $projects=Project::with('user','projectType')->orderBy('created_at','desc')->paginate(2);
       return view('welcome',compact('provider_companies','projects'));
     }
 }

@@ -226,6 +226,7 @@ class projects extends Controller
         'end_date' => 'required|max:255|date_format:m/d/Y',
         'desired_price' => 'nullable|numeric',
         'message_to_bidders' => 'nullable',
+        'caption' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
       ]);
       if($request->input('feature1')){$feature1=$request->input('feature1');}else{$feature1=0;}
       if($request->input('feature2')){$feature2=$request->input('feature2');}else{$feature2=0;}
