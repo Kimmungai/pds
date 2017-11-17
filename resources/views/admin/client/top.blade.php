@@ -147,25 +147,32 @@
             {{ Session::get('update_success') }}
         </div>
       @endif
-      <!-- Icon Cards-->
-      <div class="row">
-        <div class="col-xl-3 col-sm-6 mb-3">
-          <div class="card text-white bg-primary o-hidden h-100">
-            <div class="card-body">
-              <div class="card-body-icon">
-                <i class="fa fa-fw fa-graduation-cap"></i>
-              </div>
-              <div class="mr-5">E-learning website</div>
-            </div>
-            <a class="card-footer text-white clearfix small z-1" href="#">
-              <span class="float-left">View Details</span>
-              <span class="float-right">
-                <i class="fa fa-angle-right"></i>
-              </span>
-            </a>
-          </div>
+      @if (Session::has('update_error'))
+        <div class="alert alert-danger">
+            {{ Session::get('update_error') }}
         </div>
-        <div class="col-xl-3 col-sm-6 mb-3">
+      @endif
+      <!-- Icon Cards-->
+      <div class="projects-container">
+        <div class="row">
+          @foreach($user_projects as $project)
+          <div class="col-xl-3 col-sm-6 mb-3">
+            <div class="card text-white bg-success o-hidden h-100">
+              <div class="card-body">
+                <div class="card-body-icon">
+                  <i class="fa fa-fw fa-graduation-cap"></i>
+                </div>
+                <div class="mr-5">{{$project['title']}}</div>
+              </div>
+              <a class="card-footer text-white clearfix small z-1" href="#">
+                <span class="float-left">View Details</span>
+                <span class="float-right">
+                  <i class="fa fa-angle-right"></i>
+                </span>
+              </a>
+            </div>
+          </div>
+        <!--<div class="col-xl-3 col-sm-6 mb-3">
           <div class="card text-white bg-warning o-hidden h-100">
             <div class="card-body">
               <div class="card-body-icon">
@@ -212,27 +219,14 @@
               </span>
             </a>
           </div>
-        </div>
+        </div>-->
+        @endforeach
       </div>
+    </div>
       <div class="row">
         <div class="col-xl-12 col-sm-12 mb-12">
           <nav class="pull-right" aria-label="...">
-            <ul class="pagination">
-              <li class="page-item disabled">
-                <span class="page-link">Previous</span>
-              </li>
-              <li class="page-item"><a class="page-link" href="#">1</a></li>
-              <li class="page-item active">
-                <span class="page-link">
-                  2
-                  <span class="sr-only">(current)</span>
-                </span>
-              </li>
-              <li class="page-item"><a class="page-link" href="#">3</a></li>
-              <li class="page-item">
-                <a class="page-link" href="#">Next</a>
-              </li>
-            </ul>
+              {{ $user_projects->links('vendor.pagination.bootstrap-4') }}
           </nav>
         </div>
       </div>
@@ -394,122 +388,188 @@
             <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
           </div>
           <!-- Example Notifications Card-->
-          <div class="card mb-3">
-            <div class="card-header">
-              <i class="fa fa-bell-o"></i> Quick action / New project</div>
-            <div class="list-group list-group-flush small">
-              <a class="list-group-item list-group-item-action">
-                <div class="media">
-                  <img class="d-flex mr-3 rounded-circle" src="{{asset('/img/required.png')}}" alt="">
-                  <div class="media-body">
-                    <input type="text" class="form-control" placeholder="Project title"/>
+          <form method="post" action="/quick-new-project" />
+            {{csrf_field()}}
+            <input type="hidden" name="_method" value="PUT" />
+            <div class="card mb-3">
+              <div class="card-header">
+                <i class="fa fa-bell-o"></i> Quick action / New project</div>
+              <div class="list-group list-group-flush small">
+                <a class="list-group-item list-group-item-action">
+                  <div class="media">
+                    <img class="d-flex mr-3 rounded-circle" src="{{asset('/img/required.png')}}" alt="">
+                    <div class="media-body">
+                      <input name="title" type="text" class="form-control" placeholder="Project title"/>
+                      @if ($errors->has('title'))
+                        <span class="red">
+                            <strong>{{ $errors->first('title') }}</strong>
+                        </span>
+                      @endif
+                    </div>
                   </div>
-                </div>
-              </a>
-              <a class="list-group-item list-group-item-action">
-                <div class="media">
-                  <img class="d-flex mr-3 rounded-circle" src="{{asset('/img/required.png')}}" alt="">
-                  <div class="media-body">
-                    <select class="form-control">
-                      <option selected disabled>Project category</option>
-                      <option>Mobile App</option>
-                      <option>E-commerce</option>
-                      <option>Blog</option>
-                      <option>Website</option>
-                    </select>
+                </a>
+                <a class="list-group-item list-group-item-action">
+                  <div class="media">
+                    <img class="d-flex mr-3 rounded-circle" src="{{asset('/img/required.png')}}" alt="">
+                    <div class="media-body">
+                      <select name="category" class="form-control">
+                        <option selected disabled value="0">Project category</option>
+                        <option value="1">Mobile App</option>
+                        <option value="2">E-commerce</option>
+                        <option value="3">Blog</option>
+                        <option value="4">Website</option>
+                      </select>
+                      @if ($errors->has('category'))
+                        <span class="red">
+                            <strong>{{ $errors->first('category') }}</strong>
+                        </span>
+                      @endif
+                    </div>
                   </div>
-                </div>
-              </a>
-              <a class="list-group-item list-group-item-action">
-                <div class="media">
-                  <img class="d-flex mr-3 rounded-circle" src="{{asset('/img/required.png')}}" alt="">
-                  <div class="media-body">
-                    <input type="checkbox"  />&nbsp;Shopping cart&nbsp;</br>
-                    <input type="checkbox"  />&nbsp;Responsive&nbsp;</br>
-                    <input type="checkbox"  />&nbsp;Membership&nbsp;</br>
-                    <input type="checkbox"  />&nbsp;Notification&nbsp;</br>
-                    <input type="checkbox"  />&nbsp;Cloud hosting&nbsp;</br>
-                    <input type="checkbox"  />&nbsp;Admin panel&nbsp;</br>
-                    <input type="checkbox"  />&nbsp;Back-up&nbsp;</br>
-                    <input type="checkbox"  />&nbsp;Bulk sms&nbsp;
+                </a>
+                <a class="list-group-item list-group-item-action">
+                  <div class="media">
+                    <img class="d-flex mr-3 rounded-circle" src="{{asset('/img/required.png')}}" alt="">
+                    <div class="media-body">
+                      <input name="feature1" type="checkbox" value="1"  />&nbsp;Shopping cart&nbsp;</br>
+                      <input name="feature2" type="checkbox" value="1" />&nbsp;Responsive&nbsp;</br>
+                      <input name="feature3" type="checkbox" value="1" />&nbsp;Membership&nbsp;</br>
+                      <input name="feature4" type="checkbox" value="1" />&nbsp;Notification&nbsp;</br>
+                      <input name="feature5" type="checkbox" value="1" />&nbsp;Cloud hosting&nbsp;</br>
+                      <input name="feature6" type="checkbox" value="1" />&nbsp;Admin panel&nbsp;</br>
+                      <input name="feature7" type="checkbox" value="1" />&nbsp;Back-up&nbsp;</br>
+                      <input name="feature8" type="checkbox" value="1" />&nbsp;Bulk sms&nbsp;
+                    </div>
                   </div>
-                </div>
-              </a>
-              <a class="list-group-item list-group-item-action">
-                <div class="media">
-                  <img class="d-flex mr-3 rounded-circle" src="{{asset('/img/required.png')}}" alt="">
-                  <div class="media-body">
-                    <input type="text" class="form-control" placeholder="Start date"/>
+                </a>
+                <a class="list-group-item list-group-item-action">
+                  <div class="media">
+                    <img class="d-flex mr-3 rounded-circle" src="{{asset('/img/required.png')}}" alt="">
+                    <div class="media-body">
+                      <input name="start_date" id="start_date" type="text" class="form-control" placeholder="Start date"/>
+                      @if ($errors->has('start_date'))
+                        <span class="red">
+                            <strong>{{ $errors->first('start_date') }}</strong>
+                        </span>
+                      @endif
+                    </div>
                   </div>
-                </div>
-              </a>
-              <a class="list-group-item list-group-item-action">
-                <div class="media">
-                  <img class="d-flex mr-3 rounded-circle" src="{{asset('/img/required.png')}}" alt="">
-                  <div class="media-body">
-                    <input type="text" class="form-control" placeholder="End date"/>
+                </a>
+                <a class="list-group-item list-group-item-action">
+                  <div class="media">
+                    <img class="d-flex mr-3 rounded-circle" src="{{asset('/img/required.png')}}" alt="">
+                    <div class="media-body">
+                      <input name="end_date" id="end_date" type="text" class="form-control" placeholder="End date"/>
+                      @if ($errors->has('end_date'))
+                        <span class="red">
+                            <strong>{{ $errors->first('end_date') }}</strong>
+                        </span>
+                      @endif
+                    </div>
                   </div>
-                </div>
-              </a>
-              <a class="list-group-item list-group-item-action">
-                <div class="media">
-                  <img class="d-flex mr-3 rounded-circle" src="{{asset('/img/required.png')}}" alt="">
-                  <div class="media-body">
-                    <textarea type="text" class="form-control" placeholder="Give a brief overview of the project goals"></textarea>
+                </a>
+                <a class="list-group-item list-group-item-action">
+                  <div class="media">
+                    <img class="d-flex mr-3 rounded-circle" src="{{asset('/img/required.png')}}" alt="">
+                    <div class="media-body">
+                      <textarea name="description" type="text" class="form-control" placeholder="Give a brief overview of the project goals"></textarea>
+                      @if ($errors->has('description'))
+                        <span class="red">
+                            <strong>{{ $errors->first('description') }}</strong>
+                        </span>
+                      @endif
+                    </div>
                   </div>
-                </div>
-              </a>
-              <a class="list-group-item list-group-item-action">
-                <div class="media">
-                  <img class="d-flex mr-3 rounded-circle" src="{{asset('/img/not-required.png')}}" alt="">
-                  <div class="media-body">
-                    <input type="text" class="form-control" placeholder="Ready to pay price"/>
+                </a>
+                <a class="list-group-item list-group-item-action">
+                  <div class="media">
+                    <img class="d-flex mr-3 rounded-circle" src="{{asset('/img/not-required.png')}}" alt="">
+                    <div class="media-body">
+                      <input name="desired_price" type="text" class="form-control" placeholder="Ready to pay price"/>
+                      @if ($errors->has('desired_price'))
+                        <span class="red">
+                            <strong>{{ $errors->first('desired_price') }}</strong>
+                        </span>
+                      @endif
+                    </div>
                   </div>
-                </div>
-              </a>
-              <a class="list-group-item list-group-item-action">
-                <div class="media">
+                </a>
+                <a class="list-group-item list-group-item-action">
+                  <div class="media">
 
-                  <div class="media-body">
-                    <label class="btn btn-primary btn-file">
-                      Caption (max 1mb) <input type="file" style="display: none;">
-                  </label>
+                    <div class="media-body">
+                      <label class="btn btn-default btn-file">
+                        Caption: <input name="caption" type="file" style="display: auto;">
+                        @if ($errors->has('caption'))
+                          <span class="red">
+                              <strong>{{ $errors->first('caption') }}</strong>
+                          </span>
+                        @endif
+                    </label>
+                    </div>
                   </div>
-                </div>
-              </a>
-              <a class="list-group-item list-group-item-action">
-                <div class="media">
+                </a>
+                <a class="list-group-item list-group-item-action">
+                  <div class="media">
 
-                  <div class="media-body">
-                    <label class="btn btn-primary btn-file">
-                      specification 1 (doc 1mb) <input type="file" style="display: none;">
-                  </label>
+                    <div class="media-body">
+                      <label class="btn btn-default btn-file">
+                        Doc 1: <input name="feature9" type="file" style="display: auto;">
+                        @if ($errors->has('feature9'))
+                          <span class="red">
+                              <strong>{{ $errors->first('feature9') }}</strong>
+                          </span>
+                        @endif
+                    </label>
+                    </div>
                   </div>
-                </div>
-              </a>
-              <a class="list-group-item list-group-item-action">
-                <div class="media">
+                </a>
+                <a class="list-group-item list-group-item-action">
+                  <div class="media">
 
-                  <div class="media-body">
-                    <label class="btn btn-primary btn-file">
-                      specification 2 (doc 1mb) <input type="file" style="display: none;">
-                  </label>
+                    <div class="media-body">
+                      <label class="btn btn-default btn-file">
+                        Doc 2: <input name="feature10" type="file" style="display: auto;">
+                        @if ($errors->has('feature10'))
+                          <span class="red">
+                              <strong>{{ $errors->first('feature10') }}</strong>
+                          </span>
+                        @endif
+                    </label>
+                    </div>
                   </div>
-                </div>
-              </a>
-              <a class="list-group-item list-group-item-action">
-                <div class="media">
+                </a>
+                <a class="list-group-item list-group-item-action">
+                  <div class="media">
 
-                  <div class="media-body">
-                    <label class="btn btn-primary btn-file">
-                      specification 3 (doc 1mb) <input type="file" style="display: none;">
-                  </label>
+                    <div class="media-body">
+                      <label class="btn btn-default btn-file">
+                        Doc 3: <input name="feature11" type="file" style="display: auto;">
+                        @if ($errors->has('feature11'))
+                          <span class="red">
+                              <strong>{{ $errors->first('feature11') }}</strong>
+                          </span>
+                        @endif
+                    </label>
+                    </div>
                   </div>
-                </div>
-              </a>
-              <a class="btn btn-success btn-lg" href="#">Post</a>
+                </a>
+                <a class="list-group-item list-group-item-action">
+                  <div class="media">
+                    <div class="media-body">
+                      <textarea name="message_to_bidders" type="text" class="form-control" placeholder="A message to bidders"></textarea>
+                      @if ($errors->has('message_to_bidders'))
+                        <span class="red">
+                            <strong>{{ $errors->first('message_to_bidders') }}</strong>
+                        </span>
+                      @endif
+                    </div>
+                  </div>
+                </a>
+                <button type="submit" class="btn btn-success btn-lg"><i class="fa fa-send"></i> Post</button>
+              </div>
             </div>
-          </div>
+          </form>
         </div>
       </div>
       <!-- Example DataTables Card-->
@@ -521,481 +581,43 @@
             <table class="table table-bordered" id="dataTable"  cellspacing="0">
               <thead>
                 <tr>
-                  <th>Name</th>
-                  <th>Position</th>
-                  <th>Office</th>
-                  <th>Age</th>
+                  <th>Title</th>
                   <th>Start date</th>
-                  <th>Salary</th>
+                  <th>End date</th>
+                  <th>Status</th>
+                  <th>Final price</th>
+                  <th>Posted date</th>
                 </tr>
               </thead>
               <tfoot>
                 <tr>
-                  <th>Name</th>
-                  <th>Position</th>
-                  <th>Office</th>
-                  <th>Age</th>
+                  <th>Title</th>
                   <th>Start date</th>
-                  <th>Salary</th>
+                  <th>End date</th>
+                  <th>Status</th>
+                  <th>Final price</th>
+                  <th>Posted date</th>
                 </tr>
               </tfoot>
               <tbody>
+                @foreach($user['project'] as $project)
                 <tr>
-                  <td>Tiger Nixon</td>
-                  <td>System Architect</td>
-                  <td>Edinburgh</td>
-                  <td>61</td>
-                  <td>2011/04/25</td>
-                  <td>$320,800</td>
+                  <td>{{$project['title']}}</td>
+                  <td>{{$project['start_date']}}</td>
+                  <td>{{$project['end_date']}}</td>
+                  @if($project['final_price']=='')
+                  <td class="red">Open bid</td>
+                  @else
+                  <td class="green">Closed bid</td>
+                  @endif
+                  @if($project['final_price']=='')
+                  <td>-</td>
+                  @else
+                  <td>{{$project['final_price']}}</td>
+                  @endif
+                  <td>{{$project['created_at']->format('M d Y')}}</td>
                 </tr>
-                <tr>
-                  <td>Garrett Winters</td>
-                  <td>Accountant</td>
-                  <td>Tokyo</td>
-                  <td>63</td>
-                  <td>2011/07/25</td>
-                  <td>$170,750</td>
-                </tr>
-                <tr>
-                  <td>Ashton Cox</td>
-                  <td>Junior Technical Author</td>
-                  <td>San Francisco</td>
-                  <td>66</td>
-                  <td>2009/01/12</td>
-                  <td>$86,000</td>
-                </tr>
-                <tr>
-                  <td>Cedric Kelly</td>
-                  <td>Senior Javascript Developer</td>
-                  <td>Edinburgh</td>
-                  <td>22</td>
-                  <td>2012/03/29</td>
-                  <td>$433,060</td>
-                </tr>
-                <tr>
-                  <td>Airi Satou</td>
-                  <td>Accountant</td>
-                  <td>Tokyo</td>
-                  <td>33</td>
-                  <td>2008/11/28</td>
-                  <td>$162,700</td>
-                </tr>
-                <tr>
-                  <td>Brielle Williamson</td>
-                  <td>Integration Specialist</td>
-                  <td>New York</td>
-                  <td>61</td>
-                  <td>2012/12/02</td>
-                  <td>$372,000</td>
-                </tr>
-                <tr>
-                  <td>Herrod Chandler</td>
-                  <td>Sales Assistant</td>
-                  <td>San Francisco</td>
-                  <td>59</td>
-                  <td>2012/08/06</td>
-                  <td>$137,500</td>
-                </tr>
-                <tr>
-                  <td>Rhona Davidson</td>
-                  <td>Integration Specialist</td>
-                  <td>Tokyo</td>
-                  <td>55</td>
-                  <td>2010/10/14</td>
-                  <td>$327,900</td>
-                </tr>
-                <tr>
-                  <td>Colleen Hurst</td>
-                  <td>Javascript Developer</td>
-                  <td>San Francisco</td>
-                  <td>39</td>
-                  <td>2009/09/15</td>
-                  <td>$205,500</td>
-                </tr>
-                <tr>
-                  <td>Sonya Frost</td>
-                  <td>Software Engineer</td>
-                  <td>Edinburgh</td>
-                  <td>23</td>
-                  <td>2008/12/13</td>
-                  <td>$103,600</td>
-                </tr>
-                <tr>
-                  <td>Jena Gaines</td>
-                  <td>Office Manager</td>
-                  <td>London</td>
-                  <td>30</td>
-                  <td>2008/12/19</td>
-                  <td>$90,560</td>
-                </tr>
-                <tr>
-                  <td>Quinn Flynn</td>
-                  <td>Support Lead</td>
-                  <td>Edinburgh</td>
-                  <td>22</td>
-                  <td>2013/03/03</td>
-                  <td>$342,000</td>
-                </tr>
-                <tr>
-                  <td>Charde Marshall</td>
-                  <td>Regional Director</td>
-                  <td>San Francisco</td>
-                  <td>36</td>
-                  <td>2008/10/16</td>
-                  <td>$470,600</td>
-                </tr>
-                <tr>
-                  <td>Haley Kennedy</td>
-                  <td>Senior Marketing Designer</td>
-                  <td>London</td>
-                  <td>43</td>
-                  <td>2012/12/18</td>
-                  <td>$313,500</td>
-                </tr>
-                <tr>
-                  <td>Tatyana Fitzpatrick</td>
-                  <td>Regional Director</td>
-                  <td>London</td>
-                  <td>19</td>
-                  <td>2010/03/17</td>
-                  <td>$385,750</td>
-                </tr>
-                <tr>
-                  <td>Michael Silva</td>
-                  <td>Marketing Designer</td>
-                  <td>London</td>
-                  <td>66</td>
-                  <td>2012/11/27</td>
-                  <td>$198,500</td>
-                </tr>
-                <tr>
-                  <td>Paul Byrd</td>
-                  <td>Chief Financial Officer (CFO)</td>
-                  <td>New York</td>
-                  <td>64</td>
-                  <td>2010/06/09</td>
-                  <td>$725,000</td>
-                </tr>
-                <tr>
-                  <td>Gloria Little</td>
-                  <td>Systems Administrator</td>
-                  <td>New York</td>
-                  <td>59</td>
-                  <td>2009/04/10</td>
-                  <td>$237,500</td>
-                </tr>
-                <tr>
-                  <td>Bradley Greer</td>
-                  <td>Software Engineer</td>
-                  <td>London</td>
-                  <td>41</td>
-                  <td>2012/10/13</td>
-                  <td>$132,000</td>
-                </tr>
-                <tr>
-                  <td>Dai Rios</td>
-                  <td>Personnel Lead</td>
-                  <td>Edinburgh</td>
-                  <td>35</td>
-                  <td>2012/09/26</td>
-                  <td>$217,500</td>
-                </tr>
-                <tr>
-                  <td>Jenette Caldwell</td>
-                  <td>Development Lead</td>
-                  <td>New York</td>
-                  <td>30</td>
-                  <td>2011/09/03</td>
-                  <td>$345,000</td>
-                </tr>
-                <tr>
-                  <td>Yuri Berry</td>
-                  <td>Chief Marketing Officer (CMO)</td>
-                  <td>New York</td>
-                  <td>40</td>
-                  <td>2009/06/25</td>
-                  <td>$675,000</td>
-                </tr>
-                <tr>
-                  <td>Caesar Vance</td>
-                  <td>Pre-Sales Support</td>
-                  <td>New York</td>
-                  <td>21</td>
-                  <td>2011/12/12</td>
-                  <td>$106,450</td>
-                </tr>
-                <tr>
-                  <td>Doris Wilder</td>
-                  <td>Sales Assistant</td>
-                  <td>Sidney</td>
-                  <td>23</td>
-                  <td>2010/09/20</td>
-                  <td>$85,600</td>
-                </tr>
-                <tr>
-                  <td>Angelica Ramos</td>
-                  <td>Chief Executive Officer (CEO)</td>
-                  <td>London</td>
-                  <td>47</td>
-                  <td>2009/10/09</td>
-                  <td>$1,200,000</td>
-                </tr>
-                <tr>
-                  <td>Gavin Joyce</td>
-                  <td>Developer</td>
-                  <td>Edinburgh</td>
-                  <td>42</td>
-                  <td>2010/12/22</td>
-                  <td>$92,575</td>
-                </tr>
-                <tr>
-                  <td>Jennifer Chang</td>
-                  <td>Regional Director</td>
-                  <td>Singapore</td>
-                  <td>28</td>
-                  <td>2010/11/14</td>
-                  <td>$357,650</td>
-                </tr>
-                <tr>
-                  <td>Brenden Wagner</td>
-                  <td>Software Engineer</td>
-                  <td>San Francisco</td>
-                  <td>28</td>
-                  <td>2011/06/07</td>
-                  <td>$206,850</td>
-                </tr>
-                <tr>
-                  <td>Fiona Green</td>
-                  <td>Chief Operating Officer (COO)</td>
-                  <td>San Francisco</td>
-                  <td>48</td>
-                  <td>2010/03/11</td>
-                  <td>$850,000</td>
-                </tr>
-                <tr>
-                  <td>Shou Itou</td>
-                  <td>Regional Marketing</td>
-                  <td>Tokyo</td>
-                  <td>20</td>
-                  <td>2011/08/14</td>
-                  <td>$163,000</td>
-                </tr>
-                <tr>
-                  <td>Michelle House</td>
-                  <td>Integration Specialist</td>
-                  <td>Sidney</td>
-                  <td>37</td>
-                  <td>2011/06/02</td>
-                  <td>$95,400</td>
-                </tr>
-                <tr>
-                  <td>Suki Burks</td>
-                  <td>Developer</td>
-                  <td>London</td>
-                  <td>53</td>
-                  <td>2009/10/22</td>
-                  <td>$114,500</td>
-                </tr>
-                <tr>
-                  <td>Prescott Bartlett</td>
-                  <td>Technical Author</td>
-                  <td>London</td>
-                  <td>27</td>
-                  <td>2011/05/07</td>
-                  <td>$145,000</td>
-                </tr>
-                <tr>
-                  <td>Gavin Cortez</td>
-                  <td>Team Leader</td>
-                  <td>San Francisco</td>
-                  <td>22</td>
-                  <td>2008/10/26</td>
-                  <td>$235,500</td>
-                </tr>
-                <tr>
-                  <td>Martena Mccray</td>
-                  <td>Post-Sales support</td>
-                  <td>Edinburgh</td>
-                  <td>46</td>
-                  <td>2011/03/09</td>
-                  <td>$324,050</td>
-                </tr>
-                <tr>
-                  <td>Unity Butler</td>
-                  <td>Marketing Designer</td>
-                  <td>San Francisco</td>
-                  <td>47</td>
-                  <td>2009/12/09</td>
-                  <td>$85,675</td>
-                </tr>
-                <tr>
-                  <td>Howard Hatfield</td>
-                  <td>Office Manager</td>
-                  <td>San Francisco</td>
-                  <td>51</td>
-                  <td>2008/12/16</td>
-                  <td>$164,500</td>
-                </tr>
-                <tr>
-                  <td>Hope Fuentes</td>
-                  <td>Secretary</td>
-                  <td>San Francisco</td>
-                  <td>41</td>
-                  <td>2010/02/12</td>
-                  <td>$109,850</td>
-                </tr>
-                <tr>
-                  <td>Vivian Harrell</td>
-                  <td>Financial Controller</td>
-                  <td>San Francisco</td>
-                  <td>62</td>
-                  <td>2009/02/14</td>
-                  <td>$452,500</td>
-                </tr>
-                <tr>
-                  <td>Timothy Mooney</td>
-                  <td>Office Manager</td>
-                  <td>London</td>
-                  <td>37</td>
-                  <td>2008/12/11</td>
-                  <td>$136,200</td>
-                </tr>
-                <tr>
-                  <td>Jackson Bradshaw</td>
-                  <td>Director</td>
-                  <td>New York</td>
-                  <td>65</td>
-                  <td>2008/09/26</td>
-                  <td>$645,750</td>
-                </tr>
-                <tr>
-                  <td>Olivia Liang</td>
-                  <td>Support Engineer</td>
-                  <td>Singapore</td>
-                  <td>64</td>
-                  <td>2011/02/03</td>
-                  <td>$234,500</td>
-                </tr>
-                <tr>
-                  <td>Bruno Nash</td>
-                  <td>Software Engineer</td>
-                  <td>London</td>
-                  <td>38</td>
-                  <td>2011/05/03</td>
-                  <td>$163,500</td>
-                </tr>
-                <tr>
-                  <td>Sakura Yamamoto</td>
-                  <td>Support Engineer</td>
-                  <td>Tokyo</td>
-                  <td>37</td>
-                  <td>2009/08/19</td>
-                  <td>$139,575</td>
-                </tr>
-                <tr>
-                  <td>Thor Walton</td>
-                  <td>Developer</td>
-                  <td>New York</td>
-                  <td>61</td>
-                  <td>2013/08/11</td>
-                  <td>$98,540</td>
-                </tr>
-                <tr>
-                  <td>Finn Camacho</td>
-                  <td>Support Engineer</td>
-                  <td>San Francisco</td>
-                  <td>47</td>
-                  <td>2009/07/07</td>
-                  <td>$87,500</td>
-                </tr>
-                <tr>
-                  <td>Serge Baldwin</td>
-                  <td>Data Coordinator</td>
-                  <td>Singapore</td>
-                  <td>64</td>
-                  <td>2012/04/09</td>
-                  <td>$138,575</td>
-                </tr>
-                <tr>
-                  <td>Zenaida Frank</td>
-                  <td>Software Engineer</td>
-                  <td>New York</td>
-                  <td>63</td>
-                  <td>2010/01/04</td>
-                  <td>$125,250</td>
-                </tr>
-                <tr>
-                  <td>Zorita Serrano</td>
-                  <td>Software Engineer</td>
-                  <td>San Francisco</td>
-                  <td>56</td>
-                  <td>2012/06/01</td>
-                  <td>$115,000</td>
-                </tr>
-                <tr>
-                  <td>Jennifer Acosta</td>
-                  <td>Junior Javascript Developer</td>
-                  <td>Edinburgh</td>
-                  <td>43</td>
-                  <td>2013/02/01</td>
-                  <td>$75,650</td>
-                </tr>
-                <tr>
-                  <td>Cara Stevens</td>
-                  <td>Sales Assistant</td>
-                  <td>New York</td>
-                  <td>46</td>
-                  <td>2011/12/06</td>
-                  <td>$145,600</td>
-                </tr>
-                <tr>
-                  <td>Hermione Butler</td>
-                  <td>Regional Director</td>
-                  <td>London</td>
-                  <td>47</td>
-                  <td>2011/03/21</td>
-                  <td>$356,250</td>
-                </tr>
-                <tr>
-                  <td>Lael Greer</td>
-                  <td>Systems Administrator</td>
-                  <td>London</td>
-                  <td>21</td>
-                  <td>2009/02/27</td>
-                  <td>$103,500</td>
-                </tr>
-                <tr>
-                  <td>Jonas Alexander</td>
-                  <td>Developer</td>
-                  <td>San Francisco</td>
-                  <td>30</td>
-                  <td>2010/07/14</td>
-                  <td>$86,500</td>
-                </tr>
-                <tr>
-                  <td>Shad Decker</td>
-                  <td>Regional Director</td>
-                  <td>Edinburgh</td>
-                  <td>51</td>
-                  <td>2008/11/13</td>
-                  <td>$183,000</td>
-                </tr>
-                <tr>
-                  <td>Michael Bruce</td>
-                  <td>Javascript Developer</td>
-                  <td>Singapore</td>
-                  <td>29</td>
-                  <td>2011/06/27</td>
-                  <td>$183,000</td>
-                </tr>
-                <tr>
-                  <td>Donna Snider</td>
-                  <td>Customer Support</td>
-                  <td>New York</td>
-                  <td>27</td>
-                  <td>2011/01/25</td>
-                  <td>$112,000</td>
-                </tr>
+                @endforeach
               </tbody>
             </table>
           </div>
@@ -1004,4 +626,14 @@
       </div>
     </div>
     <!-- /.container-fluid-->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
+    <script>
+    $( function() {
+      $( "#start_date" ).datepicker();
+      } );
+      $( function() {
+      $( "#end_date" ).datepicker();
+    } );
+    </script>
 @endsection

@@ -108,25 +108,25 @@
                   <label for="name">Category<span class="red">*</span></label>
                 </div>
                 <div class="col-md-10">
-                  <div class="col-md-3"><input type="checkbox" value="1" name="mobile-app"  <?php if(preg_match('/1/',$category['category'])){ ?>checked  <?php } ?>/>&nbsp;Mobile App</div>
+                  <div class="col-md-3"><input type="radio" value="1" name="category"  <?php if($category['category']==1){ ?>checked  <?php } ?>/>&nbsp;Mobile App</div>
                   @if ($errors->has('mobile-app'))
                     <span class="red">
                         <strong>{{ $errors->first('mobile-app') }}</strong>
                     </span>
                   @endif
-                  <div class="col-md-3"><input type="checkbox" value="2" name="e-commerce"  <?php if(preg_match('/2/',$category['category'])){ ?>checked  <?php } ?>/>&nbsp;E-commerce</div>
+                  <div class="col-md-3"><input type="radio" value="2" name="category"  <?php if($category['category']==2){ ?>checked  <?php } ?>/>&nbsp;E-commerce</div>
                   @if ($errors->has('e-commerce'))
                     <span class="red">
                         <strong>{{ $errors->first('e-commerce') }}</strong>
                     </span>
                   @endif
-                  <div class="col-md-3"><input type="checkbox" value="3" name="blog"  <?php if(preg_match('/3/',$category['category'])){ ?>checked  <?php } ?>/>&nbsp;Blog</div>
+                  <div class="col-md-3"><input type="radio" value="3" name="category"  <?php if($category['category']==3){ ?>checked  <?php } ?>/>&nbsp;Blog</div>
                   @if ($errors->has('blog'))
                     <span class="red">
                         <strong>{{ $errors->first('blog') }}</strong>
                     </span>
                   @endif
-                  <div class="col-md-3"><input type="checkbox" value="4" name="website" <?php if(preg_match('/4/',$category['category'])){?>checked  <?php } ?>/>&nbsp;Website</div>
+                  <div class="col-md-3"><input type="radio" value="4" name="category" <?php if($category['category']==4){?>checked  <?php } ?>/>&nbsp;Website</div>
                   @if ($errors->has('website'))
                     <span class="red">
                         <strong>{{ $errors->first('website') }}</strong>
@@ -198,25 +198,25 @@
                   <label for="name">Category<span class="red">*</span></label>
                 </div>
                 <div class="col-md-10">
-                  <div class="col-md-3"><input type="checkbox" name="mobile-app" value="1"  />&nbsp;Mobile App</div>
+                  <div class="col-md-3"><input type="radio" name="category" value="1"  />&nbsp;Mobile App</div>
                   @if ($errors->has('mobile-app'))
                     <span class="red">
                         <strong>{{ $errors->first('mobile-app') }}</strong>
                     </span>
                   @endif
-                  <div class="col-md-3"><input type="checkbox" name="e-commerce" value="2"  />&nbsp;E-commerce</div>
+                  <div class="col-md-3"><input type="radio" name="category" value="2"  />&nbsp;E-commerce</div>
                   @if ($errors->has('e-commerce'))
                     <span class="red">
                         <strong>{{ $errors->first('e-commerce') }}</strong>
                     </span>
                   @endif
-                  <div class="col-md-3"><input type="checkbox" name="blog" value="3"  />&nbsp;Blog</div>
+                  <div class="col-md-3"><input type="radio" name="category" value="3"  />&nbsp;Blog</div>
                   @if ($errors->has('blog'))
                     <span class="red">
                         <strong>{{ $errors->first('blog') }}</strong>
                     </span>
                   @endif
-                  <div class="col-md-3"><input type="checkbox" value="4" name="website" checked  />&nbsp;Website</div>
+                  <div class="col-md-3"><input type="radio" value="4" name="category"   />&nbsp;Website</div>
                   @if ($errors->has('website'))
                     <span class="red">
                         <strong>{{ $errors->first('website') }}</strong>

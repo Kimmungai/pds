@@ -38,14 +38,10 @@ class projects extends Controller
           $image->move($destinationPath, $name);
           Project::where('id','=',$new_project->id)->update(['caption'=>$path]);
         }
-        #########save project cetegory starts here######
-        if($request->input('mobile-app')){$mobile_app=$request->input('mobile-app');}else{$mobile_app=0;}
-        if($request->input('e-commerce')){$e_commerce=$request->input('e-commerce');}else{$e_commerce=0;}
-        if($request->input('blog')){$blog=$request->input('blog');}else{$blog=0;}
-        if($request->input('website')){$website=$request->input('website');}else{$website=0;}
+        #########save project cetegory starts here#####
         $new_project_category=new ProjectType;
         $new_project_category->project_id=$new_project->id;
-        $new_project_category->category=$mobile_app.$e_commerce.$blog.$website;
+        $new_project_category->category=$request->input('category');
         $new_project_category->save();
         #########save project category ends here######
         session::flash('project_basic_saved', 'Project basic details succesfully saved!');
@@ -92,12 +88,8 @@ class projects extends Controller
         #########save project cetegory starts here######
         if(count(ProjectType::where('project_id','=',session('new_project_id'))))
         {
-          if($request->input('mobile-app')){$mobile_app=$request->input('mobile-app');}else{$mobile_app=0;}
-          if($request->input('e-commerce')){$e_commerce=$request->input('e-commerce');}else{$e_commerce=0;}
-          if($request->input('blog')){$blog=$request->input('blog');}else{$blog=0;}
-          if($request->input('website')){$website=$request->input('website');}else{$website=0;}
           ProjectType::where('project_id','=',session('new_project_id'))->Update([
-            "category" => $mobile_app.$e_commerce.$blog.$website,
+            "category" => $request->input('category'),
           ]);
         }
         else
@@ -223,5 +215,101 @@ class projects extends Controller
       {
         return view('new-project.new-project-features');
       }
+    }
+    public function quick_new_project(Request $request)
+    {
+      $validatedData = $request->validate([
+        'title' => 'required|max:255',
+        'category' => 'required',
+        'description' => 'required',
+        'start_date' => 'required|max:255|date_format:m/d/Y',
+        'end_date' => 'required|max:255|date_format:m/d/Y',
+        'desired_price' => 'nullable|numeric',
+        'message_to_bidders' => 'nullable',
+      ]);
+      if($request->input('feature1')){$feature1=$request->input('feature1');}else{$feature1=0;}
+      if($request->input('feature2')){$feature2=$request->input('feature2');}else{$feature2=0;}
+      if($request->input('feature3')){$feature3=$request->input('feature3');}else{$feature3=0;}
+      if($request->input('feature4')){$feature4=$request->input('feature4');}else{$feature4=0;}
+      if($request->input('feature5')){$feature5=$request->input('feature5');}else{$feature5=0;}
+      if($request->input('feature6')){$feature6=$request->input('feature6');}else{$feature6=0;}
+      if($request->input('feature7')){$feature7=$request->input('feature7');}else{$feature7=0;}
+      if($request->input('feature8')){$feature8=$request->input('feature8');}else{$feature8=0;}
+      $new_project=new Project;
+      $new_project->user_id=Auth::id();
+      $new_project->title=$request->input('title');
+      $new_project->description=$request->input('description');
+      $new_project->start_date=$request->input('start_date');
+      $new_project->end_date=$request->input('end_date');
+      $new_project->desired_price=$request->input('desired_price');
+      $new_project->message_to_bidders=$request->input('message_to_bidders');
+      if($new_project->save())
+      {
+        if($request->hasFile('caption'))
+        {
+          $image=$request->caption;
+          $destinationPath = 'project-captions';
+          $extension=$request->caption->extension();
+          $name=$new_project->id.'.'.$extension;
+          $path='project-captions/'.$name;
+          $image->move($destinationPath, $name);
+          Project::where('id','=',$new_project->id)->update(['caption'=>$path]);
+        }
+        $new_type=new ProjectType;
+        $new_type->project_id=$new_project->id;
+        $new_type->category=$request->input('category');
+        $new_type->feature1=$feature1;
+        $new_type->feature2=$feature2;
+        $new_type->feature3=$feature3;
+        $new_type->feature4=$feature4;
+        $new_type->feature5=$feature5;
+        $new_type->feature6=$feature6;
+        $new_type->feature7=$feature7;
+        $new_type->feature8=$feature8;
+        if($new_type->save())
+        {
+          if($request->hasFile('feature9'))
+          {
+            $image=$request->feature9;
+            $destinationPath = 'project-specifications/document-1/';
+            $extension=$request->feature9->extension();
+            $name=$new_project->id.'.'.$extension;
+            $path='project-specifications/document-1/'.$name;
+            $image->move($destinationPath, $name);
+            ProjectType::where('project_id','=',$new_project->id)->update(['feature9'=>$path]);
+          }
+          if($request->hasFile('feature10'))
+          {
+            $image=$request->feature10;
+            $destinationPath = 'project-specifications/document-2/';
+            $extension=$request->feature10->extension();
+            $name=$new_project->id.'.'.$extension;
+            $path='project-specifications/document-2/'.$name;
+            $image->move($destinationPath, $name);
+            ProjectType::where('project_id','=',$new_project->id)->update(['feature10'=>$path]);
+          }
+          if($request->hasFile('feature11'))
+          {
+            $image=$request->feature11;
+            $destinationPath = 'project-specifications/document-3/';
+            $extension=$request->feature11->extension();
+            $name=$new_project->id.'.'.$extension;
+            $path='project-specifications/document-3/'.$name;
+            $image->move($destinationPath, $name);
+            ProjectType::where('project_id','=',$new_project->id)->update(['feature11'=>$path]);
+          }
+          session::flash('update_success', 'Project saved successfully!');
+          return redirect('profile');
+        }
+        else
+        {
+          session::flash('update_error', 'Project not saved!! Please contact support@webdesignerscenter.com for help');
+        }
+      }
+      else
+      {
+        session::flash('update_error', 'Project not saved!! Please contact support@webdesignerscenter.com for help');
+      }
+      return back()->withInput();
     }
 }

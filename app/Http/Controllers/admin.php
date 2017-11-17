@@ -14,12 +14,13 @@ class admin extends Controller
 {
     public function profile()
     {
-      $user=User::with('UserMembership')->where('id','=',Auth::id())->first();
+      $user=User::with('UserMembership','Project')->where('id','=',Auth::id())->first();
+      $user_projects=$user->project()->paginate(4);
       $user_category=$user['UserMembership']['type'];
       switch($user_category)
       {
         case 0://Client = 0 zero
-          return view('admin.client.top',compact('user'));
+          return view('admin.client.top',compact('user','user_projects'));
         break;
         case 1://provider=1 positive numbers,
           return view('admin.provider.top',compact('user'));
