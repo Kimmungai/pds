@@ -15,7 +15,7 @@ class admin extends Controller
     public function profile()
     {
       $user=User::with('UserMembership','Project')->where('id','=',Auth::id())->first();
-      $user_projects=$user->project()->orderBy('created_at','desc')->paginate(4);
+      $user_projects=$user->project()->with('ProjectType')->orderBy('created_at','desc')->paginate(4);
       $user_category=$user['UserMembership']['type'];
       switch($user_category)
       {

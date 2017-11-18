@@ -157,69 +157,18 @@
         <div class="row">
           @foreach($user_projects as $project)
           <div class="col-xl-3 col-sm-6 mb-3">
-            <div class="card text-white bg-success o-hidden h-100">
+            <div id="{{$project['id']}}" class="current-projects card text-white bg-success o-hidden h-100" onclick="dynamic_project_details(this.id)">
               <div class="card-body">
                 <div class="card-body-icon">
-                  <i class="fa fa-fw fa-graduation-cap"></i>
+                  <i class="fa fa-fw fa-globe"></i>
                 </div>
                 <div class="mr-5">{{$project['title']}}</div>
               </div>
               <a class="card-footer text-white clearfix small z-1" href="#">
                 <span class="float-left">View Details</span>
-                <span class="float-right">
-                  <i class="fa fa-angle-right"></i>
-                </span>
               </a>
             </div>
           </div>
-        <!--<div class="col-xl-3 col-sm-6 mb-3">
-          <div class="card text-white bg-warning o-hidden h-100">
-            <div class="card-body">
-              <div class="card-body-icon">
-                <i class="fa fa-fw  fa-mobile-phone"></i>
-              </div>
-              <div class="mr-5">Mobile app</div>
-            </div>
-            <a class="card-footer text-white clearfix small z-1" href="#">
-              <span class="float-left">View Details</span>
-              <span class="float-right">
-                <i class="fa fa-angle-right"></i>
-              </span>
-            </a>
-          </div>
-        </div>
-        <div class="col-xl-3 col-sm-6 mb-3">
-          <div class="card text-white bg-success o-hidden h-100">
-            <div class="card-body">
-              <div class="card-body-icon">
-                <i class="fa fa-fw fa-shopping-cart"></i>
-              </div>
-              <div class="mr-5">E-commerce</div>
-            </div>
-            <a class="card-footer text-white clearfix small z-1" href="#">
-              <span class="float-left">Next</span>
-              <span class="float-right">
-                <i class="fa fa-angle-right"></i>
-              </span>
-            </a>
-          </div>
-        </div>
-        <div class="col-xl-3 col-sm-6 mb-3">
-          <div class="card text-white bg-danger o-hidden h-100">
-            <div class="card-body">
-              <div class="card-body-icon">
-                <i class="fa fa-fw fa-globe"></i>
-              </div>
-              <div class="mr-5">Website</div>
-            </div>
-            <a class="card-footer text-white clearfix small z-1" href="#">
-              <span class="float-left">View Details</span>
-              <span class="float-right">
-                <i class="fa fa-angle-right"></i>
-              </span>
-            </a>
-          </div>
-        </div>-->
         @endforeach
       </div>
     </div>
@@ -232,8 +181,8 @@
       </div>
       <!-- Area Chart Example-->
       <div class="card mb-3">
-        <div class="card-header">
-          <i class="fa fa-area-chart"></i> Bidding activity  - E-learning website</div>
+        <div class="card-header" onclick="display_effect('myAreaChart')">
+          <i class="fa fa-area-chart"></i> Bidding activity  - <span class="project-title"></span></div>
         <div class="card-body">
           <canvas id="myAreaChart" width="100%" height="30"></canvas>
         </div>
@@ -243,9 +192,9 @@
         <div class="col-lg-8">
           <!-- Example Bar Chart Card-->
           <div class="card mb-3">
-            <div class="card-header">
-              <i class="fa fa-bar-chart"></i> Top bidders - E-learning website</div>
-            <div class="card-body">
+            <div class="card-header" onclick="display_effect('bar-chart')">
+              <i class="fa fa-bar-chart"></i> Top bidders - <span class="project-title"></span></div>
+            <div id="bar-chart" class="card-body">
               <div class="row">
                 <div class="col-sm-8 my-auto">
                   <canvas id="myBarChart" width="100" height="50"></canvas>
@@ -266,101 +215,111 @@
           </div>
           <!-- Card Columns Example Social Feed-->
           <div class="mb-0 mt-4">
-            <i class="fa fa-newspaper-o"></i> Project details  - E-learning website</div>
+            <i class="fa fa-newspaper-o"></i> <span class="project-title"></span> details</div>
           <hr class="mt-2">
           <div class="card-columns">
             <!-- Example Social Card-->
             <div class="card mb-3">
-              @if($user['project'][0]['caption']=='')
-
-              @else
-              
-              @endif
-              <div class="card-body">
-                 <h6 class="card-title mb-1"><a href="#">Project technical details</a></h6>
+              <div class="project-heading card-body" onclick="display_effect('project-title-schedule')">
+                 <h6 class="card-title mb-1"><a href="#">Project title & schedule</a></h6>
                 </div>
                 <hr class="my-0">
-                <div class="card-body">
-                <label for="project-title"></label><b>Title</b></label><input type="text" class="form-control" name="project-title" value="{{$user['project'][0]['title']}}" />
+                <div id="project-title-schedule" class="no-display">
+                  <div  class="card-body">
+                  <label for="project-title"></label><b>Title</b></label><input type="text" class="form-control" id="project-title" name="project-title" value="" />
+                  <hr class="my-0">
+                  <div class="card-body py-2 small"></div>
+                  <hr class="my-0">
+                  <label for="project-title"></label><b>Start date</b></label><input type="text" class="form-control" id="project-start-date" name="project-start-date" value="" />
+                  <hr class="my-0">
+                  <div class="card-body py-2 small"></div>
+                  <label for="project-title"></label><b>End date</b></label><input type="text" class="form-control" id="project-end-date" name="project-end-date" value="" />
+                </div>
                 <hr class="my-0">
-                <div class="card-body py-2 small"></div>
-                <hr class="my-0">
-                <label for="project-title"></label><b>Start date</b></label><input type="text" class="form-control" name="project-title" value="{{$user['project'][0]['start_date']}}" />
-                <hr class="my-0">
-                <div class="card-body py-2 small"></div>
-                <label for="project-title"></label><b>End date</b></label><input type="text" class="form-control" name="project-title" value="{{$user['project'][0]['end_date']}}" />
-                <div class="card-body py-2 small"></div>
-                <label for="project-category"></label><b>Caption</b></label>
-                  <label class="btn btn-primary btn-file">
-                    Browse (max 1mb) <input type="file" style="display: none;">
-                  </label>
+                <a class="btn btn-success form-control" href="#">Update</a>
               </div>
-              <hr class="my-0">
-              <a class="btn btn-success form-control" href="#">Update</a>
             </div>
             <!-- Example Social Card-->
             <div class="card mb-3">
-              <div class="card-body">
+              <div class="card-body project-heading" onclick="display_effect('project-technical-details')">
                 <h6 class="card-title mb-1"><a href="#">Project technical details</a></h6>
               </div>
               <hr class="my-0">
-              <div class="card-body">
-                <label for="project-title"></label><b>Description</b></label>
-                <textarea rows="5" class="form-control" name="project-title">Do it using formal methods</textarea>
-                <hr class="my-0">
-                <div class="card-body py-2 small">
+              <div id="project-technical-details" class="no-display">
+                <div class="card-body">
+                  <label for="project-title"></label><b>Description</b></label>
+                  <textarea rows="5" class="form-control" id="project-description" name="project-description">Do it using formal methods</textarea>
+                  <hr class="my-0">
+                  <div class="card-body py-2 small">
 
-                </div>
-                <hr class="my-0">
-                <div class="card-body py-2 small"></div>
-                <label for="project-category"></label><b>Technical Specification doc 1</b></label>
-                     <input class="form-control" type="file" style="display: auto;">
+                  </div>
                   <hr class="my-0">
                   <div class="card-body py-2 small"></div>
-                  <label for="project-category"></label><b>Technical Specification doc 2</b></label>
-                    <input class="form-control" type="file" style="display: auto;">
+                  <label for="project-category"></label><b id="feature9">Technical Specification doc 1</b></label>
+                       <input class="form-control" type="file" style="display: auto;">
+                    <hr class="my-0">
                     <div class="card-body py-2 small"></div>
-                    <label for="project-category"></label><b>Technical Specification doc 3</b></label>
-                    <input class="form-control" type="file" style="display: auto;">
+                    <label for="project-category"></label><b id="feature10">Technical Specification doc 2</b></label>
+                      <input class="form-control" type="file" style="display: auto;">
+                      <div class="card-body py-2 small"></div>
+                      <label for="project-category"></label><b id="feature11">Technical Specification doc 3</b></label>
+                      <input class="form-control" type="file" style="display: auto;">
+                </div>
+                <hr class="my-0">
+                <a class="btn btn-success form-control" href="#">Update</a>
               </div>
-              <hr class="my-0">
-              <a class="btn btn-success form-control" href="#">Update</a>
             </div>
             <!-- Example Social Card-->
             <div class="card mb-3">
-              <div class="card-body">
-                <h6 class="card-title mb-1"><a href="#">Project category, features and sharing</a></h6>
+              <div class="card-body project-heading" onclick="display_effect('project-features')">
+                <h6 class="card-title mb-1"><a href="#">Project features</a></h6>
               </div>
               <hr class="my-0">
-              <div class="card-body">
-                <label for="project-category"></label><b>Category</b></label>
-                <select class="form-control" name="project-category">
-                  <option selected disabled>Project category</option>
-                  <option>Mobile App</option>
-                  <option>E-commerce</option>
-                  <option>Blog</option>
-                  <option>Website</option>
-                </select>
+              <div id="project-features" class="no-display">
+                <div class="card-body">
+                  <label for="project-category"></label><b>Category</b></label>
+                  <select class="form-control" id="project-category" name="project-category">
+                    <option selected disabled value="0">Project category</option>
+                    <option value="1">Mobile App</option>
+                    <option value="2">E-commerce</option>
+                    <option value="3">Blog</option>
+                    <option value="4">Website</option>
+                  </select>
+                  <hr class="my-0">
+                  <div class="card-body py-2 small"></div>
+                  <hr class="my-0">
+                  <label for="project-category"></label><b>Userbility features</b></label>
+                </br><input type="checkbox" id="feature1" name="feature1"  />&nbsp;Shopping cart&nbsp;</br>
+                  <input type="checkbox" id="feature2" name="feature2"  />&nbsp;Responsive&nbsp;</br>
+                  <input type="checkbox" id="feature3" name="feature3"  />&nbsp;Membership&nbsp;</br>
+                  <input type="checkbox" id="feature4" name="feature4"  />&nbsp;Notification&nbsp;</br>
+                  <div class="card-body py-2 small"></div>
+                  <label for="project-category"></label><b>Back-end features</b></label>
+                </br><input type="checkbox" id="feature5" name="feature5"  />&nbsp;Cloud hosting&nbsp;</br>
+                  <input type="checkbox" id="feature6" name="feature6"  />&nbsp;Admin panel&nbsp;</br>
+                  <input type="checkbox" id="feature7" name="feature7"  />&nbsp;Back-up&nbsp;</br>
+                  <input type="checkbox" id="feature8" name="feature8"  />&nbsp;Bulk sms&nbsp;
+                  <div class="card-body py-2 small"></div>
+
+                </div>
                 <hr class="my-0">
-                <div class="card-body py-2 small"></div>
-                <hr class="my-0">
-                <label for="project-category"></label><b>Userbility features</b></label>
-                </br><input type="checkbox"  />&nbsp;Shopping cart&nbsp;</br>
-                <input type="checkbox"  />&nbsp;Responsive&nbsp;</br>
-                <input type="checkbox"  />&nbsp;Membership&nbsp;</br>
-                <input type="checkbox"  />&nbsp;Notification&nbsp;</br>
-                <div class="card-body py-2 small"></div>
-                <label for="project-category"></label><b>Back-end features</b></label>
-                </br><input type="checkbox"  />&nbsp;Cloud hosting&nbsp;</br>
-                <input type="checkbox"  />&nbsp;Admin panel&nbsp;</br>
-                <input type="checkbox"  />&nbsp;Back-up&nbsp;</br>
-                <input type="checkbox"  />&nbsp;Bulk sms&nbsp;
-                <div class="card-body py-2 small"></div>
-                <label for="project-category"></label><b>Share this project</b></label>
-                <a href="#" style="font-size:1.3em;"><i class="fa fa-facebook-square"></a></i> <a href="#" style="font-size:1.3em;"> <i class="fa fa-twitter-square"></i></a>
+                <a class="btn btn-success form-control" href="#">Update</a>
+              </div>
+            </div>
+            <!-- Example Social Card-->
+            <div class="card mb-3">
+              <div class="card-body project-heading" onclick="display_effect('project-sharing')">
+                <h6 class="card-title mb-1"><a href="#">Project Sharing</a></h6>
               </div>
               <hr class="my-0">
-              <a class="btn btn-success form-control" href="#">Update</a>
+              <div class="card-body py-2 small"></div>
+              <div id="project-sharing" class="card-body no-display">
+              <label for="project-title"><b>Share on social networks</b></label><br />
+              <a href="#" style="font-size:1.3em;"><i class="fa fa-facebook-square"></i></a>&nbsp;&nbsp;
+              <a href="#" style="font-size:1.3em;"> <i class="fa fa-twitter-square"></i></a>&nbsp;&nbsp;
+              <a href="#" style="font-size:1.3em;"> <i class="fa fa-envelope"></i></a>&nbsp;&nbsp;
+             </div>
+              <hr class="my-0">
             </div>
             <!-- Example Social Card-->
             <div class="card mb-3">
@@ -376,11 +335,22 @@
           <!-- /Card Columns-->
         </div>
         <div class="col-lg-4">
+          <!-- Caption-->
+          <div class="card mb-3">
+            <div class="card-header" onclick="display_effect('project-caption')">
+              <i class="fa fa-image"></i> <span class="project-title"></span> Caption</div>
+            <div id="project-caption" class="card-body">
+              <div id="project-avatar" class="project-caption">
+              </div>
+              <input name="avatar" type="file" class="form-control" style="height:auto;">
+            </div>
+            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+          </div><!-- End Caption-->
           <!-- Example Pie Chart Card-->
           <div class="card mb-3">
-            <div class="card-header">
-              <i class="fa fa-pie-chart"></i> Project bidding overview</div>
-            <div class="card-body">
+            <div class="card-header" onclick="display_effect('pie-chart')">
+              <i class="fa fa-pie-chart"></i> <span class="project-title"></span> bidding overview</div>
+            <div id="pie-chart" class="card-body">
               <canvas id="myPieChart" width="100%" height="100"></canvas>
             </div>
             <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
@@ -390,9 +360,9 @@
             {{csrf_field()}}
             <input type="hidden" name="_method" value="PUT" />
             <div class="card mb-3">
-              <div class="card-header">
+              <div class="card-header" onclick="display_effect('quick-form')">
                 <i class="fa fa-bell-o"></i> Quick action / New project</div>
-              <div class="list-group list-group-flush small">
+              <div id="quick-form" class="list-group list-group-flush small no-display">
                 <a class="list-group-item list-group-item-action">
                   <div class="media">
                     <img class="d-flex mr-3 rounded-circle" src="{{asset('/img/required.png')}}" alt="">
@@ -572,9 +542,9 @@
       </div>
       <!-- Example DataTables Card-->
       <div class="card mb-3">
-        <div class="card-header">
+        <div class="card-header" onclick="display_effect('all-projects')">
           <i class="fa fa-table"></i> All Projects</div>
-        <div class="card-body">
+        <div id="all-projects" class="card-body no-display">
           <div class="table-responsive">
             <table class="table table-bordered" id="dataTable"  cellspacing="0">
               <thead>
@@ -625,7 +595,6 @@
     </div>
     <!-- /.container-fluid-->
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-
     <script>
     $( function() {
       $( "#start_date" ).datepicker();
@@ -634,4 +603,72 @@
       $( "#end_date" ).datepicker();
     } );
     </script>
+    <!--dynamically load a projects details starts here-->
+    <script>
+    $(document).ready(function() {
+      var project_id={{$user_projects[0]['id']}};
+      dynamic_project_details(project_id);
+     });
+     function dynamic_project_details(project_id)
+     {
+       $(".current-projects").removeClass('bg-primary');
+       $(".current-projects").addClass('bg-success');
+       $("#"+project_id).removeClass('bg-success');
+       $("#"+project_id).addClass('bg-primary');
+       $.get("/load-project-details/",
+             {
+               project_id:project_id
+             },
+             function(data,status){
+               var project=JSON.stringify(data);
+               var project_obj=JSON.parse(project);
+               $('#project-title').val(project_obj.title);
+               $('.project-title').html(project_obj.title);
+               $('#project-start-date').val(project_obj.start_date);
+               $('#project-end-date').val(project_obj.end_date);
+               $('#project-description').val(project_obj.description);
+               if(project_obj.project_type.feature1==1){$('#feature1').attr('checked',true);}
+               if(project_obj.project_type.feature2==1){$('#feature2').attr('checked',true);}
+               if(project_obj.project_type.feature3==1){$('#feature3').attr('checked',true);}
+               if(project_obj.project_type.feature4==1){$('#feature4').attr('checked',true);}
+               if(project_obj.project_type.feature5==1){$('#feature5').attr('checked',true);}
+               if(project_obj.project_type.feature6==1){$('#feature6').attr('checked',true);}
+               if(project_obj.project_type.feature7==1){$('#feature7').attr('checked',true);}
+               if(project_obj.project_type.feature8==1){$('#feature8').attr('checked',true);}
+               if(project_obj.project_type.category==1){
+                 $('#project-category').val('1');
+                 $("#"+project_id+" i").removeClass('fa-globe');
+                 $("#"+project_id+" i").addClass('fa-mobile');
+               }else if (project_obj.project_type.category==2) {
+                 $('#project-category').val('2');
+                 $("#"+project_id+" i").removeClass('fa-globe');
+                 $("#"+project_id+" i").addClass('fa-shopping-cart');
+               }else if (project_obj.project_type.category==3) {
+                 $('#project-category').val('3');
+                 $("#"+project_id+" i").removeClass('fa-globe');
+                 $("#"+project_id+" i").addClass('fa-commenting');
+               }else if (project_obj.project_type.category==4) {
+                 $('#project-category').val('4');
+               }
+               if(project_obj.project_type.feature9!=''){$('#feature9').html('Choose a new doc 1');}
+               if(project_obj.project_type.feature10!=''){$('#feature10').html('Choose a new doc 2');}
+               if(project_obj.project_type.feature11!=''){$('#feature11').html('Choose a new doc 3');}
+               if(project_obj.caption===null){$('#project-avatar').css({"background-image": "url('{{asset('/avatar/avatar.jpg')}}')"});}else{$('#project-avatar').css({"background-image": "url('"+project_obj.caption+"')"});}
+               //alert(project_obj.project_type.category)
+           });
+           $( document ).ajaxStart(function() {
+              $( "#loading" ).show();
+              $("body").css('opacity','0.5');
+           });
+           $( document ).ajaxComplete(function() {
+              $( "#loading" ).hide();
+              $("body").css('opacity','1');
+           });
+     }
+     function display_effect(id)
+     {
+       $("#"+id).slideToggle('slow','linear');
+     }
+    </script>
+    <!--dynamically load a projects details ends here-->
 @endsection

@@ -33,6 +33,7 @@
 
         @yield('content')
         <!--Page content ends here-->
+        <div class="loading" id="loading"><img class="img-responsive" src="{{asset('/img/Rolling.gif')}}" /></div>
         <footer class="sticky-footer">
           <div class="container">
             <div class="text-center">

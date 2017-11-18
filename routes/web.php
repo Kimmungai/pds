@@ -111,3 +111,4 @@ Route::post('/new-project-schedule', 'projects@project_schedule_create')->name('
 Route::get('/new-project-schedule','projects@new_project_schedule_form')->name('Project schedule form');
 Route::get('/new-project-features','projects@new_project_features_form')->name('Project schedule form');
 Route::put('/quick-new-project', 'projects@quick_new_project')->name('New Project')->middleware('auth');
+Route::get('/load-project-details','dynamic@project_details')->name('Dynamic project loading');

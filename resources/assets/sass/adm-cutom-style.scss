@@ -12,3 +12,32 @@
 button:hover{
   cursor: pointer !important;
 }
+.loading
+{
+ margin:auto;
+ position:fixed;
+ top: 50%;
+ left: 50%;
+ width:100px;
+ height:100px;
+ margin: auto;
+ display: none;
+}
+.card-header:hover, .project-heading:hover
+{
+  cursor: pointer;
+}
+.no-display
+{
+  display: none;
+}
+.project-caption
+{
+  height: 10em;
+  width: 10em;
+  border-radius: 50%;
+  margin: 1em auto;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
