@@ -313,4 +313,134 @@ class projects extends Controller
       }
       return back()->withInput();
     }
+    public function project_title_schedule_update(Request $request)
+    {
+      $validatedData = $request->validate([
+        'project-title' => 'required|max:255',
+        'project-start-date' => 'required|max:255|date_format:m/d/Y',
+        'project-end-date' => 'required|max:255|date_format:m/d/Y'
+      ]);
+      if(Project::where('id','=',session('current_project_id'))->update([
+        'title' => $request->input('project-title'),
+        'start_date' => $request->input('project-start-date'),
+        'end_date' => $request->input('project-end-date'),
+      ])){
+        session::flash('update_success', 'Project update successfully!');
+      }else {
+        session::flash('update_error', 'Project not update!! Please contact support@webdesignerscenter.com for help');
+      }
+      return back();
+    }
+    public function project_features_update(Request $request)
+    {
+      if($request->input('feature1')){$feature1=$request->input('feature1');}else{$feature1=0;}
+      if($request->input('feature2')){$feature2=$request->input('feature2');}else{$feature2=0;}
+      if($request->input('feature3')){$feature3=$request->input('feature3');}else{$feature3=0;}
+      if($request->input('feature4')){$feature4=$request->input('feature4');}else{$feature4=0;}
+      if($request->input('feature5')){$feature5=$request->input('feature5');}else{$feature5=0;}
+      if($request->input('feature6')){$feature6=$request->input('feature6');}else{$feature6=0;}
+      if($request->input('feature7')){$feature7=$request->input('feature7');}else{$feature7=0;}
+      if($request->input('feature8')){$feature8=$request->input('feature8');}else{$feature8=0;}
+      if(ProjectType::where('project_id','=',session('current_project_id'))->update([
+        'category' => $request->input('project-category'),
+        'feature1' => $feature1,
+        'feature2' => $feature2,
+        'feature3' => $feature3,
+        'feature4' => $feature4,
+        'feature5' => $feature5,
+        'feature6' => $feature6,
+        'feature7' => $feature7,
+        'feature8' => $feature8,
+      ])){
+        session::flash('update_success', 'Project update successfully!');
+      }else {
+        session::flash('update_error', 'Project not update!! Please contact support@webdesignerscenter.com for help');
+      }
+      return back();
+    }
+    public function project_tech_features_update(Request $request)
+    {
+      $validatedData = $request->validate([
+        'project-description' => 'required',
+        'project_doc_1' => 'nullable|mimes:pdf|max:2048',
+        'project_doc_2' => 'nullable|mimes:pdf|max:2048',
+        'project_doc_3' => 'nullable|mimes:pdf|max:2048',
+      ]);
+      if($request->hasFile('project_doc_1'))
+      {
+        $image=$request->project_doc_1;
+        $destinationPath = 'project-specifications/document-1/';
+        $extension=$request->project_doc_1->extension();
+        $name=session('current_project_id').'.'.$extension;
+        $path='project-specifications/document-1/'.$name;
+        $image->move($destinationPath, $name);
+        ProjectType::where('project_id','=',session('current_project_id'))->update(['feature9'=>$path]);
+      }
+      if($request->hasFile('project_doc_2'))
+      {
+        $image=$request->project_doc_2;
+        $destinationPath = 'project-specifications/document-2/';
+        $extension=$request->project_doc_2->extension();
+        $name=session('current_project_id').'.'.$extension;
+        $path='project-specifications/document-2/'.$name;
+        $image->move($destinationPath, $name);
+        ProjectType::where('project_id','=',session('current_project_id'))->update(['feature10'=>$path]);
+      }
+      if($request->hasFile('project_doc_3'))
+      {
+        $image=$request->project_doc_3;
+        $destinationPath = 'project-specifications/document-3/';
+        $extension=$request->project_doc_3->extension();
+        $name=session('current_project_id').'.'.$extension;
+        $path='project-specifications/document-3/'.$name;
+        $image->move($destinationPath, $name);
+        ProjectType::where('project_id','=',session('current_project_id'))->update(['feature11'=>$path]);
+      }
+      if(Project::where('id','=',session('current_project_id'))->update([
+        'description' => $request->input('project-description'),
+      ])){
+        session::flash('update_success', 'Project update successfully!');
+      }else {
+        session::flash('update_error', 'Project not update!! Please contact support@webdesignerscenter.com for help');
+      }
+      return back();
+    }
+    public function project_caption_update(Request $request)
+    {
+      $validatedData = $request->validate([
+        'project_caption' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+      ]);
+      if($request->hasFile('project_caption'))
+      {
+        $image=$request->project_caption;
+        $destinationPath = 'project-captions';
+        $extension=$request->project_caption->extension();
+        $name=session('current_project_id').'.'.$extension;
+        $path='project-captions/'.$name;
+        $image->move($destinationPath, $name);
+      }
+      if(Project::where('id','=',session('current_project_id'))->update(['caption'=>$path]))
+      {
+        session::flash('update_success', 'Project update successfully!');
+      }
+      else
+      {
+        session::flash('update_error', 'Project not update!! Please contact support@webdesignerscenter.com for help');
+      }
+      return back();
+    }
+    public function project_delete($id='')
+    {
+      if($id=='')
+      {
+        $id=session('current_project_id');
+      }
+      $project=Project::find($id);
+      $project->projectType()->delete();
+      $project->bid()->delete();
+      $project->projectTestimonial()->delete();
+      $project->projectLike()->delete();
+      $project->delete();
+      return back();
+    }
 }
