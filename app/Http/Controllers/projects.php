@@ -313,13 +313,12 @@ class projects extends Controller
       }
       return back()->withInput();
     }
-<<<<<<< HEAD
     public function single_project_details($project_id)
     {
       $project=Project::with('User')->where('id','=',$project_id)->first();
       $project_type=$project->projectType()->first();
       return view('project-details',compact('project','project_type'));
-=======
+    }
     public function project_title_schedule_update(Request $request)
     {
       $validatedData = $request->validate([
@@ -449,6 +448,5 @@ class projects extends Controller
       $project->projectLike()->delete();
       $project->delete();
       return back();
->>>>>>> 07cb5d4aa6a857c3be364c35a452bf3bb9e6dc5e
     }
 }
