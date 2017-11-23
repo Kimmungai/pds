@@ -41,3 +41,60 @@ button:hover{
   background-repeat: no-repeat;
   background-position: center;
 }
+.projects-view article
+{
+  background-color: lightgrey;
+  border-radius: 5px;
+  margin: 1em 0;
+}
+.projects-view article h3
+{
+  text-align: center;
+  text-transform:capitalize;
+}
+.project-icon
+{
+  height: 9em;
+  width: 9em;
+  margin: 0 auto;
+  border-radius: 50%;
+}
+.nopadding
+{
+  padding: 0;
+}
+.projects-view article h5
+{
+  text-align: center;
+  font-style: italic;
+  color: green;
+}
+.projects-view article p
+{
+  text-align: center;
+}
+.projects-view article h4, h6
+{
+  text-align: center;
+  padding: 0.3em 0;
+}
+.gold
+{
+  color: #ffff00;
+}
+.list-header
+{
+  border-radius: 5px;
+}
+.list-header:hover
+{
+  cursor: pointer;
+}
+.projects-view input[type="text"],button,textarea
+{
+  margin: 0.2em 0;
+}
+.red
+{
+  color: red !important;
+}

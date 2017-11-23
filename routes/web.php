@@ -61,9 +61,6 @@ Route::get('/service-provider-subscription', function () {
 Route::get('/new-provider-company', function () {
     return view('new-provider.bidder-register-company-details');
 })->middleware('auth');
-Route::get('/project-details/{project_id}', function () {
-    return view('project-details');
-});
 
 Auth::routes();
 
@@ -112,3 +109,4 @@ Route::get('/new-project-schedule','projects@new_project_schedule_form')->name('
 Route::get('/new-project-features','projects@new_project_features_form')->name('Project schedule form');
 Route::put('/quick-new-project', 'projects@quick_new_project')->name('New Project')->middleware('auth');
 Route::get('/load-project-details','dynamic@project_details')->name('Dynamic project loading');
+Route::get('/project-details/{project_id}','projects@single_project_details')->name('single project details');

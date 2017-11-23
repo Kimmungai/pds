@@ -79,35 +79,11 @@
               <a class="btn btn-default active" href="#">Project details <span class="glyphicon glyphicon-folder-open"></span></a>
             </nav>
          </div>
-         <div class="col-md-8">
-           <div class="row bidders-nav pull-right">
-             <div class="col-xs-12">
-               <nav aria-label="...">
-                 <ul class="pagination">
-                   <li class="page-item disabled">
-                     <span class="page-link">Previous</span>
-                   </li>
-                   <li class="page-item"><a class="page-link" href="#">1</a></li>
-                   <li class="page-item active green-bg">
-                     <span class="page-link">
-                       2
-                       <span class="sr-only">(current)</span>
-                     </span>
-                   </li>
-                   <li class="page-item"><a class="page-link" href="#">3</a></li>
-                   <li class="page-item">
-                     <a class="page-link" href="#">Next</a>
-                   </li>
-                 </ul>
-               </nav>
-             </div>
-           </div>
-         </div>
        </div>
     </div>
       <div class="container section-decoration">
         <div class="row">
-          <h2>E-learning project</h2>
+          <h2>{{$project['title']}}</h2>
           <div class="strip"></div>
         </div>
         <div class="row project-details-panel">
@@ -133,7 +109,11 @@
              <ul class="list-group">
                 <li class="list-group-item">Status: <span class="green">OPEN</span></li>
                 <li class="list-group-item">No. of placed bids: <span class="bold">1000</span></li>
-                <li class="list-group-item">Average price: <span class="bold red">Ksh. 100,000</span></li>
+                @if($project['avg_price']=='')
+                <li class="list-group-item">Average price: <span class="bold red">-</span></li>
+                @else
+                <li class="list-group-item">Average price: <span class="bold red">Ksh. {{$project['avg_price']}}</span></li>
+                @endif
                 <li class="list-group-item">Remaining time: <span class="bold">7:4:33</span></li>
               </ul>
           </div>
@@ -142,9 +122,9 @@
           <div class="col-md-4">
             <h4>Schedule</h4>
             <div class="row">
-              <div class="col-xs-5"><div class="desired-feature"><i class="fa fa-calendar-check-o"></i><p class="green">12/12/2017</p></div></div>
+              <div class="col-xs-5"><div class="desired-feature"><i class="fa fa-calendar-check-o"></i><p class="green">{{$project['start_date']}}</p></div></div>
               <div class="col-xs-2 schedule-line"></div>
-              <div class="col-xs-5 pull-right"><div class="desired-feature"><i class="fa fa-calendar-check-o"></i><p class="green">12/12/2017</p></div></div>
+              <div class="col-xs-5 pull-right"><div class="desired-feature"><i class="fa fa-calendar-check-o"></i><p class="green">{{$project['end_date']}}</p></div></div>
             </div>
             <div class="row">
               <div class="col-xs-4"><div class="date-holder"><p>Start</p></diV></div>
@@ -167,7 +147,7 @@
           <div class="col-md-4">
             <h4>Client information</h4>
               <ul class="list-group">
-                  <li class="list-group-item">Name: <span class="bold">Peter</span></th>
+                  <li class="list-group-item">Name: <span class="bold">{{$project['user']['first_name']}} {{$project['user']['last_name']}}</span></th>
                   <li class="list-group-item">previous projects: <span class="bold">10</span></th>
                   <li class="list-group-item">Star rating: <span class="bold"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></span></th>
                   <li class="list-group-item">view profile: <span class="bold"><a href="#" class="green">profile</a></span></th>
@@ -240,9 +220,34 @@
             </tbody>
           </table>
         </div>
+        <!--bidder pagination starts here-->
+        <div class="col-md-12">
+          <div class="row bidders-nav pull-right">
+            <div class="col-xs-12">
+              <nav aria-label="...">
+                <ul class="pagination">
+                  <li class="page-item disabled">
+                    <span class="page-link">Previous</span>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item active green-bg">
+                    <span class="page-link">
+                      2
+                      <span class="sr-only">(current)</span>
+                    </span>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item">
+                    <a class="page-link" href="#">Next</a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        <!--bidder pagination ends here-->
       </div>
     </div>
-    <p class="view-more"><a href="#">View more</a></p>
+    </div>
   </div>
 </section>
 <!--footer nav starts here-->
@@ -257,30 +262,6 @@
               <a class="btn btn-default" href="#">Project list <span class="glyphicon glyphicon-list"></span></a>
               <a class="btn btn-default active" href="#">Project details <span class="glyphicon glyphicon-folder-open"></span></a>
             </nav>
-         </div>
-         <div class="col-md-8">
-           <div class="row bidders-nav pull-right">
-             <div class="col-xs-12">
-               <nav aria-label="...">
-                 <ul class="pagination">
-                   <li class="page-item disabled">
-                     <span class="page-link">Previous</span>
-                   </li>
-                   <li class="page-item"><a class="page-link" href="#">1</a></li>
-                   <li class="page-item active">
-                     <span class="page-link">
-                       2
-                       <span class="sr-only">(current)</span>
-                     </span>
-                   </li>
-                   <li class="page-item"><a class="page-link" href="#">3</a></li>
-                   <li class="page-item">
-                     <a class="page-link" href="#">Next</a>
-                   </li>
-                 </ul>
-               </nav>
-             </div>
-           </div>
          </div>
        </div>
     </div>

@@ -159,7 +159,7 @@
                   </ul>
                 </div>
                 <div class="project-actions">
-                  <a href="/project-details/1" class="btn btn-primary details-btn"><i class="fa  fa-list"></i> Details</a>
+                  <a href="/project-details/{{$project['id']}}" class="btn btn-primary details-btn"><i class="fa  fa-list"></i> Details</a>
                   <a href="/project-details/1" class="btn btn-primary bid-btn pull-right"><i class="fa  fa-bell-o"></i> Place bid</a>
                </div>
        </article>

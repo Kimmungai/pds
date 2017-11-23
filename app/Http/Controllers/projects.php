@@ -313,4 +313,10 @@ class projects extends Controller
       }
       return back()->withInput();
     }
+    public function single_project_details($project_id)
+    {
+      $project=Project::with('User')->where('id','=',$project_id)->first();
+      $project_type=$project->projectType()->first();
+      return view('project-details',compact('project','project_type'));
+    }
 }
