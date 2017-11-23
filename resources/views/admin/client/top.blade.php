@@ -221,95 +221,127 @@
             <!-- Example Social Card-->
             <div class="card mb-3">
               <div class="project-heading card-body" onclick="display_effect('project-title-schedule')">
-                 <h6 class="card-title mb-1"><a href="#">Project title & schedule</a></h6>
+                 <h6 class="card-title mb-1">Project title & schedule</h6>
                 </div>
                 <hr class="my-0">
-                <div id="project-title-schedule" class="no-display">
-                  <div  class="card-body">
-                  <label for="project-title"></label><b>Title</b></label><input type="text" class="form-control" id="project-title" name="project-title" value="" />
+                <form action="/project-title-schedule-update" method="post" />
+                  {{csrf_field()}}
+                  <input type="hidden" name="_method" value="PUT" />
+                  <div id="project-title-schedule" class="no-display">
+                    <div  class="card-body">
+                    <label for="project-title"></label><b>Title</b></label><input type="text" class="form-control" id="project-title" name="project-title" value="" required/>
+                    @if ($errors->has('project-title'))
+                      <span class="red">
+                          <strong>{{ $errors->first('project-title') }}</strong>
+                      </span>
+                    @endif
+                    <hr class="my-0">
+                    <div class="card-body py-2 small"></div>
+                    <hr class="my-0">
+                    <label for="project-title"></label><b>Start date</b></label><input type="text" class="form-control" id="project-start-date" name="project-start-date" value="" required/>
+                    @if ($errors->has('project-start-date'))
+                      <span class="red">
+                          <strong>{{ $errors->first('project-start-date') }}</strong>
+                      </span>
+                    @endif
+                    <hr class="my-0">
+                    <div class="card-body py-2 small"></div>
+                    <label for="project-title"></label><b>End date</b></label><input type="text" class="form-control" id="project-end-date" name="project-end-date" value="" required/>
+                    @if ($errors->has('project-end-date'))
+                      <span class="red">
+                          <strong>{{ $errors->first('project-end-date') }}</strong>
+                      </span>
+                    @endif
+                  </div>
                   <hr class="my-0">
-                  <div class="card-body py-2 small"></div>
-                  <hr class="my-0">
-                  <label for="project-title"></label><b>Start date</b></label><input type="text" class="form-control" id="project-start-date" name="project-start-date" value="" />
-                  <hr class="my-0">
-                  <div class="card-body py-2 small"></div>
-                  <label for="project-title"></label><b>End date</b></label><input type="text" class="form-control" id="project-end-date" name="project-end-date" value="" />
+                  <button class="btn btn-success form-control" type="submit">Update</button>
                 </div>
-                <hr class="my-0">
-                <a class="btn btn-success form-control" href="#">Update</a>
-              </div>
+              </form>
             </div>
             <!-- Example Social Card-->
             <div class="card mb-3">
               <div class="card-body project-heading" onclick="display_effect('project-technical-details')">
-                <h6 class="card-title mb-1"><a href="#">Project technical details</a></h6>
+                <h6 class="card-title mb-1">Project technical details</h6>
               </div>
               <hr class="my-0">
-              <div id="project-technical-details" class="no-display">
-                <div class="card-body">
-                  <label for="project-title"></label><b>Description</b></label>
-                  <textarea rows="5" class="form-control" id="project-description" name="project-description">Do it using formal methods</textarea>
-                  <hr class="my-0">
-                  <div class="card-body py-2 small">
+              <form action="/project-tech-features-update" method="post" enctype="multipart/form-data"/>
+                {{csrf_field()}}
+                <input type="hidden" name="_method" value="PUT" />
+                <div id="project-technical-details" class="no-display">
+                  <div class="card-body">
+                    <label for="project-title"></label><b>Description</b></label>
+                    <textarea rows="5" class="form-control" id="project-description" name="project-description">Do it using formal methods</textarea>
+                    @if ($errors->has('project-description'))
+                      <span class="red">
+                          <strong>{{ $errors->first('project-description') }}</strong>
+                      </span>
+                    @endif
+                    <hr class="my-0">
+                    <div class="card-body py-2 small">
 
-                  </div>
-                  <hr class="my-0">
-                  <div class="card-body py-2 small"></div>
-                  <label for="project-category"></label><b id="feature9">Technical Specification doc 1</b></label>
-                       <input class="form-control" type="file" style="display: auto;">
+                    </div>
                     <hr class="my-0">
                     <div class="card-body py-2 small"></div>
-                    <label for="project-category"></label><b id="feature10">Technical Specification doc 2</b></label>
-                      <input class="form-control" type="file" style="display: auto;">
+                    <label for="project-category"></label><b id="feature9">Technical Specification doc 1</b></label>
+                         <input name="project_doc_1" class="form-control" type="file" style="height: auto;">
+                      <hr class="my-0">
                       <div class="card-body py-2 small"></div>
-                      <label for="project-category"></label><b id="feature11">Technical Specification doc 3</b></label>
-                      <input class="form-control" type="file" style="display: auto;">
+                      <label for="project-category"></label><b id="feature10">Technical Specification doc 2</b></label>
+                        <input name="project_doc_2" class="form-control" type="file" style="height: auto;">
+                        <div class="card-body py-2 small"></div>
+                        <label for="project-category"></label><b id="feature11">Technical Specification doc 3</b></label>
+                        <input name="project_doc_3" class="form-control" type="file" style="height: auto;">
+                  </div>
+                  <hr class="my-0">
+                  <button class="btn btn-success form-control" type="submit">Update</button>
                 </div>
-                <hr class="my-0">
-                <a class="btn btn-success form-control" href="#">Update</a>
-              </div>
+              </form>
             </div>
             <!-- Example Social Card-->
             <div class="card mb-3">
               <div class="card-body project-heading" onclick="display_effect('project-features')">
-                <h6 class="card-title mb-1"><a href="#">Project features</a></h6>
+                <h6 class="card-title mb-1">Project features</h6>
               </div>
               <hr class="my-0">
               <div id="project-features" class="no-display">
-                <div class="card-body">
-                  <label for="project-category"></label><b>Category</b></label>
-                  <select class="form-control" id="project-category" name="project-category">
-                    <option selected disabled value="0">Project category</option>
-                    <option value="1">Mobile App</option>
-                    <option value="2">E-commerce</option>
-                    <option value="3">Blog</option>
-                    <option value="4">Website</option>
-                  </select>
-                  <hr class="my-0">
-                  <div class="card-body py-2 small"></div>
-                  <hr class="my-0">
-                  <label for="project-category"></label><b>Userbility features</b></label>
-                </br><input type="checkbox" id="feature1" name="feature1"  />&nbsp;Shopping cart&nbsp;</br>
-                  <input type="checkbox" id="feature2" name="feature2"  />&nbsp;Responsive&nbsp;</br>
-                  <input type="checkbox" id="feature3" name="feature3"  />&nbsp;Membership&nbsp;</br>
-                  <input type="checkbox" id="feature4" name="feature4"  />&nbsp;Notification&nbsp;</br>
-                  <div class="card-body py-2 small"></div>
-                  <label for="project-category"></label><b>Back-end features</b></label>
-                </br><input type="checkbox" id="feature5" name="feature5"  />&nbsp;Cloud hosting&nbsp;</br>
-                  <input type="checkbox" id="feature6" name="feature6"  />&nbsp;Admin panel&nbsp;</br>
-                  <input type="checkbox" id="feature7" name="feature7"  />&nbsp;Back-up&nbsp;</br>
-                  <input type="checkbox" id="feature8" name="feature8"  />&nbsp;Bulk sms&nbsp;
-                  <div class="card-body py-2 small"></div>
+                <form action="/project-features-update" method="post" />
+                  {{csrf_field()}}
+                  <input type="hidden" name="_method" value="PUT" />
+                  <div class="card-body">
+                    <label for="project-category"></label><b>Category</b></label>
+                    <select class="form-control" id="project-category" name="project-category">
+                      <option selected disabled value="0">Project category</option>
+                      <option value="1">Mobile App</option>
+                      <option value="2">E-commerce</option>
+                      <option value="3">Blog</option>
+                      <option value="4">Website</option>
+                    </select>
+                    <hr class="my-0">
+                    <div class="card-body py-2 small"></div>
+                    <hr class="my-0">
+                    <label for="project-category"></label><b>Userbility features</b></label>
+                  </br><input type="checkbox" id="feature1" name="feature1" value="1"  />&nbsp;Shopping cart&nbsp;</br>
+                    <input type="checkbox" id="feature2" name="feature2"  value="1"/>&nbsp;Responsive&nbsp;</br>
+                    <input type="checkbox" id="feature3" name="feature3" value="1" />&nbsp;Membership&nbsp;</br>
+                    <input type="checkbox" id="feature4" name="feature4" value="1" />&nbsp;Notification&nbsp;</br>
+                    <div class="card-body py-2 small"></div>
+                    <label for="project-category"></label><b>Back-end features</b></label>
+                  </br><input type="checkbox" id="feature5" name="feature5" value="1" />&nbsp;Cloud hosting&nbsp;</br>
+                    <input type="checkbox" id="feature6" name="feature6" value="1" />&nbsp;Admin panel&nbsp;</br>
+                    <input type="checkbox" id="feature7" name="feature7" value="1" />&nbsp;Back-up&nbsp;</br>
+                    <input type="checkbox" id="feature8" name="feature8" value="1" />&nbsp;Bulk sms&nbsp;
+                    <div class="card-body py-2 small"></div>
 
-                </div>
+                  </div>
                 <hr class="my-0">
-                <a class="btn btn-success form-control" href="#">Update</a>
+                <button class="btn btn-success form-control" type="submit">Update</button>
+                </form>
               </div>
             </div>
             <!-- Example Social Card-->
             <div class="card mb-3">
               <div class="card-body project-heading" onclick="display_effect('project-sharing')">
-                <h6 class="card-title mb-1"><a href="#">Project Sharing</a></h6>
+                <h6 class="card-title mb-1">Project Sharing</h6>
               </div>
               <hr class="my-0">
               <div class="card-body py-2 small"></div>
@@ -324,28 +356,35 @@
             <!-- Example Social Card-->
             <div class="card mb-3">
               <div class="card-body">
-                <h6 class="card-title mb-1"><a href="#">Project cancellation</a></h6>
+                <h6 class="card-title mb-1">Project cancellation</h6>
               </div>
               <hr class="my-0">
               <div class="card-body py-2 small"></div>
               <hr class="my-0">
-              <a class="btn btn-danger form-control" href="#">Cancel Project</a>
+              <button class="btn btn-danger form-control" data-toggle="modal" data-target="#projectDelete">Cancel Project</button>
             </div>
           </div>
           <!-- /Card Columns-->
         </div>
         <div class="col-lg-4">
           <!-- Caption-->
-          <div class="card mb-3">
-            <div class="card-header" onclick="display_effect('project-caption')">
-              <i class="fa fa-image"></i> <span class="project-title"></span> Caption</div>
-            <div id="project-caption" class="card-body">
-              <div id="project-avatar" class="project-caption">
-              </div>
-              <input name="avatar" type="file" class="form-control" style="height:auto;">
+          <form action="/project-caption-update" method="post" enctype="multipart/form-data"/>
+          {{csrf_field()}}
+            <input type="hidden" name="_method" value="PUT" />
+            <div class="card mb-3">
+              <div class="card-header" onclick="display_effect('project-caption')">
+                <i class="fa fa-image"></i> <span class="project-title"></span> Caption</div>
+              <div id="project-caption">
+                <div  class="card-body">
+                  <div id="project-avatar" class="project-caption">
+                  </div>
+                  <input name="project_caption" type="file" class="form-control" style="height:auto;">
+                </div>
+               <button class="btn btn-success form-control" type="submit">Update</button>
+             </div>
             </div>
-            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-          </div><!-- End Caption-->
+          </form>
+            <!-- End Caption-->
           <!-- Example Pie Chart Card-->
           <div class="card mb-3">
             <div class="card-header" onclick="display_effect('pie-chart')">
@@ -600,8 +639,14 @@
       $( "#start_date" ).datepicker();
       } );
       $( function() {
+        $( "#project-start-date" ).datepicker();
+        } );
+      $( function() {
       $( "#end_date" ).datepicker();
     } );
+    $( function() {
+    $( "#project-end-date" ).datepicker();
+  } );
     </script>
     <!--dynamically load a projects details starts here-->
     <script>

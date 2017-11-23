@@ -110,3 +110,8 @@ Route::get('/new-project-features','projects@new_project_features_form')->name('
 Route::put('/quick-new-project', 'projects@quick_new_project')->name('New Project')->middleware('auth');
 Route::get('/load-project-details','dynamic@project_details')->name('Dynamic project loading');
 Route::get('/project-details/{project_id}','projects@single_project_details')->name('single project details');
+Route::put('/project-title-schedule-update', 'projects@project_title_schedule_update')->name('Schedule title update')->middleware('auth');
+Route::put('/project-features-update', 'projects@project_features_update')->name('Features update')->middleware('auth');
+Route::put('/project-tech-features-update', 'projects@project_tech_features_update')->name('Tech Features update')->middleware('auth');
+Route::put('/project-caption-update', 'projects@project_caption_update')->name('caption update')->middleware('auth');
+Route::post('/project-delete', 'projects@project_delete')->name('project_delete')->middleware('auth');
