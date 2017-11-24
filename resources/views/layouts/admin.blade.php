@@ -140,6 +140,10 @@
         {
           $("#"+id).slideToggle('slow','linear');
         }
+        function submit_form(id)
+        {
+          $("#"+id).submit();
+        }
         </script>
       </div>
     </body>

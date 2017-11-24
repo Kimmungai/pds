@@ -94,13 +94,9 @@ class projects extends Controller
         }
         else
         {
-          if($request->input('mobile-app')){$mobile_app=$request->input('mobile-app');}else{$mobile_app=0;}
-          if($request->input('e-commerce')){$e_commerce=$request->input('e-commerce');}else{$e_commerce=0;}
-          if($request->input('blog')){$blog=$request->input('blog');}else{$blog=0;}
-          if($request->input('website')){$website=$request->input('website');}else{$website=0;}
           $new_project_category=new ProjectType;
           $new_project_category->project_id=session('new_project_id');
-          $new_project_category->category=$mobile_app.$e_commerce.$blog.$website;
+          $new_project_category->category=$request->input('category');
           $new_project_category->save();
         }
         #########save project category ends here######

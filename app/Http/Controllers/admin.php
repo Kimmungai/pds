@@ -19,14 +19,16 @@ class admin extends Controller
       $user=User::with('UserMembership','Project')->where('id','=',Auth::id())->first();
       $user_projects=$user->project()->with('ProjectType')->orderBy('created_at','desc')->paginate(4);
       $user_category=$user['UserMembership']['type'];
+      if(session('sort')){$result_order=session('sort');}else{$result_order='desc';}
+      if(session('filter')){$result_filter=session('filter');$sign='=';}else{$result_filter='';$sign='!=';}
       switch($user_category)
       {
         case 0://Client = 0 zero
           return view('admin.client.top',compact('user','user_projects'));
         break;
         case 1://provider=1 positive numbers,
-          $all_projects=Project::with('User')->orderBy('created_at','desc')->paginate(4);
-          $all_projects_types=ProjectType::orderBy('created_at','desc')->paginate(4);
+          $all_projects=Project::with('user')->whereHas('projectType', function ($query) {if(session('filter')){$result_filter=session('filter');$sign='=';}else{$result_filter='';$sign='!=';}$query->where('category', $sign, $result_filter);})->orderBy('created_at',$result_order)->paginate(4);
+          $all_projects_types=ProjectType::orderBy('created_at',$result_order)->where('category',$sign,$result_filter)->paginate(4);
           return view('admin.provider.top',compact('all_projects','all_projects_types'));
         break;
         case -1://sys admin=negative numbers
@@ -153,5 +155,45 @@ class admin extends Controller
     {
       $company=Company::where('user_id','=',Auth::id())->first();
       return view('admin.provider.company',compact('company'));
+    }
+    public function provider_controls(Request $request)
+    {
+      $task=$request->input('task');
+      switch($task)
+      {
+        case 'sort':
+          if($request->input('sort-projects')==1)
+          {
+            session(['sort'=> 'desc']);
+          }
+          else
+          {
+            session(['sort'=> 'asc']);
+          }
+        break;
+        case 'filter':
+          session(['filter'=> $request->input('project-category')]);
+          if(session('filter')==0){session()->forget('filter');}
+        break;
+        case 'bids':
+        break;
+        default:
+          if(isset($_GET['projects']) && $_GET['projects'] == 0){
+            session()->forget('sort');
+            session()->forget('filter');
+            session()->forget('bid_filtering');
+          }else if(isset($_GET['projects']) && $_GET['projects'] == 1){
+
+            session(['bid_filtering'=> 1]);
+          }
+          else if(isset($_GET['projects']) && $_GET['projects'] == 2){
+            session(['bid_filtering'=> 2]);
+          }
+          else if(isset($_GET['projects']) && $_GET['projects'] == 3){
+            session(['bid_filtering'=> 3]);
+          }
+        break;
+      }
+      return redirect('/profile');
     }
 }

@@ -115,3 +115,4 @@ Route::put('/project-features-update', 'projects@project_features_update')->name
 Route::put('/project-tech-features-update', 'projects@project_tech_features_update')->name('Tech Features update')->middleware('auth');
 Route::put('/project-caption-update', 'projects@project_caption_update')->name('caption update')->middleware('auth');
 Route::post('/project-delete', 'projects@project_delete')->name('project_delete')->middleware('auth');
+Route::get('/provider-controls', 'admin@provider_controls')->name('Provider view controls')->middleware('auth');

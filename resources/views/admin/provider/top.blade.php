@@ -146,31 +146,48 @@
   </nav>
   <div class="content-wrapper">
     <div class="container-fluid">
+      @if (Session::has('update_success'))
+        <div class="alert alert-success">
+            {{ Session::get('update_success') }}
+        </div>
+      @endif
+      @if (Session::has('update_error'))
+        <div class="alert alert-danger">
+            {{ Session::get('update_error') }}
+        </div>
+      @endif
       <!-- Breadcrumbs-->
       <div class="row project-control-bar">
         <div class="col-md-5">
           <ul class="list-inline">
-            <li class="list-inline-item"><a class="btn btn-success active" href="#">All <i class="fa fa-list"></i></a></li>
-            <li class="list-inline-item"><a class="btn btn-success" href="#">Open <i class="fa  fa-folder-open"></i></a></li>
-            <li class="list-inline-item"><a class="btn btn-success" href="#">Closed <i class="fa fa-folder"></i></a></li>
-            <li class="list-inline-item"><a class="btn btn-success" href="#">My Bids <i class="fa fa-user"></i></a></li>
+            <li class="list-inline-item"><a class="btn btn-success <?php if(!session('bid_filtering')){?>active<?php }?>" href="/provider-controls/?projects=0">All <i class="fa fa-list"></i></a></li>
+            <li class="list-inline-item"><a class="btn btn-success <?php if(session('bid_filtering') && session('bid_filtering')==1){?>active<?php }?>" href="/provider-controls/?projects=1">Open <i class="fa  fa-folder-open"></i></a></li>
+            <li class="list-inline-item"><a class="btn btn-success <?php if(session('bid_filtering') && session('bid_filtering')==2){?>active<?php }?>" href="/provider-controls/?projects=2">Closed <i class="fa fa-folder"></i></a></li>
+            <li class="list-inline-item"><a class="btn btn-success <?php if(session('bid_filtering') && session('bid_filtering')==3){?>active<?php }?>" href="/provider-controls/?projects=3">My Bids <i class="fa fa-user"></i></a></li>
           </ul>
         </div>
         <div class="col-md-5">
-          <label for="sort-projects"><i class="fa  fa-filter"></i> Filter</lable>
+          <label for="sort-projects"><i class="fa  fa-filter"></i> Filter</label>
             <ul class="list-inline">
-              <li class="list-inline-item"><input type="radio" name="project-category" /> Mobile App</li>
-              <li class="list-inline-item"><input type="radio" name="project-category" /> E-commerce</li>
-              <li class="list-inline-item"><input type="radio" name="project-category" /> Blog</li>
-              <li class="list-inline-item"><input type="radio" name="project-category" /> Website</li>
+              <form id="filter-form" action="/provider-controls" method="GET" />
+                <input type="hidden" name="task" value="filter" />
+                <li class="list-inline-item"><input type="radio" value="0" name="project-category" <?php if(!session('filter')){?>checked<?php }?> onclick="submit_form('filter-form')" /> Any</li>
+                <li class="list-inline-item"><input type="radio" value="1" name="project-category" <?php if(session('filter') && session('filter')==1){?>checked<?php }?> onclick="submit_form('filter-form')" /> Mobile App</li>
+                <li class="list-inline-item"><input type="radio" value="2" name="project-category" <?php if(session('filter') && session('filter')==2){?>checked<?php }?> onclick="submit_form('filter-form')"/> E-commerce</li>
+                <li class="list-inline-item"><input type="radio" value="3" name="project-category" <?php if(session('filter') && session('filter')==3){?>checked<?php }?> onclick="submit_form('filter-form')"/> Blog</li>
+                <li class="list-inline-item"><input type="radio" value="4" name="project-category" <?php if(session('filter') && session('filter')==4){?>checked<?php }?> onclick="submit_form('filter-form')"/> Website</li>
+              </form>
             </ul>
         </div>
         <div class="col-md-2">
           <label for="sort-projects"><i class="fa fa-sort-amount-asc"></i> Sort</lable>
-            <select class="form-control" name="sort-projects">
-              <option>Newest - Oldest</option>
-              <option>Oldest - Newest</option>
-            </select>
+            <form id="sort-form" action="/provider-controls" method="GET" />
+              <input type="hidden" name="task" value="sort" />
+              <select class="form-control" name="sort-projects" onchange="submit_form('sort-form')">
+                  <option value="1">Newest - Oldest</option>
+                  <option value="2" <?php if(session('sort') && session('sort')=='asc'){?>selected<?php }?>>Oldest - Newest</option>
+              </select>
+            </form>
         </div>
       </div>
       <div class="row projects-view">
@@ -276,18 +293,18 @@
                   <form>
                     <h5>Your offer</h5>
                     <div class="row">
-                      <div class="col-md-2">
+                      <div class="col-md-4">
                         <label for="price"><strong>Amount</strong></label>
                       </div>
-                      <div class="col-md-10">
+                      <div class="col-md-8">
                         <input type="text" class="form-control"  />
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col-md-2">
+                      <div class="col-md-4">
                         <label for="message"><strong>Message</strong></label>
                       </div>
-                      <div class="col-md-10">
+                      <div class="col-md-8">
                         <textarea  class="form-control"></textarea>
                       </div>
                     </div>
