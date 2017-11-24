@@ -174,33 +174,56 @@
         </div>
       </div>
       <div class="row projects-view">
+        <?php $count=0;?>
+        @foreach($all_projects as $project)
         <div class="col-md-6">
           <article>
-            <h3>mahgathe</h3>
+            <h3>{{$project['title']}}</h3>
             <div class="container">
               <div class="row">
                 <div class="col-md-4 nopadding">
                   <ul class="list-group">
                     <li class="list-group-item"><b>Front-end</b></li>
+                    @if($all_projects_types[$count]['feature1'] && $all_projects_types[$count]['feature1']!='')
                     <li class="list-group-item">Check out <small><i class="fa fa-cart-plus"></i></small></li>
+                    @endif
+                    @if($all_projects_types[$count]['feature2'] && $all_projects_types[$count]['feature1']!='')
                     <li class="list-group-item">Responsive <small><i class="fa fa-desktop"></i><i class="fa fa-tablet"></i> <i class="fa fa-mobile-phone"></i></small></li>
+                    @endif
+                    @if($all_projects_types[$count]['feature3'] && $all_projects_types[$count]['feature1']!='')
                     <li class="list-group-item">Membership <small><i class="fa fa-users"></i></small></li>
+                    @endif
+                    @if($all_projects_types[$count]['feature4'] && $all_projects_types[$count]['feature1']!='')
                     <li class="list-group-item">Notifications <small><i class="fa fa-envelope"></i></small></li>
+                    @endif
                   </ul>
                 </div>
                 <div class="col-md-4 nopadding">
                   <h5>Requirements</h5>
                   <div class="project-icon" style="background:url('{{asset('/avatar/avatar.jpg')}}') center no-repeat;"></div>
+                  @if($project['valid_period']==0 || $project['valid_period']=='')
+                  <h5>OPEN</h5>
+                  <p>Remaining: <strong>{{$project['end_date']}}</strong></p>
+                  @else
                   <h5 class="red">ClOSED</h5>
                   <p>On: <strong>11/12/2015</strong></p>
+                  @endif
                 </div>
                 <div class="col-md-4 nopadding">
                   <ul class="list-group">
                     <li class="list-group-item"><b>Back-end</b></li>
+                    @if($all_projects_types[$count]['feature5'] && $all_projects_types[$count]['feature5']!='')
                     <li class="list-group-item">Cloud hosted <small><i class="fa fa-cloud-upload"></i></small></li>
+                    @endif
+                    @if($all_projects_types[$count]['feature6'] && $all_projects_types[$count]['feature6']!='')
                     <li class="list-group-item">Admin panel <small><i class="fa fa-dashboard"></i></small></li>
+                    @endif
+                    @if($all_projects_types[$count]['feature7'] && $all_projects_types[$count]['feature7']!='')
                     <li class="list-group-item">Back up <small><i class="fa fa-hdd-o"></i></small></li>
+                    @endif
+                    @if($all_projects_types[$count]['feature8'] && $all_projects_types[$count]['feature8']!='')
                     <li class="list-group-item">Bulk sms <small><i class="fa fa-envelope-open"></i></small></li>
+                    @endif
                   </ul>
                 </div>
               </div>
@@ -212,23 +235,33 @@
               <div class="row">
                 <div class="col-md-6">
                   <ul class="list-group">
-                    <li class="list-group-item list-header"><b>Schedule & User preference</b></li>
-                    <div class="no-display">
-                      <li class="list-group-item">Start on: <strong>12/12/2015</strong></li>
-                      <li class="list-group-item">Finish by: <strong>12/12/2015</strong></li>
-                      <li class="list-group-item">Target: <strong>KSH. 100,000</strong></li>
-                      <li class="list-group-item">User: <strong>Wajui</strong> <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></li>
+                    <li class="list-group-item list-header" onclick="display_effect('schedule-preferences{{$project['id']}}')"><b>Schedule & User preference</b></li>
+                    <div class="no-display" id="schedule-preferences{{$project['id']}}">
+                      <li class="list-group-item">Start on: <strong>{{$project['start_date']}}</strong></li>
+                      <li class="list-group-item">Finish by: <strong>{{$project['end_date']}}</strong></li>
+                      @if($project['desired_price']=='')
+                      <li class="list-group-item">Target: <strong>-</strong></li>
+                      @else
+                      <li class="list-group-item">Target: <strong>KSH. {{$project['desired_price']}}</strong></li>
+                      @endif
+                      <li class="list-group-item">User: <strong>{{$project['user']['first_name']}}</strong> <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></li>
                     </div>
                   </ul>
                 </div>
                 <div class="col-md-6">
                   <ul class="list-group">
-                    <li class="list-group-item list-header"><b>Description & technical specs</b></li>
-                    <div class="no-display">
-                      <li class="list-group-item">Description: <small>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</small></li>
-                      <li class="list-group-item">Doc 1: <small><i class="fa fa-file-pdf-o"></i></small></li>
-                      <li class="list-group-item">Doc 2: <small><i class="fa fa-file-pdf-o"></i></small></li>
-                      <li class="list-group-item">Doc 3: <small><i class="fa fa-file-pdf-o"></i></small></li>
+                    <li class="list-group-item list-header"  onclick="display_effect('discription-tech{{$project['id']}}')"><b>Description & technical specs</b></li>
+                    <div class="no-display" id="discription-tech{{$project['id']}}">
+                      <li class="list-group-item">Description: {{$project['description']}}</li>
+                      @if($all_projects_types[$count]['feature9']!='')
+                      <li class="list-group-item">Doc 1: <a href="{{url($all_projects_types[$count]['feature9'])}}" class="black"><big><i class="fa fa-file-pdf-o"></i></big> download</a></li>
+                      @endif
+                      @if($all_projects_types[$count]['feature10']!='')
+                      <li class="list-group-item">Doc 2: <a href="{{url($all_projects_types[$count]['feature10'])}}" class="black"><big><i class="fa fa-file-pdf-o"></i></big> download</a></li>
+                      @endif
+                      @if($all_projects_types[$count]['feature11']!='')
+                      <li class="list-group-item">Doc 3: <a href="{{url($all_projects_types[$count]['feature11'])}}" class="black"><big><i class="fa fa-file-pdf-o"></i></big> download</a></li>
+                      @endif
                     </div>
                   </ul>
                 </div>
@@ -240,8 +273,8 @@
               </div>
               <div class="row">
                 <div class="col-md-12">
-                  <h5>Your offer</h5>
                   <form>
+                    <h5>Your offer</h5>
                     <div class="row">
                       <div class="col-md-2">
                         <label for="price"><strong>Amount</strong></label>
@@ -255,12 +288,16 @@
                         <label for="message"><strong>Message</strong></label>
                       </div>
                       <div class="col-md-10">
-                        <textarea class="form-control"></textarea>
+                        <textarea  class="form-control"></textarea>
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-md-12">
-                        <button class="btn btn-danger pull-right" disabled><i class="fa fa-bell-slash"></i> Bid</button>
+                        @if($project['valid_period']==0 || $project['valid_period']=='')
+                        <button class="btn btn-success pull-right"><i class="fa fa-bell"></i> Bid</button>
+                        @else
+                        <button class="btn btn-success pull-right" disabled><i class="fa fa-bell-slash"></i> Bid</button>
+                        @endif
                       </div>
                     </div>
                   </form>
@@ -269,303 +306,12 @@
             </div>
           </article>
         </div>
-        <div class="col-md-6">
-          <article>
-            <h3>mahgathe</h3>
-            <div class="container">
-              <div class="row">
-                <div class="col-md-4 nopadding">
-                  <ul class="list-group">
-                    <li class="list-group-item"><b>Front-end</b></li>
-                    <li class="list-group-item">Check out <small><i class="fa fa-cart-plus"></i></small></li>
-                    <li class="list-group-item">Responsive <small><i class="fa fa-desktop"></i><i class="fa fa-tablet"></i> <i class="fa fa-mobile-phone"></i></small></li>
-                    <li class="list-group-item">Membership <small><i class="fa fa-users"></i></small></li>
-                    <li class="list-group-item">Notifications <small><i class="fa fa-envelope"></i></small></li>
-                  </ul>
-                </div>
-                <div class="col-md-4 nopadding">
-                  <h5>Requirements</h5>
-                  <div class="project-icon" style="background:url('{{asset('/avatar/avatar.jpg')}}') center no-repeat;"></div>
-                  <h5>OPEN</h5>
-                  <p>Time <strong>1:53:20</strong></p>
-                </div>
-                <div class="col-md-4 nopadding">
-                  <ul class="list-group">
-                    <li class="list-group-item"><b>Back-end</b></li>
-                    <li class="list-group-item">Cloud hosted <small><i class="fa fa-cloud-upload"></i></small></li>
-                    <li class="list-group-item">Admin panel <small><i class="fa fa-dashboard"></i></small></li>
-                    <li class="list-group-item">Back up <small><i class="fa fa-hdd-o"></i></small></li>
-                    <li class="list-group-item">Bulk sms <small><i class="fa fa-envelope-open"></i></small></li>
-                  </ul>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-12">
-                  <h4>Avg price now <strong class="gold">KSH. 1,000</strong></h4>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6">
-                  <ul class="list-group">
-                    <li class="list-group-item list-header"><b>Schedule & User preference</b></li>
-                    <div class="no-display">
-                      <li class="list-group-item">Start on: <strong>12/12/2015</strong></li>
-                      <li class="list-group-item">Finish by: <strong>12/12/2015</strong></li>
-                      <li class="list-group-item">Target: <strong>KSH. 100,000</strong></li>
-                      <li class="list-group-item">User: <strong>Wajui</strong> <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></li>
-                    </div>
-                  </ul>
-                </div>
-                <div class="col-md-6">
-                  <ul class="list-group">
-                    <li class="list-group-item list-header"><b>Description & technical specs</b></li>
-                    <div class="no-display">
-                      <li class="list-group-item">Description: <small>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</small></li>
-                      <li class="list-group-item">Doc 1: <small><i class="fa fa-file-pdf-o"></i></small></li>
-                      <li class="list-group-item">Doc 2: <small><i class="fa fa-file-pdf-o"></i></small></li>
-                      <li class="list-group-item">Doc 3: <small><i class="fa fa-file-pdf-o"></i></small></li>
-                    </div>
-                  </ul>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-12">
-                  <h6>Client message: <strong class="green">Weka wega niwe weika!</strong></h6>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-12">
-                  <h5>Your offer</h5>
-                  <form>
-                    <div class="row">
-                      <div class="col-md-2">
-                        <label for="price"><strong>Amount</strong></label>
-                      </div>
-                      <div class="col-md-10">
-                        <input type="text" class="form-control"  />
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-2">
-                        <label for="message"><strong>Message</strong></label>
-                      </div>
-                      <div class="col-md-10">
-                        <textarea class="form-control"></textarea>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-12">
-                        <button class="btn btn-danger pull-right"><i class="fa fa-bell"></i> Bid</button>
-                      </div>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </article>
-        </div>
+        <?php $count++;?>
+        @endforeach
       </div>
-      <div class="row projects-view">
-        <div class="col-md-6">
-          <article>
-            <h3>mahgathe</h3>
-            <div class="container">
-              <div class="row">
-                <div class="col-md-4 nopadding">
-                  <ul class="list-group">
-                    <li class="list-group-item"><b>Front-end</b></li>
-                    <li class="list-group-item">Check out <small><i class="fa fa-cart-plus"></i></small></li>
-                    <li class="list-group-item">Responsive <small><i class="fa fa-desktop"></i><i class="fa fa-tablet"></i> <i class="fa fa-mobile-phone"></i></small></li>
-                    <li class="list-group-item">Membership <small><i class="fa fa-users"></i></small></li>
-                    <li class="list-group-item">Notifications <small><i class="fa fa-envelope"></i></small></li>
-                  </ul>
-                </div>
-                <div class="col-md-4 nopadding">
-                  <h5>Requirements</h5>
-                  <div class="project-icon" style="background:url('{{asset('/avatar/avatar.jpg')}}') center no-repeat;"></div>
-                  <h5 class="red">ClOSED</h5>
-                  <p>On: <strong>11/12/2015</strong></p>
-                </div>
-                <div class="col-md-4 nopadding">
-                  <ul class="list-group">
-                    <li class="list-group-item"><b>Back-end</b></li>
-                    <li class="list-group-item">Cloud hosted <small><i class="fa fa-cloud-upload"></i></small></li>
-                    <li class="list-group-item">Admin panel <small><i class="fa fa-dashboard"></i></small></li>
-                    <li class="list-group-item">Back up <small><i class="fa fa-hdd-o"></i></small></li>
-                    <li class="list-group-item">Bulk sms <small><i class="fa fa-envelope-open"></i></small></li>
-                  </ul>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-12">
-                  <h4>Avg price now <strong class="gold">KSH. 1,000</strong></h4>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6">
-                  <ul class="list-group">
-                    <li class="list-group-item list-header"><b>Schedule & User preference</b></li>
-                    <div class="no-display">
-                      <li class="list-group-item">Start on: <strong>12/12/2015</strong></li>
-                      <li class="list-group-item">Finish by: <strong>12/12/2015</strong></li>
-                      <li class="list-group-item">Target: <strong>KSH. 100,000</strong></li>
-                      <li class="list-group-item">User: <strong>Wajui</strong> <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></li>
-                    </div>
-                  </ul>
-                </div>
-                <div class="col-md-6">
-                  <ul class="list-group">
-                    <li class="list-group-item list-header"><b>Description & technical specs</b></li>
-                    <div class="no-display">
-                      <li class="list-group-item">Description: <small>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</small></li>
-                      <li class="list-group-item">Doc 1: <small><i class="fa fa-file-pdf-o"></i></small></li>
-                      <li class="list-group-item">Doc 2: <small><i class="fa fa-file-pdf-o"></i></small></li>
-                      <li class="list-group-item">Doc 3: <small><i class="fa fa-file-pdf-o"></i></small></li>
-                    </div>
-                  </ul>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-12">
-                  <h6>Client message: <strong class="green">Weka wega niwe weika!</strong></h6>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-12">
-                  <h5>Your offer</h5>
-                  <form>
-                    <div class="row">
-                      <div class="col-md-2">
-                        <label for="price"><strong>Amount</strong></label>
-                      </div>
-                      <div class="col-md-10">
-                        <input type="text" class="form-control"  />
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-2">
-                        <label for="message"><strong>Message</strong></label>
-                      </div>
-                      <div class="col-md-10">
-                        <textarea class="form-control"></textarea>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-12">
-                        <button class="btn btn-danger pull-right" disabled><i class="fa fa-bell-slash"></i> Bid</button>
-                      </div>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </article>
-        </div>
-        <div class="col-md-6">
-          <article>
-            <h3>mahgathe</h3>
-            <div class="container">
-              <div class="row">
-                <div class="col-md-4 nopadding">
-                  <ul class="list-group">
-                    <li class="list-group-item"><b>Front-end</b></li>
-                    <li class="list-group-item">Check out <small><i class="fa fa-cart-plus"></i></small></li>
-                    <li class="list-group-item">Responsive <small><i class="fa fa-desktop"></i><i class="fa fa-tablet"></i> <i class="fa fa-mobile-phone"></i></small></li>
-                    <li class="list-group-item">Membership <small><i class="fa fa-users"></i></small></li>
-                    <li class="list-group-item">Notifications <small><i class="fa fa-envelope"></i></small></li>
-                  </ul>
-                </div>
-                <div class="col-md-4 nopadding">
-                  <h5>Requirements</h5>
-                  <div class="project-icon" style="background:url('{{asset('/avatar/avatar.jpg')}}') center no-repeat;"></div>
-                  <h5>OPEN</h5>
-                  <p>Time <strong>1:53:20</strong></p>
-                </div>
-                <div class="col-md-4 nopadding">
-                  <ul class="list-group">
-                    <li class="list-group-item"><b>Back-end</b></li>
-                    <li class="list-group-item">Cloud hosted <small><i class="fa fa-cloud-upload"></i></small></li>
-                    <li class="list-group-item">Admin panel <small><i class="fa fa-dashboard"></i></small></li>
-                    <li class="list-group-item">Back up <small><i class="fa fa-hdd-o"></i></small></li>
-                    <li class="list-group-item">Bulk sms <small><i class="fa fa-envelope-open"></i></small></li>
-                  </ul>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-12">
-                  <h4>Avg price now <strong class="gold">KSH. 1,000</strong></h4>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6">
-                  <ul class="list-group">
-                    <li class="list-group-item list-header"><b>Schedule & User preference</b></li>
-                    <div class="no-display">
-                      <li class="list-group-item">Start on: <strong>12/12/2015</strong></li>
-                      <li class="list-group-item">Finish by: <strong>12/12/2015</strong></li>
-                      <li class="list-group-item">Target: <strong>KSH. 100,000</strong></li>
-                      <li class="list-group-item">User: <strong>Wajui</strong> <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></li>
-                    </div>
-                  </ul>
-                </div>
-                <div class="col-md-6">
-                  <ul class="list-group">
-                    <li class="list-group-item list-header"><b>Description & technical specs</b></li>
-                    <div class="no-display">
-                      <li class="list-group-item">Description: <small>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</small></li>
-                      <li class="list-group-item">Doc 1: <small><i class="fa fa-file-pdf-o"></i></small></li>
-                      <li class="list-group-item">Doc 2: <small><i class="fa fa-file-pdf-o"></i></small></li>
-                      <li class="list-group-item">Doc 3: <small><i class="fa fa-file-pdf-o"></i></small></li>
-                    </div>
-                  </ul>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-12">
-                  <h6>Client message: <strong class="green">Weka wega niwe weika!</strong></h6>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-12">
-                  <h5>Your offer</h5>
-                  <form>
-                    <div class="row">
-                      <div class="col-md-2">
-                        <label for="price"><strong>Amount</strong></label>
-                      </div>
-                      <div class="col-md-10">
-                        <input type="text" class="form-control"  />
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-2">
-                        <label for="message"><strong>Message</strong></label>
-                      </div>
-                      <div class="col-md-10">
-                        <textarea class="form-control"></textarea>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-12">
-                        <button class="btn btn-danger pull-right"><i class="fa fa-bell"></i> Bid</button>
-                      </div>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-      <nav aria-label="Page navigation example">
-  <ul class="pagination pull-right">
-    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-  </ul>
-</nav>
+      <nav aria-label="Page navigation" class="pull-right">
+        {{ $all_projects->links('vendor.pagination.bootstrap-4') }}
+      </nav>
     </div>
     <!-- /.container-fluid-->
 @endsection

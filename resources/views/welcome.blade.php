@@ -201,7 +201,7 @@
          <article>
            <h4>{{$provider_company['company_name']}}</h4>
            <div class="row provider-details">
-             <div class="col-md-5">
+             <div class="col-xs-5">
                @if($provider_company['company_reg_cert']=='')
                  <div class="provider-logo" style="background:url('{{asset('/avatar/avatar.jpg')}}') center no-repeat;"></div>
                @else
@@ -209,7 +209,7 @@
                @endif
                </div>
              </div>
-             <div class="col-md-7">
+             <div class="col-xs-7">
               <ul>
                 <li>Established: <span>{{$provider_company['company_incoporation_date']}}</span></li>
                 <li>Completed bids: <span>2005</span></li>
@@ -217,7 +217,7 @@
               </ul>
              </div>
              <div class="row provider-details">
-               <div class="col-md-12">
+               <div class="col-xs-12">
                  <h5>Description</h5>
                  <p>{{$provider_company['company_description']}}</p>
                </div>

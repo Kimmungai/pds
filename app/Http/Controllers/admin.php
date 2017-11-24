@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\User;
 use App\UserMembership;
 use App\Company;
+use App\Project;
+use App\ProjectType;
 use Auth;
 use Session;
 use Carbon\Carbon;
@@ -23,13 +25,15 @@ class admin extends Controller
           return view('admin.client.top',compact('user','user_projects'));
         break;
         case 1://provider=1 positive numbers,
-          return view('admin.provider.top',compact('user'));
+          $all_projects=Project::with('User')->orderBy('created_at','desc')->paginate(4);
+          $all_projects_types=ProjectType::orderBy('created_at','desc')->paginate(4);
+          return view('admin.provider.top',compact('all_projects','all_projects_types'));
         break;
         case -1://sys admin=negative numbers
-          return view('admin.sys.top',compact('user'));
+          return view('admin.sys.top');
         break;
         default://provider=1 positive numbers,
-          return view('admin.provider.top',compact('user'));
+          return view('admin.provider.top');
         break;
       }
       return back('/');

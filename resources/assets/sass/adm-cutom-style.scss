@@ -41,7 +41,6 @@ button:hover{
   background-repeat: no-repeat;
   background-position: center;
 }
-<<<<<<< HEAD
 .projects-view article
 {
   background-color: lightgrey;
@@ -79,6 +78,19 @@ button:hover{
   text-align: center;
   padding: 0.3em 0;
 }
+.projects-view li
+{
+  background-color: lightgrey;
+}
+.projects-view form
+{
+  background-color: #fff;
+  margin: 1em 0;
+  padding: 0.5em;
+  width: 70%;
+  border-radius: 7px;
+}
+
 .gold
 {
   color: #ffff00;
@@ -98,9 +110,12 @@ button:hover{
 .red
 {
   color: red !important;
-=======
+}
 .card-title
 {
   color: blue;
->>>>>>> 07cb5d4aa6a857c3be364c35a452bf3bb9e6dc5e
+}
+.black
+{
+  color: #000;
 }

@@ -135,6 +135,12 @@
             ga('create','UA-XXXXX-Y','auto');ga('send','pageview')
         </script>
         <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+        <script>
+        function display_effect(id)
+        {
+          $("#"+id).slideToggle('slow','linear');
+        }
+        </script>
       </div>
     </body>
 </html>
