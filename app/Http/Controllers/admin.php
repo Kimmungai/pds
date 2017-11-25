@@ -21,14 +21,50 @@ class admin extends Controller
       $user_category=$user['UserMembership']['type'];
       if(session('sort')){$result_order=session('sort');}else{$result_order='desc';}
       if(session('filter')){$result_filter=session('filter');$sign='=';}else{$result_filter='';$sign='!=';}
+      if(session('bid_filtering') && session('bid_filtering')==1){
+        $field='final_price';
+        $criteria_sign='=';
+        $criteria=null;
+      }else if(session('bid_filtering') && session('bid_filtering')==2){
+        $field='final_price';
+        $criteria_sign='<>';
+        $criteria=null;
+      }else if(session('bid_filtering') && session('bid_filtering')==3){
+        $field='id';
+        $criteria_sign='<>';
+        $criteria=null;
+      }else {
+        $field='id';
+        $criteria_sign='<>';
+        $criteria=null;
+      }
       switch($user_category)
       {
         case 0://Client = 0 zero
           return view('admin.client.top',compact('user','user_projects'));
         break;
         case 1://provider=1 positive numbers,
-          $all_projects=Project::with('user')->whereHas('projectType', function ($query) {if(session('filter')){$result_filter=session('filter');$sign='=';}else{$result_filter='';$sign='!=';}$query->where('category', $sign, $result_filter);})->orderBy('created_at',$result_order)->paginate(4);
-          $all_projects_types=ProjectType::orderBy('created_at',$result_order)->where('category',$sign,$result_filter)->paginate(4);
+          $all_projects=Project::with('user')->where($field,$criteria_sign,$criteria)->whereHas('projectType', function ($query) {if(session('filter')){$result_filter=session('filter');$sign='=';}else{$result_filter='';$sign='!=';}$query->where('category', $sign, $result_filter);})->orderBy('created_at',$result_order)->paginate(4);
+          $all_projects_types=ProjectType::orderBy('created_at',$result_order)->whereHas('project',function($query){
+            if(session('bid_filtering') && session('bid_filtering')==1){
+              $field='final_price';
+              $criteria_sign='=';
+              $criteria=null;
+            }else if(session('bid_filtering') && session('bid_filtering')==2){
+              $field='final_price';
+              $criteria_sign='<>';
+              $criteria=null;
+            }else if(session('bid_filtering') && session('bid_filtering')==3){
+              $field='id';
+              $criteria_sign='<>';
+              $criteria=null;
+            }else {
+              $field='id';
+              $criteria_sign='<>';
+              $criteria=null;
+            }
+            $query->where($field,$criteria_sign,$criteria);
+          })->where('category',$sign,$result_filter)->paginate(4);
           return view('admin.provider.top',compact('all_projects','all_projects_types'));
         break;
         case -1://sys admin=negative numbers
@@ -183,7 +219,6 @@ class admin extends Controller
             session()->forget('filter');
             session()->forget('bid_filtering');
           }else if(isset($_GET['projects']) && $_GET['projects'] == 1){
-
             session(['bid_filtering'=> 1]);
           }
           else if(isset($_GET['projects']) && $_GET['projects'] == 2){

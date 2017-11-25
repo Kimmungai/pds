@@ -116,3 +116,5 @@ Route::put('/project-tech-features-update', 'projects@project_tech_features_upda
 Route::put('/project-caption-update', 'projects@project_caption_update')->name('caption update')->middleware('auth');
 Route::post('/project-delete', 'projects@project_delete')->name('project_delete')->middleware('auth');
 Route::get('/provider-controls', 'admin@provider_controls')->name('Provider view controls')->middleware('auth');
+//bids
+Route::post('/place-bid', 'bids@create')->name('Create Bid')->middleware('auth');

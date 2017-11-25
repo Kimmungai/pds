@@ -290,14 +290,21 @@
               </div>
               <div class="row">
                 <div class="col-md-12">
-                  <form>
+                  <form action="/place-bid" method="POST">
+                    {{csrf_field()}}
+                    <input type="hidden" name="project_id" value="{{$project['id']}}" />
                     <h5>Your offer</h5>
                     <div class="row">
                       <div class="col-md-4">
                         <label for="price"><strong>Amount</strong></label>
                       </div>
                       <div class="col-md-8">
-                        <input type="text" class="form-control"  />
+                        <input name="price" type="text" class="form-control" required/>
+                        @if ($errors->has('price'))
+                          <span class="red">
+                              <strong>{{ $errors->first('price') }}</strong>
+                          </span>
+                        @endif
                       </div>
                     </div>
                     <div class="row">
@@ -305,13 +312,18 @@
                         <label for="message"><strong>Message</strong></label>
                       </div>
                       <div class="col-md-8">
-                        <textarea  class="form-control"></textarea>
+                        <textarea  name="message" class="form-control"></textarea>
+                        @if ($errors->has('message'))
+                          <span class="red">
+                              <strong>{{ $errors->first('message') }}</strong>
+                          </span>
+                        @endif
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-md-12">
                         @if($project['valid_period']==0 || $project['valid_period']=='')
-                        <button class="btn btn-success pull-right"><i class="fa fa-bell"></i> Bid</button>
+                        <button class="btn btn-success pull-right" type="submit"><i class="fa fa-bell"></i> Bid</button>
                         @else
                         <button class="btn btn-success pull-right" disabled><i class="fa fa-bell-slash"></i> Bid</button>
                         @endif
