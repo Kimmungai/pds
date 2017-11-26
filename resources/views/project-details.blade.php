@@ -108,14 +108,38 @@
           <div class="col-md-4">
             <h4>Desired features</h4>
             <div class="row">
+              @if($project['projectType']['feature1'])
+              <div class="col-xs-4"><div class="desired-feature"><i class="fa fa-cart-plus"></i><p>Check out</p></div></div>
+              @else
+               <div class="col-xs-4"><div class="desired-feature"><i class="fa fa-exclamation-triangle"></i><p>Unspecified</p></div></div>
+              @endif
+              @if($project['projectType']['feature2'])
               <div class="col-xs-4"><div class="desired-feature"><i class="fa fa-desktop"></i> <i class="fa fa-tablet"></i> <i class="fa  fa-mobile"></i><p>Responsive</p></div></div>
+              @else
+               <div class="col-xs-4"><div class="desired-feature"><i class="fa fa-exclamation-triangle"></i><p>Unspecified</p></div></div>
+              @endif
+              @if($project['projectType']['feature3'])
               <div class="col-xs-4"><div class="desired-feature"><i class="fa fa-users"></i><p>Membership</p></div></div>
-              <div class="col-xs-4"><div class="desired-feature"><i class="fa fa-users"></i><p>Membership</p></div></div>
+              @else
+               <div class="col-xs-4"><div class="desired-feature"><i class="fa fa-exclamation-triangle"></i><p>Unspecified</p></div></div>
+              @endif
             </div>
             <div class="row">
+              @if($project['projectType']['feature5'])
               <div class="col-xs-4"><div class="desired-feature"><i class="fa fa-cloud-upload"></i><p>Cloud based</p></div></div>
-              <div class="col-xs-4"><div class="desired-feature"><i class="fa fa-cart-plus"></i><p>Check out</p></div></div>
-              <div class="col-xs-4"><div class="desired-feature"><i class="fa fa-cart-plus"></i><p>Check out</p></div></div>
+              @else
+               <div class="col-xs-4"><div class="desired-feature"><i class="fa fa-exclamation-triangle"></i><p>Unspecified</p></div></div>
+              @endif
+              @if($project['projectType']['feature6'])
+              <div class="col-xs-4"><div class="desired-feature"><i class="fa fa-dashboard"></i><p>Admin panel</p></div></div>
+              @else
+               <div class="col-xs-4"><div class="desired-feature"><i class="fa fa-exclamation-triangle"></i><p>Unspecified</p></div></div>
+              @endif
+              @if($project['projectType']['feature7'])
+              <div class="col-xs-4"><div class="desired-feature"><i class="fa fa-hdd-o"></i><p>Back-up</p></div></div>
+              @else
+               <div class="col-xs-4"><div class="desired-feature"><i class="fa fa-exclamation-triangle"></i><p>Unspecified</p></div></div>
+              @endif
             </div>
           </div>
           <div class="col-md-4">
@@ -156,21 +180,38 @@
           <div class="col-md-4">
             <h4>Technical specifications</h4>
             <div class="row">
-              <div class="col-xs-4"><div class="tech-specification-holder"><i class="fa fa-file-pdf-o"></i><p class="text-muted">system analysis and design</p></div></div>
-              <div class="col-xs-4"><div class="tech-specification-holder"><i class="fa fa-file-zip-o "></i><p class="text-muted">User interface design</p></div></div>
-              <div class="col-xs-4"><div class="tech-specification-holder"><i class="fa fa-file-word-o"></i><p class="text-muted">Requirements specifications</p></div></div>
+              @if($project['projectType']['feature9']!='')
+              <div class="col-xs-4"><div class="tech-specification-holder"><i class="fa fa-exclamation-triangle"></i><p class="text-muted">Requirements doc 1 unspecified</p></div></div>
+              @endif
+              @if($project['projectType']['feature10']!='')
+              <div class="col-xs-4"><div class="tech-specification-holder"><i class="fa fa-exclamation-triangle"></i><p class="text-muted">Requirements doc 2 unspecified</p></div></div>
+              @endif
+              @if($project['projectType']['feature11']!='')
+              <div class="col-xs-4"><div class="tech-specification-holder"><i class="fa fa-exclamation-triangle"></i><p class="text-muted">Requirements doc 3 unspecified</p></div></div>
+              @endif
             </div>
             <div class="row">
-              <div class="col-xs-4"><a href="/project-details/1" class="btn btn-primary details-btn"><i class="fa  fa-download"></i> Details</a></div>
-              <div class="col-xs-4"><a href="/project-details/1" class="btn btn-primary details-btn"><i class="fa  fa-download"></i> Details</a></div>
-              <div class="col-xs-4"><a href="/project-details/1" class="btn btn-primary details-btn"><i class="fa  fa-download"></i> Details</a></div>
+              @if($project['projectType']['feature9']!='')
+              <div class="col-xs-4"><a href="{{asset($project['projectType']['feature9'])}}"  target="_blank" class="btn btn-primary details-btn"><i class="fa  fa-download"></i> <small>Download</small></a></div>
+              @else
+              @endif
+              @if($project['projectType']['feature10']!='')
+              <div class="col-xs-4"><a href="{{asset($project['projectType']['feature10'])}}" target="_blank" class="btn btn-primary details-btn"><i class="fa  fa-download"></i> <small>Download</small></a></div>
+              @endif
+              @if($project['projectType']['feature11']!='')
+              <div class="col-xs-4"><a href="{{asset($project['projectType']['feature11'])}}" target="_blank" class="btn btn-primary details-btn"><i class="fa  fa-download"></i> <small>Download</small></a></div>
+              @endif
             </div>
           </div>
           <div class="col-md-4">
             <h4>Client information</h4>
               <ul class="list-group">
                   <li class="list-group-item">Name: <span class="bold">{{$project['user']['first_name']}} {{$project['user']['last_name']}}</span></li>
+                  @if($project['desired_price']=='')
+                  <li class="list-group-item">Desired price: <span class="bold">Unspecified</span></li>
+                  @else
                   <li class="list-group-item">Desired price: <span class="bold">Ksh. {{round($project['desired_price'],2)}}</span></li>
+                  @endif
                   <li class="list-group-item">Star rating: <span class="bold"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></span></li>
                   <li class="list-group-item">view profile: <span class="bold"><a href="#" class="green">profile</a></span></li>
               </ul>

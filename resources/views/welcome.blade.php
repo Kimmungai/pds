@@ -70,9 +70,20 @@
 <div class="container">
 <div class="row">
   <section class="main-body">
+
     <div class="container section-decoration">
       <div class="row second-nav">
         <h2>Latest projects</h2>
+        @if (Session::has('update_success'))
+          <div class="alert alert-success">
+              <i class="fa fa-check-circle"></i> {{ Session::get('update_success') }}
+          </div>
+        @endif
+        @if (Session::has('update_error'))
+          <div class="alert alert-danger">
+              {{ Session::get('update_error') }}
+          </div>
+        @endif
         <div class="strip"></div>
         <div class="col-md-8">
           <nav class="breadcrumb">
@@ -107,12 +118,12 @@
              <h4 class="text-muted">Desired features</h4>
              <div class="row">
                @if($project['projectType']['feature1'])
-               <div class="col-xs-6"><div class="desired-feature"><i class="fa fa-desktop"></i> <i class="fa fa-tablet"></i> <i class="fa  fa-mobile"></i><p>Responsive</p></div></div>
+               <div class="col-xs-6"><div class="desired-feature"><i class="fa fa-cart-plus"></i><p>Check out</p></div></div>
                @else
                 <div class="col-xs-6"><div class="desired-feature"><i class="fa fa-exclamation-triangle"></i><p>Unspecified</p></div></div>
                @endif
                @if($project['projectType']['feature2'])
-               <div class="col-xs-6"><div class="desired-feature"><i class="fa fa-users"></i><p>Membership</p></div></div>
+               <div class="col-xs-6"><div class="desired-feature"><i class="fa fa-desktop"></i> <i class="fa fa-tablet"></i> <i class="fa  fa-mobile"></i><p>Responsive</p></div></div>
                @else
                 <div class="col-xs-6"><div class="desired-feature"><i class="fa fa-exclamation-triangle"></i><p>Unspecified</p></div></div>
                @endif
@@ -124,7 +135,7 @@
                 <div class="col-xs-6"><div class="desired-feature"><i class="fa fa-exclamation-triangle"></i><p>Unspecified</p></div></div>
                @endif
                @if($project['projectType']['feature6'])
-               <div class="col-xs-6"><div class="desired-feature"><i class="fa fa-cart-plus"></i><p>Check out</p></div></div>
+                <div class="col-xs-6"><div class="desired-feature"><i class="fa fa-dashboard"></i><p>Admin panel</p></div></div>
                @else
                 <div class="col-xs-6"><div class="desired-feature"><i class="fa fa-exclamation-triangle"></i><p>Unspecified</p></div></div>
                @endif
@@ -165,7 +176,11 @@
                 <h4 class="text-muted">Client information</h4>
                   <ul class="list-group">
                       <li class="list-group-item">Name: <span class="bold">{{$project['user']['first_name']}} {{$project['user']['last_name']}}</span></li>
-                      <li class="list-group-item">Desired price: <span class="bold">Ksh. {{$project['desired_price']}}</span></li>
+                      @if($project['desired_price']=='')
+                      <li class="list-group-item">Desired price: <span class="bold">Unspecified</span></li>
+                      @else
+                      <li class="list-group-item">Desired price: <span class="bold">Ksh. {{round($project['desired_price'],2)}}</span></li>
+                      @endif
                       <li class="list-group-item">Star rating: <span class="bold"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></span></li>
                       <li class="list-group-item">view profile: <span class="bold"><a href="#">profile</a></span></li>
                   </ul>
@@ -281,44 +296,67 @@
       </div>
       <div class="col-md-6">
         <article>
-          <h5>Contact Form</h5>
-          <div class="row">
-            <div class="col-md-2">
-              <label for="name">Name</label>
+         <form action="/make-enquiry" method="POST" />
+           {{csrf_field()}}
+            <h5>Contact Form</h5>
+            <div class="row">
+              <div class="col-md-2">
+                <label for="name">Name<span class="red">*</span></label>
+              </div>
+              <div class="col-md-10">
+                <input name="prospective_name" type="text" class="form-control" value="{{old('prospective_name')}}" required/>
+                @if ($errors->has('prospective_name'))
+                  <span class="red">
+                      <strong>{{ $errors->first('prospective_name') }}</strong>
+                  </span>
+                @endif
+              </div>
             </div>
-            <div class="col-md-10">
-              <input type="text" class="form-control" />
+            <div class="row">
+              <div class="col-md-2">
+                <label for="name">Email<span class="red">*</span></label>
+              </div>
+              <div class="col-md-10">
+                <input name="prospective_email" type="email" class="form-control" value="{{old('prospective_email')}}" required/>
+                @if ($errors->has('prospective_email'))
+                  <span class="red">
+                      <strong>{{ $errors->first('prospective_email') }}</strong>
+                  </span>
+                @endif
+              </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-md-2">
-              <label for="name">Email</label>
+            <div class="row">
+              <div class="col-md-2">
+                <label for="name">Phone</label>
+              </div>
+              <div class="col-md-10">
+                <input name="prospective_phone" type="text" class="form-control" value="{{old('prospective_phone')}}" />
+                @if ($errors->has('prospective_phone'))
+                  <span class="red">
+                      <strong>{{ $errors->first('prospective_phone') }}</strong>
+                  </span>
+                @endif
+              </div>
             </div>
-            <div class="col-md-10">
-              <input type="email" class="form-control" />
+            <div class="row">
+              <div class="col-md-2">
+                <label for="name">Message<span class="red">*</span></label>
+              </div>
+              <div class="col-md-10">
+                <textarea name="prospective_message" class="form-control" required>{{old('prospective_message')}}</textarea>
+                @if ($errors->has('prospective_message'))
+                  <span class="red">
+                      <strong>{{ $errors->first('prospective_message') }}</strong>
+                  </span>
+                @endif
+              </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-md-2">
-              <label for="name">Phone</label>
+            <div class="row">
+              <div class="col-md-3 pull-right project-btn">
+                <button class="btn btn-primary" type="submit"><i class="fa fa-send"></i> Send</a>
+              </div>
             </div>
-            <div class="col-md-10">
-              <input type="text" class="form-control" />
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-2">
-              <label for="name">Message</label>
-            </div>
-            <div class="col-md-10">
-              <textarea class="form-control"></textarea>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-3 pull-right project-btn">
-              <a class="btn btn-primary btn-lg" href="#"><i class="fa fa-send"></i> Send</a>
-            </div>
-          </div>
+          </form>
         </article>
       </div>
     </div>

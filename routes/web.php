@@ -118,3 +118,5 @@ Route::post('/project-delete', 'projects@project_delete')->name('project_delete'
 Route::get('/provider-controls', 'admin@provider_controls')->name('Provider view controls')->middleware('auth');
 //bids
 Route::post('/place-bid', 'bids@create')->name('Create Bid')->middleware('auth');
+//enquiries
+Route::post('/make-enquiry', 'site@enquiry')->name('Enquiry');
