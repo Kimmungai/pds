@@ -142,20 +142,32 @@
           <div class="col-md-6">
             <h4 class="text-muted">Bidding information</h4>
              <ul class="list-group">
+                @if($project['final_price']=='')
                 <li class="list-group-item">Status: <span class="green">OPEN</span></li>
-                <li class="list-group-item">No. of placed bids: <span class="bold">1000</span></li>
-                <li class="list-group-item">Average price: <span class="bold red">Ksh. 100,000</span></li>
-                <li class="list-group-item">Remaining time: <span class="bold">7:4:33</span></li>
+                @else
+                <li class="list-group-item">Status: <span class="RED">CLOSED</span></li>
+                @endif
+                <li class="list-group-item">No. of placed bids: <span class="bold">{{count($project['bid'])}}</span></li>
+                @if($project['avg_price']=='')
+                <li class="list-group-item">Average price: <span class="bold red">-</span></li>
+                @else
+                <li class="list-group-item">Average price: <span class="bold red">Ksh. {{round($project['avg_price'],2)}}</span></li>
+                @endif
+                @if($project['final_price']=='')
+                <li class="list-group-item">Bid closing: <span class="bold">{{\Carbon\Carbon::createFromTimeStamp(strtotime($project['end_date']))->diffForHumans()}}</span></li>
+                @else
+                <li class="list-group-item">Bid closed: <span class="bold">{{\Carbon\Carbon::createFromTimeStamp(strtotime($project['updated_at']))->diffForHumans()}}</span></li>
+                @endif
               </ul>
             </div>
             <div class="row project-info">
               <div class="col-md-6">
                 <h4 class="text-muted">Client information</h4>
                   <ul class="list-group">
-                      <li class="list-group-item">Name: <span class="bold">{{$project['user']['first_name']}} {{$project['user']['last_name']}}</span></th>
-                      <li class="list-group-item">previous projects: <span class="bold">10</span></th>
-                      <li class="list-group-item">Star rating: <span class="bold"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></span></th>
-                      <li class="list-group-item">view profile: <span class="bold"><a href="#">profile</a></span></th>
+                      <li class="list-group-item">Name: <span class="bold">{{$project['user']['first_name']}} {{$project['user']['last_name']}}</span></li>
+                      <li class="list-group-item">Desired price: <span class="bold">Ksh. {{$project['desired_price']}}</span></li>
+                      <li class="list-group-item">Star rating: <span class="bold"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></span></li>
+                      <li class="list-group-item">view profile: <span class="bold"><a href="#">profile</a></span></li>
                   </ul>
                 </div>
                 <div class="project-actions">

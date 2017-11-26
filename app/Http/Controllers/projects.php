@@ -311,7 +311,7 @@ class projects extends Controller
     }
     public function single_project_details($project_id)
     {
-      $project=Project::with('User')->where('id','=',$project_id)->first();
+      $project=Project::with('User','Bid')->where('id','=',$project_id)->first();
       $project_type=$project->projectType()->first();
       return view('project-details',compact('project','project_type'));
     }

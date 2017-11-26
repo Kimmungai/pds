@@ -82,6 +82,16 @@
        </div>
     </div>
       <div class="container section-decoration">
+        @if (Session::has('update_success'))
+          <div class="alert alert-success">
+              {{ Session::get('update_success') }}
+          </div>
+        @endif
+        @if (Session::has('update_error'))
+          <div class="alert alert-danger">
+              {{ Session::get('update_error') }}
+          </div>
+        @endif
         <div class="row">
           <h2>{{$project['title']}}</h2>
           <div class="strip"></div>
@@ -89,7 +99,11 @@
         <div class="row project-details-panel">
           <div class="col-md-4">
             <h4>project type</h4>
-            <div class="project-pic"></div>
+            @if($project['caption']=='')
+            <div class="project-pic" style="background:url('{{asset('/avatar/avatar.jpg')}}') no-repeat center;"></div>
+            @else
+            <div class="project-pic" style="background:url('{{ url($project['caption']) }}') no-repeat center;"></div>
+            @endif
           </div>
           <div class="col-md-4">
             <h4>Desired features</h4>
@@ -107,14 +121,22 @@
           <div class="col-md-4">
             <h4>Bidding information</h4>
              <ul class="list-group">
-                <li class="list-group-item">Status: <span class="green">OPEN</span></li>
-                <li class="list-group-item">No. of placed bids: <span class="bold">1000</span></li>
+               @if($project['final_price']=='')
+               <li class="list-group-item">Status: <span class="green">OPEN</span></li>
+               @else
+               <li class="list-group-item">Status: <span class="RED">CLOSED</span></li>
+               @endif
+                <li class="list-group-item">No. of placed bids: <span class="bold">{{count($project['bid'])}}</span></li>
                 @if($project['avg_price']=='')
                 <li class="list-group-item">Average price: <span class="bold red">-</span></li>
                 @else
-                <li class="list-group-item">Average price: <span class="bold red">Ksh. {{$project['avg_price']}}</span></li>
+                <li class="list-group-item">Average price: <span class="bold red">Ksh. {{round($project['avg_price'],2)}}</span></li>
                 @endif
-                <li class="list-group-item">Remaining time: <span class="bold">7:4:33</span></li>
+                @if($project['final_price']=='')
+                <li class="list-group-item">Bid closing: <span class="bold">{{\Carbon\Carbon::createFromTimeStamp(strtotime($project['end_date']))->diffForHumans()}}</span></li>
+                @else
+                <li class="list-group-item">Bid closed: <span class="bold">{{\Carbon\Carbon::createFromTimeStamp(strtotime($project['updated_at']))->diffForHumans()}}</span></li>
+                @endif
               </ul>
           </div>
         </div>
@@ -147,10 +169,10 @@
           <div class="col-md-4">
             <h4>Client information</h4>
               <ul class="list-group">
-                  <li class="list-group-item">Name: <span class="bold">{{$project['user']['first_name']}} {{$project['user']['last_name']}}</span></th>
-                  <li class="list-group-item">previous projects: <span class="bold">10</span></th>
-                  <li class="list-group-item">Star rating: <span class="bold"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></span></th>
-                  <li class="list-group-item">view profile: <span class="bold"><a href="#" class="green">profile</a></span></th>
+                  <li class="list-group-item">Name: <span class="bold">{{$project['user']['first_name']}} {{$project['user']['last_name']}}</span></li>
+                  <li class="list-group-item">Desired price: <span class="bold">Ksh. {{round($project['desired_price'],2)}}</span></li>
+                  <li class="list-group-item">Star rating: <span class="bold"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></span></li>
+                  <li class="list-group-item">view profile: <span class="bold"><a href="#" class="green">profile</a></span></li>
               </ul>
           </div>
         </div>
@@ -166,13 +188,21 @@
       <div class="strip"></div>
       <div class="col-md-6">
         <article>
+        <form action="/place-bid" method="POST">
+          {{csrf_field()}}
+          <input type="hidden" name="project_id" value="{{$project['id']}}" />
           <h5 class="green">Your offer</h5>
           <div class="row">
             <div class="col-md-2">
               <label for="name">Amount</label>
             </div>
             <div class="col-md-10">
-              <input type="text" class="form-control"  />
+              <input name="price" type="text" class="form-control" value="{{old('price')}}"  required/>
+              @if ($errors->has('price'))
+                <span class="red">
+                    <strong>{{ $errors->first('price') }}</strong>
+                </span>
+              @endif
             </div>
           </div>
           <div class="row">
@@ -180,14 +210,24 @@
               <label for="name">Message</label>
             </div>
             <div class="col-md-10">
-              <textarea class="form-control"></textarea>
+              <textarea name="message" class="form-control">{{old('message')}}</textarea>
+              @if ($errors->has('message'))
+                <span class="red">
+                    <strong>{{ $errors->first('message') }}</strong>
+                </span>
+              @endif
             </div>
           </div>
           <div class="row">
             <div class="col-md-3 pull-right project-btn">
-              <a href="/project-details/1" class="btn btn-primary bid-btn pull-right"><i class="fa  fa-bell-o"></i> Place bid</a>
+              @if($project['valid_period']==0 || $project['valid_period']=='')
+              <button class="btn btn-primary bid-btn pull-right" type="submit"><i class="fa fa-bell"></i> Bid</button>
+              @else
+              <button class="btn btn-primary bid-btn pull-right" disabled><i class="fa fa-bell-slash"></i> Bid</button>
+              @endif
             </div>
           </div>
+        </form>
         </article>
       </div>
     </div>
@@ -206,17 +246,24 @@
                 <th scope="col">#</th>
                 <th scope="col">date</th>
                 <th scope="col">Company</th>
-                <th scope="col">contact</th>
+                <th scope="col">Offer</th>
+                <th scope="col">Contact</th>
+                <th scope="col">Chat</th>
                 <th scope="col">Action</th>
               </tr>
             </thead>
             <tbody>
+              @foreach($project['bid'] as $bid)
               <tr>
-                <th scope="row">1</th>
-                <td>12/12/2013</td>
+                <th scope="row">{{$bid['id']}}</th>
+                <td>{{\Carbon\Carbon::createFromTimeStamp(strtotime($project['created_at']))->diffForHumans()}}</td>
                 <td>wajui enterprises</td>
+                <td class="green">Ksh. {{round($bid['bid_price'],2)}}</td>
                 <td>@mdo</td>
+                <td><span class="fa fa-comment"></span></td>
+                <td><a class="btn btn-success">Choose</a></td>
               </tr>
+              @endforeach
             </tbody>
           </table>
         </div>

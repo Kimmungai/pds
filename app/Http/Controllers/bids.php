@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\Bid;
+use App\Project;
 use Session;
 
 class bids extends Controller
@@ -22,6 +23,8 @@ class bids extends Controller
       $new_bid->message=$request->input('message');
       if($new_bid->save())
       {
+        $average_price=Bid::where('project_id','=',$request->input('project_id'))->avg('bid_price');
+        Project::where('id','=',$request->input('project_id'))->update(['avg_price'=>$average_price]);
         session::flash('update_success', 'Ksh. '.$request->input('price').'/= bid placed successfully!');
       }
       else
