@@ -200,14 +200,14 @@
                   <canvas id="myBarChart" width="100" height="50"></canvas>
                 </div>
                 <div class="col-sm-4 text-center my-auto">
-                  <div class="h4 mb-0 text-primary">$34,693</div>
-                  <div class="small text-muted">YTD Revenue</div>
+                  <div id="cheapest-offer" class="h4 mb-0 text-primary"></div>
+                  <div class="small text-muted">Cheapest offer</div>
                   <hr>
-                  <div class="h4 mb-0 text-warning">$18,474</div>
-                  <div class="small text-muted">YTD Expenses</div>
+                  <div id="expensive-offer" class="h4 mb-0 text-warning"></div>
+                  <div class="small text-muted">Most expensive offer</div>
                   <hr>
-                  <div class="h4 mb-0 text-success">$16,219</div>
-                  <div class="small text-muted">YTD Margin</div>
+                  <div id="average-offer" class="h4 mb-0 text-success"></div>
+                  <div class="small text-muted">Average offer</div>
                 </div>
               </div>
             </div>
@@ -698,8 +698,9 @@
                if(project_obj.project_type.feature9!=''){$('#feature9').html('Choose a new doc 1');}
                if(project_obj.project_type.feature10!=''){$('#feature10').html('Choose a new doc 2');}
                if(project_obj.project_type.feature11!=''){$('#feature11').html('Choose a new doc 3');}
+               if(project_obj.avg_price!=''){$('#average-offer').html('Ksh. '+project_obj.avg_price);}else{$('#average-offer').html('No offers yet');}
                if(project_obj.caption===null){$('#project-avatar').css({"background-image": "url('{{asset('/avatar/avatar.jpg')}}')"});}else{$('#project-avatar').css({"background-image": "url('"+project_obj.caption+"')"});}
-               //alert(project_obj.project_type.category)
+               load_charts(project_obj.bid);
            });
            $( document ).ajaxStart(function() {
               $( "#loading" ).show();

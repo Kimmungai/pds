@@ -41,6 +41,10 @@ class User extends Authenticatable
     {
       return $this->hasMany('App\Chat');
     }
+    public function bid()
+    {
+      return $this->hasMany('App\Bid','bidder_id');
+    }
     public function verified()
     {
       $this->verified=1;
