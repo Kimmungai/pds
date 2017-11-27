@@ -17,10 +17,4 @@ class dynamic extends Controller
     session(['current_project_id'=>$project_id]);
     return $data;
   }
-  public function company_name()
-  {
-    $company_id=$_GET['company_id'];
-    $data=Company::where('user_id','=',$company_id)->value('company_name');
-    return $data;
-  }
 }
