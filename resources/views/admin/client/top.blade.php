@@ -388,7 +388,7 @@
           <!-- Example Pie Chart Card-->
           <div class="card mb-3">
             <div class="card-header" onclick="display_effect('pie-chart')">
-              <i class="fa fa-pie-chart"></i> <span class="project-title"></span> bidding overview</div>
+              <i class="fa fa-pie-chart"></i> <span class="project-title"></span> bidding companies composition</div>
             <div id="pie-chart" class="card-body">
               <canvas id="myPieChart" width="100%" height="100"></canvas>
             </div>
@@ -582,49 +582,33 @@
       <!-- Example DataTables Card-->
       <div class="card mb-3">
         <div class="card-header" onclick="display_effect('all-projects')">
-          <i class="fa fa-table"></i> All Projects</div>
+          <i class="fa fa-table"></i> All Bids for <span class="project-title"></span></div>
         <div id="all-projects" class="card-body no-display">
           <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable"  cellspacing="0">
+            <table class="table table-bordered" id="all-bids-table"  cellspacing="0">
               <thead>
                 <tr>
-                  <th>Title</th>
-                  <th>Start date</th>
-                  <th>End date</th>
-                  <th>Status</th>
-                  <th>Final price</th>
-                  <th>Posted date</th>
+                  <th>Bid ID</th>
+                  <th>Company</th>
+                  <th>Offer</th>
+                  <th>Date</th>
+                  <th>Phone</th>
+                  <th>Chat</th>
+                  <th>Action</th>
                 </tr>
               </thead>
               <tfoot>
                 <tr>
-                  <th>Title</th>
-                  <th>Start date</th>
-                  <th>End date</th>
-                  <th>Status</th>
-                  <th>Final price</th>
-                  <th>Posted date</th>
+                  <th>Bid ID</th>
+                  <th>Company</th>
+                  <th>Offer</th>
+                  <th>Date</th>
+                  <th>Phone</th>
+                  <th>Chat</th>
+                  <th>Action</th>
                 </tr>
               </tfoot>
               <tbody>
-                @foreach($user['project'] as $project)
-                <tr>
-                  <td>{{$project['title']}}</td>
-                  <td>{{$project['start_date']}}</td>
-                  <td>{{$project['end_date']}}</td>
-                  @if($project['final_price']=='')
-                  <td class="red">Open bid</td>
-                  @else
-                  <td class="green">Closed bid</td>
-                  @endif
-                  @if($project['final_price']=='')
-                  <td>-</td>
-                  @else
-                  <td>{{$project['final_price']}}</td>
-                  @endif
-                  <td>{{$project['created_at']->format('m/d/Y')}}</td>
-                </tr>
-                @endforeach
               </tbody>
             </table>
           </div>
@@ -656,6 +640,7 @@
      });
      function dynamic_project_details(project_id)
      {
+       $('#all-bids-table > tbody').html('');
        $(".current-projects").removeClass('bg-primary');
        $(".current-projects").addClass('bg-success');
        $("#"+project_id).removeClass('bg-success');
@@ -665,8 +650,9 @@
                project_id:project_id
              },
              function(data,status){
-               var project=JSON.stringify(data);
+               var project=JSON.stringify(data[0]);//project, projectType and Bid tables data
                var project_obj=JSON.parse(project);
+               var bidders_profiles=data[1];
                $('#project-title').val(project_obj.title);
                $('.project-title').html(project_obj.title);
                $('#project-start-date').val(project_obj.start_date);
@@ -700,7 +686,8 @@
                if(project_obj.project_type.feature11!=''){$('#feature11').html('Choose a new doc 3');}
                if(project_obj.avg_price!=''){$('#average-offer').html('Ksh. '+project_obj.avg_price);}else{$('#average-offer').html('No offers yet');}
                if(project_obj.caption===null){$('#project-avatar').css({"background-image": "url('{{asset('/avatar/avatar.jpg')}}')"});}else{$('#project-avatar').css({"background-image": "url('"+project_obj.caption+"')"});}
-               load_charts(project_obj.bid);
+               load_charts(project_obj.bid,bidders_profiles,{{session('all_companies')}});
+               $('#all-bids-table').DataTable();
            });
            $( document ).ajaxStart(function() {
               $( "#loading" ).show();

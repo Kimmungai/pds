@@ -19,6 +19,8 @@ class admin extends Controller
       $user=User::with('UserMembership','Project')->where('id','=',Auth::id())->first();
       $user_projects=$user->project()->with('ProjectType')->orderBy('created_at','desc')->paginate(4);
       $user_category=$user['UserMembership']['type'];
+      $all_companies=count(Company::all());
+      session(['all_companies'=>$all_companies]);
       if(session('sort')){$result_order=session('sort');}else{$result_order='desc';}
       if(session('filter')){$result_filter=session('filter');$sign='=';}else{$result_filter='';$sign='!=';}
       if(session('bid_filtering') && session('bid_filtering')==1){
