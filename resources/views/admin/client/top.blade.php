@@ -166,6 +166,9 @@
               </div>
               <a class="card-footer text-white clearfix small z-1" href="#">
                 <span class="float-left">View Details</span>
+                @if($project['final_price']!='')
+                <span class="badge badge-danger pull-right">CLOSED</span>
+                @endif
               </a>
             </div>
           </div>
@@ -583,7 +586,7 @@
       <div class="card mb-3">
         <div class="card-header" onclick="display_effect('all-projects')">
           <i class="fa fa-table"></i> All Bids for <span class="project-title"></span></div>
-        <div id="all-projects" class="card-body no-display">
+        <div id="all-projects" class="card-body">
           <div class="table-responsive">
             <table class="table table-bordered" id="all-bids-table"  cellspacing="0">
               <thead>
@@ -686,7 +689,7 @@
                if(project_obj.project_type.feature11!=''){$('#feature11').html('Choose a new doc 3');}
                if(project_obj.avg_price!=''){$('#average-offer').html('Ksh. '+project_obj.avg_price);}else{$('#average-offer').html('No offers yet');}
                if(project_obj.caption===null){$('#project-avatar').css({"background-image": "url('{{asset('/avatar/avatar.jpg')}}')"});}else{$('#project-avatar').css({"background-image": "url('"+project_obj.caption+"')"});}
-               load_charts(project_obj.bid,bidders_profiles,{{session('all_companies')}});
+               load_charts(project_obj.bid,bidders_profiles,{{session('all_companies')}},project_obj);
                $('#all-bids-table').DataTable();
            });
            $( document ).ajaxStart(function() {
@@ -701,6 +704,11 @@
      function display_effect(id)
      {
        $("#"+id).slideToggle('slow','linear');
+     }
+     function confirmation(bidder,e)
+     {
+       var con=confirm('Are you sure you want to choose '+ bidder);
+       e.preventDefault();
      }
     </script>
     <!--dynamically load a projects details ends here-->

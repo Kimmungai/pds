@@ -193,7 +193,7 @@
    </div>
    @endforeach
  </div>
-  <p class="view-more"><a href="#">View more</a></p>
+  <p class="view-more"><a href="/projects">View more</a></p>
  </div>`
 </div><!--projects end here-->
 </section>

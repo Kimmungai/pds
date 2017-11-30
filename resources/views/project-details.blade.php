@@ -284,7 +284,7 @@
           <table class="table table-hover table-condensed">
             <thead>
               <tr>
-                <th scope="col">#</th>
+                <th scope="col">Bid no.</th>
                 <th scope="col">date</th>
                 <th scope="col">Company</th>
                 <th scope="col">Offer</th>
@@ -294,7 +294,7 @@
               </tr>
             </thead>
             <tbody>
-              @foreach($project['bid'] as $bid)
+              @foreach($bids as $bid)
               <tr>
                 <th scope="row">{{$bid['id']}}</th>
                 <td>{{\Carbon\Carbon::createFromTimeStamp(strtotime($project['created_at']))->diffForHumans()}}</td>
@@ -311,25 +311,8 @@
         <!--bidder pagination starts here-->
         <div class="col-md-12">
           <div class="row bidders-nav pull-right">
-            <div class="col-xs-12">
-              <nav aria-label="...">
-                <ul class="pagination">
-                  <li class="page-item disabled">
-                    <span class="page-link">Previous</span>
-                  </li>
-                  <li class="page-item"><a class="page-link" href="#">1</a></li>
-                  <li class="page-item active green-bg">
-                    <span class="page-link">
-                      2
-                      <span class="sr-only">(current)</span>
-                    </span>
-                  </li>
-                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                  <li class="page-item">
-                    <a class="page-link" href="#">Next</a>
-                  </li>
-                </ul>
-              </nav>
+            <div class="col-xs-12 custom-pagination">
+                {{$bids->links()}}
             </div>
           </div>
         <!--bidder pagination ends here-->

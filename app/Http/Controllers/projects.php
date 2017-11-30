@@ -8,6 +8,7 @@ use Session;
 use Carbon\Carbon;
 use App\Project;
 use App\ProjectType;
+use App\Bid;
 
 
 class projects extends Controller
@@ -313,7 +314,8 @@ class projects extends Controller
     {
       $project=Project::with('User','Bid')->where('id','=',$project_id)->first();
       $project_type=$project->projectType()->first();
-      return view('project-details',compact('project','project_type'));
+      $bids=Bid::where('project_id','=',$project_id)->paginate(4);
+      return view('project-details',compact('project','project_type','bids'));
     }
     public function project_title_schedule_update(Request $request)
     {

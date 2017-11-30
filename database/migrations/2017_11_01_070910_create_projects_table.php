@@ -25,6 +25,7 @@ class CreateProjectsTable extends Migration
             $table->string('avg_price')->nullable();
             $table->string('valid_period')->nullable();
             $table->string('final_price')->nullable();
+            $table->integer('winner')->nullable();
             $table->string('message_to_bidders')->nullable();
             $table->timestamps();
         });

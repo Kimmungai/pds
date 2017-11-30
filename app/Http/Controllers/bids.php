@@ -6,7 +6,12 @@ use Illuminate\Http\Request;
 use Auth;
 use App\Bid;
 use App\Project;
+use App\User;
+use App\Company;
 use Session;
+use App\Mail\winnerNotification;
+use App\Mail\clientBidChoiceNotification;
+use Mail;
 
 class bids extends Controller
 {
@@ -30,6 +35,25 @@ class bids extends Controller
       else
       {
         session::flash('update_error', 'Bid failed!! Please contact support@webdesignerscenter.com for help');
+      }
+      return back();
+    }
+    public function close($bid_id)
+    {
+      $bid_details=Bid::where('id','=',$bid_id)->first();
+      $winner=User::with('Company')->where('id','=',$bid_details['bidder_id'])->first();
+      $winnerProject=Project::where('id','=',$bid_details['project_id'])->where('user_id','=',Auth::id())->where('winner','=',$winner['id'])->first();
+      if(project::where('id','=',$bid_details['project_id'])->update([
+        'final_price' => $bid_details['bid_price'],
+        'winner' =>$bid_details['bidder_id']
+      ])){
+          $email_winner=new winnerNotification($winner,$winnerProject);
+          $email_client=new clientBidChoiceNotification($winner,$winnerProject);
+          Mail::to($winner['email'])->send($email_winner);
+          Mail::to(Auth::user()->email)->send($email_client);
+          session::flash('update_success', 'Bid closed successfully! A confirmation has been sent to '.$winner['company']['company_name']. ' through '.$winner['first_name'].' '.$winner['last_name'].' ( '.$winner['email'].' )');
+      }else{
+          session::flash('update_error', 'Failed! Kindly contact support@webdesignerscenter.com for assistance');
       }
       return back();
     }
