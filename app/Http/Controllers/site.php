@@ -13,8 +13,36 @@ class site extends Controller
 {
     public function index()
     {
+      if(session('bid_types') && session('bid_types')==1){
+        $filter='final_price';$criteria='';$sign='<>';
+      }else if(session('bid_types') && session('bid_types')==2){
+        $filter='final_price';$criteria='';$sign='=';
+      }
+        else{$filter='id';$criteria='';$sign='<>';
+      }
+      if(session('sort_projects') && session('sort_projects')==1)
+      {
+        $orderFilter='created_at';$orderCriteria='desc';
+        session()->forget('sort_projects');
+      }
+      else if(session('sort_projects') && session('sort_projects')==2)
+      {
+        $orderFilter='created_at';$orderCriteria='asc';
+      }
+      else if(session('sort_projects') && session('sort_projects')==3)
+      {
+        $orderFilter='avg_price';$orderCriteria='asc';
+      }
+      else if(session('sort_projects') && session('sort_projects')==4)
+      {
+        $orderFilter='avg_price';$orderCriteria='desc';
+      }
+      else
+      {
+        $orderFilter='created_at';$orderCriteria='desc';
+      }
       $provider_companies=Company::paginate(4);
-      $projects=Project::with('user','projectType','bid')->orderBy('created_at','desc')->paginate(2);
+      $projects=Project::with('user','projectType','bid')->where($filter,$sign,$criteria)->orderBy($orderFilter,$orderCriteria)->paginate(2);
       return view('welcome',compact('provider_companies','projects'));
     }
     public function enquiry(Request $request)
@@ -39,5 +67,25 @@ class site extends Controller
         session::flash('update_error', 'Enquiry not sent successfully! Kindly contact support@webdesignerscenter.com');
       }
       return back();
+    }
+    public function filter_closed()
+    {
+      session(['bid_types'=>1]);
+      return $this->index();
+    }
+    public function filter_open()
+    {
+      session(['bid_types'=>2]);
+      return $this->index();
+    }
+    public function filter_all()
+    {
+      session()->forget('bid_types');
+      return $this->index();
+    }
+    public function sort(Request $request)
+    {
+      session(['sort_projects'=>$request->input('sort-projects')]);
+      return $this->index();;
     }
 }

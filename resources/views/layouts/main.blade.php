@@ -103,6 +103,11 @@
           gtag('js', new Date());
           gtag('config', 'UA-109033027-1');
         </script>
-
+        <script>
+        function submit_form(id)
+        {
+          $("#"+id).submit();
+        }
+        </script>
     </body>
 </html>

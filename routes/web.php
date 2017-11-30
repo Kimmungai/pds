@@ -12,6 +12,10 @@
 */
 
 Route::get('/', 'site@index');
+Route::get('/closed-bids', 'site@filter_closed')->name('Closed bids');
+Route::get('/open-bids', 'site@filter_open')->name('Open bids');
+Route::get('/all-bids', 'site@filter_all')->name('All bids');
+Route::get('/sort-projects', 'site@sort')->name('All bids');
 Route::get('/provider', function () {
     return view('admin.provider.top');
 });

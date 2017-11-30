@@ -87,9 +87,9 @@
         <div class="strip"></div>
         <div class="col-md-8">
           <nav class="breadcrumb">
-            <a class="btn btn-default active" href="#">All bids <span class="glyphicon glyphicon-list"></span></a>
-            <a class="btn btn-default" href="#">Closed bids <span class="glyphicon glyphicon-folder-close"></span></a>
-            <a class="btn btn-default" href="#">Open bids <span class="glyphicon glyphicon-folder-open"></span></a>
+            <a class="btn btn-default <?php if(!session('bid_types')){?>active<?php }?>" href="/all-bids">All bids <span class="glyphicon glyphicon-list"></span></a>
+            <a class="btn btn-default <?php if(session('bid_types') && session('bid_types')==1){?>active<?php }?>" href="/closed-bids">Closed bids <span class="glyphicon glyphicon-folder-close"></span></a>
+            <a class="btn btn-default <?php if(session('bid_types') && session('bid_types')==2){?>active<?php }?>" href="/open-bids">Open bids <span class="glyphicon glyphicon-folder-open"></span></a>
           </nav>
        </div>
        <div class="col-md-1 col-md-offset-1 sort-label">
@@ -97,12 +97,14 @@
        </div>
        <div class="col-md-2">
          <nav class="breadcrumb sort-panel">
-           <select class="form-control" name="sort-projects">
-             <option>Newest - Oldest</option>
-             <option>Oldest - Newest</option>
-             <option>Expensive - Cheapest</option>
-             <option>Cheapest - Expensive</option>
+           <form id="sort-projects" action="/sort-projects" method="GET" />
+           <select class="form-control" name="sort-projects" onchange="submit_form('sort-projects')">
+             <option value="1" <?php if(!session('sort_projects')){?> selected <?php }?>>Newest - Oldest</option>
+             <option value="2" <?php if(session('sort_projects') && session('sort_projects')==2){?> selected <?php }?>>Oldest - Newest</option>
+             <option value="3" <?php if(session('sort_projects') && session('sort_projects')==3){?> selected <?php }?>>Expensive - Cheapest</option>
+             <option value="4" <?php if(session('sort_projects') && session('sort_projects')==4){?> selected <?php }?>>Cheapest - Expensive</option>
            </select>
+          </form>
          </nav>
        </div>
      </div>
@@ -156,7 +158,7 @@
                 @if($project['final_price']=='')
                 <li class="list-group-item">Status: <span class="green">OPEN</span></li>
                 @else
-                <li class="list-group-item">Status: <span class="RED">CLOSED</span></li>
+                <li class="list-group-item">Status: <span class="red">CLOSED</span></li>
                 @endif
                 <li class="list-group-item">No. of placed bids: <span class="bold">{{count($project['bid'])}}</span></li>
                 @if($project['avg_price']=='')
