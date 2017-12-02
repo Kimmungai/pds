@@ -97,7 +97,7 @@
        </div>
        <div class="col-md-2">
          <nav class="breadcrumb sort-panel">
-           <form id="sort-projects" action="/sort-projects" method="GET" />
+           <form id="sort-projects" action="/sort-projects/0" method="GET" />
            <select class="form-control" name="sort-projects" onchange="submit_form('sort-projects')">
              <option value="1" <?php if(!session('sort_projects')){?> selected <?php }?>>Newest - Oldest</option>
              <option value="2" <?php if(session('sort_projects') && session('sort_projects')==2){?> selected <?php }?>>Oldest - Newest</option>
@@ -239,29 +239,34 @@
                </div>
              </div>
              <div class="col-xs-7">
-              <ul>
-                <li>Established: <span>{{$provider_company['company_incoporation_date']}}</span></li>
-                <li>Completed bids: <span>2005</span></li>
-                <li>Rating: <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></li>
+              <ul class="list-group">
+                <li class="list-group-item">Established: <span>{{$provider_company['company_incoporation_date']}}</span></li>
+                <li class="list-group-item">Completed bids: <span>2005</span></li>
+                <li class="list-group-item">Rating: <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></li>
               </ul>
              </div>
              <div class="row provider-details">
                <div class="col-xs-12">
                  <h5>Description</h5>
-                 <p>{{$provider_company['company_description']}}</p>
+                 <p><i class="fa fa-quote-left" aria-hidden="true"></i> {{$provider_company['company_description']}} <i class="fa fa-quote-right" aria-hidden="true"></i></p>
                </div>
             </div>
            <div class="provider-actions">
              <a class="btn btn-primary details-btn"><i class="fa  fa-building-o"></i> Profile</a>
              <a href="{{$provider_company['company_website']}}" class="btn btn-primary pull-right details-btn"><i class="fa fa-external-link "></i> Website</a>
           </div>
+        </div>
          </article>
-       </div>
      </div><!--provider companies ends here-->
      @endforeach
-     <p class="view-more"><a href="#">View more</a></p>
+     <nav aria-label="...">
+       <ul class="pagination pull-right">
+         {{$provider_companies->links()}}
+       </ul>
+     </nav>
    </div>
     <!---***********************-->
+  </div>
 </section>
 @endif
 <section class="how-it-works" id="how-it-works">

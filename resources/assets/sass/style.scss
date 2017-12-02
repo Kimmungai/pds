@@ -375,18 +375,31 @@ header h1{
 {
   font-weight: bold;
 }
+.provider-details li
+{
+  width: 98%;
+}
 .provider-details h5
 {
   text-align: center;
   margin: 0;
   padding: 0;
   font-weight: bold;
+  margin-bottom: 0.2em;
 }
 .provider-details p
 {
-  margin: 0;
-  padding:0.1em 2em;
+  width: 90%;
+  margin: 0 auto;
+  padding:0.1em 0.1em;
   font-style: italic;
+  background-color: #fff;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  font-size: 1.3em;
+  text-align: center;
+  max-height: 6em;
+  overflow: hidden;
 }
 .provider-actions
 {
@@ -693,3 +706,5 @@ footer a
      margin: auto;
      background-color: #f3f3f3;
 }
+/*chat starts here*/
+/*chat ends here*/

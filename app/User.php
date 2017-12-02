@@ -41,9 +41,9 @@ class User extends Authenticatable
     {
       return $this->hasMany('App\Chat');
     }
-    public function bid()
+    public function userAlerts()
     {
-      return $this->hasMany('App\Bid','bidder_id');
+      return $this->hasMany('App\UserAlerts');
     }
     public function verified()
     {

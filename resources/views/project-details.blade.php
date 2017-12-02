@@ -75,7 +75,7 @@
           <div class="col-md-4">
             <nav class="breadcrumb white-bg">
               <a class="btn btn-default" href="/">Top</a>
-              <a class="btn btn-default" href="#">Project list <span class="glyphicon glyphicon-list"></span></a>
+              <a class="btn btn-default" href="/projects">Project list <span class="glyphicon glyphicon-list"></span></a>
               <a class="btn btn-default active" href="#">Project details <span class="glyphicon glyphicon-folder-open"></span></a>
             </nav>
          </div>
@@ -302,7 +302,11 @@
                 <td class="green">Ksh. {{round($bid['bid_price'],2)}}</td>
                 <td>@mdo</td>
                 <td><span class="fa fa-comment"></span></td>
-                <td><a class="btn btn-success">Choose</a></td>
+                @if($project['final_price']!='')
+                <td><a class="btn btn-success disabled" href="#">Choose</a></td>
+                @else
+                <td><a class="btn btn-success" href="/bidder-select/{{$bid['id']}}">Choose</a></td>
+                @endif
               </tr>
               @endforeach
             </tbody>
@@ -330,7 +334,7 @@
           <div class="col-md-4">
             <nav class="breadcrumb grey-bg">
               <a class="btn btn-default" href="/">Top</a>
-              <a class="btn btn-default" href="#">Project list <span class="glyphicon glyphicon-list"></span></a>
+              <a class="btn btn-default" href="/projects">Project list <span class="glyphicon glyphicon-list"></span></a>
               <a class="btn btn-default active" href="#">Project details <span class="glyphicon glyphicon-folder-open"></span></a>
             </nav>
          </div>

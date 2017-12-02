@@ -7,6 +7,7 @@ use Auth;
 use App\Bid;
 use App\Project;
 use App\User;
+use App\Chat;
 use App\Company;
 use Session;
 use App\Mail\winnerNotification;
@@ -42,11 +43,14 @@ class bids extends Controller
     {
       $bid_details=Bid::where('id','=',$bid_id)->first();
       $winner=User::with('Company')->where('id','=',$bid_details['bidder_id'])->first();
-      $winnerProject=Project::where('id','=',$bid_details['project_id'])->where('user_id','=',Auth::id())->where('winner','=',$winner['id'])->first();
+      $chat_session=new Chat;
+      $chat_session->user_id=Auth::id();
+      $chat_session->provider_id=$winner['id'];
       if(project::where('id','=',$bid_details['project_id'])->update([
         'final_price' => $bid_details['bid_price'],
         'winner' =>$bid_details['bidder_id']
-      ])){
+      ]) && $chat_session->save()){
+          $winnerProject=Project::where('id','=',$bid_details['project_id'])->where('user_id','=',Auth::id())->where('winner','=',$winner['id'])->first();
           $email_winner=new winnerNotification($winner,$winnerProject);
           $email_client=new clientBidChoiceNotification($winner,$winnerProject);
           Mail::to($winner['email'])->send($email_winner);

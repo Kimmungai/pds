@@ -52,6 +52,9 @@
     </div>
         @yield('content')
         <!--Page content ends here-->
+        <!--chat starts here-->
+        
+        <!--chat ends here-->
         <div class="container">
           <div class="row">
         <footer>

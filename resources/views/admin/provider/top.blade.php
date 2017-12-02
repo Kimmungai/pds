@@ -246,7 +246,11 @@
               </div>
               <div class="row">
                 <div class="col-md-12">
-                  <h4>Avg price now <strong class="gold">KSH. 1,000</strong></h4>
+                  @if($project['avg_price']=='')
+                  <h4><strong class="gold">No bids yet</strong></h4>
+                  @else
+                  <h4>Avg price <strong class="gold">Ksh. {{number_format($project['avg_price'],2)}}</strong></h4>
+                  @endif
                 </div>
               </div>
               <div class="row">
@@ -285,7 +289,9 @@
               </div>
               <div class="row">
                 <div class="col-md-12">
-                  <h6>Client message: <strong class="green">Weka wega niwe weika!</strong></h6>
+                  @if($project['message_to_bidders']!='')
+                  <h6>Client message: <strong class="green">{{$project['message_to_bidders']}}</strong></h6>
+                  @endif
                 </div>
               </div>
               <div class="row">

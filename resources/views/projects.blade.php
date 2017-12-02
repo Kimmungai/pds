@@ -76,9 +76,9 @@
         <div class="strip"></div>
         <div class="col-md-8">
           <nav class="breadcrumb">
-            <a class="btn btn-default active" href="#">All bids <span class="glyphicon glyphicon-list"></span></a>
-            <a class="btn btn-default" href="#">Closed bids <span class="glyphicon glyphicon-folder-close"></span></a>
-            <a class="btn btn-default" href="#">Open bids <span class="glyphicon glyphicon-folder-open"></span></a>
+            <a class="btn btn-default <?php if(!session('bid_types')){?>active<?php }?>" href="/all-bids/1">All bids <span class="glyphicon glyphicon-list"></span></a>
+            <a class="btn btn-default <?php if(session('bid_types') && session('bid_types')==1){?>active<?php }?>" href="/closed-bids/1">Closed bids <span class="glyphicon glyphicon-folder-close"></span></a>
+            <a class="btn btn-default <?php if(session('bid_types') && session('bid_types')==2){?>active<?php }?>" href="/open-bids/1">Open bids <span class="glyphicon glyphicon-folder-open"></span></a>
           </nav>
        </div>
        <div class="col-md-1 col-md-offset-1 sort-label">
@@ -86,217 +86,107 @@
        </div>
        <div class="col-md-2">
          <nav class="breadcrumb sort-panel">
-           <select class="form-control" name="sort-projects">
-             <option>Newest - Oldest</option>
-             <option>Oldest - Newest</option>
-             <option>Expensive - Cheapest</option>
-             <option>Cheapest - Expensive</option>
+           <form id="sort-projects" action="/sort-projects/1" method="GET" />
+           <select class="form-control" name="sort-projects" onchange="submit_form('sort-projects')">
+             <option value="1" <?php if(!session('sort_projects')){?> selected <?php }?>>Newest - Oldest</option>
+             <option value="2" <?php if(session('sort_projects') && session('sort_projects')==2){?> selected <?php }?>>Oldest - Newest</option>
+             <option value="3" <?php if(session('sort_projects') && session('sort_projects')==3){?> selected <?php }?>>Expensive - Cheapest</option>
+             <option value="4" <?php if(session('sort_projects') && session('sort_projects')==4){?> selected <?php }?>>Cheapest - Expensive</option>
            </select>
+          </form>
          </nav>
        </div>
      </div>
   </div>
   <div class="container section-decoration"><!--projects start here-->
-   <div class="row project-area">
-     <div class="col-md-6">
-       <article>
-         <h3>E-learning website</h3>
-         <div class="row">
-           <div class="col-md-6">
-             <h4 class="text-muted">Desired features</h4>
-             <div class="row">
-               <div class="col-xs-6"><div class="desired-feature"><i class="fa fa-desktop"></i> <i class="fa fa-tablet"></i> <i class="fa  fa-mobile"></i><p>Responsive</p></div></div>
-               <div class="col-xs-6"><div class="desired-feature"><i class="fa fa-users"></i><p>Membership</p></div></div>
-             </div>
-             <div class="row">
-               <div class="col-xs-6"><div class="desired-feature"><i class="fa fa-cloud-upload"></i><p>Cloud based</p></div></div>
-               <div class="col-xs-6"><div class="desired-feature"><i class="fa fa-cart-plus"></i><p>Check out</p></div></div>
-             </div>
-           </div>
-           <div class="col-md-6">
-             <div class="project-pic"></div>
-           </div>
-         </div>
-        <div class="row project-info">
+  <div class="row project-area">
+    @foreach($projects as $project)
+    <div class="col-md-6">
+      <article>
+        <h3>{{$project['title']}}</h3>
+        <div class="row">
           <div class="col-md-6">
-            <h4 class="text-muted">Bidding information</h4>
-             <ul class="list-group">
-                <li class="list-group-item">Status: <span class="green">OPEN</span></li>
-                <li class="list-group-item">No. of placed bids: <span class="bold">1000</span></li>
-                <li class="list-group-item">Average price: <span class="bold red">Ksh. 100,000</span></li>
-                <li class="list-group-item">Remaining time: <span class="bold">7:4:33</span></li>
-              </ul>
+            <h4 class="text-muted">Desired features</h4>
+            <div class="row">
+              @if($project['projectType']['feature1'])
+              <div class="col-xs-6"><div class="desired-feature"><i class="fa fa-cart-plus"></i><p>Check out</p></div></div>
+              @else
+               <div class="col-xs-6"><div class="desired-feature"><i class="fa fa-exclamation-triangle"></i><p>Unspecified</p></div></div>
+              @endif
+              @if($project['projectType']['feature2'])
+              <div class="col-xs-6"><div class="desired-feature"><i class="fa fa-desktop"></i> <i class="fa fa-tablet"></i> <i class="fa  fa-mobile"></i><p>Responsive</p></div></div>
+              @else
+               <div class="col-xs-6"><div class="desired-feature"><i class="fa fa-exclamation-triangle"></i><p>Unspecified</p></div></div>
+              @endif
             </div>
-            <div class="row project-info">
-              <div class="col-md-6">
-                <h4 class="text-muted">Client information</h4>
-                  <ul class="list-group">
-                      <li class="list-group-item">Name: <span class="bold">Peter</span></th>
-                      <li class="list-group-item">previous projects: <span class="bold">10</span></th>
-                      <li class="list-group-item">Star rating: <span class="bold"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></span></th>
-                      <li class="list-group-item">view profile: <span class="bold"><a href="#">profile</a></span></th>
-                  </ul>
-                </div>
-                <div class="project-actions">
-                  <a href="/project-details/1" class="btn btn-primary details-btn"><i class="fa  fa-list"></i> Details</a>
-                  <a href="/project-details/1" class="btn btn-primary bid-btn pull-right"><i class="fa  fa-bell-o"></i> Place bid</a>
-               </div>
-       </article>
-     </div>
-   <div class="col-md-6">
-     <article>
-       <h3>E-learning website</h3>
-       <div class="row">
-         <div class="col-md-6">
-           <h4 class="text-muted">Desired features</h4>
-           <div class="row">
-             <div class="col-xs-6"><div class="desired-feature"><i class="fa fa-desktop"></i> <i class="fa fa-tablet"></i> <i class="fa  fa-mobile"></i><p>Responsive</p></div></div>
-             <div class="col-xs-6"><div class="desired-feature"><i class="fa fa-users"></i><p>Membership</p></div></div>
-           </div>
-           <div class="row">
-             <div class="col-xs-6"><div class="desired-feature"><i class="fa fa-cloud-upload"></i><p>Cloud based</p></div></div>
-             <div class="col-xs-6"><div class="desired-feature"><i class="fa fa-cart-plus"></i><p>Check out</p></div></div>
-           </div>
-         </div>
-         <div class="col-md-6">
-           <div class="project-pic"></div>
-         </div>
-       </div>
-      <div class="row project-info">
-        <div class="col-md-6">
-          <h4 class="text-muted">Bidding information</h4>
-           <ul class="list-group">
-              <li class="list-group-item">Status: <span class="green">OPEN</span></li>
-              <li class="list-group-item">No. of placed bids: <span class="bold">1000</span></li>
-              <li class="list-group-item">Average price: <span class="bold red">Ksh. 100,000</span></li>
-              <li class="list-group-item">Remaining time: <span class="bold">7:4:33</span></li>
-            </ul>
+            <div class="row">
+              @if($project['projectType']['feature5'])
+              <div class="col-xs-6"><div class="desired-feature"><i class="fa fa-cloud-upload"></i><p>Cloud based</p></div></div>
+              @else
+               <div class="col-xs-6"><div class="desired-feature"><i class="fa fa-exclamation-triangle"></i><p>Unspecified</p></div></div>
+              @endif
+              @if($project['projectType']['feature6'])
+               <div class="col-xs-6"><div class="desired-feature"><i class="fa fa-dashboard"></i><p>Admin panel</p></div></div>
+              @else
+               <div class="col-xs-6"><div class="desired-feature"><i class="fa fa-exclamation-triangle"></i><p>Unspecified</p></div></div>
+              @endif
+            </div>
           </div>
-          <div class="row project-info">
-            <div class="col-md-6">
-              <h4 class="text-muted">Client information</h4>
-                <ul class="list-group">
-                    <li class="list-group-item">Name: <span class="bold">Peter</span></th>
-                    <li class="list-group-item">previous projects: <span class="bold">10</span></th>
-                    <li class="list-group-item">Star rating: <span class="bold"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></span></th>
-                    <li class="list-group-item">view profile: <span class="bold"><a href="#">profile</a></span></th>
-                </ul>
-              </div>
-              <div class="project-actions">
-                <a href="/project-details/1" class="btn btn-primary details-btn"><i class="fa  fa-list"></i> Details</a>
-                <a href="/project-details/1" class="btn btn-primary bid-btn pull-right"><i class="fa  fa-bell-o"></i> Place bid</a>
-             </div>
-     </article>
-   </div>
- </div>
- <div class="row project-area">
-   <div class="col-md-6">
-     <article>
-       <h3>E-learning website</h3>
-       <div class="row">
-         <div class="col-md-6">
-           <h4 class="text-muted">Desired features</h4>
-           <div class="row">
-             <div class="col-xs-6"><div class="desired-feature"><i class="fa fa-desktop"></i> <i class="fa fa-tablet"></i> <i class="fa  fa-mobile"></i><p>Responsive</p></div></div>
-             <div class="col-xs-6"><div class="desired-feature"><i class="fa fa-users"></i><p>Membership</p></div></div>
-           </div>
-           <div class="row">
-             <div class="col-xs-6"><div class="desired-feature"><i class="fa fa-cloud-upload"></i><p>Cloud based</p></div></div>
-             <div class="col-xs-6"><div class="desired-feature"><i class="fa fa-cart-plus"></i><p>Check out</p></div></div>
-           </div>
-         </div>
-         <div class="col-md-6">
-           <div class="project-pic"></div>
-         </div>
-       </div>
-      <div class="row project-info">
-        <div class="col-md-6">
-          <h4 class="text-muted">Bidding information</h4>
-           <ul class="list-group">
-              <li class="list-group-item">Status: <span class="green">OPEN</span></li>
-              <li class="list-group-item">No. of placed bids: <span class="bold">1000</span></li>
-              <li class="list-group-item">Average price: <span class="bold red">Ksh. 100,000</span></li>
-              <li class="list-group-item">Remaining time: <span class="bold">7:4:33</span></li>
-            </ul>
+          <div class="col-md-6">
+            @if($project['caption']=='')
+            <div class="project-pic" style="background:url('{{asset('/avatar/avatar.jpg')}}') no-repeat center;"></div>
+            @else
+            <div class="project-pic" style="background:url('{{ url($project['caption']) }}') no-repeat center;"></div>
+            @endif
           </div>
-          <div class="row project-info">
-            <div class="col-md-6">
-              <h4 class="text-muted">Client information</h4>
-                <ul class="list-group">
-                    <li class="list-group-item">Name: <span class="bold">Peter</span></th>
-                    <li class="list-group-item">previous projects: <span class="bold">10</span></th>
-                    <li class="list-group-item">Star rating: <span class="bold"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></span></th>
-                    <li class="list-group-item">view profile: <span class="bold"><a href="#">profile</a></span></th>
-                </ul>
-              </div>
-              <div class="project-actions">
-                <a href="/project-details/1" class="btn btn-primary details-btn"><i class="fa  fa-list"></i> Details</a>
-                <a href="/project-details/1" class="btn btn-primary bid-btn pull-right"><i class="fa  fa-bell-o"></i> Place bid</a>
-             </div>
-     </article>
-   </div>
- <div class="col-md-6">
-   <article>
-     <h3>E-learning website</h3>
-     <div class="row">
-       <div class="col-md-6">
-         <h4 class="text-muted">Desired features</h4>
-         <div class="row">
-           <div class="col-xs-6"><div class="desired-feature"><i class="fa fa-desktop"></i> <i class="fa fa-tablet"></i> <i class="fa  fa-mobile"></i><p>Responsive</p></div></div>
-           <div class="col-xs-6"><div class="desired-feature"><i class="fa fa-users"></i><p>Membership</p></div></div>
-         </div>
-         <div class="row">
-           <div class="col-xs-6"><div class="desired-feature"><i class="fa fa-cloud-upload"></i><p>Cloud based</p></div></div>
-           <div class="col-xs-6"><div class="desired-feature"><i class="fa fa-cart-plus"></i><p>Check out</p></div></div>
-         </div>
-       </div>
-       <div class="col-md-6">
-         <div class="project-pic"></div>
-       </div>
-     </div>
-    <div class="row project-info">
-      <div class="col-md-6">
-        <h4 class="text-muted">Bidding information</h4>
-         <ul class="list-group">
-            <li class="list-group-item">Status: <span class="green">OPEN</span></li>
-            <li class="list-group-item">No. of placed bids: <span class="bold">1000</span></li>
-            <li class="list-group-item">Average price: <span class="bold red">Ksh. 100,000</span></li>
-            <li class="list-group-item">Remaining time: <span class="bold">7:4:33</span></li>
-          </ul>
         </div>
-        <div class="row project-info">
-          <div class="col-md-6">
-            <h4 class="text-muted">Client information</h4>
-              <ul class="list-group">
-                  <li class="list-group-item">Name: <span class="bold">Peter</span></th>
-                  <li class="list-group-item">previous projects: <span class="bold">10</span></th>
-                  <li class="list-group-item">Star rating: <span class="bold"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></span></th>
-                  <li class="list-group-item">view profile: <span class="bold"><a href="#">profile</a></span></th>
-              </ul>
-            </div>
-            <div class="project-actions">
-              <a href="/project-details/1" class="btn btn-primary details-btn"><i class="fa  fa-list"></i> Details</a>
-              <a href="/project-details/1" class="btn btn-primary bid-btn pull-right"><i class="fa  fa-bell-o"></i> Place bid</a>
+       <div class="row project-info">
+         <div class="col-md-6">
+           <h4 class="text-muted">Bidding information</h4>
+            <ul class="list-group">
+               @if($project['final_price']=='')
+               <li class="list-group-item">Status: <span class="green">OPEN</span></li>
+               @else
+               <li class="list-group-item">Status: <span class="red">CLOSED</span></li>
+               @endif
+               <li class="list-group-item">No. of placed bids: <span class="bold">{{count($project['bid'])}}</span></li>
+               @if($project['avg_price']=='')
+               <li class="list-group-item">Average price: <span class="bold red">-</span></li>
+               @else
+               <li class="list-group-item">Average price: <span class="bold red">Ksh. {{round($project['avg_price'],2)}}</span></li>
+               @endif
+               @if($project['final_price']=='')
+               <li class="list-group-item">Bid closing: <span class="bold">{{\Carbon\Carbon::createFromTimeStamp(strtotime($project['end_date']))->diffForHumans()}}</span></li>
+               @else
+               <li class="list-group-item">Bid closed: <span class="bold">{{\Carbon\Carbon::createFromTimeStamp(strtotime($project['updated_at']))->diffForHumans()}}</span></li>
+               @endif
+             </ul>
            </div>
-   </article>
- </div>
+           <div class="row project-info">
+             <div class="col-md-6">
+               <h4 class="text-muted">Client information</h4>
+                 <ul class="list-group">
+                     <li class="list-group-item">Name: <span class="bold">{{$project['user']['first_name']}} {{$project['user']['last_name']}}</span></li>
+                     @if($project['desired_price']=='')
+                     <li class="list-group-item">Desired price: <span class="bold">Unspecified</span></li>
+                     @else
+                     <li class="list-group-item">Desired price: <span class="bold">Ksh. {{round($project['desired_price'],2)}}</span></li>
+                     @endif
+                     <li class="list-group-item">Star rating: <span class="bold"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></span></li>
+                     <li class="list-group-item">view profile: <span class="bold"><a href="#">profile</a></span></li>
+                 </ul>
+               </div>
+               <div class="project-actions">
+                 <a href="/project-details/{{$project['id']}}" class="btn btn-primary details-btn"><i class="fa  fa-list"></i> Details</a>
+                 <a href="/project-details/1" class="btn btn-primary bid-btn pull-right"><i class="fa  fa-bell-o"></i> Place bid</a>
+              </div>
+      </article>
+   </div>
+   @endforeach
 </div>
 <nav aria-label="...">
-  <ul class="pagination">
-    <li class="page-item disabled">
-      <span class="page-link">Previous</span>
-    </li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item active">
-      <span class="page-link">
-        2
-        <span class="sr-only">(current)</span>
-      </span>
-    </li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item">
-      <a class="page-link" href="#">Next</a>
-    </li>
+  <ul class="pagination pull-right">
+    {{$projects->links()}}
   </ul>
 </nav>
  </div>`

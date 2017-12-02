@@ -12,10 +12,11 @@
 */
 
 Route::get('/', 'site@index');
-Route::get('/closed-bids', 'site@filter_closed')->name('Closed bids');
-Route::get('/open-bids', 'site@filter_open')->name('Open bids');
-Route::get('/all-bids', 'site@filter_all')->name('All bids');
-Route::get('/sort-projects', 'site@sort')->name('All bids');
+Route::get('/closed-bids/{backTo}', 'site@filter_closed')->name('Closed bids');
+Route::get('/open-bids/{backTo}', 'site@filter_open')->name('Open bids');
+Route::get('/all-bids/{backTo}', 'site@filter_all')->name('All bids');
+Route::get('/sort-projects/{backTo}', 'site@sort')->name('All bids');
+Route::get('/projects','site@projects_display');
 Route::get('/provider', function () {
     return view('admin.provider.top');
 });
@@ -42,9 +43,6 @@ Route::get('/client-campaigns', function () {
 });
 Route::get('/client-chats', function () {
     return view('admin.client.chat');
-});
-Route::get('/projects', function () {
-    return view('projects');
 });
 Route::get('/about-us', function () {
     return view('about-us');

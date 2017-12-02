@@ -41,7 +41,7 @@ class site extends Controller
       {
         $orderFilter='created_at';$orderCriteria='desc';
       }
-      $provider_companies=Company::paginate(4);
+      $provider_companies=Company::paginate(3);
       $projects=Project::with('user','projectType','bid')->where($filter,$sign,$criteria)->orderBy($orderFilter,$orderCriteria)->paginate(2);
       return view('welcome',compact('provider_companies','projects'));
     }
@@ -68,24 +68,61 @@ class site extends Controller
       }
       return back();
     }
-    public function filter_closed()
+    public function filter_closed($backTo=0)
     {
       session(['bid_types'=>1]);
+      if($backTo){return $this->projects_display();}
       return $this->index();
     }
-    public function filter_open()
+    public function filter_open($backTo=0)
     {
       session(['bid_types'=>2]);
+      if($backTo){return $this->projects_display();}
       return $this->index();
     }
-    public function filter_all()
+    public function filter_all($backTo=0)
     {
       session()->forget('bid_types');
+      if($backTo){return $this->projects_display();}
       return $this->index();
     }
-    public function sort(Request $request)
+    public function sort(Request $request,$backTo=0)
     {
       session(['sort_projects'=>$request->input('sort-projects')]);
+      if($backTo){return $this->projects_display();}
       return $this->index();;
+    }
+    function projects_display()
+    {
+      if(session('bid_types') && session('bid_types')==1){
+        $filter='final_price';$criteria='';$sign='<>';
+      }else if(session('bid_types') && session('bid_types')==2){
+        $filter='final_price';$criteria='';$sign='=';
+      }
+        else{$filter='id';$criteria='';$sign='<>';
+      }
+      if(session('sort_projects') && session('sort_projects')==1)
+      {
+        $orderFilter='created_at';$orderCriteria='desc';
+        session()->forget('sort_projects');
+      }
+      else if(session('sort_projects') && session('sort_projects')==2)
+      {
+        $orderFilter='created_at';$orderCriteria='asc';
+      }
+      else if(session('sort_projects') && session('sort_projects')==3)
+      {
+        $orderFilter='avg_price';$orderCriteria='asc';
+      }
+      else if(session('sort_projects') && session('sort_projects')==4)
+      {
+        $orderFilter='avg_price';$orderCriteria='desc';
+      }
+      else
+      {
+        $orderFilter='created_at';$orderCriteria='desc';
+      }
+      $projects=Project::with('user','projectType','bid')->where($filter,$sign,$criteria)->orderBy($orderFilter,$orderCriteria)->paginate(4);
+      return view('projects',compact('projects'));
     }
 }
