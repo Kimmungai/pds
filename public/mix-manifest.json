@@ -2,5 +2,6 @@
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
     "/css/style.css": "/css/style.css",
-    "/css/adm-cutom-style.css": "/css/adm-cutom-style.css"
+    "/css/adm-cutom-style.css": "/css/adm-cutom-style.css",
+    "/css/persistant_chat.css": "/css/persistant_chat.css"
 }

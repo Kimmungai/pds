@@ -226,47 +226,58 @@
    <div class="container section-decoration">
      <div class="row provider">
        @foreach($provider_companies as $provider_company)
-       <div class="col-md-3"> <!--provider companies begins here-->
+       <div class="col-md-4">
          <article>
            <h4>{{$provider_company['company_name']}}</h4>
            <div class="row provider-details">
              <div class="col-xs-5">
-               @if($provider_company['company_reg_cert']=='')
+               @if($provider_company['user']['avatar']=='')
                  <div class="provider-logo" style="background:url('{{asset('/avatar/avatar.jpg')}}') center no-repeat;"></div>
                @else
-                 <div class="provider-logo" style="background:url('{{ url($provider_company['company_reg_cert']) }}') no-repeat center;">
+                 <div class="provider-logo" style="background:url('{{ url($provider_company['user']['avatar']) }}') no-repeat center;"></div>
                @endif
-               </div>
              </div>
              <div class="col-xs-7">
-              <ul class="list-group">
-                <li class="list-group-item">Established: <span>{{$provider_company['company_incoporation_date']}}</span></li>
-                <li class="list-group-item">Completed bids: <span>2005</span></li>
-                <li class="list-group-item">Rating: <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></li>
-              </ul>
+               <ul class="list-group">
+                 <li class="list-group-item">Established: <span>{{$provider_company['company_incoporation_date']}}</span></li>
+                 @if($provider_company['company_industry']==1)
+                 <li class="list-group-item">Industry: <span>Software</span></li>
+                 @elseif($provider_company['company_industry']==2)
+                 <li class="list-group-item">Industry: <span>Telco</span></li>
+                 @elseif($provider_company['company_industry']==3)
+                 <li class="list-group-item">Industry: <span>Business</span></li>
+                 @elseif($provider_company['company_industry']==4)
+                 <li class="list-group-item">Industry: <span>Marketing</span></li>
+                 @endif
+                 <li class="list-group-item">Rating: <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></li>
+               </ul>
              </div>
-             <div class="row provider-details">
-               <div class="col-xs-12">
-                 <h5>Description</h5>
-                 <p><i class="fa fa-quote-left" aria-hidden="true"></i> {{$provider_company['company_description']}} <i class="fa fa-quote-right" aria-hidden="true"></i></p>
-               </div>
-            </div>
-           <div class="provider-actions">
-             <a class="btn btn-primary details-btn"><i class="fa  fa-building-o"></i> Profile</a>
-             <a href="{{$provider_company['company_website']}}" class="btn btn-primary pull-right details-btn"><i class="fa fa-external-link "></i> Website</a>
-          </div>
-        </div>
+           </div>
+           <div class="row provider-details">
+             <div class="col-xs-12">
+               <h5>Description</h5>
+               <p><i class="fa fa-quote-left" aria-hidden="true"></i> {{$provider_company['company_description']}} <i class="fa fa-quote-right" aria-hidden="true"></i></p>
+             </div>
+           </div>
+           <div class="row">
+             <div class="col-xs-12">
+               <div class="provider-actions">
+                 <a class="btn btn-primary details-btn"><i class="fa  fa-building-o"></i> Profile</a>
+                 <a href="{{$provider_company['company_website']}}" class="btn btn-primary pull-right details-btn"><i class="fa fa-external-link "></i> Website</a>
+              </div>
+             </div>
+           </div>
          </article>
-     </div><!--provider companies ends here-->
-     @endforeach
+       </div>
+       @endforeach
+     </div>
+   </div>
      <nav aria-label="...">
        <ul class="pagination pull-right">
          {{$provider_companies->links()}}
        </ul>
      </nav>
-   </div>
     <!---***********************-->
-  </div>
 </section>
 @endif
 <section class="how-it-works" id="how-it-works">

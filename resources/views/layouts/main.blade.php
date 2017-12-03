@@ -16,6 +16,7 @@
         <link rel="stylesheet" href="{{ asset('/css/normalize.css') }}">
         <link rel="stylesheet" href="{{ asset('/css/main.css') }}">
         <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
+        <link rel="stylesheet" href="{{ asset('/css/persistant_chat.css') }}">
         <!-- Admin Custom styles for calender-->
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
     </head>
@@ -53,7 +54,7 @@
         @yield('content')
         <!--Page content ends here-->
         <!--chat starts here-->
-        
+
         <!--chat ends here-->
         <div class="container">
           <div class="row">

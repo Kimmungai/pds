@@ -233,7 +233,7 @@
           <div class="form-group row">
             <label for="example-search-input" class="col-2 col-form-label">Subscription remaining time</label>
             <div class="col-10">
-              <input class="form-control" type="text" value="10 sec" disabled>
+              <input class="form-control" type="text" value="{{\Carbon\Carbon::createFromTimeStamp(strtotime($membership['end_date']))->diffForHumans()}}" disabled>
             </div>
           </div>
           </div>
