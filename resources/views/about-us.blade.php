@@ -70,6 +70,16 @@
 <section class="enquire">
   <div class="container"><div class="row"><h2>Company History</h2></div></div>
   <div class="container section-decoration">
+    @if (Session::has('update_success'))
+      <div class="alert alert-success">
+          <i class="fa fa-check-circle"></i> {{ Session::get('update_success') }}
+      </div>
+    @endif
+    @if (Session::has('update_error'))
+      <div class="alert alert-danger">
+          {{ Session::get('update_error') }}
+      </div>
+    @endif
     <div class="row">
       <div class="strip"></div>
       <div class="col-md-6 company-history">
@@ -93,44 +103,67 @@
       </div>
       <div class="col-md-6">
         <article>
-          <h5>Contact Form</h5>
-          <div class="row">
-            <div class="col-md-2">
-              <label for="name">Name</label>
+         <form action="/make-enquiry" method="POST" />
+           {{csrf_field()}}
+            <h5>Contact Form</h5>
+            <div class="row">
+              <div class="col-md-2">
+                <label for="name">Name<span class="red">*</span></label>
+              </div>
+              <div class="col-md-10">
+                <input name="prospective_name" type="text" class="form-control" value="{{old('prospective_name')}}" required/>
+                @if ($errors->has('prospective_name'))
+                  <span class="red">
+                      <strong>{{ $errors->first('prospective_name') }}</strong>
+                  </span>
+                @endif
+              </div>
             </div>
-            <div class="col-md-10">
-              <input type="text" class="form-control" />
+            <div class="row">
+              <div class="col-md-2">
+                <label for="name">Email<span class="red">*</span></label>
+              </div>
+              <div class="col-md-10">
+                <input name="prospective_email" type="email" class="form-control" value="{{old('prospective_email')}}" required/>
+                @if ($errors->has('prospective_email'))
+                  <span class="red">
+                      <strong>{{ $errors->first('prospective_email') }}</strong>
+                  </span>
+                @endif
+              </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-md-2">
-              <label for="name">Email</label>
+            <div class="row">
+              <div class="col-md-2">
+                <label for="name">Phone</label>
+              </div>
+              <div class="col-md-10">
+                <input name="prospective_phone" type="text" class="form-control" value="{{old('prospective_phone')}}" />
+                @if ($errors->has('prospective_phone'))
+                  <span class="red">
+                      <strong>{{ $errors->first('prospective_phone') }}</strong>
+                  </span>
+                @endif
+              </div>
             </div>
-            <div class="col-md-10">
-              <input type="email" class="form-control" />
+            <div class="row">
+              <div class="col-md-2">
+                <label for="name">Message<span class="red">*</span></label>
+              </div>
+              <div class="col-md-10">
+                <textarea name="prospective_message" class="form-control" required>{{old('prospective_message')}}</textarea>
+                @if ($errors->has('prospective_message'))
+                  <span class="red">
+                      <strong>{{ $errors->first('prospective_message') }}</strong>
+                  </span>
+                @endif
+              </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-md-2">
-              <label for="name">Phone</label>
+            <div class="row">
+              <div class="col-md-3 pull-right project-btn">
+                <button class="btn btn-primary" type="submit"><i class="fa fa-send"></i> Send</a>
+              </div>
             </div>
-            <div class="col-md-10">
-              <input type="text" class="form-control" />
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-2">
-              <label for="name">Message</label>
-            </div>
-            <div class="col-md-10">
-              <textarea class="form-control"></textarea>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-3 pull-right project-btn">
-              <a class="btn btn-primary btn-lg" href="#"><i class="fa fa-send"></i> Send</a>
-            </div>
-          </div>
+          </form>
         </article>
       </div>
     </div>

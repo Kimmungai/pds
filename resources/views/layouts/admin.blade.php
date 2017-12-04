@@ -22,6 +22,11 @@
     <link href="{{asset('/css/adm-cutom-style.css')}}" rel="stylesheet">
     <!-- Admin Custom styles for calender-->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+    <meta id="metaUrl" property="og:url"           />
+    <meta id="metaType" property="og:type"           />
+    <meta id="metaTitle" property="og:title"          />
+    <meta id="metaDescription" property="og:description"   content="Allow clients to post their web projects, competitive technology companies place bids on them and clients decide who to choose!" />
+    <meta id="metaImage" property="og:image"         content="{{ asset('/img/logo.png') }}" />
   </head>
 
   <body class="fixed-nav sticky-footer bg-dark" id="page-top">

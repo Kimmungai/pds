@@ -163,7 +163,7 @@
               <input type="hidden" name="_method" value="PUT" />
               <div class="card mb-3">
                 <div class="card-body">
-                  <h6 class="card-title mb-1"><a href="#">Basic details</a></h6>
+                  <h6 class="card-title mb-1">Basic details</h6>
                   @if($user['avatar']=='')
                     <div class="avatar" style="background:url('{{asset('/avatar/avatar.jpg')}}') center no-repeat;"></div>
                   @else
@@ -228,7 +228,7 @@
                 <form class="" action="/update-contact-details" method="post">
                     {{csrf_field()}}
                     <input type="hidden" name="_method" value="PUT" />
-                    <h6 class="card-title mb-1"><a href="#">Contact details</a></h6>
+                    <h6 class="card-title mb-1">Contact details</h6>
                     <div class="form-group row">
                       <label for="example-search-input" class="col-md-3 col-form-label">Phone</label>
                       <div class="col-md-9">
@@ -277,7 +277,7 @@
               <input type="hidden" name="_method" value="PUT" />
               <div class="card mb-3">
                 <div class="card-body">
-                  <h6 class="card-title mb-1"><a href="#">Personal details</a></h6>
+                  <h6 class="card-title mb-1">Personal details</h6>
                   <div class="form-group row">
                     <label for="example-search-input" class="col-md-3 col-form-label">ID no.</label>
                     <div class="col-md-9">
@@ -335,7 +335,7 @@
             <!-- Example Social Card-->
             <div class="card mb-3">
               <div class="card-body">
-                <h6 class="card-title mb-1"><a href="#">Password change</a></h6>
+                <h6 class="card-title mb-1">Password change</h6>
                 <form class="" action="/update-password-change" method="post">
                     {{csrf_field()}}
                     <input type="hidden" name="_method" value="PUT" />
@@ -385,7 +385,7 @@
             <!-- Example Social Card-->
             <div class="card mb-3">
               <div class="card-body">
-                <h6 class="card-title mb-1"><a href="#">Account Deactivation</a></h6>
+                <h6 class="card-title mb-1">Account Deactivation</h6>
               </div>
               <hr class="my-0">
               <div class="card-body py-2 small"></div>
