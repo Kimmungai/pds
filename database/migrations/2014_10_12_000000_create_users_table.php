@@ -31,6 +31,7 @@ class CreateUsersTable extends Migration
             $table->tinyInteger('verified')->default(0);
             $table->string('email_token')->nullable();
             $table->string('dob')->nullable();
+            $table->integer('rating')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });

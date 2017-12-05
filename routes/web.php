@@ -100,6 +100,7 @@ Route::put('/contacts-update', 'providers@company_contacts_update')->name('compa
 Route::put('/company-promotion-update', 'providers@update_company_promotion')->name('company promotion update')->middleware('auth');
 Route::get('/provider-membership','providers@membership')->name('Provider Membership')->middleware('auth');
 Route::get('/provider-chats','providers@chats')->name('Provider Chats')->middleware('auth');
+Route::get('/provider-alerts','providers@alerts')->name('Provider Alerts')->middleware('auth');
 //Projects
 Route::post('/new-project', 'projects@create')->name('Create Project')->middleware('auth');
 Route::get('/project-basic-back/{id}','projects@basic_back')->name('Back to basic')->middleware('auth');

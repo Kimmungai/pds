@@ -33,13 +33,13 @@
             <span class="nav-link-text">Contact person</span>
           </a>
         </li>
-        <li class="nav-item active" data-toggle="tooltip" data-placement="right" title="Link">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
           <a class="nav-link" href="/provider-chats">
             <i class="fa fa-fw fa-comment"></i>
             <span class="nav-link-text">Chat <span class="badge badge-pill badge-primary">12 New</span></span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
+        <li class="nav-item active" data-toggle="tooltip" data-placement="right" title="Link">
           <a class="nav-link" href="/provider-alerts">
             <i class="fa fa-fw fa-envelope"></i>
             <span class="nav-link-text">Email alerts</span>
@@ -157,48 +157,62 @@
         <li class="breadcrumb-item">
           <a href="#">Dashboard</a>
         </li>
-        <li class="breadcrumb-item active">My Chats</li>
+        <li class="breadcrumb-item active">My Alerts</li>
       </ol>
       <div class="row">
-        <div class="col-lg-8">
+        <div class="col-lg-12">
           <!-- Example Bar Chart Card-->
           <div class="card mb-3">
             <div class="card-header">
-              <i class="fa fa-comment"></i> Wajui / Chat Messages</div>
-            <div class="card-body">
-              <!-- Chat template starts here-->
-              <article class="message-article from">
-                <small>12/12/2016 at 21:30hrs</small>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-              </article>
-              <article class="message-article pull-right to">
-                <small>12/12/2016 at 21:30hrs</small>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-              </article>
-              <!-- Chat template ends here-->
-            </div>
-            <div class="msg-type-field">
-              <input class="form-control" type="text" placeholder="Type your message" /><button class="btn btn-primary msg-send-btn" type="submit"><i class="fa fa-send"></i> Send</button>
+              <i class="fa fa-envelope"></i> Choose Alerts</div>
+            <div class="card-body alert-section">
+              <form>
+                <div class="row">
+                  <div class="col-md-6">
+                    <label for="price"><strong>Get an alert when a new project is posted?</strong></label>
+                  </div>
+                  <div class="col-md-6">
+                    <input name="project-posted" type="radio" checked /> Yes <input name="project-posted" type="radio" /> No
+                  </div>
+                </div>
+                <hr />
+                <div class="row">
+                  <div class="col-md-6">
+                    <label for="price"><strong>Get alerts for</strong></label>
+                  </div>
+                  <div class="col-md-6">
+                    <input name="project-type" type="radio" checked /> All projects <input name="project-type" type="radio" /> Mobile apps
+                    <input name="project-type" type="radio" /> E-commerce projects <input name="project-type" type="radio" /> Blogs
+                    <input name="project-type" type="radio" /> Websites
+                  </div>
+                </div>
+                <hr />
+                <div class="row">
+                  <div class="col-md-6">
+                    <label for="price"><strong>Get an alert when a project is bidded in is closed?</strong></label>
+                  </div>
+                  <div class="col-md-6">
+                    <input name="project-closing" type="radio" /> Yes <input name="project-closing" type="radio" checked /> No
+                  </div>
+                </div>
+                <hr />
+                <div class="row">
+                  <div class="col-md-6">
+                    <label for="price"><strong>Get an alert when my membership is about to expire?</strong></label>
+                  </div>
+                  <div class="col-md-6">
+                    <input name="membership-expiry" type="radio" checked /> Yes <input name="membership-expiry" type="radio" /> No
+                  </div>
+                </div>
+                <hr />
+                <div class="row">
+                  <div class="col-md-3 offset-md-6">
+                    <button class="btn btn-success" type="submit"><i class="fa fa-envelope fa-fw"></i> Set</button>
+                  </div>
+                </div>
+              </form>
             </div>
           </div>
-        </div>
-        <div class="col-lg-4">
-          <!-- Example Pie Chart Card-->
-          <div class="card mb-3">
-            <div class="card-header">
-              <i class="fa fa-users"></i> Contact list</div>
-            <div class="card-body">
-              <ul class="list-group contact-list list-hovered">
-                <li class="list-group-item">wajui <span class="badge badge-pill badge-danger">12</span></li>
-                <li class="list-group-item">wajui <span class="badge badge-pill badge-danger">12</span></li>
-                <li class="list-group-item">wajui <span class="badge badge-pill badge-danger">12</span></li>
-                <li class="list-group-item">wajui <span class="badge badge-pill badge-danger">12</span></li>
-                <li class="list-group-item">wajui <span class="badge badge-pill badge-danger">12</span></li>
-              </ul>
-            </div>
-            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-          </div>
-          <!-- Example Notifications Card-->
         </div>
       </div>
       <!-- Example DataTables Card-->

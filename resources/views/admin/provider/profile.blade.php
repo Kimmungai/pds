@@ -35,8 +35,14 @@
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
           <a class="nav-link" href="/provider-chats">
-            <i class="fa fa-fw fa-envelope"></i>
+            <i class="fa fa-fw fa-comment"></i>
             <span class="nav-link-text">Chat <span class="badge badge-pill badge-primary">12 New</span></span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
+          <a class="nav-link" href="/provider-alerts">
+            <i class="fa fa-fw fa-envelope"></i>
+            <span class="nav-link-text">Email alerts</span>
           </a>
         </li>
       </ul>

@@ -336,4 +336,8 @@ class providers extends Controller
     $membership=UserMembership::where('user_id','=',Auth::id())->first();
     return view('admin.provider.chat',compact('membership'));
   }
+  public function alerts()
+  {
+    return view('admin.provider.alerts');
+  }
 }
