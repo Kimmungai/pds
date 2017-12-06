@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Mail\EmailVerification;
 use App\User;
+use App\UserAlerts;
 use Mail;
 use Session;
 use Carbon;
@@ -47,5 +48,10 @@ class clients extends Controller
     {
       $user=User::with('UserMembership')->where('id','=',Auth::id())->first();
       return view('admin.client.profile',compact('user'));
+    }
+    public function alerts()
+    {
+      $userAlerts=UserAlerts::where('user_id','=',Auth::id())->first();
+      return view('admin.client.alerts',compact('userAlerts'));
     }
 }

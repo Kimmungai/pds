@@ -7,6 +7,8 @@ use App\Company;
 use App\Project;
 use Carbon\Carbon;
 use App\Enquiry;
+use App\UserAlerts;
+use Auth;
 use Session;
 
 class site extends Controller
@@ -124,5 +126,57 @@ class site extends Controller
       }
       $projects=Project::with('user','projectType','bid')->where($filter,$sign,$criteria)->orderBy($orderFilter,$orderCriteria)->paginate(4);
       return view('projects',compact('projects'));
+    }
+    public function set_alerts(Request $request)
+    {
+      if(!count(UserAlerts::where('user_id','=',Auth::id())->get()))
+      {
+        $alerts=new UserAlerts;
+        $alerts->user_id=Auth::id();
+        if($request->input('project-posted')!=null){
+        $alerts->alert1=$request->input('project-posted');
+        $alerts->alert2=$request->input('project-type');
+        $alerts->alert3=$request->input('project-closing');
+        $alerts->alert4=$request->input('membership-expiry');
+      }else if($request->input('project-bidded')!=null){
+        $alerts->alert5=$request->input('project-bidded');
+        $alerts->alert6=$request->input('project-desired-price');
+        $alerts->alert7=$request->input('project-bidding-closing');
+        }
+        if($alerts->save())
+        {
+          session::flash('update_success', 'Alerts successfully set!');
+        }
+        else
+        {
+          session::flash('update_error', 'Alerts not set! Kindly contact support@webdesignerscenter.com');
+        }
+      }
+      else
+      {
+        if($request->input('project-posted')!=null){
+        if(UserAlerts::where('user_id','=',Auth::id())->update([
+          'alert1' => $request->input('project-posted'),
+          'alert2' => $request->input('project-type'),
+          'alert3' => $request->input('project-closing'),
+          'alert4' => $request->input('membership-expiry')
+        ])){
+          session::flash('update_success', 'Alerts successfully set!');
+        }else{
+          session::flash('update_error', 'Alerts not set! Kindly contact support@webdesignerscenter.com');
+        }
+      }else if($request->input('project-bidded')!=null){
+        if(UserAlerts::where('user_id','=',Auth::id())->update([
+          'alert5' => $request->input('project-bidded'),
+          'alert6' => $request->input('project-desired-price'),
+          'alert7' => $request->input('project-bidding-closing')
+        ])){
+          session::flash('update_success', 'Alerts successfully set!');
+        }else{
+          session::flash('update_error', 'Alerts not set! Kindly contact support@webdesignerscenter.com');
+        }
+      }
+      }
+      return back();
     }
 }

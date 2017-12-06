@@ -15,6 +15,7 @@ class CreateUserAlertsTable extends Migration
     {
         Schema::create('user_alerts', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('user_id')->unsigned()->index();
             $table->tinyInteger('alert1')->default(0);
             $table->tinyInteger('alert2')->default(0);
             $table->tinyInteger('alert3')->default(0);

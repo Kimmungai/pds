@@ -263,7 +263,7 @@
              <div class="col-xs-12">
                <div class="provider-actions">
                  <a class="btn btn-primary details-btn"><i class="fa  fa-building-o"></i> Profile</a>
-                 <a href="{{$provider_company['company_website']}}" class="btn btn-primary pull-right details-btn"><i class="fa fa-external-link "></i> Website</a>
+                 <a href="{{$provider_company['company_website']}}" class="btn btn-primary pull-right details-btn" target="_blank"><i class="fa fa-external-link "></i> Website</a>
               </div>
              </div>
            </div>

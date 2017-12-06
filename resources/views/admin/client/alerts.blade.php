@@ -21,13 +21,13 @@
             <span class="nav-link-text">My profile</span>
           </a>
         </li>
-        <li class="nav-item active" data-toggle="tooltip" data-placement="right" title="Link">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
           <a class="nav-link" href="/client-chats">
             <i class="fa fa-fw fa-envelope"></i>
             <span class="nav-link-text">Chat <span class="badge badge-pill badge-primary">12 New</span></span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
+        <li class="nav-item active" data-toggle="tooltip" data-placement="right" title="Link">
           <a class="nav-link" href="/client-alerts">
             <i class="fa fa-fw fa-envelope"></i>
             <span class="nav-link-text">Email alerts</span>
@@ -140,53 +140,67 @@
   </nav>
   <div class="content-wrapper">
     <div class="container-fluid">
+      @if (Session::has('update_success'))
+        <div class="alert alert-success">
+            {{ Session::get('update_success') }}
+        </div>
+      @endif
+      @if (Session::has('update_error'))
+        <div class="alert alert-danger">
+            {{ Session::get('update_error') }}
+        </div>
+      @endif
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
           <a href="#">Dashboard</a>
         </li>
-        <li class="breadcrumb-item active">My Chats</li>
+        <li class="breadcrumb-item active">My Alerts</li>
       </ol>
       <div class="row">
-        <div class="col-lg-8">
+        <div class="col-lg-12">
           <!-- Example Bar Chart Card-->
           <div class="card mb-3">
             <div class="card-header">
-              <i class="fa fa-comment"></i> Wajui / Chat Messages</div>
-            <div class="card-body">
-              <!-- Chat template starts here-->
-              <article class="message-article from">
-                <small>12/12/2016 at 21:30hrs</small>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-              </article>
-              <article class="message-article pull-right to">
-                <small>12/12/2016 at 21:30hrs</small>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-              </article>
-              <!-- Chat template ends here-->
-            </div>
-            <div class="msg-type-field">
-              <input class="form-control" type="text" placeholder="Type your message" /><button class="btn btn-primary msg-send-btn" type="submit"><i class="fa fa-send"></i> Send</button>
+              <i class="fa fa-envelope"></i> Choose Alerts</div>
+            <div class="card-body alert-section">
+              <form action="/alerts" method="POST">
+                {{csrf_field()}}
+                <div class="row">
+                  <div class="col-md-6">
+                    <label for="price"><strong>Get an alert when someone bids on my project?</strong></label>
+                  </div>
+                  <div class="col-md-6">
+                    <input name="project-bidded" type="radio" value="1" <?php if($userAlerts['alert5']){?>checked<?php }?>/> Yes <input name="project-bidded" value="0" type="radio" <?php if(!$userAlerts['alert5']){?>checked<?php }?> /> No
+                  </div>
+                </div>
+                <hr />
+                <div class="row">
+                  <div class="col-md-6">
+                    <label for="price"><strong>Get an alert when someone places a bid less than my desired price?</strong></label>
+                  </div>
+                  <div class="col-md-6">
+                    <input name="project-desired-price" type="radio" value="1" <?php if($userAlerts['alert6']){?>checked<?php }?>/> Yes <input name="project-desired-price" value="0" type="radio" <?php if(!$userAlerts['alert6']){?>checked<?php }?> /> No
+                  </div>
+                </div>
+                <hr />
+                <div class="row">
+                  <div class="col-md-6">
+                    <label for="price"><strong>Get an alert when bidding period expires?</strong></label>
+                  </div>
+                  <div class="col-md-6">
+                    <input name="project-bidding-closing" value="1" type="radio" <?php if($userAlerts['alert7']){?>checked<?php }?>/> Yes <input name="project-bidding-closing" value="0" type="radio" <?php if(!$userAlerts['alert7']){?>checked<?php }?> /> No
+                  </div>
+                </div>
+                <hr />
+                <div class="row">
+                  <div class="col-md-3 offset-md-6">
+                    <button class="btn btn-success" type="submit">Set</button>
+                  </div>
+                </div>
+              </form>
             </div>
           </div>
-        </div>
-        <div class="col-lg-4">
-          <!-- Example Pie Chart Card-->
-          <div class="card mb-3">
-            <div class="card-header">
-              <i class="fa fa-users"></i> Contact list</div>
-            <div class="card-body">
-              <ul class="list-group contact-list list-hovered">
-                <li class="list-group-item">wajui <span class="badge badge-pill badge-danger">12</span></li>
-                <li class="list-group-item">wajui <span class="badge badge-pill badge-danger">12</span></li>
-                <li class="list-group-item">wajui <span class="badge badge-pill badge-danger">12</span></li>
-                <li class="list-group-item">wajui <span class="badge badge-pill badge-danger">12</span></li>
-                <li class="list-group-item">wajui <span class="badge badge-pill badge-danger">12</span></li>
-              </ul>
-            </div>
-            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-          </div>
-          <!-- Example Notifications Card-->
         </div>
       </div>
       <!-- Example DataTables Card-->

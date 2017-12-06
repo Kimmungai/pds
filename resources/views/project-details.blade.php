@@ -287,6 +287,7 @@
                 <th scope="col">Bid no.</th>
                 <th scope="col">date</th>
                 <th scope="col">Company</th>
+                <th scope="col">Message</th>
                 <th scope="col">Offer</th>
                 <th scope="col">Contact</th>
                 <th scope="col">Chat</th>
@@ -299,7 +300,8 @@
                 <th scope="row">{{$bid['id']}}</th>
                 <td>{{\Carbon\Carbon::createFromTimeStamp(strtotime($project['created_at']))->diffForHumans()}}</td>
                 <td>wajui enterprises</td>
-                <td class="green">Ksh. {{round($bid['bid_price'],2)}}</td>
+                <td>{{$bid['message']}}</td>
+                <td class="red">Ksh. {{round($bid['bid_price'],2)}}</td>
                 <td>@mdo</td>
                 <td><span class="fa fa-comment"></span></td>
                 @if($project['final_price']!='')

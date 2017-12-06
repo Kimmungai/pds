@@ -7,6 +7,7 @@ use App\Mail\ProviderEmailVerification;
 use App\User;
 use App\Company;
 use App\UserMembership;
+use App\UserAlerts;
 use Mail;
 use Session;
 use Carbon\Carbon;
@@ -338,6 +339,7 @@ class providers extends Controller
   }
   public function alerts()
   {
-    return view('admin.provider.alerts');
+    $userAlerts=UserAlerts::where('user_id','=',Auth::id())->first();
+    return view('admin.provider.alerts',compact('userAlerts'));
   }
 }

@@ -152,6 +152,16 @@
   </nav>
   <div class="content-wrapper">
     <div class="container-fluid">
+      @if (Session::has('update_success'))
+        <div class="alert alert-success">
+            {{ Session::get('update_success') }}
+        </div>
+      @endif
+      @if (Session::has('update_error'))
+        <div class="alert alert-danger">
+            {{ Session::get('update_error') }}
+        </div>
+      @endif
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
@@ -166,13 +176,14 @@
             <div class="card-header">
               <i class="fa fa-envelope"></i> Choose Alerts</div>
             <div class="card-body alert-section">
-              <form>
+              <form action="/alerts" method="POST">
+                {{csrf_field()}}
                 <div class="row">
                   <div class="col-md-6">
                     <label for="price"><strong>Get an alert when a new project is posted?</strong></label>
                   </div>
                   <div class="col-md-6">
-                    <input name="project-posted" type="radio" checked /> Yes <input name="project-posted" type="radio" /> No
+                    <input name="project-posted" type="radio" value="1" <?php if($userAlerts['alert1']){?>checked<?php }?>/> Yes <input name="project-posted" value="0" type="radio" <?php if(!$userAlerts['alert1']){?>checked<?php }?> /> No
                   </div>
                 </div>
                 <hr />
@@ -181,9 +192,9 @@
                     <label for="price"><strong>Get alerts for</strong></label>
                   </div>
                   <div class="col-md-6">
-                    <input name="project-type" type="radio" checked /> All projects <input name="project-type" type="radio" /> Mobile apps
-                    <input name="project-type" type="radio" /> E-commerce projects <input name="project-type" type="radio" /> Blogs
-                    <input name="project-type" type="radio" /> Websites
+                    <input name="project-type" value="1" type="radio" <?php if(!$userAlerts['alert2'] || $userAlerts['alert2']==1){?>checked<?php }?> /> All projects <input name="project-type" value="2" type="radio" <?php if($userAlerts['alert2'] && $userAlerts['alert2']==2){?>checked<?php }?> /> Mobile apps
+                    <input name="project-type" value="3" type="radio" <?php if($userAlerts['alert2'] && $userAlerts['alert2']==3){?>checked<?php }?> /> E-commerce projects <input name="project-type" value="4" type="radio" <?php if($userAlerts['alert2'] && $userAlerts['alert2']==4){?>checked<?php }?>/> Blogs
+                    <input name="project-type" value="5" type="radio" <?php if($userAlerts['alert2'] && $userAlerts['alert2']==5){?>checked<?php }?> /> Websites
                   </div>
                 </div>
                 <hr />
@@ -192,7 +203,7 @@
                     <label for="price"><strong>Get an alert when a project is bidded in is closed?</strong></label>
                   </div>
                   <div class="col-md-6">
-                    <input name="project-closing" type="radio" /> Yes <input name="project-closing" type="radio" checked /> No
+                    <input name="project-closing" value="1" type="radio" <?php if($userAlerts['alert3']){?>checked<?php }?>/> Yes <input name="project-closing" value="0" type="radio" <?php if(!$userAlerts['alert3']){?>checked<?php }?> /> No
                   </div>
                 </div>
                 <hr />
@@ -201,13 +212,13 @@
                     <label for="price"><strong>Get an alert when my membership is about to expire?</strong></label>
                   </div>
                   <div class="col-md-6">
-                    <input name="membership-expiry" type="radio" checked /> Yes <input name="membership-expiry" type="radio" /> No
+                    <input name="membership-expiry" value="1" type="radio" <?php if($userAlerts['alert4']){?>checked<?php }?> /> Yes <input name="membership-expiry" value="0" type="radio" <?php if(!$userAlerts['alert4']){?>checked<?php }?> /> No
                   </div>
                 </div>
                 <hr />
                 <div class="row">
                   <div class="col-md-3 offset-md-6">
-                    <button class="btn btn-success" type="submit"><i class="fa fa-envelope fa-fw"></i> Set</button>
+                    <button class="btn btn-success" type="submit">Set</button>
                   </div>
                 </div>
               </form>
