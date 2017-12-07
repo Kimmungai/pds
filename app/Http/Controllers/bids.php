@@ -30,12 +30,12 @@ class bids extends Controller
       $new_bid->message=$request->input('message');
       if($new_bid->save())
       {
-        $average_price=Bid::where('project_id','=',$request->input('project_id'))->avg('bid_price');
+        $average_price=round(Bid::where('project_id','=',$request->input('project_id'))->avg('bid_price'),2);
         Project::where('id','=',$request->input('project_id'))->update(['avg_price'=>$average_price]);
         session::flash('update_success', 'Ksh. '.$request->input('price').'/= bid placed successfully!');
         $project=Project::where('id','=',$request->input('project_id'))->first();
         $bidder=User::with('company')->where('id','=',Auth::id())->first();
-        $client=User::where('id','=',$project['id'])->first();
+        $client=User::with('userAlerts')->where('id','=',$project['user_id'])->first();
         $this->notify_stakeholders($new_bid,$client,$project,$bidder);
       }
       else
@@ -68,7 +68,10 @@ class bids extends Controller
     }
     private function notify_stakeholders($bid,$client,$project,$bidder)
     {
-      $notify_bid_to_client=new BidEvent($bid,$client,$project,$bidder);
-      Mail::to($client['email'])->send($notify_bid_to_client);
+      if($client['user_alerts']['alert5'])
+      {
+        $notify_bid_to_client=new BidEvent($bid,$client,$project,$bidder);
+        Mail::to($client['email'])->send($notify_bid_to_client);
+      }
     }
 }

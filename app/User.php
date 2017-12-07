@@ -43,7 +43,7 @@ class User extends Authenticatable
     }
     public function userAlerts()
     {
-      return $this->hasMany('App\UserAlerts');
+      return $this->hasOne('App\UserAlerts');
     }
     public function verified()
     {

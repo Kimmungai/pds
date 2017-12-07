@@ -16,13 +16,13 @@ class CreateUserAlertsTable extends Migration
         Schema::create('user_alerts', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned()->index();
-            $table->tinyInteger('alert1')->default(0);
+            $table->tinyInteger('alert1')->default(1);
             $table->tinyInteger('alert2')->default(0);
-            $table->tinyInteger('alert3')->default(0);
-            $table->tinyInteger('alert4')->default(0);
-            $table->tinyInteger('alert5')->default(0);
+            $table->tinyInteger('alert3')->default(1);
+            $table->tinyInteger('alert4')->default(1);
+            $table->tinyInteger('alert5')->default(1);
             $table->tinyInteger('alert6')->default(0);
-            $table->tinyInteger('alert7')->default(0);
+            $table->tinyInteger('alert7')->default(1);
             $table->tinyInteger('alert8')->default(0);
             $table->tinyInteger('alert9')->default(0);
             $table->tinyInteger('alert10')->default(0);

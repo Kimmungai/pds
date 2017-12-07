@@ -161,6 +161,9 @@
       <!-- Icon Cards-->
       <div class="projects-container">
         <div class="row">
+          @if(!count($user_projects))
+          <h3>No projects posted yet! <a class="btn btn-primary" href="/new-project">Click here to create a new project.</a></h3>
+          @endif
           @foreach($user_projects as $project)
           <div class="col-xl-3 col-sm-6 mb-3">
             <div id="{{$project['id']}}" class="current-projects card text-white bg-success o-hidden h-100" onclick="dynamic_project_details(this.id)">
@@ -671,10 +674,10 @@
                $('#project-start-date').val(project_obj.start_date);
                $('#project-end-date').val(project_obj.end_date);
                $('#project-description').val(project_obj.description);
-               $('#facebook').attr('href','https://www.addtoany.com/add_to/facebook?linkurl=https%3A%2F%2Fwebdesignerscenter.com%2Fprojects%2F'+project_obj.id+'&amp;linkname=');
-               $('#twitter').attr('href','https://www.addtoany.com/add_to/twitter?linkurl=https%3A%2F%2Fwebdesignerscenter.com%2Fprojects%2F'+project_obj.id+'&amp;linkname=');
-               $('#google').attr('href','https://www.addtoany.com/add_to/google_plus?linkurl=https%3A%2F%2Fwebdesignerscenter.com%2Fprojects%2F'+project_obj.id+'&amp;linkname=');
-               $('#linkedin').attr('href','https://www.addtoany.com/add_to/linkedin?linkurl=https%3A%2F%2Fwebdesignerscenter.com%2Fprojects%2F'+project_obj.id+'&amp;linkname=');
+               $('#facebook').attr('href','https://www.addtoany.com/add_to/facebook?linkurl=https%3A%2F%2Fwebdesignerscenter.com%2Fproject-details%2F'+project_obj.id+'&amp;linkname=');
+               $('#twitter').attr('href','https://www.addtoany.com/add_to/twitter?linkurl=https%3A%2F%2Fwebdesignerscenter.com%2Fproject-details%2F'+project_obj.id+'&amp;linkname=');
+               $('#google').attr('href','https://www.addtoany.com/add_to/google_plus?linkurl=https%3A%2F%2Fwebdesignerscenter.com%2Fproject-details%2F'+project_obj.id+'&amp;linkname=');
+               $('#linkedin').attr('href','https://www.addtoany.com/add_to/linkedin?linkurl=https%3A%2F%2Fwebdesignerscenter.com%2Fproject-details%2F'+project_obj.id+'&amp;linkname=');
                if(project_obj.project_type.feature1==1){$('#feature1').attr('checked',true);}
                if(project_obj.project_type.feature2==1){$('#feature2').attr('checked',true);}
                if(project_obj.project_type.feature3==1){$('#feature3').attr('checked',true);}

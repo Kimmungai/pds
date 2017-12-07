@@ -93,15 +93,33 @@ $style = [
                                             <p style="{{ $style['paragraph'] }}">
                                                 Your project {{$project->name}} has been bidded! The details of the bidder are as shown below.
                                             </p>
-                                            <ul class="list-group">
-                                              <li class="list-group-item">Bidder Company: <strong>{{$bidder['company']->company_name}}</strong></li>
-                                              <li class="list-group-item">Offer: <strong>{{$bid->bid_price}}</strong></li>
-                                              <li class="list-group-item">Message: <strong>{{$bid->message}}</strong></li>
-                                              <li class="list-group-item">Bidder rating: <strong>{{$bidder->rating}}</strong></li>
-                                              <li class="list-group-item">Contact Person: <strong>{{$bidder->first_name}} {{$bidder->last_name}}</strong></li>
-                                              <li class="list-group-item">Bidder tel: <strong>{{$bidder['company']->company_tel}}</strong></li>
-                                              <li class="list-group-item">Bidder website: <strong>{{$bidder['company']->company_tel}}</strong></li>
-                                            </ul>
+
+                                            <table width="50%" cellpadding="0" cellspacing="0" border="1" style="text-align:left;font-size:1.2em;">
+                                              <tr>
+                                               <th>Bidder Company:</th><td><strong>{{$bidder['company']->company_name}}</strong></td>
+                                              </tr>
+                                              <tr>
+                                               <th>Offer:</th><td><strong>{{number_format($bid->bid_price)}}</strong></td>
+                                              </tr>
+                                              <tr>
+                                               <th>Date:</th><td><strong>{{\Carbon\Carbon::createFromTimeStamp(strtotime($bid['created_at']))->diffForHumans()}}</strong></td>
+                                              </tr>
+                                              <tr>
+                                               <th>Message:</th><td><strong>{{$bid->message}}</strong></td>
+                                              </tr>
+                                              <tr>
+                                               <th>Bidder rating:</th><td><strong>{{$bidder->rating}}</strong></td>
+                                              </tr>
+                                              <tr>
+                                               <th>Contact Person:</th><td><strong>{{$bidder->first_name}} {{$bidder->last_name}}</strong></td>
+                                              </tr>
+                                              <tr>
+                                               <th>Bidder tel: </th><td><strong>{{$bidder['company']->company_tel}}</strong></td>
+                                              </tr>
+                                              <tr>
+                                               <th>Bidder website:</th><td><strong><a href="{{$bidder['company']->company_website}}">Visit</a></strong></td>
+                                              </tr>
+                                            </table>
                                         <!-- Action Button -->
                                         <p style="{{ $style['paragraph'] }}">
                                             Click on the button below to view the {{$project->name}} project details.

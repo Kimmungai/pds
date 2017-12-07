@@ -39,6 +39,9 @@ class providers extends Controller
     if($newUser->save())
     {
       Mail::to($request->input('email'))->send($email);
+      $newUserAlert=new UserAlerts;
+      $newUserAlert->user_id=$newUser->id;
+      $newUserAlert->save();
       session::flash('message', 'We have sent you an email to '.$request->input('email'). '. Check your inbox to complete registration!');
       session::flash('deactivate-next', '0');
     }
