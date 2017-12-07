@@ -356,9 +356,11 @@
               <div class="card-body py-2 small"></div>
               <div id="project-sharing" class="card-body no-display">
               <label for="project-title"><b>Share on social networks</b></label><br />
-              <div id="shareUrl" class="fb-share-button" data-href="https://webdesignerscenter.com/projects" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">Share</a></div>
-              <a href="#" style="font-size:1.3em;"> <i class="fa fa-twitter-square"></i></a>&nbsp;&nbsp;
-              <a href="#" style="font-size:1.3em;"> <i class="fa fa-envelope"></i></a>&nbsp;&nbsp;
+              <div class="addthis_inline_share_toolbox"></div>
+              <a id="facebook"  target="_blank" style="font-size:1.3em;"> <i class="fa fa-facebook-square"></i></a>&nbsp;&nbsp;
+              <a id="twitter"  target="_blank" style="font-size:1.3em;"> <i class="fa fa-twitter-square"></i></a>&nbsp;&nbsp;
+              <a id="google"  target="_blank" style="font-size:1.3em;"> <i class="fa fa-google-plus-square"></i></a>&nbsp;&nbsp;
+              <a id="linkedin"  target="_blank" style="font-size:1.3em;"> <i class="fa fa-linkedin-square"></i></a>&nbsp;&nbsp;
              </div>
               <hr class="my-0">
             </div>
@@ -669,9 +671,10 @@
                $('#project-start-date').val(project_obj.start_date);
                $('#project-end-date').val(project_obj.end_date);
                $('#project-description').val(project_obj.description);
-               $('#metaUrl').attr('content','https://webdesignerscenter.com/'+project_obj.id);
-               $('#metaTitle').attr('content',project_obj.title);
-               $('#shareUrl').data('href','https://webdesignerscenter.com/');
+               $('#facebook').attr('href','https://www.addtoany.com/add_to/facebook?linkurl=https%3A%2F%2Fwebdesignerscenter.com%2Fprojects%2F'+project_obj.id+'&amp;linkname=');
+               $('#twitter').attr('href','https://www.addtoany.com/add_to/twitter?linkurl=https%3A%2F%2Fwebdesignerscenter.com%2Fprojects%2F'+project_obj.id+'&amp;linkname=');
+               $('#google').attr('href','https://www.addtoany.com/add_to/google_plus?linkurl=https%3A%2F%2Fwebdesignerscenter.com%2Fprojects%2F'+project_obj.id+'&amp;linkname=');
+               $('#linkedin').attr('href','https://www.addtoany.com/add_to/linkedin?linkurl=https%3A%2F%2Fwebdesignerscenter.com%2Fprojects%2F'+project_obj.id+'&amp;linkname=');
                if(project_obj.project_type.feature1==1){$('#feature1').attr('checked',true);}
                if(project_obj.project_type.feature2==1){$('#feature2').attr('checked',true);}
                if(project_obj.project_type.feature3==1){$('#feature3').attr('checked',true);}
@@ -722,14 +725,5 @@
        e.preventDefault();
      }
     </script>
-    <div id="fb-root"></div>
-<script>(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.11&appId=195288501041210';
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
-</script>
     <!--dynamically load a projects details ends here-->
 @endsection

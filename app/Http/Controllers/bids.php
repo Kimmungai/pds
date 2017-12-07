@@ -12,6 +12,7 @@ use App\Company;
 use Session;
 use App\Mail\winnerNotification;
 use App\Mail\clientBidChoiceNotification;
+use App\Mail\BidEvent;
 use Mail;
 
 class bids extends Controller
@@ -32,6 +33,10 @@ class bids extends Controller
         $average_price=Bid::where('project_id','=',$request->input('project_id'))->avg('bid_price');
         Project::where('id','=',$request->input('project_id'))->update(['avg_price'=>$average_price]);
         session::flash('update_success', 'Ksh. '.$request->input('price').'/= bid placed successfully!');
+        $project=Project::where('id','=',$request->input('project_id'))->first();
+        $bidder=User::with('company')->where('id','=',Auth::id())->first();
+        $client=User::where('id','=',$project['id'])->first();
+        $this->notify_stakeholders($new_bid,$client,$project,$bidder);
       }
       else
       {
@@ -60,5 +65,10 @@ class bids extends Controller
           session::flash('update_error', 'Failed! Kindly contact support@webdesignerscenter.com for assistance');
       }
       return back();
+    }
+    private function notify_stakeholders($bid,$client,$project,$bidder)
+    {
+      $notify_bid_to_client=new BidEvent($bid,$client,$project,$bidder);
+      Mail::to($client['email'])->send($notify_bid_to_client);
     }
 }
