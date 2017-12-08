@@ -11,7 +11,17 @@
         <meta property="og:title"         content="{{$project['title']}} | {{ config('app.name') }}" />
         <meta property="og:description"   content="{{$project['description']}}" />
         @if($project['caption']=='')
-        <meta property="og:image"         content="{{url('/avatar/avatar.jpg')}}" />
+          @if(!$project['projectType']['category'])
+            <meta property="og:image"         content="{{url('/avatar/avatar.jpg')}}" />
+          @elseif($project['projectType']['category']==1)
+            <<meta property="og:image"         content="{{url('/avatar/mobile.jpg')}}" />
+          @elseif($project['projectType']['category']==2)
+            <meta property="og:image"         content="{{url('/avatar/e-commerce.jpg')}}" />
+          @elseif($project['projectType']['category']==3)
+            <meta property="og:image"         content="{{url('/avatar/blog.jpg')}}" />>
+          @elseif($project['projectType']['category']==4)
+            <meta property="og:image"         content="{{url('/avatar/website.jpg')}}" />
+          @endif
         @else
         <meta property="og:image"         content="{{ url($project['caption']) }}" />
         @endif
