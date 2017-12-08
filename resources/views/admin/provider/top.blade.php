@@ -226,7 +226,21 @@
                 </div>
                 <div class="col-md-4 nopadding">
                   <h5>Requirements</h5>
-                  <div class="project-icon" style="background:url('{{asset('/avatar/avatar.jpg')}}') center no-repeat;"></div>
+                  @if($project['caption']=='')
+                    @if(!$all_projects_types[$count]['category'])
+                      <div class="project-icon" style="background:url('{{asset('/avatar/avatar.jpg')}}') no-repeat center;"></div>
+                    @elseif($all_projects_types[$count]['category']==1)
+                      <div class="project-icon" style="background:url('{{asset('/avatar/mobile.jpg')}}') no-repeat center;"></div>
+                    @elseif($all_projects_types[$count]['category']==2)
+                      <div class="project-icon" style="background:url('{{asset('/avatar/e-commerce.jpg')}}') no-repeat center;"></div>
+                    @elseif($all_projects_types[$count]['category']==3)
+                      <div class="project-icon" style="background:url('{{asset('/avatar/blog.jpg')}}') no-repeat center;"></div>
+                    @elseif($all_projects_types[$count]['category']==4)
+                      <div class="project-icon" style="background:url('{{asset('/avatar/website.jpg')}}') no-repeat center;"></div>
+                    @endif
+                  @else
+                    <div class="project-icon" style="background:url('{{ url($project['caption']) }}') center no-repeat;"></div>
+                  @endif
                   @if($project['valid_period']==0 || $project['valid_period']=='')
                   <h5>OPEN</h5>
                   <p>Remaining: <strong>{{$project['end_date']}}</strong></p>

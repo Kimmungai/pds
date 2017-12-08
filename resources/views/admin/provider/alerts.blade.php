@@ -192,15 +192,15 @@
                     <label for="price"><strong>Get alerts for</strong></label>
                   </div>
                   <div class="col-md-6">
-                    <input name="project-type" value="1" type="radio" <?php if(!$userAlerts['alert2'] || $userAlerts['alert2']==1){?>checked<?php }?> /> All projects <input name="project-type" value="2" type="radio" <?php if($userAlerts['alert2'] && $userAlerts['alert2']==2){?>checked<?php }?> /> Mobile apps
-                    <input name="project-type" value="3" type="radio" <?php if($userAlerts['alert2'] && $userAlerts['alert2']==3){?>checked<?php }?> /> E-commerce projects <input name="project-type" value="4" type="radio" <?php if($userAlerts['alert2'] && $userAlerts['alert2']==4){?>checked<?php }?>/> Blogs
-                    <input name="project-type" value="5" type="radio" <?php if($userAlerts['alert2'] && $userAlerts['alert2']==5){?>checked<?php }?> /> Websites
+                    <input name="project-type" value="0" type="radio" <?php if(!$userAlerts['alert2'] || $userAlerts['alert2']==0){?>checked<?php }?> /> All projects <input name="project-type" value="1" type="radio" <?php if($userAlerts['alert2'] && $userAlerts['alert2']==1){?>checked<?php }?> /> Mobile apps
+                    <input name="project-type" value="2" type="radio" <?php if($userAlerts['alert2'] && $userAlerts['alert2']==2){?>checked<?php }?> /> E-commerce projects <input name="project-type" value="3" type="radio" <?php if($userAlerts['alert2'] && $userAlerts['alert2']==3){?>checked<?php }?>/> Blogs
+                    <input name="project-type" value="4" type="radio" <?php if($userAlerts['alert2'] && $userAlerts['alert2']==4){?>checked<?php }?> /> Websites
                   </div>
                 </div>
                 <hr />
                 <div class="row">
                   <div class="col-md-6">
-                    <label for="price"><strong>Get an alert when a project is bidded in is closed?</strong></label>
+                    <label for="price"><strong>Get an alert when a project I bidded is closes?</strong></label>
                   </div>
                   <div class="col-md-6">
                     <input name="project-closing" value="1" type="radio" <?php if($userAlerts['alert3']){?>checked<?php }?>/> Yes <input name="project-closing" value="0" type="radio" <?php if(!$userAlerts['alert3']){?>checked<?php }?> /> No

@@ -91,7 +91,7 @@ $style = [
 
                                             <p style="{{ $style['paragraph'] }}">
                                                 Thank you very much for your interest in our service.
-                                                Please click on the below button to verify your email address before continuing with the registration process
+                                                Please click on the  button below to verify your email address in order to access your account.
                                             </p>
 
 

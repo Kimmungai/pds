@@ -90,8 +90,8 @@ $style = [
                                         <!-- Intro -->
 
                                             <p style="{{ $style['paragraph'] }}">
-                                                Congratulations! You successfully closed bidding on the {{$project->project_title}} project.
-                                                You can contact  {{$user->first_name}} {{$user->last_name}} (the contact person of the service provider company) through {{$user->email}}, {{$user->phone}}
+                                                Congratulations! You successfully closed bidding of the <strong>{{$project->title}}</strong> project.
+                                                You can contact  {{$user->first_name}} {{$user->last_name}} (contact person) through {{$user->email}}, {{$user->phone}}
                                                 . Click the button below to view the project.
                                             </p>
 

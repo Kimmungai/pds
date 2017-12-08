@@ -134,7 +134,17 @@
           </div>
           <div class="col-md-6">
             @if($project['caption']=='')
-            <div class="project-pic" style="background:url('{{asset('/avatar/avatar.jpg')}}') no-repeat center;"></div>
+              @if(!$project['projectType']['category'])
+                <div class="project-pic" style="background:url('{{asset('/avatar/avatar.jpg')}}') no-repeat center;"></div>
+              @elseif($project['projectType']['category']==1)
+                <div class="project-pic" style="background:url('{{asset('/avatar/mobile.jpg')}}') no-repeat center;"></div>
+              @elseif($project['projectType']['category']==2)
+                <div class="project-pic" style="background:url('{{asset('/avatar/e-commerce.jpg')}}') no-repeat center;"></div>
+              @elseif($project['projectType']['category']==3)
+                <div class="project-pic" style="background:url('{{asset('/avatar/blog.jpg')}}') no-repeat center;"></div>
+              @elseif($project['projectType']['category']==4)
+                <div class="project-pic" style="background:url('{{asset('/avatar/website.jpg')}}') no-repeat center;"></div>
+              @endif
             @else
             <div class="project-pic" style="background:url('{{ url($project['caption']) }}') no-repeat center;"></div>
             @endif
@@ -150,7 +160,9 @@
                <li class="list-group-item">Status: <span class="red">CLOSED</span></li>
                @endif
                <li class="list-group-item">No. of placed bids: <span class="bold">{{count($project['bid'])}}</span></li>
-               @if($project['avg_price']=='')
+               @if($project['final_price']!='')
+               <li class="list-group-item">Final price: <span class="bold red">Ksh. {{round($project['final_price'],2)}}</span></li>
+               @elseif($project['avg_price']=='')
                <li class="list-group-item">Average price: <span class="bold red">-</span></li>
                @else
                <li class="list-group-item">Average price: <span class="bold red">Ksh. {{round($project['avg_price'],2)}}</span></li>

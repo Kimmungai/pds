@@ -18,7 +18,7 @@ class site extends Controller
       if(session('bid_types') && session('bid_types')==1){
         $filter='final_price';$criteria='';$sign='<>';
       }else if(session('bid_types') && session('bid_types')==2){
-        $filter='final_price';$criteria='';$sign='=';
+        $filter='final_price';$criteria=null;$sign='=';
       }
         else{$filter='id';$criteria='';$sign='<>';
       }
@@ -99,7 +99,7 @@ class site extends Controller
       if(session('bid_types') && session('bid_types')==1){
         $filter='final_price';$criteria='';$sign='<>';
       }else if(session('bid_types') && session('bid_types')==2){
-        $filter='final_price';$criteria='';$sign='=';
+        $filter='final_price';$criteria=null;$sign='=';
       }
         else{$filter='id';$criteria='';$sign='<>';
       }

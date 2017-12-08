@@ -1,6 +1,65 @@
-@extends('layouts.main')
+<!doctype html>
+<html class="no-js" lang="{{ app()->getLocale() }}">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Welocome to WebDesignersCenter.com</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta property="og:url"           content="{{url()->current()}}" />
+        <meta property="og:type"          content="website" />
+        <meta property="og:title"         content="{{$project['title']}} | {{ config('app.name') }}" />
+        <meta property="og:description"   content="{{$project['description']}}" />
+        @if($project['caption']=='')
+        <meta property="og:image"         content="{{url('/avatar/avatar.jpg')}}" />
+        @else
+        <meta property="og:image"         content="{{ url($project['caption']) }}" />
+        @endif
 
-@section('content')
+        <link rel="manifest" href="{{ asset('/site.webmanifest') }}">
+        <link rel="apple-touch-icon" href="{{ asset('/icon.png') }}">
+        <!-- Place favicon.ico in the root directory -->
+        <link rel="stylesheet" href="{{ asset('/css/font-awesome.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('/css/bootstrap-theme.css') }}">
+        <link rel="stylesheet" href="{{ asset('/css/normalize.css') }}">
+        <link rel="stylesheet" href="{{ asset('/css/main.css') }}">
+        <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
+        <link rel="stylesheet" href="{{ asset('/css/persistant_chat.css') }}">
+        <!-- Admin Custom styles for calender-->
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+    </head>
+    <body>
+        <!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+        <!--page content starts here-->
+        <div class="container">
+          <div class="row">
+          <div class="strip"></div>
+        <header>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-1 hidden-xs">
+                <a href="/"><div class="pds-logo">
+                  <!--<img class="img-responsive" src="{{ asset('/img/logo.png') }}" alt="WebDesignersCenter.com">-->
+                </div></a>
+              </div>
+              <div class="col-md-7">
+                <h1 class="site-title"><a  href="/">Web Designers Center</a></h1>
+              </div>
+              <div class="col-md-3 provider-btn hidden-xs">
+                @if(!Auth::id())
+                <a class="btn btn-primary" href="/service-provider-sign-up">Become a service provider</a>
+                @endif
+              </div>            <!--<div class="col-md-4 pds-email">
+                <p>info@webdesignercenter.com</p>
+              </div>-->
+            </div>
+          </div>
+        </header>
+      </div>
+    </div>
 <div class="container">
 <div class="row">
 <nav class="navbar-inverse pds-menu-bar">
@@ -98,10 +157,33 @@
         </div>
         <div class="row project-details-panel">
           <div class="col-md-4">
-            <h4>project type</h4>
-            @if($project['caption']=='')
-            <div class="project-pic" style="background:url('{{asset('/avatar/avatar.jpg')}}') no-repeat center;"></div>
-            @else
+            @if(!$project['projectType']['category'])
+              <h4>Unspecified project type</h4>
+              @if($project['caption']=='')
+              <div class="project-pic" style="background:url('{{asset('/avatar/avatar.jpg')}}') no-repeat center;"></div>
+              @endif
+            @elseif($project['projectType']['category']==1)
+              <h4>A Mobile App Project</h4>
+              @if($project['caption']=='')
+              <div class="project-pic" style="background:url('{{asset('/avatar/mobile.jpg')}}') no-repeat center;"></div>
+              @endif
+            @elseif($project['projectType']['category']==2)
+              <h4>An E-commerce Project</h4>
+              @if($project['caption']=='')
+              <div class="project-pic" style="background:url('{{asset('/avatar/e-commerce.jpg')}}') no-repeat center;"></div>
+              @endif
+            @elseif($project['projectType']['category']==3)
+              <h4>A Blog Project</h4>
+              @if($project['caption']=='')
+              <div class="project-pic" style="background:url('{{asset('/avatar/blog.jpg')}}') no-repeat center;"></div>
+              @endif
+            @elseif($project['projectType']['category']==4)
+            <h4>A website Project</h4>
+              @if($project['caption']=='')
+              <div class="project-pic" style="background:url('{{asset('/avatar/website.jpg')}}') no-repeat center;"></div>
+              @endif
+            @endif
+            @if($project['caption']!='')
             <div class="project-pic" style="background:url('{{ url($project['caption']) }}') no-repeat center;"></div>
             @endif
           </div>
@@ -148,10 +230,12 @@
                @if($project['final_price']=='')
                <li class="list-group-item">Status: <span class="green">OPEN</span></li>
                @else
-               <li class="list-group-item">Status: <span class="RED">CLOSED</span></li>
+               <li class="list-group-item">Status: <span class="red">CLOSED</span></li>
                @endif
                 <li class="list-group-item">No. of placed bids: <span class="bold">{{count($project['bid'])}}</span></li>
-                @if($project['avg_price']=='')
+                @if($project['final_price']!='')
+                <li class="list-group-item">Final price: <span class="bold red">Ksh. {{round($project['final_price'],2)}}</span></li>
+                @elseif($project['avg_price']=='')
                 <li class="list-group-item">Average price: <span class="bold red">-</span></li>
                 @else
                 <li class="list-group-item">Average price: <span class="bold red">Ksh. {{round($project['avg_price'],2)}}</span></li>
@@ -289,27 +373,29 @@
                 <th scope="col">Company</th>
                 <th scope="col">Message</th>
                 <th scope="col">Offer</th>
-                <th scope="col">Contact</th>
+                <th scope="col">Bidder website</th>
                 <th scope="col">Chat</th>
                 <th scope="col">Action</th>
               </tr>
             </thead>
             <tbody>
+              <?php $count=0;?>
               @foreach($bids as $bid)
               <tr>
                 <th scope="row">{{$bid['id']}}</th>
                 <td>{{\Carbon\Carbon::createFromTimeStamp(strtotime($project['created_at']))->diffForHumans()}}</td>
-                <td>wajui enterprises</td>
+                <td><a href="https://unsplash.com">{{$companies[$count]['company']['company_name']}}</a></td>
                 <td>{{$bid['message']}}</td>
                 <td class="red">Ksh. {{round($bid['bid_price'],2)}}</td>
-                <td>@mdo</td>
-                <td><span class="fa fa-comment"></span></td>
+                <td><a href="{{$companies[$count]['company']['company_website']}}">visit</a></td>
+                <td><a href="{{url('/client-chats')}}"><span class="fa fa-comment"></span></a></td>
                 @if($project['final_price']!='')
                 <td><a class="btn btn-success disabled" href="#">Choose</a></td>
                 @else
                 <td><a class="btn btn-success" href="/bidder-select/{{$bid['id']}}">Choose</a></td>
                 @endif
               </tr>
+              <?php $count++;?>
               @endforeach
             </tbody>
           </table>
@@ -348,4 +434,62 @@
   </div>
 </div>
 <!--footer nav ends here-->
-@endsection
+<div class="container">
+  <div class="row">
+<footer>
+  <div class="triangle"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <p><i class="fa fa-copyright"></i> Copyright © webdesignerscenter.com 2017</p>
+      </div>
+      <div class="col-md-6">
+        <ul class="list-inline pull-right">
+          <li><a href="#">About</a></li>
+          <li><a href="#">Terms & privacy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 pull-right col-md-offset-2 social">
+        <ul class="list-inline pull-right">
+          <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
+          <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+</div>
+</div>
+<script src="{{ asset('/js/vendor/modernizr-3.5.0.min.js') }}"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="<?php echo asset('js/vendor/jquery-3.2.1.min.js'); ?>"><\/script>')</script>
+<script src="{{ asset('js/plugins.js') }}"></script>
+<script src="{{ asset('js/main.js') }}"></script>
+<script src="{{ asset('js/bootstrap.min.js') }}"></script>
+<!-- Custom scripts for calender-->
+<script src="{{asset('/js/jquery-ui.min.js')}}"></script>
+
+<!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+<script>
+    window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
+    ga('create','UA-109033027-1','auto');ga('send','pageview')
+</script>
+<script src="https://www.google-analytics.com/analytics.js" async defer></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109033027-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-109033027-1');
+</script>
+<script>
+function submit_form(id)
+{
+  $("#"+id).submit();
+}
+</script>
+</body>
+</html>

@@ -7,8 +7,13 @@ use Auth;
 use Session;
 use Carbon\Carbon;
 use App\Project;
+use App\User;
+use App\UserAlerts;
+use App\UserMembership;
 use App\ProjectType;
 use App\Bid;
+use Mail;
+use App\Mail\NewProjectNotification;
 
 
 class projects extends Controller
@@ -183,6 +188,9 @@ class projects extends Controller
         'desired_price' => $request->input('desired_price'),
         'message_to_bidders' => $request->input('message_to_bidders')
       ]);
+      #Notify bidders of the new project
+      $this->notify_bidders(session('new_project_id'));
+
       session::flash('update_success', 'Project saved successfully!');
       session()->forget('new_project_id');
       return redirect('profile');
@@ -223,7 +231,10 @@ class projects extends Controller
         'end_date' => 'required|max:255|date_format:m/d/Y',
         'desired_price' => 'nullable|numeric',
         'message_to_bidders' => 'nullable',
-        'caption' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'caption' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:1000',
+        "feature9" => "nullable|mimes:pdf|max:2000",
+        "feature10" => "nullable|mimes:pdf|max:2000",
+        "feature11" => "nullable|mimes:pdf|max:2000"
       ]);
       if($request->input('feature1')){$feature1=$request->input('feature1');}else{$feature1=0;}
       if($request->input('feature2')){$feature2=$request->input('feature2');}else{$feature2=0;}
@@ -297,6 +308,8 @@ class projects extends Controller
             ProjectType::where('project_id','=',$new_project->id)->update(['feature11'=>$path]);
           }
           session::flash('update_success', 'Project saved successfully!');
+          #Notify bidders of the new project
+          $this->notify_bidders($new_project->id);
           return redirect('profile');
         }
         else
@@ -314,8 +327,15 @@ class projects extends Controller
     {
       $project=Project::with('User','Bid')->where('id','=',$project_id)->first();
       $project_type=$project->projectType()->first();
-      $bids=Bid::where('project_id','=',$project_id)->paginate(4);
-      return view('project-details',compact('project','project_type','bids'));
+      $bids=Bid::where('project_id','=',$project_id)->orderBy('created_at','desc')->paginate(4);
+      $count=0;
+      $companies=array();
+      foreach($bids as $bid)
+      {
+        $companies[$count]=User::with('company')->where('id','=',$bid['bidder_id'])->first();
+        $count++;
+      }
+      return view('project-details',compact('project','project_type','bids','companies'));
     }
     public function project_title_schedule_update(Request $request)
     {
@@ -446,5 +466,24 @@ class projects extends Controller
       $project->projectLike()->delete();
       $project->delete();
       return back();
+    }
+    private function notify_bidders($project_id)
+    {
+      $new_project=Project::with(['projectType','bid'])->where('id','=',$project_id)->first();
+      $client=User::where('id','=',Auth::id())->first();
+      $bidders=UserMembership::where('type','<>',0)->get();
+      foreach($bidders as $bidder)
+      {
+        if(UserAlerts::where('user_id','=',$bidder['user_id'])->value('alert1'))
+        {
+          $alert=UserAlerts::where('user_id','=',$bidder['user_id'])->value('alert2');
+          if($alert==$new_project['projectType']['category'] || !$alert)
+          {
+            $bidder_details=User::where('id','=',$bidder['user_id'])->first();
+            $notify_bidders=new NewProjectNotification($client,$new_project,$bidder_details);
+            Mail::to($bidder_details['email'])->send($notify_bidders);
+          }
+        }
+      }
     }
 }

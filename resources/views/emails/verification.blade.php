@@ -90,7 +90,7 @@ $style = [
                                         <!-- Intro -->
 
                                             <p style="{{ $style['paragraph'] }}">
-                                                Click on the below button to verify your email address
+                                                Please click on the button below to verify your email address in order to access your account.
                                             </p>
 
 

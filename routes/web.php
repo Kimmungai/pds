@@ -49,7 +49,7 @@ Route::get('/about-us', function () {
 });
 Route::get('/new-project', function () {
     return view('new-project.new-project');
-});
+})->middleware('auth');
 
 Route::get('/sign-up', function () {
     return view('client-register');

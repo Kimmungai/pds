@@ -85,13 +85,16 @@ $style = [
                                     <td style="{{ $fontFamily }} {{ $style['email-body_cell'] }}">
                                         <!-- Greeting -->
                                         <h1 style="{{ $style['header-1'] }}">
-                                            Hello {{ $client->first_name }} {{ $client->last_name }},
+                                            Hello {{ $bidder->first_name }} {{ $bidder->last_name }},
                                         </h1>
 
                                         <!-- Intro -->
 
                                             <p style="{{ $style['paragraph'] }}">
-                                                Your project <strong>{{$project->title}}</strong> has been bidded! The details of the bidder are as shown below.
+                                                A new project titled <strong>{{$project->title}}</strong> has been posted! The details of the project are as shown below.
+                                                @if($project['projectType']->feature9 || $project['projectType']->feature10 || $project['projectType']->feature11)
+                                                Please find the attached technical specifications document(s).
+                                                @endif
                                             </p>
 
                                             <table border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="bodyTable">
@@ -99,28 +102,60 @@ $style = [
                                                 <td align="center" valign="top">
                                                   <table border="1" cellpadding="20" cellspacing="0" width="600" id="emailContainer">
                                                     <tr>
-                                                     <td>Bidder Company:</td><td><strong>{{$bidder['company']->company_name}}</strong></td>
+                                                     <td>Project title:</td><td><strong>{{$project->title}}</strong></td>
                                                     </tr>
                                                     <tr>
-                                                     <td>Offer:</td><td><strong style="color:#f00;">Ksh. {{number_format($bid->bid_price)}}</strong></td>
+                                                     <td>Project type:</td><td><strong><?php if($project['projectType']->category==0){?>Unspecified<?php }?><?php if($project['projectType']->category==1){?>Mobile App<?php }?><?php if($project['projectType']->category==2){?>E-commerce<?php }?><?php if($project['projectType']->category==3){?>Blog<?php }?><?php if($project['projectType']->category==4){?>Website<?php }?></strong></td>
                                                     </tr>
                                                     <tr>
-                                                     <td>Date:</td><td><strong>{{\Carbon\Carbon::createFromTimeStamp(strtotime($bid['created_at']))->diffForHumans()}}</strong></td>
+                                                     <td>Project description:</td><td><strong>{{$project->description}}</strong></td>
                                                     </tr>
                                                     <tr>
-                                                     <td>Message:</td><td><strong>{{$bid->message}}</strong></td>
+                                                     <td>Project schedule:</td><td><strong>Start: {{$project->start_date}} - End: {{$project->end_date}}</strong></td>
+                                                    </tr>
+                                                    @if($project->desired_price != '')
+                                                    <tr>
+                                                     <td>Target price:</td><td><strong>Ksh. {{$project->desired_price}}</strong></td>
+                                                    </tr>
+                                                    @endif
+                                                    <tr>
+                                                     <td>Front-end basic requirements:</td><td><?php if($project['projectType']->feature1){?>Shopping cart <br><?php }?> <?php if($project['projectType']->feature2){?>Responsive design <br><?php }?><?php if($project['projectType']->feature3){?>Membership <br><?php }?> <?php if($project['projectType']->feature4){?>User Notifications <?php }?></td>
                                                     </tr>
                                                     <tr>
-                                                     <td>Bidder rating:</td><td><strong>{{$bidder->rating}}</strong></td>
+                                                     <td>Back-end basic requirements:</td><td><?php if($project['projectType']->feature5){?>Cloud hosting <br><?php }?> <?php if($project['projectType']->feature6){?>Admin panel <br><?php }?><?php if($project['projectType']->feature7){?>Back up <br><?php }?> <?php if($project['projectType']->feature8){?>Bulk sms <?php }?></td>
                                                     </tr>
                                                     <tr>
-                                                     <td>Contact Person:</td><td><strong>{{$bidder->first_name}} {{$bidder->last_name}}</strong></td>
+                                                     <td>Other features:</td><td><strong>{{$project['projectType']->other_features}}</strong></td>
                                                     </tr>
                                                     <tr>
-                                                     <td>Bidder tel: </td><td><strong>{{$bidder['company']->company_tel}}</strong></td>
+                                                     <td>Posting date:</td><td><strong>{{\Carbon\Carbon::createFromTimeStamp(strtotime($project['created_at']))->diffForHumans()}}</strong></td>
                                                     </tr>
                                                     <tr>
-                                                     <td>Bidder website:</td><td><strong><a href="{{$bidder['company']->company_website}}">Visit</a></strong></td>
+                                                     <td>No of bids now:</td><td><strong>{{count($project['bid'])}}</strong></td>
+                                                    </tr>
+                                                    @if($project->avg_price!='')
+                                                    <tr>
+                                                     <td>Average price:</td><td><strong style="color:red;">Ksh. {{$project->avg_price}}</strong></td>
+                                                    </tr>
+                                                    @else
+                                                    <tr>
+                                                     <td>Average price:</td><td><strong style="color:red;">Ksh. 0</strong></td>
+                                                    </tr>
+                                                    @endif
+                                                    <tr>
+                                                     <td>Client:</td><td><strong>{{$client->first_name}} {{$client->last_name}}</strong></td>
+                                                    </tr>
+                                                    <tr>
+                                                     <td>Client rating:</td><td><strong>{{$client->rating}}</strong></td>
+                                                    </tr>
+                                                    <tr>
+                                                     <td>Client profile:</td><td><strong><a href="#">view</a></strong></td>
+                                                    </tr>
+                                                    <tr>
+                                                     <td>Message to bidders:</td><td><strong>{{$project->message_to_bidders}}</strong></td>
+                                                    </tr>
+                                                    <tr>
+                                                     <td>Place Bid: </td><td><strong><a href="{{ url('project-details/'.$project->id) }}">Bid</bid></strong></td>
                                                     </tr>
                                                   </table>
                                                 </td>

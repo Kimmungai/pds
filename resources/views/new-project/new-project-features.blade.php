@@ -99,11 +99,11 @@
                     <label for="name">Userbility<span class="red">*</span>(click to select)</label>
                   </div>
                   <div class="col-md-10">
-                    <div class="col-md-3"><div id="feature-div-1" class="new-project-desire-feature <?php if($category['feature1']){ ?>green-bg<?php } ?>" onclick="select_feature('feature1',this.id)"><i class="fa fa-desktop"></i> <i class="fa fa-tablet"></i> <i class="fa  fa-mobile"></i><p>Responsive</p> </div></div>
+                    <div class="col-md-3"><div id="feature-div-1" class="new-project-desire-feature <?php if($category['feature2']) { ?>green-bg<?php } ?>" onclick="select_feature('feature2',this.id)"><i class="fa fa-desktop"></i> <i class="fa fa-tablet"></i> <i class="fa  fa-mobile"></i><p>Responsive</p> </div></div>
                     <input type="hidden"  id="feature1" <?php if($category['feature1']){ ?>name="feature1" value="1"<?php } ?> />
-                    <div class="col-md-3"><div id="feature-div-2" class="new-project-desire-feature <?php if($category['feature2']){ ?>green-bg<?php } ?>" onclick="select_feature('feature2',this.id)"><i class="fa fa-users"></i><p>Membership</p> </div></div>
+                    <div class="col-md-3"><div id="feature-div-2" class="new-project-desire-feature <?php if($category['feature3']){ ?>green-bg<?php } ?>" onclick="select_feature('feature3',this.id)"><i class="fa fa-users"></i><p>Membership</p> </div></div>
                     <input type="hidden"  id="feature2" <?php if($category['feature2']){ ?>name="feature2" value="1"<?php } ?>/>
-                    <div class="col-md-3"><div id="feature-div-3" class="new-project-desire-feature <?php if($category['feature3']){ ?>green-bg<?php } ?>" onclick="select_feature('feature3',this.id)"><i class="fa fa-cart-plus"></i><p>Shopping cart</p> </div></div>
+                    <div class="col-md-3"><div id="feature-div-3" class="new-project-desire-feature <?php if($category['feature1']){ ?>green-bg<?php } ?>" onclick="select_feature('feature1',this.id)"><i class="fa fa-cart-plus"></i><p>Shopping cart</p> </div></div>
                     <input type="hidden"  id="feature3" <?php if($category['feature3']){ ?>name="feature3" value="1"<?php } ?>/>
                     <div class="col-md-3"><div id="feature-div-4" class="new-project-desire-feature <?php if($category['feature4']){ ?>green-bg<?php } ?>" onclick="select_feature('feature4',this.id)"><i class="fa   fa-envelope-open"></i><p>Notifications</p> </div></div>
                     <input type="hidden"  id="feature4" <?php if($category['feature4']){ ?>name="feature4" value="1"<?php } ?>/>
@@ -191,12 +191,12 @@
                   <label for="name">Userbility<span class="red">*</span>(click to select)</label>
                 </div>
                 <div class="col-md-10">
-                  <div class="col-md-3"><div id="feature-div-1" class="new-project-desire-feature " onclick="select_feature('feature1',this.id)"><i class="fa fa-desktop"></i> <i class="fa fa-tablet"></i> <i class="fa  fa-mobile"></i><p>Responsive</p> </div></div>
-                  <input type="hidden"  id="feature1" value="" />
-                  <div class="col-md-3"><div id="feature-div-2" class="new-project-desire-feature " onclick="select_feature('feature2',this.id)"><i class="fa fa-users"></i><p>Membership</p> </div></div>
-                  <input type="hidden"  id="feature2" />
-                  <div class="col-md-3"><div id="feature-div-3" class="new-project-desire-feature " onclick="select_feature('feature3',this.id)"><i class="fa fa-cart-plus"></i><p>Shopping cart</p> </div></div>
+                  <div class="col-md-3"><div id="feature-div-1" class="new-project-desire-feature " onclick="select_feature('feature2',this.id)"><i class="fa fa-desktop"></i> <i class="fa fa-tablet"></i> <i class="fa  fa-mobile"></i><p>Responsive</p> </div></div>
+                  <input type="hidden"  id="feature2" value="" />
+                  <div class="col-md-3"><div id="feature-div-2" class="new-project-desire-feature " onclick="select_feature('feature3',this.id)"><i class="fa fa-users"></i><p>Membership</p> </div></div>
                   <input type="hidden"  id="feature3" />
+                  <div class="col-md-3"><div id="feature-div-3" class="new-project-desire-feature " onclick="select_feature('feature1',this.id)"><i class="fa fa-cart-plus"></i><p>Shopping cart</p> </div></div>
+                  <input type="hidden"  id="feature1" />
                   <div class="col-md-3"><div id="feature-div-4" class="new-project-desire-feature " onclick="select_feature('feature4',this.id)"><i class="fa   fa-envelope-open"></i><p>Notifications</p> </div></div>
                   <input type="hidden"  id="feature4" />
                 </div>

@@ -690,22 +690,25 @@
                  $('#project-category').val('1');
                  $("#"+project_id+" i").removeClass('fa-globe');
                  $("#"+project_id+" i").addClass('fa-mobile');
+                 if(project_obj.caption===null){$('#project-avatar').css({"background-image": "url('{{asset('/avatar/mobile.jpg')}}')"});}else{$('#project-avatar').css({"background-image": "url('"+project_obj.caption+"')"});}
                }else if (project_obj.project_type.category==2) {
                  $('#project-category').val('2');
                  $("#"+project_id+" i").removeClass('fa-globe');
                  $("#"+project_id+" i").addClass('fa-shopping-cart');
+                 if(project_obj.caption===null){$('#project-avatar').css({"background-image": "url('{{asset('/avatar/e-commerce.jpg')}}')"});}else{$('#project-avatar').css({"background-image": "url('"+project_obj.caption+"')"});}
                }else if (project_obj.project_type.category==3) {
                  $('#project-category').val('3');
                  $("#"+project_id+" i").removeClass('fa-globe');
                  $("#"+project_id+" i").addClass('fa-commenting');
+                 if(project_obj.caption===null){$('#project-avatar').css({"background-image": "url('{{asset('/avatar/blog.jpg')}}')"});}else{$('#project-avatar').css({"background-image": "url('"+project_obj.caption+"')"});}
                }else if (project_obj.project_type.category==4) {
                  $('#project-category').val('4');
+                 if(project_obj.caption===null){$('#project-avatar').css({"background-image": "url('{{asset('/avatar/website.jpg')}}')"});}else{$('#project-avatar').css({"background-image": "url('"+project_obj.caption+"')"});}
                }
                if(project_obj.project_type.feature9!=''){$('#feature9').html('Choose a new doc 1');}
                if(project_obj.project_type.feature10!=''){$('#feature10').html('Choose a new doc 2');}
                if(project_obj.project_type.feature11!=''){$('#feature11').html('Choose a new doc 3');}
                if(project_obj.avg_price!=''){$('#average-offer').html('Ksh. '+project_obj.avg_price);}else{$('#average-offer').html('No offers yet');}
-               if(project_obj.caption===null){$('#project-avatar').css({"background-image": "url('{{asset('/avatar/avatar.jpg')}}')"});}else{$('#project-avatar').css({"background-image": "url('"+project_obj.caption+"')"});}
                load_charts(project_obj.bid,bidders_profiles,{{session('all_companies')}},project_obj);
                $('#all-bids-table').DataTable();
            });
