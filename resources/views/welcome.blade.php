@@ -20,7 +20,12 @@
       <li><a href="/about-us">About us</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="/new-project">New Project</a></li>
+      @if(Auth::user() && Auth::user()->userMembership->type)
+
+      @else
+        <li><a href="/new-project">New Project</a></li>
+      @endif
+
       @if(Auth::id())
         <li><a href="/profile"><span class="glyphicon glyphicon-user"></span> {{Auth::user()->first_name}}</a></li>
         <li>
@@ -60,7 +65,11 @@
     </div>
     <div class="row">
       <div class="col-md-5 project-btn pull-right">
-        <a class="btn btn-primary" href="/new-project">Post a new project</a>
+        @if(Auth::user() && Auth::user()->userMembership->type)
+          <a class="btn btn-primary" href="/profile">My profile</a>
+        @else
+          <a class="btn btn-primary" href="/new-project">Post a new project</a>
+        @endif
       </div>
     </div>
  </div>
@@ -199,10 +208,16 @@
                       <li class="list-group-item">view profile: <span class="bold"><a href="#">profile</a></span></li>
                   </ul>
                 </div>
-                <div class="project-actions">
-                  <a href="/project-details/{{$project['id']}}" class="btn btn-primary details-btn"><i class="fa  fa-list"></i> Details</a>
-                  <a href="/project-details/1" class="btn btn-primary bid-btn pull-right"><i class="fa  fa-bell-o"></i> Place bid</a>
-               </div>
+              @if(Auth::user() && !Auth::user()->userMembership->type)
+               <div class="project-actions">
+                 <a href="/project-details/{{$project['id']}}" class="btn btn-primary details-btn"><i class="fa  fa-list"></i> Details</a>
+              </div>
+              @else
+              <div class="project-actions">
+                <a href="/project-details/{{$project['id']}}" class="btn btn-primary details-btn"><i class="fa  fa-list"></i> Details</a>
+                <a href="/project-details/1" class="btn btn-primary bid-btn pull-right"><i class="fa  fa-bell-o"></i> Place a bid</a>
+             </div>
+             @endif
        </article>
    </div>
    @endforeach
@@ -283,13 +298,13 @@
        </div>
        @endforeach
      </div>
-   </div>
      <nav aria-label="...">
        <ul class="pagination pull-right">
          {{$provider_companies->links()}}
        </ul>
      </nav>
     <!---***********************-->
+   </div>
 </section>
 @endif
 <section class="how-it-works" id="how-it-works">
@@ -310,7 +325,11 @@
       </div>
     </div>
     <div class="row project-btn pull-right">
-      <div class="col-md-3"><a class="btn btn-primary" href="/new-project">Post a new project</a></div>
+      @if(Auth::user() && Auth::user()->userMembership->type)
+        <div class="col-md-3"><a class="btn btn-primary" href="/profile">My profile</a></div>
+      @else
+        <div class="col-md-3"><a class="btn btn-primary" href="/new-project">Post a new project</a></div>
+      @endif
     </div>
   </div>
 </section>
@@ -320,7 +339,7 @@
     <div class="row">
       <div class="strip"></div>
       <div class="col-md-6">
-        <div class="map">
+        <div class="map" style="background:url('/img/map.jpg') no-repeat center;">
 
         </div>
       </div>

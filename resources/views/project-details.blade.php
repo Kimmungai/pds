@@ -89,7 +89,11 @@
       <li><a href="/about-us">About us</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="/new-project">New Project</a></li>
+      @if(Auth::user() && Auth::user()->userMembership->type)
+
+      @else
+        <li><a href="/new-project">New Project</a></li>
+      @endif
       @if(Auth::id())
         <li><a href="/profile"><span class="glyphicon glyphicon-user"></span> {{Auth::user()->first_name}}</a></li>
         <li>
@@ -275,13 +279,13 @@
             <h4>Technical specifications</h4>
             <div class="row">
               @if($project['projectType']['feature9']!='')
-              <div class="col-xs-4"><div class="tech-specification-holder"><i class="fa fa-exclamation-triangle"></i><p class="text-muted">Requirements doc 1 unspecified</p></div></div>
+              <div class="col-xs-4"><div class="tech-specification-holder"><i class="fa fa-file-pdf-o"></i><p class="text-muted">Requirements doc 1</p></div></div>
               @endif
               @if($project['projectType']['feature10']!='')
-              <div class="col-xs-4"><div class="tech-specification-holder"><i class="fa fa-exclamation-triangle"></i><p class="text-muted">Requirements doc 2 unspecified</p></div></div>
+              <div class="col-xs-4"><div class="tech-specification-holder"><i class="fa fa-file-pdf-o"></i><p class="text-muted">Requirements doc 2</p></div></div>
               @endif
               @if($project['projectType']['feature11']!='')
-              <div class="col-xs-4"><div class="tech-specification-holder"><i class="fa fa-exclamation-triangle"></i><p class="text-muted">Requirements doc 3 unspecified</p></div></div>
+              <div class="col-xs-4"><div class="tech-specification-holder"><i class="fa fa-file-pdf-o"></i><p class="text-muted">Requirements doc 3</p></div></div>
               @endif
             </div>
             <div class="row">

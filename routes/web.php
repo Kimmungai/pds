@@ -49,7 +49,7 @@ Route::get('/about-us', function () {
 });
 Route::get('/new-project', function () {
     return view('new-project.new-project');
-})->middleware('auth');
+})->middleware('client');
 
 Route::get('/sign-up', function () {
     return view('client-register');
@@ -103,15 +103,15 @@ Route::get('/provider-membership','providers@membership')->name('Provider Member
 Route::get('/provider-chats','providers@chats')->name('Provider Chats')->middleware('auth');
 Route::get('/provider-alerts','providers@alerts')->name('Provider Alerts')->middleware('auth');
 //Projects
-Route::post('/new-project', 'projects@create')->name('Create Project')->middleware('auth');
+Route::post('/new-project', 'projects@create')->name('Create Project')->middleware('client');
 Route::get('/project-basic-back/{id}','projects@basic_back')->name('Back to basic')->middleware('auth');
-Route::put('/new-project-basic-update', 'projects@project_basic_update')->name('project basic update')->middleware('auth');
-Route::post('/new-project-features', 'projects@project_features_create')->name('Project Features')->middleware('auth');
-Route::get('/new-project-features-back','projects@new_project_features_back')->name('Back to features')->middleware('auth');
-Route::post('/new-project-schedule', 'projects@project_schedule_create')->name('Project Schedule')->middleware('auth');
-Route::get('/new-project-schedule','projects@new_project_schedule_form')->name('Project schedule form');
-Route::get('/new-project-features','projects@new_project_features_form')->name('Project schedule form');
-Route::put('/quick-new-project', 'projects@quick_new_project')->name('New Project')->middleware('auth');
+Route::put('/new-project-basic-update', 'projects@project_basic_update')->name('project basic update')->middleware('client');
+Route::post('/new-project-features', 'projects@project_features_create')->name('Project Features')->middleware('client');
+Route::get('/new-project-features-back','projects@new_project_features_back')->name('Back to features')->middleware('client');
+Route::post('/new-project-schedule', 'projects@project_schedule_create')->name('Project Schedule')->middleware('client');
+Route::get('/new-project-schedule','projects@new_project_schedule_form')->name('Project schedule form')->middleware('client');
+Route::get('/new-project-features','projects@new_project_features_form')->name('Project schedule form')->middleware('client');
+Route::put('/quick-new-project', 'projects@quick_new_project')->name('New Project')->middleware('client');
 Route::get('/load-project-details','dynamic@project_details')->name('Dynamic project loading');
 Route::get('/project-details/{project_id}','projects@single_project_details')->name('single project details');
 Route::put('/project-title-schedule-update', 'projects@project_title_schedule_update')->name('Schedule title update')->middleware('auth');
@@ -121,7 +121,7 @@ Route::put('/project-caption-update', 'projects@project_caption_update')->name('
 Route::post('/project-delete', 'projects@project_delete')->name('project_delete')->middleware('auth');
 Route::get('/provider-controls', 'admin@provider_controls')->name('Provider view controls')->middleware('auth');
 //bids
-Route::post('/place-bid', 'bids@create')->name('Create Bid')->middleware('auth');
+Route::post('/place-bid', 'bids@create')->name('Create Bid')->middleware('provider');
 Route::get('/bidder-select/{bid_id}', 'bids@close')->name('Close bid');
 //enquiries
 Route::post('/make-enquiry', 'site@enquiry')->name('Enquiry');

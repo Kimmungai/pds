@@ -43,7 +43,7 @@ class site extends Controller
       {
         $orderFilter='created_at';$orderCriteria='desc';
       }
-      $provider_companies=Company::with('user')->paginate(3);
+      $provider_companies=Company::with('user')->orderby('created_at','desc')->paginate(3);
       $projects=Project::with('user','projectType','bid')->where($filter,$sign,$criteria)->orderBy($orderFilter,$orderCriteria)->paginate(2);
       return view('welcome',compact('provider_companies','projects'));
     }

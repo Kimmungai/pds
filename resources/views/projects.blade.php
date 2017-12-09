@@ -20,7 +20,11 @@
       <li><a href="/about-us">About us</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="/new-project">New Project</a></li>
+      @if(Auth::user() && Auth::user()->userMembership->type)
+
+      @else
+        <li><a href="/new-project">New Project</a></li>
+      @endif
       @if(Auth::id())
         <li><a href="/profile"><span class="glyphicon glyphicon-user"></span> {{Auth::user()->first_name}}</a></li>
         <li>
@@ -60,7 +64,11 @@
     </div>
     <div class="row">
       <div class="col-md-5 project-btn pull-right">
-        <a class="btn btn-primary" href="/new-project">Post a new project</a>
+        @if(Auth::user() && Auth::user()->userMembership->type)
+          <a class="btn btn-primary" href="/profile">My profile</a>
+        @else
+          <a class="btn btn-primary" href="/new-project">Post a new project</a>
+        @endif
       </div>
     </div>
  </div>
@@ -188,10 +196,16 @@
                      <li class="list-group-item">view profile: <span class="bold"><a href="#">profile</a></span></li>
                  </ul>
                </div>
+               @if(Auth::user() && !Auth::user()->userMembership->type)
+                <div class="project-actions">
+                  <a href="/project-details/{{$project['id']}}" class="btn btn-primary details-btn"><i class="fa  fa-list"></i> Details</a>
+               </div>
+               @else
                <div class="project-actions">
                  <a href="/project-details/{{$project['id']}}" class="btn btn-primary details-btn"><i class="fa  fa-list"></i> Details</a>
-                 <a href="/project-details/1" class="btn btn-primary bid-btn pull-right"><i class="fa  fa-bell-o"></i> Place bid</a>
+                 <a href="/project-details/1" class="btn btn-primary bid-btn pull-right"><i class="fa  fa-bell-o"></i> Place a bid</a>
               </div>
+              @endif
       </article>
    </div>
    @endforeach

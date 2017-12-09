@@ -20,7 +20,12 @@
       <li><a href="/about-us">About us</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li class="active"><a href="/new-project">New Project</a></li>
+      @if(Auth::user() && Auth::user()->userMembership->type)
+
+      @else
+        <li><a href="/new-project">New Project</a></li>
+      @endif
+
       @if(Auth::id())
         <li><a href="/profile"><span class="glyphicon glyphicon-user"></span> {{Auth::user()->first_name}}</a></li>
         <li>
@@ -60,7 +65,11 @@
     </div>
     <div class="row">
       <div class="col-md-5 project-btn pull-right">
-        <a class="btn btn-primary" href="/new-project">Post a new project</a>
+        @if(Auth::user() && Auth::user()->userMembership->type)
+          <a class="btn btn-primary" href="/profile">My profile</a>
+        @else
+          <a class="btn btn-primary" href="/new-project">Post a new project</a>
+        @endif
       </div>
     </div>
  </div>
