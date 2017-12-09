@@ -57,4 +57,9 @@ class clients extends Controller
       $userAlerts=UserAlerts::where('user_id','=',Auth::id())->first();
       return view('admin.client.alerts',compact('userAlerts'));
     }
+    public function client_public_profile($client_id)
+    {
+      $client=User::with('project')->where('id','=',$client_id)->first();
+      return view('client-public-profile',compact('client'));
+    }
 }

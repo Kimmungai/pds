@@ -11,10 +11,6 @@
     src: url('/fonts/Oswald-Bold.ttf');
 }
 @font-face {
-    font-family: OswaldBold;
-    src: url('/fonts/Oswald-Bold.ttf');
-}
-@font-face {
     font-family: OswaldMedium;
     src: url('/fonts/Oswald-Medium.ttf');
 }
@@ -283,6 +279,10 @@ header h1{
   border:1px solid #333333;
   color: #000;
 }
+.buttonAnchor a:visited, a:link, a:active
+{
+  background-color: inherit !important;
+}
 .bid-btn
 {
   background-color: #fff;
@@ -300,10 +300,10 @@ header h1{
 
 .bid-btn:hover
 {
-  background-color: #f00;
+  background-color: inherit;
   color: #fff;
   opacity: 1;
-  border:1px solid #f00;
+  border:1px solid inherit;
 }
 .view-more
 {
@@ -342,23 +342,30 @@ header h1{
   background-color: #adbbbc;
   margin-top: 1em;
   box-shadow: 0.1em 0.1em 0.1em #333333;
-  border-radius: 5px;
+
 }
 .provider article h4
 {
-  margin: 0;
+  margin: 0.1em;
   padding: 0;
   text-align: center;
+  text-transform: uppercase;
+  font-family: OswaldBold;
   /*padding-top: 0.5em;*/
 }
 .provider-logo
 {
   height: 8em;
-  width: 8em;
-  border-radius: 50%;
+  width: 100%;
+  border-radius: 5px;
   background-size: cover;
   box-shadow: 0.25em 0.25em 0.25em #333333;
-  margin: 0 auto;
+  margin: 1em auto;
+  margin-left: 0.3em;
+}
+.gold
+{
+  color: gold;
 }
 .provider-details
 {
@@ -387,18 +394,17 @@ header h1{
   font-weight: bold;
   margin-bottom: 0.2em;
 }
-.provider-details p
+.company-description
 {
   width: 90%;
-  margin: 0 auto;
-  padding:0.1em 0.1em;
-  font-style: italic;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  font-size: 1.3em;
-  text-align: center;
-  max-height: 6em;
+  height: 6em;
+  margin:0 auto;
+  font-family: OswaldMedium;
+  text-transform: capitalize;
   overflow: hidden;
+  display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
 }
 .provider-actions
 {
@@ -465,6 +471,7 @@ header h1{
   margin:0;
   padding-top: 0.3em;
   background-color: #fff;
+  text-transform: capitalize;
 }
 .enquire article, .map
 {
@@ -704,5 +711,32 @@ footer a
      margin: auto;
      background-color: #f3f3f3;
 }
+.text-capitalize
+{
+  text-transform: capitalize !important;
+}
+.public-profile-pic
+{
+    margin: 1em auto;
+    height: 350px;
+    background-size: cover;
+    border-radius: 5px;
+}
+.public-profile p
+{
+  padding: 0.5em 0;
+  font-size: 1.2em;
+  text-transform: capitalize;
+}
+.public-profile h4
+{
+  font-size: 1.6em;
+  text-transform: capitalize;
+}
+.public-profile-details
+{
+  margin: 1em auto;
+}
+
 /*chat starts here*/
 /*chat ends here*/

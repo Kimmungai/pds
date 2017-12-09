@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Mail\ProviderEmailVerification;
 use App\User;
+use App\Project;
 use App\Company;
 use App\UserMembership;
 use App\UserAlerts;
@@ -344,5 +345,11 @@ class providers extends Controller
   {
     $userAlerts=UserAlerts::where('user_id','=',Auth::id())->first();
     return view('admin.provider.alerts',compact('userAlerts'));
+  }
+  public function public_profile($provider_id)
+  {
+    $provider=User::with('company')->where('id','=',$provider_id)->first();
+    $projects_completed=count(Project::where('winner','=',$provider_id)->get());
+    return view('provider-public-profile',compact('provider','projects_completed'));
   }
 }

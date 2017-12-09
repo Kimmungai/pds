@@ -193,7 +193,7 @@
                      <li class="list-group-item">Desired price: <span class="bold">Ksh. {{round($project['desired_price'],2)}}</span></li>
                      @endif
                      <li class="list-group-item">Star rating: <span class="bold"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></span></li>
-                     <li class="list-group-item">view profile: <span class="bold"><a href="#">profile</a></span></li>
+                     <li class="list-group-item">view profile: <span class="bold"><a href="/client-public-profile/{{$project['user']['id']}}">profile</a></span></li>
                  </ul>
                </div>
                @if(Auth::user() && !Auth::user()->userMembership->type)

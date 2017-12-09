@@ -205,7 +205,7 @@
                       <li class="list-group-item">Desired price: <span class="bold">Ksh. {{round($project['desired_price'],2)}}</span></li>
                       @endif
                       <li class="list-group-item">Star rating: <span class="bold"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></span></li>
-                      <li class="list-group-item">view profile: <span class="bold"><a href="#">profile</a></span></li>
+                      <li class="list-group-item">view profile: <span class="bold"><a href="/client-public-profile/{{$project['user']['id']}}">profile</a></span></li>
                   </ul>
                 </div>
               @if(Auth::user() && !Auth::user()->userMembership->type)
@@ -277,19 +277,24 @@
                  <li class="list-group-item">Industry: <span>Marketing</span></li>
                  @endif
                  <li class="list-group-item">Rating: <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></li>
+                 @if($provider_company['user']['admin_approved'])
+                 <li class="list-group-item">Status: <i class="fa fa-certificate red"></i> <span class="green">Cerified</span></li>
+                 @endif
                </ul>
              </div>
            </div>
            <div class="row provider-details">
              <div class="col-xs-12">
                <h5>Description</h5>
-               <p><i class="fa fa-quote-left" aria-hidden="true"></i> {{$provider_company['company_description']}} <i class="fa fa-quote-right" aria-hidden="true"></i></p>
+               <hr>
+               <div class="company-description">{{$provider_company['company_description']}}</div>
+               <hr>
              </div>
            </div>
            <div class="row">
              <div class="col-xs-12">
                <div class="provider-actions">
-                 <a class="btn btn-primary details-btn"><i class="fa  fa-building-o"></i> Profile</a>
+                 <a href="/provider-profile/{{$provider_company['user']['id']}}" class="btn btn-primary details-btn"><i class="fa  fa-building-o"></i> Profile</a>
                  <a href="{{$provider_company['company_website']}}" class="btn btn-primary pull-right details-btn" target="_blank"><i class="fa fa-external-link "></i> Website</a>
               </div>
              </div>

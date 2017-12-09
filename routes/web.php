@@ -73,6 +73,7 @@ Route::post('/sign-up', 'clients@create')->name('create_client');
 Route::get('register/verify/{token}','Auth\RegisterController@verify');//verify email addresses
 Route::get('/profile','admin@profile')->name('profile')->middleware('auth');
 Route::get('/client-user-profile','clients@client_profile')->name('client_profile')->middleware('auth');
+Route::get('/client-public-profile/{client_id}','clients@client_public_profile')->name('client_public_profile');
 Route::get('/client-alerts','clients@alerts')->name('Client Alerts')->middleware('auth');
 Route::put('/update-basic-details','admin@update_basic_details')->name('Basic_details_update')->middleware('auth');
 Route::put('/update-personal-details','admin@update_personal_details')->name('Personal_details_update')->middleware('auth');
@@ -102,6 +103,7 @@ Route::put('/company-promotion-update', 'providers@update_company_promotion')->n
 Route::get('/provider-membership','providers@membership')->name('Provider Membership')->middleware('auth');
 Route::get('/provider-chats','providers@chats')->name('Provider Chats')->middleware('auth');
 Route::get('/provider-alerts','providers@alerts')->name('Provider Alerts')->middleware('auth');
+Route::get('/provider-profile/{provider_id}','providers@public_profile')->name('Provider public profile');
 //Projects
 Route::post('/new-project', 'projects@create')->name('Create Project')->middleware('client');
 Route::get('/project-basic-back/{id}','projects@basic_back')->name('Back to basic')->middleware('auth');
