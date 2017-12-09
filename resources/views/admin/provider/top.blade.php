@@ -314,6 +314,8 @@
                 <div class="col-md-12">
                   @if($project['message_to_bidders']!='')
                   <h6>Client message: <strong class="green">{{$project['message_to_bidders']}}</strong></h6>
+                  @else
+                  <h6>Client message: <strong class="green">-</strong></h6>
                   @endif
                 </div>
               </div>
