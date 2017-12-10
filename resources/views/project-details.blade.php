@@ -361,7 +361,7 @@
           <div class="row">
             <div class="col-md-3 pull-right project-btn">
               @if(!Auth::user())
-              <a class="btn btn-primary bid-btn pull-right" href="/login"><i class="fa fa-bell"></i> Bid</a>
+              <a class="btn btn-primary bid-btn pull-right" href="/service-provider-sign-up"><i class="fa fa-bell"></i> Bid</a>
               @elseif($project['valid_period']==0 || $project['valid_period']=='')
               <button class="btn btn-primary bid-btn pull-right" type="submit"><i class="fa fa-bell"></i> Bid</button>
               @else

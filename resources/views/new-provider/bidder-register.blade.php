@@ -179,6 +179,9 @@
                   @endif
                 </div>
               </div>
+              <div class="row">
+                <p><a href="/login">Already registered? Login here</a></p>
+              </div>
             <div class="row">
               <div class="col-xs-3  project-btn">
                 <a class="btn btn-primary" href="/"><i class="fa  fa-chevron-left "></i> Home</a>
