@@ -320,6 +320,7 @@
     </section>
   </div>
 </div>
+@if(!Auth::user() || $project['user_id'] != Auth::id())
 <section class="enquire">
   <div class="container"><div class="row"><h2></h2></div></div>
   <div class="container section-decoration">
@@ -359,7 +360,9 @@
           </div>
           <div class="row">
             <div class="col-md-3 pull-right project-btn">
-              @if($project['valid_period']==0 || $project['valid_period']=='')
+              @if(!Auth::user())
+              <a class="btn btn-primary bid-btn pull-right" href="/login"><i class="fa fa-bell"></i> Bid</a>
+              @elseif($project['valid_period']==0 || $project['valid_period']=='')
               <button class="btn btn-primary bid-btn pull-right" type="submit"><i class="fa fa-bell"></i> Bid</button>
               @else
               <button class="btn btn-primary bid-btn pull-right" disabled><i class="fa fa-bell-slash"></i> Bid</button>
@@ -372,6 +375,7 @@
     </div>
   </div>
 </section>
+@endif
 <section class="enquire">
   <div class="container"><div class="row"><h2>Bidding companies</h2></div></div>
   <div class="container section-decoration">
@@ -388,8 +392,10 @@
                 <th scope="col">Message</th>
                 <th scope="col">Offer</th>
                 <th scope="col">Bidder website</th>
+                @if(Auth::user() && $project['user_id'] == Auth::id())
                 <th scope="col">Chat</th>
                 <th scope="col">Action</th>
+                @endif
               </tr>
             </thead>
             <tbody>
@@ -402,11 +408,13 @@
                 <td>{{$bid['message']}}</td>
                 <td class="red">Ksh. {{round($bid['bid_price'],2)}}</td>
                 <td><a href="{{$companies[$count]['company']['company_website']}}">visit</a></td>
-                <td><a href="{{url('/client-chats')}}"><span class="fa fa-comment"></span></a></td>
-                @if($project['final_price']!='')
-                <td><a class="btn btn-success disabled" href="#">Choose</a></td>
-                @else
-                <td><a class="btn btn-success" href="/bidder-select/{{$bid['id']}}">Choose</a></td>
+                @if(Auth::user() && $project['user_id'] == Auth::id())
+                  <td><a href="{{url('/client-chats')}}"><span class="fa fa-comment"></span></a></td>
+                  @if($project['final_price']!='')
+                  <td><a class="btn btn-success disabled" href="#">Choose</a></td>
+                  @else
+                  <td><a class="btn btn-success" href="/bidder-select/{{$bid['id']}}">Choose</a></td>
+                  @endif
                 @endif
               </tr>
               <?php $count++;?>

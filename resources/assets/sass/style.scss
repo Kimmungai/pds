@@ -279,7 +279,7 @@ header h1{
   border:1px solid #333333;
   color: #000;
 }
-.buttonAnchor a:visited, a:link, a:active
+.buttonAnchor a:visited a:link a:active
 {
   background-color: inherit !important;
 }
@@ -293,7 +293,7 @@ header h1{
 }
 .details-btn:hover
 {
-  background-color: #333;
+  background-color:inherit;
   color: #fff;
   opacity: 1;
 }

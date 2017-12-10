@@ -85,6 +85,7 @@
         @endif
       </div>
     </div>
+    <hr>
   </div>
 </section>
 @endsection

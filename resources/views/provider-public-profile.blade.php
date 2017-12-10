@@ -101,6 +101,7 @@
         <a href="{{$provider['company']['company_website']}}" class="btn btn-primary pull-right details-btn buttonAnchor" target="_blank"><i class="fa fa-external-link "></i> Website</a>
       </div>
     </div>
+    <hr>
   </div>
 </section>
 @endsection
