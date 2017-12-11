@@ -59,7 +59,7 @@
                 <h1 class="site-title"><a  href="/">Web Designers Center</a></h1>
               </div>
               <div class="col-md-3 provider-btn hidden-xs">
-                @if(!Auth::id())
+                @if(!Auth::user())
                 <a class="btn btn-primary" href="/service-provider-sign-up">Become a service provider</a>
                 @endif
               </div>            <!--<div class="col-md-4 pds-email">
@@ -87,14 +87,16 @@
       <li class="active"><a href="/projects">Projects</a></li>
       <li><a href="/#how-it-works">How it works</a></li>
       <li><a href="/about-us">About us</a></li>
+      <li class="visible-xs-block"><a href="/service-provider-sign-up">Become a service provider</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      @if(Auth::user() && Auth::user()->userMembership->type)
-
+      @if(Auth::user())
+        @if(Auth::user()->userMembership->type)
+        @endif
       @else
         <li><a href="/new-project">New Project</a></li>
       @endif
-      @if(Auth::id())
+      @if(Auth::user())
         <li><a href="/profile"><span class="glyphicon glyphicon-user"></span> {{Auth::user()->first_name}}</a></li>
         <li>
             <a href="{{ route('logout') }}"
@@ -392,9 +394,11 @@
                 <th scope="col">Message</th>
                 <th scope="col">Offer</th>
                 <th scope="col">Bidder website</th>
-                @if(Auth::user() && $project['user_id'] == Auth::id())
-                <th scope="col">Chat</th>
-                <th scope="col">Action</th>
+                @if(Auth::user())
+                  @if($project['user_id'] == Auth::id())
+                    <th scope="col">Chat</th>
+                    <th scope="col">Action</th>
+                  @endif
                 @endif
               </tr>
             </thead>
@@ -408,12 +412,14 @@
                 <td>{{$bid['message']}}</td>
                 <td class="red">Ksh. {{round($bid['bid_price'],2)}}</td>
                 <td><a href="{{$companies[$count]['company']['company_website']}}">visit</a></td>
-                @if(Auth::user() && $project['user_id'] == Auth::id())
-                  <td><a href="{{url('/client-chats')}}"><span class="fa fa-comment"></span></a></td>
-                  @if($project['final_price']!='')
-                  <td><a class="btn btn-success disabled" href="#">Choose</a></td>
-                  @else
-                  <td><a class="btn btn-success" href="/bidder-select/{{$bid['id']}}">Choose</a></td>
+                @if(Auth::user())
+                  @if($project['user_id'] == Auth::id())
+                    <td><a href="{{url('/client-chats')}}"><span class="fa fa-comment"></span></a></td>
+                    @if($project['final_price']!='')
+                    <td><a class="btn btn-success disabled" href="#">Choose</a></td>
+                    @else
+                    <td><a class="btn btn-success" href="/bidder-select/{{$bid['id']}}">Choose</a></td>
+                    @endif
                   @endif
                 @endif
               </tr>

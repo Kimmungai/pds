@@ -129,3 +129,5 @@ Route::get('/bidder-select/{bid_id}', 'bids@close')->name('Close bid');
 Route::post('/make-enquiry', 'site@enquiry')->name('Enquiry');
 //alerts
 Route::post('/alerts', 'site@set_alerts')->name('Site Alerts');
+//housekeeper
+Route::get('/housekeeper', 'site@housekeeper')->name('House Keeper');

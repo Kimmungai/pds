@@ -152,7 +152,7 @@ $style = [
                                                      <td>Client rating:</td><td><strong>{{$client->rating}}</strong></td>
                                                     </tr>
                                                     <tr>
-                                                     <td>Client profile:</td><td><strong><a href="#">view</a></strong></td>
+                                                     <td>Client profile:</td><td><strong><a href="{{ url('client-public-profile/'.$client->id) }}">view</a></strong></td>
                                                     </tr>
                                                     <tr>
                                                      <td>Bid winner profile:</td><td><strong><a href="{{$winner['company']->company_website}}">view</a></strong></td>

@@ -120,6 +120,9 @@ $style = [
                                                      <td>Bidder tel: </td><td><strong>{{$bidder['company']->company_tel}}</strong></td>
                                                     </tr>
                                                     <tr>
+                                                     <td>Bidder profile: </td><td><strong><a href="{{ url('provider-profile/'.$bidder->id) }}">View</a></strong></td>
+                                                    </tr>
+                                                    <tr>
                                                      <td>Bidder website:</td><td><strong><a href="{{$bidder['company']->company_website}}">Visit</a></strong></td>
                                                     </tr>
                                                   </table>

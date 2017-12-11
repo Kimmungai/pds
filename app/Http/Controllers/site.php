@@ -10,6 +10,7 @@ use App\Enquiry;
 use App\UserAlerts;
 use Auth;
 use Session;
+use Mail;
 
 class site extends Controller
 {
@@ -178,5 +179,11 @@ class site extends Controller
       }
       }
       return back();
+    }
+    public function housekeeper()
+    {
+      // send email
+      mail("kimpita9@gmail.com",Carbon::now(),'Testing cron');
+      return;
     }
 }

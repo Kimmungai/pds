@@ -2,5 +2,7 @@
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
     "/css/style.css": "/css/style.css",
-    "/css/adm-cutom-style.css": "/css/adm-cutom-style.css"
+    "/css/persistent_chat.css": "/css/persistent_chat.css",
+    "/css/adm-cutom-style.css": "/css/adm-cutom-style.css",
+    "/js/persistent_chat.js": "/js/persistent_chat.js"
 }

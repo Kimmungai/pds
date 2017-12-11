@@ -12,6 +12,8 @@ let mix = require('laravel-mix');
  */
 
 mix.js('resources/assets/js/app.js', 'public/js')
+   .js('resources/assets/js/persistent_chat.js', 'public/js')
    .sass('resources/assets/sass/app.scss', 'public/css')
    .sass('resources/assets/sass/style.scss', 'public/css')
+   .sass('resources/assets/sass/persistent_chat.scss', 'public/css')
    .sass('resources/assets/sass/adm-cutom-style.scss', 'public/css');
