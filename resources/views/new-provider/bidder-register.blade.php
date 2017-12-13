@@ -21,12 +21,8 @@
       <li class="visible-xs-block"><a href="/service-provider-sign-up">Become a service provider</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      @if(Auth::user())
-        @if(Auth::user()->userMembership->type)
-        @endif
-      @else
         <li><a href="/new-project">New Project</a></li>
-      @endif
+
       @if(Auth::user())
         <li><a href="/profile"><span class="glyphicon glyphicon-user"></span> {{Auth::user()->first_name}}</a></li>
         <li>
@@ -66,13 +62,7 @@
     </div>
     <div class="row">
       <div class="col-md-5 project-btn pull-right">
-        @if(Auth::user())
-          @if(Auth::user()->userMembership->type)
-            <a class="btn btn-primary" href="/profile">My profile</a>
-          @endif
-        @else
           <a class="btn btn-primary" href="/new-project">Post a new project</a>
-        @endif
       </div>
     </div>
  </div>

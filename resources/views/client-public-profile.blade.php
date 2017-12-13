@@ -22,12 +22,7 @@
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li class="active"><a class="text-capitalize" href="/new-project">{{$client->first_name}}</a></li>
-      @if(Auth::user())
-        @if(Auth::user()->userMembership->type)
-        @endif
-      @else
-        <li><a href="/new-project">New Project</a></li>
-      @endif
+      <li><a href="/new-project">New Project</a></li>
       @if(Auth::user())
         <li><a href="/profile"><span class="glyphicon glyphicon-user"></span> {{Auth::user()->first_name}}</a></li>
         <li>
