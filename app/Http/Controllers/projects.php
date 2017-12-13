@@ -27,6 +27,7 @@ class projects extends Controller
         'blog' => '',
         'website' => '',
         'description' => 'required',
+        'caption' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:1000',
       ]);
       $new_project=new Project;
       $new_project->user_id=Auth::id();

@@ -35,7 +35,7 @@
         <link rel="stylesheet" href="{{ asset('/css/normalize.css') }}">
         <link rel="stylesheet" href="{{ asset('/css/main.css') }}">
         <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
-        <link rel="stylesheet" href="{{ asset('/css/persistant_chat.css') }}">
+        <link rel="stylesheet" href="{{ asset('/css/persistent_chat.css') }}">
         <!-- Admin Custom styles for calender-->
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
     </head>
@@ -406,10 +406,10 @@
                 <td><a href="https://unsplash.com">{{$companies[$count]['company']['company_name']}}</a></td>
                 <td>{{$bid['message']}}</td>
                 <td class="red">Ksh. {{round($bid['bid_price'],2)}}</td>
-                <td><a href="{{$companies[$count]['company']['company_website']}}">visit</a></td>
+                <td><a href="{{$companies[$count]['company']['company_website']}}" target="_blank">visit</a></td>
                 @if(Auth::user())
                   @if($project['user_id'] == Auth::id())
-                    <td><a href="{{url('/client-chats')}}"><span class="fa fa-comment"></span></a></td>
+                    <td onclick="open_and_add_to_chat({{$bid['bidder_id']}})"><a href="#"><span class="fa fa-comment"></span></a></td>
                     @if($project['final_price']!='')
                     <td><a class="btn btn-success disabled" href="#">Choose</a></td>
                     @else
@@ -456,6 +456,60 @@
     </section>
   </div>
 </div>
+<!--chat starts here-->
+<div class="chat">
+    <div id="toggle-chat" class="chat-btn">
+        <a class="but" href="#">
+            <i class="fa fa-comments" aria-hidden="true"></i><span class="notify">2</span>
+        </a>
+    </div>
+    <div class="chat-open">
+        <div class="chat-container">
+        <div class="contact-list">
+            <header><h5>メッセージ</h5><a href="#" class="pull-right close"><i class="fa fa-times" aria-hidden="true"></i></a></header>
+            <ul id="provider-list">
+                <!--<li><a class="on" href="#">株式会社2<span class="unread">2</span><i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
+                <li><a class="off" href="#">株式会社3<i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
+                <li><a class="on" href="#">株式会社4<i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
+                <li><a class="off" href="#">株式会社5<i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
+                <li><a class="off" href="#">株式会社6<i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
+                <li><a class="off" href="#">株式会社2<i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
+                <li><a class="off" href="#">株式会社2<i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
+                <li><a class="off" href="#">株式会社2<i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
+                <li><a class="off" href="#">株式会社3<i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
+                <li><a class="off" href="#">株式会社4<i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>-->
+            </ul>
+        </div>
+        <div class="contact-message">
+        <header><a class="back" href="#"><i class="fa fa-chevron-left" aria-hidden="true"></i></a> <h5 class="on">株式会社1</h5> <a href="#" class="pull-right close"><i class="fa fa-times" aria-hidden="true"></i></a></header>
+        <div class="scroll">
+        <article class="to">
+            <div class="date">2017/08/12 14:00</div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vehicula est non lacinia fringilla. </p>
+        </article>
+        <article class="from">
+            <div class="date">2017/08/12 14:00</div>
+            <span class="name">田中　正和</span>
+            <p>Cras rutrum hendrerit erat, ut rhoncus eros rhoncus sed. Donec pellentesque est a justo porta viverra. Praesent et arcu tellus. </p>
+        </article>
+        <article class="from">
+            <div class="date">2017/08/12 14:00</div>
+            <span class="name">田中　正和</span>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vehicula est non lacinia fringilla. </p>
+        </article>
+        <article class="to">
+            <div class="date">2017/08/12 14:00</div>
+            <p>Cras rutrum hendrerit erat, ut rhoncus eros rhoncus sed. Donec pellentesque est a justo porta viverra. Praesent et arcu tellus. </p>
+        </article>
+        </div>
+        <div class="input">
+            <textarea></textarea><a class="send" href="#">送信</a>
+        </div>
+        </div>
+        </div>
+    </div>
+</div>
+<!--chat ends here-->
 <!--footer nav ends here-->
 <div class="container">
   <div class="row">
@@ -492,7 +546,10 @@
 <script src="{{ asset('js/main.js') }}"></script>
 <script src="{{ asset('js/bootstrap.min.js') }}"></script>
 <!-- Custom scripts for calender-->
+<script src="{{asset('/js/jquery-3.2.1.min.js')}}"></script>
 <script src="{{asset('/js/jquery-ui.min.js')}}"></script>
+<script src="{{asset('/js/nogo.min.js')}}"></script>
+<script src="{{asset('/js/persistent_chat.js')}}"></script>
 
 <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
 <script>
@@ -512,6 +569,21 @@
 function submit_form(id)
 {
   $("#"+id).submit();
+}
+</script>
+<script>
+function open_and_add_to_chat(provider_id)
+{
+  event.preventDefault();
+  $(".chat-open").fadeIn("fast");
+
+  $.get("/chat-up",
+        {
+          provider_id:provider_id
+        },
+        function(data,status){
+        handle_chat(data)
+      });
 }
 </script>
 </body>

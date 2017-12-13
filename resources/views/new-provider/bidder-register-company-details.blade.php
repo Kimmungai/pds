@@ -403,7 +403,10 @@
 
 <script>
 $( function() {
-$( "#incorporation_date" ).datepicker();
+$( "#incorporation_date" ).datepicker({
+    changeMonth: true,
+    changeYear: true
+});
 } );
 </script>
 @endsection

@@ -131,3 +131,5 @@ Route::post('/make-enquiry', 'site@enquiry')->name('Enquiry');
 Route::post('/alerts', 'site@set_alerts')->name('Site Alerts');
 //housekeeper
 Route::get('/housekeeper', 'site@housekeeper')->name('House Keeper');
+//client chatting up a provider
+Route::get('/chat-up', 'dynamic@chat_up')->middleware('client');

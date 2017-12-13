@@ -227,10 +227,16 @@
 
 <script>
 $( function() {
-$( "#start_date" ).datepicker();
+$( "#start_date" ).datepicker({
+  changeMonth: true,
+  changeYear: true
+});
 } );
 $( function() {
-$( "#end_date" ).datepicker();
+$( "#end_date" ).datepicker({
+  changeMonth: true,
+  changeYear: true
+});
 } );
 </script>
 @endsection
