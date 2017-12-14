@@ -18,7 +18,7 @@
       <li><a href="/projects">Projects</a></li>
       <li><a href="/#how-it-works">How it works</a></li>
       <li><a href="/about-us">About us</a></li>
-      <li class="visible-xs-block"><a href="/service-provider-sign-up">Become a service provider</a></li>
+      <li class="visible-xs-block"><a href="/service-provider-sign-up">Become a bidder</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
         <li><a href="/new-project">New Project</a></li>
@@ -227,7 +227,7 @@
 <section class="service-providers">
   <div class="container section-decoration">
     <div class="row second-nav">
-     <h2>Service providers</h2>
+     <h2>Bidder companies</h2>
      <div class="strip"></div>
      <div class="col-md-1 col-md-offset-9 sort-label">
        <label for="sort-projects"><span class="glyphicon glyphicon-sort-by-attributes"></span> Sort:</label>
