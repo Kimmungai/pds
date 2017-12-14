@@ -32,6 +32,7 @@ class CreateUsersTable extends Migration
             $table->string('email_token')->nullable();
             $table->string('dob')->nullable();
             $table->integer('rating')->default(0);
+            $table->tinyInteger('is_online')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });

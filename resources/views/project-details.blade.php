@@ -466,7 +466,7 @@
     <div class="chat-open">
         <div class="chat-container">
         <div class="contact-list">
-            <header><h5>メッセージ</h5><a href="#" class="pull-right close"><i class="fa fa-times" aria-hidden="true"></i></a></header>
+            <header><h5>Contacts</h5><a href="#" class="pull-right close"><i class="fa fa-times" aria-hidden="true"></i></a></header>
             <ul id="provider-list">
                 <!--<li><a class="on" href="#">株式会社2<span class="unread">2</span><i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
                 <li><a class="off" href="#">株式会社3<i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
@@ -481,29 +481,13 @@
             </ul>
         </div>
         <div class="contact-message">
-        <header><a class="back" href="#"><i class="fa fa-chevron-left" aria-hidden="true"></i></a> <h5 class="on">株式会社1</h5> <a href="#" class="pull-right close"><i class="fa fa-times" aria-hidden="true"></i></a></header>
-        <div class="scroll">
-        <article class="to">
-            <div class="date">2017/08/12 14:00</div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vehicula est non lacinia fringilla. </p>
-        </article>
-        <article class="from">
-            <div class="date">2017/08/12 14:00</div>
-            <span class="name">田中　正和</span>
-            <p>Cras rutrum hendrerit erat, ut rhoncus eros rhoncus sed. Donec pellentesque est a justo porta viverra. Praesent et arcu tellus. </p>
-        </article>
-        <article class="from">
-            <div class="date">2017/08/12 14:00</div>
-            <span class="name">田中　正和</span>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vehicula est non lacinia fringilla. </p>
-        </article>
-        <article class="to">
-            <div class="date">2017/08/12 14:00</div>
-            <p>Cras rutrum hendrerit erat, ut rhoncus eros rhoncus sed. Donec pellentesque est a justo porta viverra. Praesent et arcu tellus. </p>
-        </article>
+        <header><a class="back" href="#"><i class="fa fa-chevron-left" aria-hidden="true"></i></a> <h5 id="chat_window_header"></h5><a href="#" class="pull-right close"><i class="fa fa-times" aria-hidden="true"></i></a></header>
+        <div id="message-list" class="scroll">
         </div>
         <div class="input">
-            <textarea></textarea><a class="send" href="#">送信</a>
+          <input id="chat_provider_id" name="chat_provider_id" type="hidden" />
+          <input id="chat_client_id" name="chat_client_id" type="hidden" />
+            <textarea id="chat-message" onkeyup="capture_enter_key(event)"></textarea><a class="send" href="#" onclick="send_chat_message(event)">Send</a>
         </div>
         </div>
         </div>
@@ -582,7 +566,51 @@ function open_and_add_to_chat(provider_id)
           provider_id:provider_id
         },
         function(data,status){
-        handle_chat(data)
+        handle_chat(data, {{Auth::id()}})
+      });
+}
+function open_chat_window(provider_id, client_id, provider_company, is_online)
+{
+  $(".contact-list").animate({ marginLeft: "-240px" });
+  $(".contact-message .scroll").animate({ scrollTop: $('.contact-message .scroll').get(0).scrollHeight }, 2000);
+  $('#chat_window_header').html(provider_company);
+  $('#chat_window_header').removeClass();
+  $('#chat_window_header').addClass(is_online);
+  $('#chat_provider_id').val(provider_id);
+  $('#chat_client_id').val(client_id);
+  $.get("/chat-messages",
+        {
+          provider_id:provider_id,
+          client_id:client_id
+        },
+        function(data,status){
+        handle_chat_window(data)
+      });
+}
+function capture_enter_key(event)
+{
+  event.preventDefault();
+  if(event.keyCode==13)//if enter key is pressed send the message
+  {
+    send_chat_message(event);
+  }
+
+}
+function send_chat_message()
+{
+  event.preventDefault();
+  provider_id=$('#chat_provider_id').val();
+  client_id=$('#chat_client_id').val();
+  chat_message=$('#chat-message').val();
+  $('#chat-message').val('');
+  $.get("/new-chat-messages",
+        {
+          provider_id:provider_id,
+          client_id:client_id,
+          chat_message:chat_message
+        },
+        function(data,status){
+        //handle_chat_window(data) //call a refresher function after saving the message
       });
 }
 </script>

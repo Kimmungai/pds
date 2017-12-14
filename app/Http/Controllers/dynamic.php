@@ -7,6 +7,7 @@ use App\Project;
 use App\ProjectType;
 use App\Company;
 use App\Chat;
+use App\ChatMessage;
 use App\User;
 use App\Bid;
 use Session;
@@ -34,25 +35,50 @@ class dynamic extends Controller
   public function chat_up()
   {
     $provider_id=$_GET['provider_id'];
-    if(count(Chat::where('user_id','=',Auth::id())->where('provider_id','=',$provider_id)->first()))
+    if(!count(Chat::where('user_id','=',Auth::id())->where('provider_id','=',$provider_id)->first()))
     {
-      return;
-    }
-    $new_chat=new Chat;
-    $new_chat->user_id=Auth::id();
-    $new_chat->provider_id=$provider_id;
-    if(!$new_chat->save())
-    {
-      session::flash('update_error', 'Sorry the provider could not be selected! Kindly contact support@webdesignerscenter.com for help.');
+      $new_chat=new Chat;
+      $new_chat->user_id=Auth::id();
+      $new_chat->provider_id=$provider_id;
+      if(!$new_chat->save())
+      {
+        session::flash('update_error', 'Sorry the provider could not be selected! Kindly contact support@webdesignerscenter.com for help.');
+      }
     }
     $provider_ids=Chat::where('user_id','=',Auth::id())->get();
     $count=0;
     $providers=array();
     foreach($provider_ids as $provider_id)
     {
-      $providers[$count]=User::where('id','=',$provider_id['provider_id'])->first();
+      $providers[$count]=User::with('company')->where('id','=',$provider_id['provider_id'])->first();
       $count++;
     }
     return $providers;
+  }
+  public function chat_messages()
+  {
+    $provider_id=$_GET['provider_id'];
+    $client_id=$_GET['client_id'];
+    $chat_id=Chat::where('provider_id','=',$provider_id)->where('user_id','=',$client_id)->value('id');
+    $messages=ChatMessage::where('chat_id','=',$chat_id)->get();
+    return $messages;
+  }
+  public function new_chat_messages()
+  {
+    $provider_id=$_GET['provider_id'];
+    $client_id=$_GET['client_id'];
+    $chat_message=$_GET['chat_message'];
+    $chat_id=Chat::where('provider_id','=',$provider_id)->where('user_id','=',$client_id)->value('id');
+    if(Auth::id()==$client_id){$author_id=$client_id;$recipient_id=$provider_id;}else{$author_id=$provider_id;$recipient_id=$client_id;}
+    $new_message=new ChatMessage;
+    $new_message->chat_id=$chat_id;
+    $new_message->author_id=$author_id;
+    $new_message->message=$chat_message;
+    $new_message->recipient_id=$recipient_id;
+    if($new_message->save())
+    {
+
+    }
+    return;
   }
 }

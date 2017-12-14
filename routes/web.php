@@ -133,3 +133,5 @@ Route::post('/alerts', 'site@set_alerts')->name('Site Alerts');
 Route::get('/housekeeper', 'site@housekeeper')->name('House Keeper');
 //client chatting up a provider
 Route::get('/chat-up', 'dynamic@chat_up')->middleware('client');
+Route::get('/chat-messages', 'dynamic@chat_messages')->middleware('auth');
+Route::get('/new-chat-messages', 'dynamic@new_chat_messages')->middleware('auth');
