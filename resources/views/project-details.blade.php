@@ -402,7 +402,7 @@
               @foreach($bids as $bid)
               <tr>
                 <th scope="row">{{$bid['id']}}</th>
-                <td>{{\Carbon\Carbon::createFromTimeStamp(strtotime($project['created_at']))->diffForHumans()}}</td>
+                <td>{{\Carbon\Carbon::createFromTimeStamp(strtotime($bid['created_at']))->diffForHumans()}}</td>
                 <td><a href="https://unsplash.com">{{$companies[$count]['company']['company_name']}}</a></td>
                 <td>{{$bid['message']}}</td>
                 <td class="red">Ksh. {{round($bid['bid_price'],2)}}</td>
@@ -458,7 +458,7 @@
 </div>
 <!--chat starts here-->
 <div class="chat">
-    <div id="toggle-chat" class="chat-btn">
+    <div id="toggle-chat" class="chat-btn" onclick="load_contacts()">
         <a class="but" href="#">
             <i class="fa fa-comments" aria-hidden="true"></i><span class="notify">2</span>
         </a>
@@ -556,6 +556,16 @@ function submit_form(id)
 }
 </script>
 <script>
+function load_contacts()
+{
+  $.get("/load-contacts",
+        {
+
+        },
+        function(data,status){
+        handle_chat(data,{{Auth::id()}})
+      });
+}
 function open_and_add_to_chat(provider_id)
 {
   event.preventDefault();
@@ -613,6 +623,25 @@ function send_chat_message()
         //handle_chat_window(data) //call a refresher function after saving the message
       });
 }
+function pull_chat_messages()
+{
+  provider_id=$('#chat_provider_id').val();
+  client_id=$('#chat_client_id').val();
+  if(provider_id != '' && client_id != '')
+  {
+    $.get("/pull-chat-messages",
+          {
+            provider_id:provider_id,
+            client_id:client_id
+          },
+          function(data,status){
+          append_chat_messages(data);
+        });
+  }
+}
+</script>
+<script>
+setInterval(pull_chat_messages, 1000);
 </script>
 </body>
 </html>

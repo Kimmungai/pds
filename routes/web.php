@@ -135,3 +135,5 @@ Route::get('/housekeeper', 'site@housekeeper')->name('House Keeper');
 Route::get('/chat-up', 'dynamic@chat_up')->middleware('client');
 Route::get('/chat-messages', 'dynamic@chat_messages')->middleware('auth');
 Route::get('/new-chat-messages', 'dynamic@new_chat_messages')->middleware('auth');
+Route::get('/pull-chat-messages', 'dynamic@pull_chat_messages')->middleware('auth');
+Route::get('/load-contacts', 'dynamic@load_contacts')->middleware('auth');

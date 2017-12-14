@@ -57,8 +57,7 @@ class dynamic extends Controller
   }
   public function chat_messages()
   {
-    $provider_id=$_GET['provider_id'];
-    $client_id=$_GET['client_id'];
+    if(Auth::id()==$_GET['provider_id']){$provider_id=Auth::id();$client_id=$_GET['client_id'];}else{$provider_id=$_GET['provider_id'];$client_id=Auth::id();}
     $chat_id=Chat::where('provider_id','=',$provider_id)->where('user_id','=',$client_id)->value('id');
     $messages=ChatMessage::where('chat_id','=',$chat_id)->get();
     return $messages;
@@ -80,5 +79,38 @@ class dynamic extends Controller
 
     }
     return;
+  }
+  public function pull_chat_messages()
+  {
+    if(Auth::id()==$_GET['provider_id']){$provider_id=Auth::id();$client_id=$_GET['client_id'];}else{$provider_id=$_GET['provider_id'];$client_id=Auth::id();}
+    $chat_id=Chat::where('provider_id','=',$provider_id)->where('user_id','=',$client_id)->value('id');
+    $messages=ChatMessage::where('chat_id','=',$chat_id)->get();
+    return $messages;
+  }
+  public function load_contacts()
+  {
+    if(Auth::User()->userMembership->type)
+    {
+      $contact_ids=Chat::where('provider_id','=',Auth::id())->get();
+      $count=0;
+      $contacts=array();
+      foreach($contact_ids as $contact_id)
+      {
+        $contacts[$count]=User::with('company')->where('id','=',$contact_id['provider_id'])->first();
+        $count++;
+      }
+    }
+    else {
+      $contact_ids=Chat::where('user_id','=',Auth::id())->get();
+      $count=0;
+      $contacts=array();
+      foreach($contact_ids as $contact_id)
+      {
+        $contacts[$count]=User::with('company')->where('id','=',$contact_id['user_id'])->first();
+        $count++;
+      }
+    }
+
+    return $contacts;
   }
 }

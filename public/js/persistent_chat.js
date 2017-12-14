@@ -130,11 +130,16 @@ $(document).ready(function () {
     $("a.back").on("click", function (event) {
         event.preventDefault();
         $(".contact-list").animate({ marginLeft: "0" });
+        $('#chat_provider_id').val('');
+        $('#chat_client_id').val('');
     });
 
     $("a.close").on("click", function (event) {
         event.preventDefault();
+        $(".contact-list").animate({ marginLeft: "0" });
         $(".chat-open").fadeOut("fast");
+        $('#chat_provider_id').val('');
+        $('#chat_client_id').val('');
     });
 });
 

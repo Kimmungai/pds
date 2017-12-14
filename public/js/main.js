@@ -19,7 +19,22 @@ function handle_chat_window(data)
   {
     var message=JSON.stringify(data[i]);
     var message_obj=JSON.parse(message);
-    var content='<article class="to"><div class="date">'+message_obj.created_at+'</div><p>'+message_obj.message+'</p></article>';
+    var content='<article id="serial'+message_obj.id+'" class="to"><div class="date">'+message_obj.created_at+'</div><p>'+message_obj.message+'</p></article>';
     $('#message-list').append(content);
+  }
+}
+function append_chat_messages(data)
+{
+  var i;
+  for(i=0; i < data.length; i++)
+  {
+    var message=JSON.stringify(data[i]);
+    var message_obj=JSON.parse(message);
+    if($('#serial'+message_obj.id).length==0)
+    {
+      var content='<article id="serial'+message_obj.id+'" class="to"><div class="date">'+message_obj.created_at+'</div><p>'+message_obj.message+'</p></article>';
+      $('#message-list').append(content);
+      $(".contact-message .scroll").animate({ scrollTop: $('.contact-message .scroll').get(0).scrollHeight }, 2000);
+    }
   }
 }
