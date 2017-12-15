@@ -33,6 +33,8 @@ class projects extends Controller
       $new_project->user_id=Auth::id();
       $new_project->title=$request->input('title');
       $new_project->description=$request->input('description');
+      $dt = Carbon::now();
+      $new_project->valid_period=$dt->addDays(10);
       if($new_project->save())
       {
         if($request->hasFile('caption'))
@@ -253,6 +255,8 @@ class projects extends Controller
       $new_project->end_date=$request->input('end_date');
       $new_project->desired_price=$request->input('desired_price');
       $new_project->message_to_bidders=$request->input('message_to_bidders');
+      $dt = Carbon::now();
+      $new_project->valid_period=$dt->addDays(10);
       if($new_project->save())
       {
         if($request->hasFile('caption'))

@@ -52,13 +52,17 @@ class bids extends Controller
     {
       $bid_details=Bid::where('id','=',$bid_id)->first();
       $winner=User::with('Company')->where('id','=',$bid_details['bidder_id'])->first();
-      $chat_session=new Chat;
-      $chat_session->user_id=Auth::id();
-      $chat_session->provider_id=$winner['id'];
+      if(!count(Chat::where('user_id','=',Auth::id())->where('provider_id','=',$winner['id'])))
+      {
+        $chat_session=new Chat;
+        $chat_session->user_id=Auth::id();
+        $chat_session->provider_id=$winner['id'];
+        $chat_session->save();
+      }
       if(project::where('id','=',$bid_details['project_id'])->update([
         'final_price' => $bid_details['bid_price'],
         'winner' =>$bid_details['bidder_id']
-      ]) && $chat_session->save()){
+      ])){
           $winnerProject=Project::with(['projectType','bid'])->where('id','=',$bid_details['project_id'])->where('user_id','=',Auth::id())->where('winner','=',$winner['id'])->first();
           $email_winner=new winnerNotification($winner,$winnerProject);
           $email_client=new clientBidChoiceNotification($winner,$winnerProject);
@@ -93,7 +97,7 @@ class bids extends Controller
           if($winner['id'] != $subscriber_details['id'])
           {
             $notify_subscriber=new BidClosingNotification($client,$project,$subscriber_details,$winner);
-            Mail::to($subscriber_details['email'])->send($notify_subscriber);  
+            Mail::to($subscriber_details['email'])->send($notify_subscriber);
           }
         }
       }

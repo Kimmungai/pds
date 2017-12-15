@@ -457,10 +457,11 @@
   </div>
 </div>
 <!--chat starts here-->
+@if(Auth::user())
 <div class="chat">
     <div id="toggle-chat" class="chat-btn" onclick="load_contacts()">
         <a class="but" href="#">
-            <i class="fa fa-comments" aria-hidden="true"></i><span class="notify">2</span>
+            <i class="fa fa-comments" aria-hidden="true"></i><span id="notify-new_messages"></span>
         </a>
     </div>
     <div class="chat-open">
@@ -468,16 +469,7 @@
         <div class="contact-list">
             <header><h5>Contacts</h5><a href="#" class="pull-right close"><i class="fa fa-times" aria-hidden="true"></i></a></header>
             <ul id="provider-list">
-                <!--<li><a class="on" href="#">株式会社2<span class="unread">2</span><i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
-                <li><a class="off" href="#">株式会社3<i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
-                <li><a class="on" href="#">株式会社4<i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
-                <li><a class="off" href="#">株式会社5<i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
-                <li><a class="off" href="#">株式会社6<i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
-                <li><a class="off" href="#">株式会社2<i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
-                <li><a class="off" href="#">株式会社2<i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
-                <li><a class="off" href="#">株式会社2<i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
-                <li><a class="off" href="#">株式会社3<i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
-                <li><a class="off" href="#">株式会社4<i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>-->
+
             </ul>
         </div>
         <div class="contact-message">
@@ -493,6 +485,7 @@
         </div>
     </div>
 </div>
+@endif
 <!--chat ends here-->
 <!--footer nav ends here-->
 <div class="container">
@@ -502,7 +495,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6">
-        <p><i class="fa fa-copyright"></i> Copyright © webdesignerscenter.com 2017</p>
+        <p>Copyright <i class="fa fa-copyright"></i> {{ date('Y') }} webdesignerscenter.com</p>
       </div>
       <div class="col-md-6">
         <ul class="list-inline pull-right">
@@ -555,6 +548,7 @@ function submit_form(id)
   $("#"+id).submit();
 }
 </script>
+@if(Auth::user())
 <script>
 function load_contacts()
 {
@@ -563,7 +557,7 @@ function load_contacts()
 
         },
         function(data,status){
-        handle_chat(data,{{Auth::id()}})
+        current_user_contacts(data,{{Auth::id()}})
       });
 }
 function open_and_add_to_chat(provider_id)
@@ -582,7 +576,6 @@ function open_and_add_to_chat(provider_id)
 function open_chat_window(provider_id, client_id, provider_company, is_online)
 {
   $(".contact-list").animate({ marginLeft: "-240px" });
-  $(".contact-message .scroll").animate({ scrollTop: $('.contact-message .scroll').get(0).scrollHeight }, 2000);
   $('#chat_window_header').html(provider_company);
   $('#chat_window_header').removeClass();
   $('#chat_window_header').addClass(is_online);
@@ -594,7 +587,7 @@ function open_chat_window(provider_id, client_id, provider_company, is_online)
           client_id:client_id
         },
         function(data,status){
-        handle_chat_window(data)
+        handle_chat_window(data,client_id)
       });
 }
 function capture_enter_key(event)
@@ -635,13 +628,32 @@ function pull_chat_messages()
             client_id:client_id
           },
           function(data,status){
-          append_chat_messages(data);
+          append_chat_messages(data, {{Auth::id()}});
         });
   }
+}
+function check_new_messages()
+{
+  $.get("/check-new-messages",
+        {
+        },
+        function(data,status){
+          if(data!=0)
+          {
+            $('#notify-new_messages').addClass('notify');
+            $('#notify-new_messages').html(data);
+          }
+          else {
+            $('#notify-new_messages').removeClass('notify');
+            $('#notify-new_messages').html('');
+          }
+      });
 }
 </script>
 <script>
 setInterval(pull_chat_messages, 1000);
+setInterval(check_new_messages, 3000);
 </script>
+@endif
 </body>
 </html>
