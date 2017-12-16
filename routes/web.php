@@ -100,7 +100,7 @@ Route::get('/provider-company','admin@company_details')->name('Company Details')
 Route::put('/incorp-details', 'providers@update_company_incorp_details')->name('Incorp details update')->middleware('auth');
 Route::put('/contacts-update', 'providers@company_contacts_update')->name('company contacts update')->middleware('auth');
 Route::put('/company-promotion-update', 'providers@update_company_promotion')->name('company promotion update')->middleware('auth');
-Route::get('/provider-membership','providers@membership')->name('Provider Membership')->middleware('auth');
+Route::get('/provider-membership','providers@membership')->name('Provider Membership')->middleware('provider');
 Route::get('/provider-chats','providers@chats')->name('Provider Chats')->middleware('auth');
 Route::get('/provider-alerts','providers@alerts')->name('Provider Alerts')->middleware('auth');
 Route::get('/provider-profile/{provider_id}','providers@public_profile')->name('Provider public profile');

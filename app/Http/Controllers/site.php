@@ -8,9 +8,12 @@ use App\Project;
 use Carbon\Carbon;
 use App\Enquiry;
 use App\UserAlerts;
+use App\User;
+use App\UserMembership;
 use Auth;
 use Session;
 use Mail;
+use App\Mail\membershipExpiry;
 
 class site extends Controller
 {
@@ -182,8 +185,20 @@ class site extends Controller
     }
     public function housekeeper()
     {
-      // send email
-      mail("kimpita9@gmail.com",Carbon::now(),'Testing cron');
-      return;
+      // notify providers whose membership period will expire 3days and 1 day
+      $all_providers=UserMembership::with('user')->where('type','<>',0)->get();
+      foreach($all_providers as $provider)
+      {
+         $valid_days=Carbon::createFromTimeStamp(strtotime($provider['end_date']))->diffInDays();
+         if($valid_days==3 || $valid_days==1)
+         {
+           if(UserAlerts::where('user_id','=',$provider['user_id'])->value('alert4'))//check if user wants membership expiry alert
+           {
+             $user_membership_email=new membershipExpiry($provider);
+             Mail::to($provider['user']['email'])->send($user_membership_email);
+           }
+         }
+      }
+      return'';
     }
 }

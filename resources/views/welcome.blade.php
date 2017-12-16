@@ -227,7 +227,7 @@
 <section class="service-providers">
   <div class="container section-decoration">
     <div class="row second-nav">
-     <h2>Bidder companies</h2>
+     <h2>Available Bidders</h2>
      <div class="strip"></div>
      <div class="col-md-1 col-md-offset-9 sort-label">
        <label for="sort-projects"><span class="glyphicon glyphicon-sort-by-attributes"></span> Sort:</label>

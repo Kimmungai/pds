@@ -185,6 +185,7 @@ class admin extends Controller
       $user->userMembership()->delete();
       $user->chat()->delete();
       $user->project()->delete();
+      $user->company()->delete();
       $user->delete();
       Auth::logout();
       return redirect('/');

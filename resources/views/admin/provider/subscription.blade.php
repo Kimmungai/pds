@@ -65,64 +65,84 @@
       </ol>
       <!-- Icon Cards-->
       <div class="row">
-        <div class="col-xl-3 col-sm-6 mb-3">
+        <div class="col-xl-3 col-sm-6 mb-3" onclick="scrollToPayment(1)">
           <div class="card text-white bg-primary o-hidden h-100">
             <div class="card-body">
               <div class="card-body-icon">
-                <i class="fa fa-fw fa-cc-diners-club"></i>
+                <i class="fa fa-fw fa-star-half"></i>
               </div>
               <div class="mr-5"><big>Promotional</big></div>
+              <p>FREE</p>
             </div>
-            <a class="card-footer text-white clearfix small z-1">
-              <span class="float-left">Your current plan (FREE)</span>
+            <a href="#" class="card-footer text-white clearfix small z-1">
+              @if($membership->type==1)
+              <span class="float-left"><span class="fa fa-fw fa-check-circle text-white"></span> Current Plan</span>
+              @else
+              <span class="float-left">Choose (Promotional)</span>
+              @endif
               <span class="float-right">
                 <i class="fa fa-angle-right"></i>
               </span>
             </a>
           </div>
         </div>
-        <div class="col-xl-3 col-sm-6 mb-3">
-          <div class="card text-white bg-default o-hidden h-100">
-            <div class="card-body" style="color:#000;">
+        <div class="col-xl-3 col-sm-6 mb-3" onclick="scrollToPayment(2)">
+          <div class="card text-white bg-info o-hidden h-100">
+            <div class="card-body">
               <div class="card-body-icon">
-                <i class="fa fa-fw fa-calendar"></i>
+                <i class="fa fa-fw fa-star-o"></i>
               </div>
-              <div class="mr-5"><big>Ksh. 10,000 /</big>Monthly</div><small>Bid in all projects</small>
+              <div class="mr-5"><big>Basic</big></div>
+              <p>Ksh. 10,000</p>
             </div>
             <a class="card-footer text-white clearfix small z-1" href="#">
-              <span class="float-left" style="color:#000;">Choose (BASIC)</span>
+              @if($membership->type==2)
+              <span class="float-left"><span class="fa fa-fw fa-check-circle text-white"></span> Current Plan</span>
+              @else
+              <span class="float-left">Choose</span>
+              @endif
               <span class="float-right">
                 <i class="fa fa-angle-right"></i>
               </span>
             </a>
           </div>
         </div>
-        <div class="col-xl-3 col-sm-6 mb-3">
-          <div class="card text-white bg-default o-hidden h-100">
-            <div class="card-body" style="color:#000;">
+        <div class="col-xl-3 col-sm-6 mb-3" onclick="scrollToPayment(3)">
+          <div class="card text-white bg-secondary o-hidden h-100">
+            <div class="card-body">
               <div class="card-body-icon">
-                <i class="fa fa-fw fa-calendar"></i>
+                <i class="fa fa-fw fa-star-half-full"></i>
               </div>
-              <div class="mr-5"><big>Ksh. 27,500</big> Quartely</div><small>Bid in all projects</small>
+              <div class="mr-5"><big>Silver</big></div>
+              <p>Ksh. 20,000</p>
             </div>
             <a class="card-footer text-white clearfix small z-1" href="#">
-              <span class="float-left" style="color:#000;">Choose (Silver)</span>
+              @if($membership->type==3)
+              <span class="float-left"><span class="fa fa-fw fa-check-circle text-white"></span> Current Plan</span>
+              @else
+              <span class="float-left">Choose</span>
+              @endif
               <span class="float-right">
                 <i class="fa fa-angle-right"></i>
               </span>
             </a>
           </div>
         </div>
-        <div class="col-xl-3 col-sm-6 mb-3">
-          <div class="card text-white bg-default o-hidden h-100">
-            <div class="card-body" style="color:#000;">
+        <div class="col-xl-3 col-sm-6 mb-3" onclick="scrollToPayment(4)">
+          <div class="card text-white bg-warning o-hidden h-100">
+            <div class="card-body">
               <div class="card-body-icon">
-                <i class="fa fa-fw fa-calendar"></i>
+                <i class="fa fa-fw fa-star"></i>
               </div>
-              <div class="mr-5"><big>Ksh. 100, 000 /</big>Yearly</div><small>Bid in all projects</small>
+              <div class="mr-5"><big>Gold</big></div>
+              <p>Ksh. 35,000</p>
             </div>
             <a class="card-footer text-white clearfix small z-1" href="#">
-              <span class="float-left" style="color:#000;">Choose (Gold)</span>
+              @if($membership->type==4)
+              <span class="float-left"><span class="fa fa-fw fa-check-circle text-white"></span> Current Plan</span>
+              @else
+              <span class="float-left">Choose</span>
+              @endif
               <span class="float-right">
                 <i class="fa fa-angle-right"></i>
               </span>
@@ -131,7 +151,7 @@
         </div>
       </div>
       <!-- Area Chart Example-->
-      <div class="card mb-3">
+      <div id="payment-section" class="card mb-3">
         <div class="card-header">
           <i class="fa fa-list"></i> Your subscription details</div>
         <div class="card-body">
@@ -148,9 +168,9 @@
             </div>
           </div>
           <div class="form-group row">
-            <label for="example-search-input" class="col-2 col-form-label">Subscription remaining time</label>
+            <label for="example-search-input" class="col-2 col-form-label">Subscription validity period</label>
             <div class="col-10">
-              <input class="form-control" type="text" value="{{\Carbon\Carbon::createFromTimeStamp(strtotime($membership['end_date']))->diffForHumans()}}" disabled>
+              <input class="form-control" type="text" value="{{\Carbon\Carbon::createFromTimeStamp(strtotime($membership['end_date']))->diffForHumans(null,true)}}" disabled>
             </div>
           </div>
           </div>
@@ -163,11 +183,11 @@
             <div class="form-group row">
               <label for="example-search-input" class="col-2 col-form-label">Subscription Plan</label>
               <div class="col-10">
-                <select class="form-control">
-                  <option value="">Ksh. 20,000 / month</option>
-                  <option value="">Ksh. 20,000 / month</option>
-                  <option value="">Ksh. 20,000 / year</option>
-                  <option value="">Ksh. 20,000 / 3 years</option>
+                <select class="form-control" id="selected-plan" onchange="scrollToPayment(this.value)">
+                  <option value="1" disabled <?php if($membership->type==1){?>selected<?php }?>>Promotional plan (FREE)</option>
+                  <option value="2" <?php if($membership->type==2){?>selected<?php }?>>Basic plan (Ksh. 10,000 / month)</option>
+                  <option value="3" <?php if($membership->type==3){?>selected<?php }?>>Silver plan (Ksh. 20,000 / month)</option>
+                  <option value="4" <?php if($membership->type==4){?>selected<?php }?>>Gold plan (Ksh. 35,000 / month)</option>
                 </select>
               </div>
             </div>
@@ -180,15 +200,9 @@
               </div>
             </div>
             <div class="form-group row">
-              <label for="example-search-input" class="col-2 col-form-label">Email my receipt</label>
-              <div class="col-10">
-                <input name="receipt"  type="radio"> No &nbsp;<input name="receipt"  type="radio"> Yes
-              </div>
-            </div>
-            <div class="form-group row">
               <label for="example-search-input" class="col-2 col-form-label"></label>
               <div class="col-10">
-                <button class="btn btn-success btn-lg"><i class="fa fa-dollar"></i> Proceed to payment <i class="fa  fa-angle-double-right"></i></button>
+                <div id="pay-btn"></div>
               </div>
             </div>
             </div>
@@ -196,4 +210,73 @@
       </div>
     </div>
     <!-- /.container-fluid-->
+    <script>
+    var pesa='';
+      function scrollToPayment(type)
+      {
+        $('html,body').animate({scrollTop: $("#payment-section").offset().top },2000);
+        if(type==1){$('#pay-btn').addClass('disabled');}else{$('#pay-btn').removeClass('disabled');}
+        $('#selected-plan').val(type);
+
+        if(type==2)
+        {
+          pesa='100.00';
+        }
+        else if(type==3)
+        {
+        pesa='200.00';
+        }
+        else if(type==4)
+        {
+          pesa='350.00';
+        }
+        else {
+          pesa='';
+        }
+
+      }
+    </script>
+     <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+    <script>
+    paypal.Button.render({
+
+        env: 'sandbox', // Or 'sandbox'
+
+        client: {
+            sandbox:    'AVmtFmCtIYmW-wowsvx_G77friO7Y0kD8sHa3j1wpw-2BinKjbq1tFqUgSnPCOzp6K_h-lj8t4_DbYUe',
+            production: 'AVmHEmP0XXrZ6g39PR8jQLCtkU6z3sI7g_8dAHE7Zieeh8OMO_Gam1F-IF9H51GnieOMPQxUZE_K0qxw'
+        },
+
+
+        commit: true, // Show a 'Pay Now' button
+
+        payment: function(data, actions) {
+            return actions.payment.create({
+                payment: {
+                    transactions: [
+                        {
+                            amount: { total: pesa, currency: 'USD' }
+                        }
+                    ]
+                }
+            });
+        },
+
+        onAuthorize: function(data, actions) {
+            return actions.payment.execute().then(function(payment) {
+
+                // The payment is complete!
+                // You can now show a confirmation message to the customer
+                call_after_paypal_payment();
+            });
+        }
+
+    }, '#pay-btn');
+</script>
+<script>
+function call_after_paypal_payment()
+{
+  alert('nyau');
+}
+</script>
 @endsection
