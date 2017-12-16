@@ -17,11 +17,45 @@ use App\Mail\clientBidChoiceNotification;
 use App\Mail\BidEvent;
 use App\Mail\BidClosingNotification;
 use Mail;
+use Carbon\Carbon;
 
 class bids extends Controller
 {
     public function create(Request $request)
     {
+      $no_of_bids_placed_today=Bid::where('bidder_id','=',Auth::id())->whereDate('created_at', '=', Carbon::today()->toDateString())->distinct('project_id')->count('project_id');
+      if(Auth::user()->userMembership->type==1)//promotional plan (2 bids per day)
+      {
+        if($no_of_bids_placed_today > 2)
+        {
+          session::flash('update_error', 'Bid failed!! You have exhausted your daily bidding limit ');
+          session::flash('daily_bidding_limit',1);
+          return back();
+        }
+      }
+      else if(Auth::user()->userMembership->type==2)//basic plan (7 bids per day)
+      {
+        if($no_of_bids_placed_today > 7)
+        {
+          session::flash('update_error', 'Bid failed!! You have exhausted your daily bidding limit ');
+          session::flash('daily_bidding_limit',1);
+          return back();
+        }
+      }
+      else if(Auth::user()->userMembership->type==3)//silver plan (14 bids per day)
+      {
+        if($no_of_bids_placed_today > 14)
+        {
+          session::flash('update_error', 'Bid failed!! You have exhausted your daily bidding limit ');
+          session::flash('daily_bidding_limit',1);
+          return back();
+        }
+      }
+      else if(Auth::user()->userMembership->type==4)//gold plan (unlimited bids)
+      {
+
+      }
+
       $validatedData = $request->validate([
         'price' => 'required|numeric',
         'project_id' => 'required|numeric',

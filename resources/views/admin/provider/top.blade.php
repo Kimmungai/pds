@@ -71,6 +71,9 @@
       @if (Session::has('update_error'))
         <div class="alert alert-danger">
             {{ Session::get('update_error') }}
+            @if(session('daily_bidding_limit'))
+              <a class="btn btn-danger pull-right" href="/provider-membership"><span class="fa fa-star"></span> Upgrade membership plan</a>
+            @endif
         </div>
       @endif
       <!-- Breadcrumbs-->
@@ -265,7 +268,11 @@
                     <div class="row">
                       <div class="col-md-12">
                         @if($project['final_price']=='')
-                        <button class="btn btn-success pull-right" type="submit"><i class="fa fa-bell"></i> Bid</button>
+                          @if(session('daily_bidding_limit'))
+                            <button class="btn btn-success bid-btn pull-right" disabled><i class="fa fa-bell-slash"></i> Bid (daily limit exhausted)</button>
+                          @else
+                            <button class="btn btn-success pull-right" type="submit"><i class="fa fa-bell"></i> Bid</button>
+                          @endif
                         @else
                         <button class="btn btn-success pull-right" disabled><i class="fa fa-bell-slash"></i> Bid</button>
                         @endif

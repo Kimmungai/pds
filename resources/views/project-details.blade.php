@@ -160,6 +160,9 @@
         @if (Session::has('update_error'))
           <div class="alert alert-danger">
               {{ Session::get('update_error') }}
+              @if(session('daily_bidding_limit'))
+                <a class="btn btn-default pull-right" href="/provider-membership"><span class="fa fa-star"></span> Upgrade membership plan</a>
+              @endif
           </div>
         @endif
         <div class="row">
@@ -359,8 +362,12 @@
             <div class="col-md-3 pull-right project-btn">
               @if(!Auth::user())
               <a class="btn btn-primary bid-btn pull-right" href="/service-provider-sign-up"><i class="fa fa-bell"></i> Bid</a>
-              @elseif($project['valid_period']==0 || $project['valid_period']=='')
-              <button class="btn btn-primary bid-btn pull-right" type="submit"><i class="fa fa-bell"></i> Bid</button>
+              @elseif($project['final_price']=='')
+                @if(session('daily_bidding_limit'))
+                  <button class="btn btn-primary bid-btn pull-right" disabled><i class="fa fa-bell-slash"></i> Bid (daily limit exhausted)</button>
+                @else
+                  <button class="btn btn-primary bid-btn pull-right" type="submit"><i class="fa fa-bell"></i> Bid</button>
+                @endif
               @else
               <button class="btn btn-primary bid-btn pull-right" disabled><i class="fa fa-bell-slash"></i> Bid</button>
               @endif
