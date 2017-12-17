@@ -98,18 +98,6 @@
               </div>
             @endif
             <div class="row">
-              <div class="col-xs-3  project-btn">
-                <a class="btn btn-primary " href="/provider-company-registration-back"><i class="fa  fa-chevron-left "></i> Back</a>
-              </div>
-              <div class="col-xs-3 col-xs-offset-6 project-btn">
-                @if(Session::has('finish_registration'))
-                <a class="btn btn-primary" href="/profile">Finish Registration</a>
-                @else
-                <a class="btn btn-primary" href="#" onclick="alert('PLease select a membership plan first')">Finish Registration</a>
-                @endif
-              </div>
-            </div>
-            <div class="row">
               <p class="p-center">Please select one of the plans. For paid plans, all payments will be processed through paypal</p>
               <p class="payment-icons p-center"><i class="fa fa-cc-paypal"></i> <i class="fa fa-cc-visa"></i> <i class="fa fa-cc-mastercard"></i></p>
 
@@ -127,18 +115,18 @@
                       <table class="table table-bordered">
                         <thead>
                           <tr>
-                            <th>Feature</th><td>Present?</td>
+                            <th>Feature</th><td>Details</td>
                           </tr>
                         </thead>
                         <tbody>
                           <tr>
-                            <th>Bidding access</th><td><i class="fa fa-check green"></i></td>
+                            <th>Bidding Access</th><td>2 bids per day</td>
                           </tr>
                           <tr>
-                            <th>Advertising space</th><td><i class="fa fa-check green"></i></td>
+                            <th>Portfolio Advertising</th><td><i class="fa fa-close red"></i></td>
                           </tr>
                           <tr>
-                            <th>Unlimited bidding</th><td><i class="fa fa-close red"></i></td>
+                            <th>Project alerts</th><td><i class="fa fa-check green"></i></td>
                           </tr>
                           <tr>
                             <th>Validity</th><td><strong>3 months</strong></td>
@@ -168,21 +156,32 @@
                     <table class="table table-bordered">
                       <thead>
                         <tr>
-                          <th>Feature</th><td>Present?</td>
+                          <th>Feature</th><td>Details</td>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
-                          <th>Bidding access</th><td><i class="fa fa-check green"></i></td>
+                          <th>Bidding access</th><td>7 bids per day</td>
                         </tr>
                         <tr>
-                          <th>Advertising space</th><td><i class="fa fa-check green"></i></td>
+                          <th>Portfolio Advertising</th><td>up to 5 projects</td>
                         </tr>
                         <tr>
-                          <th>Unlimited bidding</th><td><i class="fa fa-check green"></i></td>
+                          <th>Project Alerts</th><td><i class="fa fa-check green"></i></td>
                         </tr>
                         <tr>
-                          <th>Billing cycle</th><td><strong>Monthly</strong></td>
+                          <th>Price</th><td><strong>Ksh. 10,000</strong></td>
+                        </tr>
+                        <tr>
+                          <th>Billing cycle</th>
+                          <td>
+                            <select name="billing-cycle" class="form-control">
+                              <option value="1" <?php if(session('billing_cycle') && session('billing_cycle')==1){?>selected<?php }?>>Monthly</option>
+                              <option value="4" <?php if(session('billing_cycle') && session('billing_cycle')==4){?>selected<?php }?>>Quarterly</option>
+                              <option value="6" <?php if(session('billing_cycle') && session('billing_cycle')==6){?>selected<?php }?>>Half year</option>
+                              <option value="12" <?php if(session('billing_cycle') && session('billing_cycle')==12){?>selected<?php }?>>Annually</option>
+                            </select>
+                          </td>
                         </tr>
                       </tbody>
                     </table>
@@ -211,29 +210,40 @@
                     <table class="table table-bordered">
                       <thead>
                         <tr>
-                          <th>Feature</th><td>Present?</td>
+                          <th>Feature</th><td>Details</td>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
-                          <th>Bidding access</th><td><i class="fa fa-check green"></i></td>
+                          <th>Bidding access</th><td>14 bids per day</td>
                         </tr>
                         <tr>
-                          <th>Advertising space</th><td><i class="fa fa-check green"></i></td>
+                          <th>Portfolio Advertising</th><td>Up to 10 projects</td>
                         </tr>
                         <tr>
-                          <th>Unlimited bidding</th><td><i class="fa fa-check green"></i></td>
+                          <th>Project Alerts</th><td><i class="fa fa-check green"></i></td>
                         </tr>
                         <tr>
-                          <th>Billing cycle</th><td><strong>Quarterly</strong></td>
+                          <th>Price</th><td><strong>Ksh. 20,000</strong></td>
+                        </tr>
+                        <tr>
+                          <th>Billing cycle</th>
+                          <td>
+                            <select name="billing-cycle" class="form-control">
+                              <option value="1" <?php if(session('billing_cycle') && session('billing_cycle')==1){?>selected<?php }?>>Monthly</option>
+                              <option value="4" <?php if(session('billing_cycle') && session('billing_cycle')==4){?>selected<?php }?>>Quarterly</option>
+                              <option value="6" <?php if(session('billing_cycle') && session('billing_cycle')==6){?>selected<?php }?>>Half year</option>
+                              <option value="12" <?php if(session('billing_cycle') && session('billing_cycle')==12){?>selected<?php }?>>Annually</option>
+                            </select>
+                          </td>
                         </tr>
                       </tbody>
                     </table>
                   </div>
                   @if((Session::has('plan') && Session('plan')!=3) || !Session::has('plan'))
-                    <button class="btn btn-primary form-control green-bg inactive-step" type="submit"> Subscribe (Ksh. 27,500)</button>
+                    <button class="btn btn-primary form-control green-bg inactive-step" type="submit"> Subscribe (Ksh. 20,000)</button>
                   @else
-                    <button class="btn btn-primary form-control green-bg" type="submit"> Current plan (Ksh. 27,500)</button>
+                    <button class="btn btn-primary form-control green-bg" type="submit"> Current plan (Ksh. 20,000)</button>
                   @endif
                 </form>
                 </div>
@@ -252,34 +262,102 @@
                     <table class="table table-bordered">
                       <thead>
                         <tr>
-                          <th>Feature</th><td>Present?</td>
+                          <th>Feature</th><td>Details</td>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
-                          <th>Bidding access</th><td><i class="fa fa-check green"></i></td>
+                          <th>Bidding access</th><td>Unlimited</td>
                         </tr>
                         <tr>
-                          <th>Advertising space</th><td><i class="fa fa-check green"></i></td>
+                          <th>Portfolio Advertising</th><td>Unlimited</td>
                         </tr>
                         <tr>
-                          <th>Unlimited bidding</th><td><i class="fa fa-check green"></i></td>
+                          <th>Project Alerts</th><td><i class="fa fa-check green"></i></td>
                         </tr>
                         <tr>
-                          <th>Billing cycle</th><td><strong>Yearly</strong></td>
+                          <th>Price</th><td><strong>Ksh. 35,000</strong></td>
+                        </tr>
+                        <tr>
+                          <th>Billing cycle</th>
+                          <td>
+                            <select name="billing-cycle" class="form-control">
+                              <option value="1" <?php if(session('billing_cycle') && session('billing_cycle')==1){?>selected<?php }?>>Monthly</option>
+                              <option value="4" <?php if(session('billing_cycle') && session('billing_cycle')==4){?>selected<?php }?>>Quarterly</option>
+                              <option value="6" <?php if(session('billing_cycle') && session('billing_cycle')==6){?>selected<?php }?>>Half year</option>
+                              <option value="12" <?php if(session('billing_cycle') && session('billing_cycle')==12){?>selected<?php }?>>Annually</option>
+                            </select>
+                          </td>
                         </tr>
                       </tbody>
                     </table>
                   </div>
                   @if((Session::has('plan') && Session('plan')!=4) || !Session::has('plan'))
-                    <button class="btn btn-primary form-control green-bg inactive-step" type="submit"> Subscribe (Ksh. 100,000)</button>
+                    <button class="btn btn-primary form-control green-bg inactive-step" type="submit"> Subscribe (Ksh. 35,000)</button>
                   @else
-                    <button class="btn btn-primary form-control green-bg" type="submit"> Current plan (Ksh. 100,000)</button>
+                    <button class="btn btn-primary form-control green-bg" type="submit"> Current plan (Ksh. 35,000)</button>
                   @endif
                 </div>
               </form>
               </div>
             </div>
+            @if (Session::has('plan') && Session('plan')==2)
+            <div class="row">
+              <div class="col-xs-12 seleted-plan">
+                <hr>
+                <div class="panel panel-success">
+                  <div class="panel-heading"><i class="fa fa-fw fa-star-o"></i> Basic plan</div>
+                  <div class="panel-body">
+                    <ul class="list-group plan-info">
+                      <li class="list-group-item">Bidding limit: <strong>7 per day</strong></li>
+                      <li class="list-group-item">Portfolio advertisement: <strong>Up to 5 projects</strong></li>
+                      <li class="list-group-item">Latest projects view: <strong>Unlimited</strong></li>
+                      <li class="list-group-item">New projects alerts: <strong>Yes</strong></li>
+                    </ul>
+                    <div id="pay-btn"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            @endif
+            @if (Session::has('plan') && Session('plan')==3)
+            <div class="row">
+              <div class="col-xs-12 seleted-plan">
+                <hr>
+                <div class="panel panel-success">
+                  <div class="panel-heading"><i class="fa fa-fw fa-star-half-full"></i> Silver plan</div>
+                  <div class="panel-body">
+                    <ul class="list-group plan-info">
+                      <li class="list-group-item">Bidding limit: <strong>7 per day</strong></li>
+                      <li class="list-group-item">Portfolio advertisement: <strong>Up to 10 projects</strong></li>
+                      <li class="list-group-item">Latest projects view: <strong>Unlimited</strong></li>
+                      <li class="list-group-item">New projects alerts: <strong>Yes</strong></li>
+                    </ul>
+                    <div id="pay-btn"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            @endif
+            @if (Session::has('plan') && Session('plan')==4)
+            <div class="row">
+              <div class="col-xs-12 seleted-plan">
+                <hr>
+                <div class="panel panel-success">
+                  <div class="panel-heading"><i class="fa fa-fw fa-star"></i> Gold plan</div>
+                  <div class="panel-body">
+                    <ul class="list-group plan-info">
+                      <li class="list-group-item">Bidding limit: <strong>Unlimited</strong></li>
+                      <li class="list-group-item">Portfolio advertisement: <strong>All  projects</strong></li>
+                      <li class="list-group-item">Latest projects view: <strong>Unlimited</strong></li>
+                      <li class="list-group-item">New projects alerts: <strong>Yes</strong></li>
+                    </ul>
+                    <div id="pay-btn"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            @endif
             <div class="row">
               <div class="col-xs-3  project-btn">
                 <a class="btn btn-primary " href="/provider-company-registration-back"><i class="fa  fa-chevron-left "></i> Back</a>
@@ -298,4 +376,76 @@
     </div>
   </div>
 </section>
+@if (Session::has('plan'))
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+<script src="https://www.paypalobjects.com/api/checkout.js"></script>
+<script>
+paypal.Button.render({
+
+    env: 'production', // Or 'sandbox'
+
+    client: {
+        sandbox:    'AVmtFmCtIYmW-wowsvx_G77friO7Y0kD8sHa3j1wpw-2BinKjbq1tFqUgSnPCOzp6K_h-lj8t4_DbYUe',
+        production: 'AVmHEmP0XXrZ6g39PR8jQLCtkU6z3sI7g_8dAHE7Zieeh8OMO_Gam1F-IF9H51GnieOMPQxUZE_K0qxw'
+    },
+
+
+    commit: true, // Show a 'Pay Now' button
+
+    payment: function(data, actions) {
+        return actions.payment.create({
+            payment: {
+                transactions: [
+                    {
+                        amount: { total: {{session('total_subscription_fee')}}, currency: 'USD' }
+                    }
+                ]
+            }
+        });
+    },
+
+    onAuthorize: function(data, actions) {
+        return actions.payment.execute().then(function(payment) {
+
+            // The payment is complete!
+            // You can now show a confirmation message to the customer
+            call_after_paypal_payment();
+        });
+    },
+    onCancel: function(data, actions) {
+        // Show a cancel page or return to cart
+    }
+
+
+}, '#pay-btn');
+</script>
+<script>
+$('html,body').animate({scrollTop: $(".seleted-plan").offset().top },2000);
+</script>
+<script>
+function call_after_paypal_payment()
+{
+  $.get("/provider-renew-membership",
+        {
+          choosen_plan:{{session('plan')}},
+          billing_cycle:{{session('billing_cycle')}},
+          total_price:{{session('total_subscription_fee')}}
+        },
+        function(data,status){
+          if(data==1)
+          {
+            var goOn=confirm('Payment successful. Your account is now ready');
+            if(goOn)
+            {
+              window.open('/profile','_self');
+            }
+            else {
+              location.reload();
+            }
+          }
+      });
+}
+</script>
+@endif
+
 @endsection

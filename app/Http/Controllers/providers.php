@@ -96,6 +96,7 @@ class providers extends Controller
     ]);
     //assign the user a membership
     $membership_type=$request->input('type');
+    session(['billing_cycle' => $request->input('billing-cycle')]);
     if($membership_type==1){
       $start_date=Carbon::now();
       $end_date=Carbon::now()->addMonths(3);
@@ -103,12 +104,22 @@ class providers extends Controller
       $plan='Promotional Plan';
       session(['plan'=>1]);
       $this->create_membership($membership_type,$price,$start_date,$end_date,$plan);
+      session(['total_subscription_fee'=>0]);
     }else if($membership_type==2){
-      return redirect('https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=M67CN4BLHKHUE');
+      //return redirect('https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=M67CN4BLHKHUE');
+      session(['plan'=>2]);
+      $total=100 * session('billing_cycle');
+      session(['total_subscription_fee'=>$total]);
     }else if($membership_type==3){
-      return redirect('https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=24YT9AAUYSD4U');
+      //return redirect('https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=24YT9AAUYSD4U');
+      session(['plan'=>3]);
+      $total=200*session('billing_cycle');
+      session(['total_subscription_fee'=>$total]);
     }else if($membership_type==4){
-      return redirect('https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=F248MB6X66M38');
+      //return redirect('https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=F248MB6X66M38');
+      session(['plan'=>4]);
+      $total=350*session('billing_cycle');
+      session(['total_subscription_fee'=>$total]);
     }
     return redirect('service-provider-subscription');
   }
@@ -351,5 +362,29 @@ class providers extends Controller
     $provider=User::with('company')->where('id','=',$provider_id)->first();
     $projects_completed=count(Project::where('winner','=',$provider_id)->get());
     return view('provider-public-profile',compact('provider','projects_completed'));
+  }
+  public function renew_membership()
+  {
+    $chosen_plan=$_GET['choosen_plan'];
+    $billing_cycle=$_GET['billing_cycle'];
+    $price=$_GET['total_price'];
+    $dt=Carbon::now();
+    if(UserMembership::where('user_id','=',Auth::id())->update([
+      'type' => $chosen_plan,
+      'start_date' => Carbon::now(),
+      'end_date' => $dt->addMonths($billing_cycle),
+      'price' => $price,
+    ]))
+    {
+      session(['finish_registration'=>1]);
+      session(['plan'=>$chosen_plan]);
+      return 1;
+    }
+    else {
+      session()->forget('finish_registration');
+      session()->forget('plan');
+      session()->forget('billing_cycle');
+      return 0;
+    }
   }
 }

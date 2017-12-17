@@ -66,7 +66,7 @@
       <!-- Icon Cards-->
       <div class="row">
         <div class="col-xl-3 col-sm-6 mb-3" onclick="scrollToPayment(1)">
-          <div class="card text-white bg-primary o-hidden h-100">
+          <div class="card text-white bg-primary o-hidden h-100 promotional">
             <div class="card-body">
               <div class="card-body-icon">
                 <i class="fa fa-fw fa-star-half"></i>
@@ -87,7 +87,7 @@
           </div>
         </div>
         <div class="col-xl-3 col-sm-6 mb-3" onclick="scrollToPayment(2)">
-          <div class="card text-white bg-info o-hidden h-100">
+          <div class="card text-white bg-info o-hidden h-100 basic">
             <div class="card-body">
               <div class="card-body-icon">
                 <i class="fa fa-fw fa-star-o"></i>
@@ -108,7 +108,7 @@
           </div>
         </div>
         <div class="col-xl-3 col-sm-6 mb-3" onclick="scrollToPayment(3)">
-          <div class="card text-white bg-secondary o-hidden h-100">
+          <div class="card text-white bg-secondary o-hidden h-100 silver">
             <div class="card-body">
               <div class="card-body-icon">
                 <i class="fa fa-fw fa-star-half-full"></i>
@@ -129,7 +129,7 @@
           </div>
         </div>
         <div class="col-xl-3 col-sm-6 mb-3" onclick="scrollToPayment(4)">
-          <div class="card text-white bg-warning o-hidden h-100">
+          <div class="card text-white bg-warning o-hidden h-100 gold">
             <div class="card-body">
               <div class="card-body-icon">
                 <i class="fa fa-fw fa-star"></i>
@@ -151,10 +151,10 @@
         </div>
       </div>
       <!-- Area Chart Example-->
-      <div id="payment-section" class="card mb-3">
-        <div class="card-header">
-          <i class="fa fa-list"></i> Your subscription details</div>
-        <div class="card-body">
+      <div id="payment-section" class="card mb-3" >
+        <div class="card-header" onclick="display_effect('current-subscription-sec')">
+          <i class="fa fa-list"></i> Your current subscription</div>
+        <div id="current-subscription-sec" class="card-body">
           <div class="form-group row">
             <label for="example-search-input" class="col-2 col-form-label">Subscription start date</label>
             <div class="col-10">
@@ -175,72 +175,145 @@
           </div>
           </div>
         </div>
-        <div class="card-footer small text-muted"></div>
         <div class="card mb-3">
-          <div class="card-header">
+          <div class="card-header" onclick="display_effect('subscription-renewal-sec')">
             <i class="fa fa-cc-visa"></i> <i class="fa fa-cc-mastercard"></i> <i class="fa fa-cc-paypal"></i> Subscription renewal</div>
-          <div class="card-body">
+          <div id="subscription-renewal-sec" class="card-body">
             <div class="form-group row">
               <label for="example-search-input" class="col-2 col-form-label">Subscription Plan</label>
               <div class="col-10">
                 <select class="form-control" id="selected-plan" onchange="scrollToPayment(this.value)">
-                  <option value="1" disabled <?php if($membership->type==1){?>selected<?php }?>>Promotional plan (FREE)</option>
-                  <option value="2" <?php if($membership->type==2){?>selected<?php }?>>Basic plan (Ksh. 10,000 / month)</option>
+                  <option value="1" disabled>Promotional plan (FREE)</option>
+                  <option value="2" <?php if($membership->type==2 || $membership->type==1){?>selected<?php }?>>Basic plan (Ksh. 10,000 / month)</option>
                   <option value="3" <?php if($membership->type==3){?>selected<?php }?>>Silver plan (Ksh. 20,000 / month)</option>
                   <option value="4" <?php if($membership->type==4){?>selected<?php }?>>Gold plan (Ksh. 35,000 / month)</option>
                 </select>
               </div>
             </div>
-            <div class="form-group row">
-              <label for="example-search-input" class="col-2 col-form-label">Payment method</label>
+
+            <div class="form-group row plan-features basic-features no-display">
+              <label for="example-search-input" class="col-2 col-form-label">Plan features</label>
               <div class="col-10">
-                <select class="form-control">
-                  <option value="1">Pay pal</option>
-                </select>
+                <ul class="list-group plan-info">
+                  <li class="list-group-item bg-info text-white"><i class="fa fa-fw fa-star-o"></i> Basic plan</li>
+                  <li class="list-group-item">Bidding limit: <strong>7 per day</strong></li>
+                  <li class="list-group-item">Portfolio advertisement: <strong>Up to 5 projects</strong></li>
+                  <li class="list-group-item">Latest projects view: <strong>Unlimited</strong></li>
+                  <li class="list-group-item">New projects alerts: <strong>Yes</strong></li>
+                </ul>
               </div>
             </div>
+            <div class="form-group row plan-features silver-features no-display">
+              <label for="example-search-input" class="col-2 col-form-label">Plan features</label>
+              <div class="col-10">
+                <ul class="list-group plan-info">
+                  <li class="list-group-item bg-secondary text-white"><i class="fa fa-fw fa-star-half-full"></i> Silver plan</li>
+                  <li class="list-group-item">Bidding limit: <strong>7 per day</strong></li>
+                  <li class="list-group-item">Portfolio advertisement: <strong>Up to 10 projects</strong></li>
+                  <li class="list-group-item">Latest projects view: <strong>Unlimited</strong></li>
+                  <li class="list-group-item">New projects alerts: <strong>Yes</strong></li>
+                </ul>
+              </div>
+            </div>
+            <div class="form-group row plan-features gold-features no-display">
+              <label for="example-search-input" class="col-2 col-form-label">Plan features</label>
+              <div class="col-10">
+                <ul class="list-group plan-info">
+                  <li class="list-group-item bg-warning text-white"><i class="fa fa-fw fa-star"></i> Gold plan</li>
+                  <li class="list-group-item">Bidding limit: <strong>Unlimited</strong></li>
+                  <li class="list-group-item">Portfolio advertisement: <strong>All  projects</strong></li>
+                  <li class="list-group-item">Latest projects view: <strong>Unlimited</strong></li>
+                  <li class="list-group-item">New projects alerts: <strong>Yes</strong></li>
+                </ul>
+              </div>
+            </div>
+
+              <div class="form-group row">
+                <label for="example-search-input" class="col-2 col-form-label">Payment method</label>
+                <div class="col-10">
+                  <select id="billing-cycle" class="form-control" onchange="scrollToPayment(document.getElementById('selected-plan').value)">
+                    <option value="1">Monthly</option>
+                    <option value="4">Quarterly</option>
+                    <option value="6">Half year</option>
+                    <option value="12">Annually</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="example-search-input" class="col-2 col-form-label">Payment method</label>
+                <div class="col-10">
+                  <select class="form-control">
+                    <option value="1">Pay pal</option>
+                  </select>
+                </div>
+              </div>
+
             <div class="form-group row">
               <label for="example-search-input" class="col-2 col-form-label"></label>
               <div class="col-10">
                 <div id="pay-btn"></div>
               </div>
             </div>
+        </div>
             </div>
           </div>
       </div>
     </div>
+    <div id="payment-success" data-toggle="modal" data-target="#paymentOk"></div>
     <!-- /.container-fluid-->
     <script>
-    var pesa='';
+    var pesa=100;
+    var choosen_plan=2;
+    var billing_cycle=1;
       function scrollToPayment(type)
       {
+        $('.plan-features').addClass('no-display');
+        var billing_cycle=parseInt($('#billing-cycle').val());
         $('html,body').animate({scrollTop: $("#payment-section").offset().top },2000);
         if(type==1){$('#pay-btn').addClass('disabled');}else{$('#pay-btn').removeClass('disabled');}
         $('#selected-plan').val(type);
-
-        if(type==2)
+        $('.card').removeClass('choosen-plan');
+        if(type==1)
         {
-          pesa='100.00';
+          pesa='';
+          choosen_plan='';
+          $('.promotional').addClass('choosen-plan');
+        }
+        else if(type==2)
+        {
+          pesa=100 * billing_cycle;
+          choosen_plan=2;
+          $('.basic').addClass('choosen-plan');
+          $('.basic-features').removeClass('no-display');
         }
         else if(type==3)
         {
-        pesa='200.00';
+          pesa=200 * billing_cycle;
+          choosen_plan=3;
+          $('.silver').addClass('choosen-plan');
+          $('.silver-features').removeClass('no-display');
         }
         else if(type==4)
         {
-          pesa='350.00';
+          pesa=350 * billing_cycle;
+          choosen_plan=4;
+          $('.gold').addClass('choosen-plan');
+          $('.gold-features').removeClass('no-display');
         }
         else {
           pesa='';
+          choosen_plan='';
+          $('.card').removeClass('choosen-plan');
         }
 
       }
     </script>
-     <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+    <script src="https://www.paypalobjects.com/api/checkout.js"></script>
     <script>
     paypal.Button.render({
 
-        env: 'sandbox', // Or 'sandbox'
+        env: 'production', // Or 'sandbox'
 
         client: {
             sandbox:    'AVmtFmCtIYmW-wowsvx_G77friO7Y0kD8sHa3j1wpw-2BinKjbq1tFqUgSnPCOzp6K_h-lj8t4_DbYUe',
@@ -269,14 +342,30 @@
                 // You can now show a confirmation message to the customer
                 call_after_paypal_payment();
             });
+        },
+        onCancel: function(data, actions) {
+            // Show a cancel page or return to cart
         }
+
 
     }, '#pay-btn');
 </script>
 <script>
 function call_after_paypal_payment()
 {
-  alert('nyau');
+
+  $.get("/provider-renew-membership",
+        {
+          choosen_plan:choosen_plan,
+          billing_cycle:$('#billing-cycle').val(),
+          total_price:pesa
+        },
+        function(data,status){
+        if(data==1)
+        {
+          $('#payment-success').click();
+        }
+      });
 }
 </script>
 @endsection

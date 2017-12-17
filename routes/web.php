@@ -104,6 +104,7 @@ Route::get('/provider-membership','providers@membership')->name('Provider Member
 Route::get('/provider-chats','providers@chats')->name('Provider Chats')->middleware('auth');
 Route::get('/provider-alerts','providers@alerts')->name('Provider Alerts')->middleware('auth');
 Route::get('/provider-profile/{provider_id}','providers@public_profile')->name('Provider public profile');
+Route::get('/provider-renew-membership','providers@renew_membership')->middleware('provider');
 //Projects
 Route::post('/new-project', 'projects@create')->name('Create Project')->middleware('client');
 Route::get('/project-basic-back/{id}','projects@basic_back')->name('Back to basic')->middleware('auth');
