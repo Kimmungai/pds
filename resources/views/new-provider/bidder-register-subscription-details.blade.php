@@ -75,9 +75,9 @@
       <div class="strip"></div>
       <div class="col-md-8 col-md-offset-2">
         <div class="row">
-          <div class="col-xs-4"><div class="desired-feature dark-bg white inactive-step"><i class="fa">1</i><p>Contacts <br /><i class="fa fa-check"></i></p></div></div>
-          <div class="col-xs-4"><div class="desired-feature dark-bg white inactive-step"><i class="fa">2</i><p>Company <br /><i class="fa fa-check"></i></p></div></div>
-          <div class="col-xs-4"><div class="desired-feature dark-bg white"><i class="fa">3</i><p>Subscribe</p></div></div>
+          <div class="col-xs-4"><div class="desired-feature dark-bg white inactive-step"><span class="fa">1</span><p>Contacts <br /><span class="fa fa-check"></span></p></div></div>
+          <div class="col-xs-4"><div class="desired-feature dark-bg white inactive-step"><span class="fa">2</span><p>Company <br /><span class="fa fa-check"></span></p></div></div>
+          <div class="col-xs-4"><div class="desired-feature dark-bg white"><span class="fa">3</span><p>Subscribe</p></div></div>
         </div>
         <div class="row">
           <article class="subscription-area">
@@ -99,7 +99,7 @@
             @endif
             <div class="row">
               <p class="p-center">Please select one of the plans. For paid plans, all payments will be processed through paypal</p>
-              <p class="payment-icons p-center"><i class="fa fa-cc-paypal"></i> <i class="fa fa-cc-visa"></i> <i class="fa fa-cc-mastercard"></i></p>
+              <p class="payment-icons p-center"><span class="fa fa-cc-paypal"></span> <span class="fa fa-cc-visa"></span> <span class="fa fa-cc-mastercard"></span></p>
 
               <div class="col-md-6">
                 <div class="membership-plan">
@@ -108,7 +108,7 @@
                     <input type="hidden" name="type" value="1" />
                     <h5>Promotional
                       @if (Session::has('plan') && Session('plan')==1)
-                      <i class="fa fa-check-circle green"></i>
+                      <span class="fa fa-check-circle green"></span>
                       @endif
                     </h5>
                     <div class="table-responsive">
@@ -123,10 +123,10 @@
                             <th>Bidding Access</th><td>2 bids per day</td>
                           </tr>
                           <tr>
-                            <th>Portfolio Advertising</th><td><i class="fa fa-close red"></i></td>
+                            <th>Portfolio Advertising</th><td><span class="fa fa-close red"></span></td>
                           </tr>
                           <tr>
-                            <th>Project alerts</th><td><i class="fa fa-check green"></i></td>
+                            <th>Project alerts</th><td><span class="fa fa-check green"></span></td>
                           </tr>
                           <tr>
                             <th>Validity</th><td><strong>3 months</strong></td>
@@ -149,7 +149,7 @@
                     <input type="hidden" name="type" value="2" />
                   <h5>Basic
                     @if (Session::has('plan') && Session('plan')==2)
-                    <i class="fa fa-check-circle green"></i>
+                    <span class="fa fa-check-circle green"></span>
                     @endif
                   </h5>
                   <div class="table-responsive">
@@ -167,7 +167,7 @@
                           <th>Portfolio Advertising</th><td>up to 5 projects</td>
                         </tr>
                         <tr>
-                          <th>Project Alerts</th><td><i class="fa fa-check green"></i></td>
+                          <th>Project Alerts</th><td><span class="fa fa-check green"></span></td>
                         </tr>
                         <tr>
                           <th>Price</th><td><strong>Ksh. 10,000</strong></td>
@@ -203,7 +203,7 @@
                     <input type="hidden" name="type" value="3" />
                   <h5>Silver
                     @if (Session::has('plan') && Session('plan')==3)
-                    <i class="fa fa-check-circle green"></i>
+                    <span class="fa fa-check-circle green"></span>
                     @endif
                   </h5>
                   <div class="table-responsive">
@@ -221,7 +221,7 @@
                           <th>Portfolio Advertising</th><td>Up to 10 projects</td>
                         </tr>
                         <tr>
-                          <th>Project Alerts</th><td><i class="fa fa-check green"></i></td>
+                          <th>Project Alerts</th><td><span class="fa fa-check green"></span></td>
                         </tr>
                         <tr>
                           <th>Price</th><td><strong>Ksh. 20,000</strong></td>
@@ -255,7 +255,7 @@
                     <input type="hidden" name="type" value="4" />
                   <h5>Gold
                     @if (Session::has('plan') && Session('plan')==4)
-                    <i class="fa fa-check-circle green"></i>
+                    <span class="fa fa-check-circle green"></span>
                     @endif
                   </h5>
                   <div class="table-responsive">
@@ -273,7 +273,7 @@
                           <th>Portfolio Advertising</th><td>Unlimited</td>
                         </tr>
                         <tr>
-                          <th>Project Alerts</th><td><i class="fa fa-check green"></i></td>
+                          <th>Project Alerts</th><td><span class="fa fa-check green"></span></td>
                         </tr>
                         <tr>
                           <th>Price</th><td><strong>Ksh. 35,000</strong></td>
@@ -306,7 +306,7 @@
               <div class="col-xs-12 seleted-plan">
                 <hr>
                 <div class="panel panel-success">
-                  <div class="panel-heading"><i class="fa fa-fw fa-star-o"></i> Basic plan</div>
+                  <div class="panel-heading"><span class="fa fa-fw fa-star-o"></span> Basic plan</div>
                   <div class="panel-body">
                     <ul class="list-group plan-info">
                       <li class="list-group-item">Bidding limit: <strong>7 per day</strong></li>
@@ -325,7 +325,7 @@
               <div class="col-xs-12 seleted-plan">
                 <hr>
                 <div class="panel panel-success">
-                  <div class="panel-heading"><i class="fa fa-fw fa-star-half-full"></i> Silver plan</div>
+                  <div class="panel-heading"><span class="fa fa-fw fa-star-half-full"></span> Silver plan</div>
                   <div class="panel-body">
                     <ul class="list-group plan-info">
                       <li class="list-group-item">Bidding limit: <strong>7 per day</strong></li>
@@ -344,7 +344,7 @@
               <div class="col-xs-12 seleted-plan">
                 <hr>
                 <div class="panel panel-success">
-                  <div class="panel-heading"><i class="fa fa-fw fa-star"></i> Gold plan</div>
+                  <div class="panel-heading"><span class="fa fa-fw fa-star"></span> Gold plan</div>
                   <div class="panel-body">
                     <ul class="list-group plan-info">
                       <li class="list-group-item">Bidding limit: <strong>Unlimited</strong></li>
@@ -360,7 +360,7 @@
             @endif
             <div class="row">
               <div class="col-xs-3  project-btn">
-                <a class="btn btn-primary " href="/provider-company-registration-back"><i class="fa  fa-chevron-left "></i> Back</a>
+                <a class="btn btn-primary " href="/provider-company-registration-back"><span class="fa  fa-chevron-left "></span> Back</a>
               </div>
               <div class="col-xs-3 col-xs-offset-6 project-btn">
                 @if(Session::has('finish_registration'))

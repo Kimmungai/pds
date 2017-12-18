@@ -76,9 +76,9 @@
       <div class="strip"></div>
       <div class="col-md-8 col-md-offset-2">
         <div class="row">
-          <div class="col-xs-4"><div class="desired-feature dark-bg white"><i class="fa">1</i><p>Basic details</p></div></div>
-          <div class="col-xs-4"><div class="desired-feature dark-bg white inactive-step"><i class="fa">2</i><p>Features</p></div></div>
-          <div class="col-xs-4"><div class="desired-feature dark-bg white inactive-step"><i class="fa">3</i><p>Plan</p></div></div>
+          <div class="col-xs-4"><div class="desired-feature dark-bg white"><span class="fa">1</span><p>Basic details</p></div></div>
+          <div class="col-xs-4"><div class="desired-feature dark-bg white inactive-step"><span class="fa">2</span><p>Features</p></div></div>
+          <div class="col-xs-4"><div class="desired-feature dark-bg white inactive-step"><span class="fa">3</span><p>Plan</p></div></div>
         </div>
         <div class="row">
           @if(isset($data))
@@ -166,10 +166,10 @@
               </div>
               <div class="row">
                 <div class="col-xs-3  project-btn">
-                  <button class="btn btn-primary" href="/"><i class="fa  fa-chevron-left "></i> Home</button>
+                  <button class="btn btn-primary" href="/"><span class="fa  fa-chevron-left "></span> Home</button>
                 </div>
                 <div class="col-xs-offset-6 col-xs-3  project-btn">
-                  <button class="btn btn-primary" type="submit">Next <i class="fa  fa-chevron-right "></i></a>
+                  <button class="btn btn-primary" type="submit">Next <span class="fa  fa-chevron-right "></span></a>
                 </div>
               </div>
             </article>
@@ -257,10 +257,10 @@
               </div>
               <div class="row">
                 <div class="col-xs-3  project-btn">
-                  <button class="btn btn-primary" href="/"><i class="fa  fa-chevron-left "></i> Home</button>
+                  <button class="btn btn-primary" href="/"><span class="fa  fa-chevron-left "></span> Home</button>
                 </div>
                 <div class="col-xs-offset-6 col-xs-3  project-btn">
-                  <button class="btn btn-primary" type="submit">Next <i class="fa  fa-chevron-right "></i></a>
+                  <button class="btn btn-primary" type="submit">Next <span class="fa  fa-chevron-right "></span></a>
                 </div>
               </div>
             </article>

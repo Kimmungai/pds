@@ -111,26 +111,26 @@
               <h4 class="text-muted">Desired features</h4>
               <div class="row">
                 @if($project['projectType']['feature1'])
-                <div class="col-xs-6"><div class="desired-feature"><i class="fa fa-cart-plus"></i><p>Check out</p></div></div>
+                <div class="col-xs-6"><div class="desired-feature"><span class="fa fa-cart-plus"></span><p>Check out</p></div></div>
                 @else
-                 <div class="col-xs-6"><div class="desired-feature"><i class="fa fa-exclamation-triangle"></i><p>Unspecified</p></div></div>
+                 <div class="col-xs-6"><div class="desired-feature"><span class="fa fa-exclamation-triangle"></span><p>Unspecified</p></div></div>
                 @endif
                 @if($project['projectType']['feature2'])
-                <div class="col-xs-6"><div class="desired-feature"><i class="fa fa-desktop"></i> <i class="fa fa-tablet"></i> <i class="fa  fa-mobile"></i><p>Responsive</p></div></div>
+                <div class="col-xs-6"><div class="desired-feature"><span class="fa fa-desktop"></span> <span class="fa fa-tablet"></span> <span class="fa  fa-mobile"></span><p>Responsive</p></div></div>
                 @else
-                 <div class="col-xs-6"><div class="desired-feature"><i class="fa fa-exclamation-triangle"></i><p>Unspecified</p></div></div>
+                 <div class="col-xs-6"><div class="desired-feature"><span class="fa fa-exclamation-triangle"></span><p>Unspecified</p></div></div>
                 @endif
               </div>
               <div class="row">
                 @if($project['projectType']['feature5'])
-                <div class="col-xs-6"><div class="desired-feature"><i class="fa fa-cloud-upload"></i><p>Cloud based</p></div></div>
+                <div class="col-xs-6"><div class="desired-feature"><span class="fa fa-cloud-upload"></span><p>Cloud based</p></div></div>
                 @else
-                 <div class="col-xs-6"><div class="desired-feature"><i class="fa fa-exclamation-triangle"></i><p>Unspecified</p></div></div>
+                 <div class="col-xs-6"><div class="desired-feature"><span class="fa fa-exclamation-triangle"></span><p>Unspecified</p></div></div>
                 @endif
                 @if($project['projectType']['feature6'])
-                 <div class="col-xs-6"><div class="desired-feature"><i class="fa fa-dashboard"></i><p>Admin panel</p></div></div>
+                 <div class="col-xs-6"><div class="desired-feature"><span class="fa fa-dashboard"></span><p>Admin panel</p></div></div>
                 @else
-                 <div class="col-xs-6"><div class="desired-feature"><i class="fa fa-exclamation-triangle"></i><p>Unspecified</p></div></div>
+                 <div class="col-xs-6"><div class="desired-feature"><span class="fa fa-exclamation-triangle"></span><p>Unspecified</p></div></div>
                 @endif
               </div>
             </div>
@@ -186,18 +186,18 @@
                        @else
                        <li class="list-group-item">Desired price: <span class="bold">Ksh. {{round($project['desired_price'],2)}}</span></li>
                        @endif
-                       <li class="list-group-item">Star rating: <span class="bold"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></span></li>
+                       <li class="list-group-item">Star rating: <span class="bold"><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star-o"></span><span class="fa fa-star-o"></span></span></li>
                        <li class="list-group-item">view profile: <span class="bold"><a href="/client-public-profile/{{$project['user']['id']}}">profile</a></span></li>
                    </ul>
                  </div>
                  @if(Auth::user() && !Auth::user()->userMembership->type)
                   <div class="project-actions">
-                    <a href="/project-details/{{$project['id']}}" class="btn btn-primary details-btn"><i class="fa  fa-list"></i> Details</a>
+                    <a href="/project-details/{{$project['id']}}" class="btn btn-primary details-btn"><span class="fa  fa-list"></span> Details</a>
                  </div>
                  @else
                  <div class="project-actions">
-                   <a href="/project-details/{{$project['id']}}" class="btn btn-primary details-btn"><i class="fa  fa-list"></i> Details</a>
-                   <a href="/project-details/{{$project['id']}}" class="btn btn-primary bid-btn pull-right"><i class="fa  fa-bell-o"></i> Place a bid</a>
+                   <a href="/project-details/{{$project['id']}}" class="btn btn-primary details-btn"><span class="fa  fa-list"></span> Details</a>
+                   <a href="/project-details/{{$project['id']}}" class="btn btn-primary bid-btn pull-right"><span class="fa  fa-bell-o"></span> Place a bid</a>
                 </div>
                 @endif
         </article>

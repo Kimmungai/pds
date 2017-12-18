@@ -51,7 +51,7 @@
   <div class="container section-decoration">
     @if (Session::has('update_success'))
       <div class="alert alert-success">
-          <i class="fa fa-check-circle"></i> {{ Session::get('update_success') }}
+          <span class="fa fa-check-circle"></span> {{ Session::get('update_success') }}
       </div>
     @endif
     @if (Session::has('update_error'))
@@ -80,9 +80,9 @@
           @elseif($provider['company']['company_industry']==4)
           <li class="list-group-item">Industry: <strong>Marketing</strong></li>
           @endif
-          <li class="list-group-item">Rating: <strong><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></strong></li>
+          <li class="list-group-item">Rating: <strong><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star-o"></span><span class="fa fa-star-o"></span></strong></li>
           @if($provider['admin_approved'])
-          <li class="list-group-item">Status: <i class="fa fa-certificate red"></i> <span class="green">Cerified</span></li>
+          <li class="list-group-item">Status: <span class="fa fa-certificate red"></span> <span class="green">Cerified</span></li>
           @endif
           <li class="list-group-item">Incorporation: <strong>{{\Carbon\Carbon::createFromTimeStamp(strtotime($provider['company']->company_incoporation_date))->diffForHumans()}}</strong></li>
         </ul>
@@ -95,7 +95,7 @@
       <div class="col-md-4 public-profile">
         <h4>Description</h4>
         <p>{{$provider['company']->company_description}}</p>
-        <a href="{{$provider['company']['company_website']}}" class="btn btn-primary pull-right details-btn buttonAnchor" target="_blank"><i class="fa fa-external-link "></i> Website</a>
+        <a href="{{$provider['company']['company_website']}}" class="btn btn-primary pull-right details-btn buttonAnchor" target="_blank"><span class="fa fa-external-link "></span> Website</a>
       </div>
     </div>
     <hr>
@@ -106,7 +106,7 @@
   <div class="container section-decoration">
     @if (Session::has('update_success'))
       <div class="alert alert-success">
-          <i class="fa fa-check-circle"></i> {{ Session::get('update_success') }}
+          <span class="fa fa-check-circle"></span> {{ Session::get('update_success') }}
       </div>
     @endif
     @if (Session::has('update_error'))
@@ -135,9 +135,9 @@
           @elseif($provider['company']['company_industry']==4)
           <li class="list-group-item">Industry: <strong>Marketing</strong></li>
           @endif
-          <li class="list-group-item">Rating: <strong><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></strong></li>
+          <li class="list-group-item">Rating: <strong><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star-o"></span><span class="fa fa-star-o"></span></strong></li>
           @if($provider['admin_approved'])
-          <li class="list-group-item">Status: <i class="fa fa-certificate red"></i> <span class="green">Cerified</span></li>
+          <li class="list-group-item">Status: <span class="fa fa-certificate red"></span> <span class="green">Cerified</span></li>
           @endif
           <li class="list-group-item">Incorporation: <strong>{{\Carbon\Carbon::createFromTimeStamp(strtotime($provider['company']->company_incoporation_date))->diffForHumans()}}</strong></li>
         </ul>
@@ -150,7 +150,7 @@
       <div class="col-md-4 public-profile">
         <h4>Description</h4>
         <p>{{$provider['company']->company_description}}</p>
-        <a href="{{$provider['company']['company_website']}}" class="btn btn-primary pull-right details-btn buttonAnchor" target="_blank"><i class="fa fa-external-link "></i> Website</a>
+        <a href="{{$provider['company']['company_website']}}" class="btn btn-primary pull-right details-btn buttonAnchor" target="_blank"><span class="fa fa-external-link "></span> Website</a>
       </div>
     </div>
     <hr>

@@ -75,9 +75,9 @@
       <div class="strip"></div>
       <div class="col-md-8 col-md-offset-2">
         <div class="row">
-          <div class="col-xs-4"><div class="desired-feature dark-bg white inactive-step"><i class="fa">1</i><p>Contacts <br /><i class="fa fa-check"></i></p></div></div>
-          <div class="col-xs-4"><div class="desired-feature dark-bg white"><i class="fa">2</i><p>Company</p></div></div>
-          <div class="col-xs-4"><div class="desired-feature dark-bg white inactive-step"><i class="fa">3</i><p>Subscribe</p></div></div>
+          <div class="col-xs-4"><div class="desired-feature dark-bg white inactive-step"><span class="fa">1</span><p>Contacts <br /><span class="fa fa-check"></span></p></div></div>
+          <div class="col-xs-4"><div class="desired-feature dark-bg white"><span class="fa">2</span><p>Company</p></div></div>
+          <div class="col-xs-4"><div class="desired-feature dark-bg white inactive-step"><span class="fa">3</span><p>Subscribe</p></div></div>
         </div>
         <div class="row">
           <article>
@@ -241,7 +241,7 @@
 
                 </div>
                 <div class="col-xs-3 col-xs-offset-6 project-btn">
-                  <button class="btn btn-primary" type="submit">Next <i class="fa  fa-chevron-right "></i></button>
+                  <button class="btn btn-primary" type="submit">Next <span class="fa  fa-chevron-right "></span></button>
                 </div>
               </div>
              </form>
@@ -388,7 +388,7 @@
 
               </div>
               <div class="col-xs-3 col-xs-offset-6 project-btn">
-                <button class="btn btn-primary" type="submit">Next <i class="fa  fa-chevron-right "></i></button>
+                <button class="btn btn-primary" type="submit">Next <span class="fa  fa-chevron-right "></span></button>
               </div>
             </div>
            </form>

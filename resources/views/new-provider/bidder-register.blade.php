@@ -76,9 +76,9 @@
       <div class="strip"></div>
       <div class="col-md-8 col-md-offset-2">
         <div class="row">
-          <div class="col-xs-4"><div class="desired-feature dark-bg white"><i class="fa">1</i><p>Contacts</p></div></div>
-          <div class="col-xs-4"><div class="desired-feature dark-bg white inactive-step"><i class="fa">2</i><p>Company</p></div></div>
-          <div class="col-xs-4"><div class="desired-feature dark-bg white inactive-step"><i class="fa">3</i><p>Subscribe</p></div></div>
+          <div class="col-xs-4"><div class="desired-feature dark-bg white"><span class="fa">1</span><p>Contacts</p></div></div>
+          <div class="col-xs-4"><div class="desired-feature dark-bg white inactive-step"><span class="fa">2</span><p>Company</p></div></div>
+          <div class="col-xs-4"><div class="desired-feature dark-bg white inactive-step"><span class="fa">3</span><p>Subscribe</p></div></div>
         </div>
         <div class="row">
           <article>
@@ -178,13 +178,13 @@
               </div>
             <div class="row">
               <div class="col-xs-3  project-btn">
-                <a class="btn btn-primary" href="/"><i class="fa  fa-chevron-left "></i> Home</a>
+                <a class="btn btn-primary" href="/"><span class="fa  fa-chevron-left "></span> Home</a>
               </div>
               <div class="col-xs-3 col-xs-offset-6 project-btn">
                 @if (Session::has('deactivate-next'))
-                  <button class="btn btn-primary" disabled>Next <i class="fa  fa-chevron-right "></i></button>
+                  <button class="btn btn-primary" disabled>Next <span class="fa  fa-chevron-right "></span></button>
                 @else
-                  <button class="btn btn-primary" type="submit">Next <i class="fa  fa-chevron-right "></i></button>
+                  <button class="btn btn-primary" type="submit">Next <span class="fa  fa-chevron-right "></span></button>
                 @endif
               </div>
             </div>

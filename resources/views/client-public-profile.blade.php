@@ -51,7 +51,7 @@
   <div class="container section-decoration">
     @if (Session::has('update_success'))
       <div class="alert alert-success">
-          <i class="fa fa-check-circle"></i> {{ Session::get('update_success') }}
+          <span class="fa fa-check-circle"></span> {{ Session::get('update_success') }}
       </div>
     @endif
     @if (Session::has('update_error'))
@@ -72,13 +72,13 @@
         <ul class="list-group public-profile-details">
           <li class="list-group-item">Full name: <strong>{{$client->first_name}} {{$client->middle_name}} {{$client->last_name}}</strong></li>
           <li class="list-group-item">Posted projects: <strong>{{count($client['project'])}}</strong></li>
-          <li class="list-group-item">Rating: <strong><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></strong></li>
+          <li class="list-group-item">Rating: <strong><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star-o"></span><span class="fa fa-star-o"></span></strong></li>
           @if($client->admin_approved)
-          <li class="list-group-item">Status: <span class="green"><i class="fa fa-check-circle"></i> Verified</span></li>
+          <li class="list-group-item">Status: <span class="green"><span class="fa fa-check-circle"></span> Verified</span></li>
           @endif
         </ul>
         @if($client->website)
-        <a href="{{$client->website}}" class="btn btn-primary pull-right details-btn buttonAnchor" target="_blank"><i class="fa fa-external-link "></i> Website</a>
+        <a href="{{$client->website}}" class="btn btn-primary pull-right details-btn buttonAnchor" target="_blank"><span class="fa fa-external-link "></span> Website</a>
         @endif
       </div>
     </div>

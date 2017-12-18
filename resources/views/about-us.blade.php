@@ -1,4 +1,4 @@
-@extends('layouts.main')
+</span>@extends('layouts.main')
 
 @section('content')
 <div class="container">
@@ -73,7 +73,7 @@
   <div class="container section-decoration">
     @if (Session::has('update_success'))
       <div class="alert alert-success">
-          <i class="fa fa-check-circle"></i> {{ Session::get('update_success') }}
+          <span class="fa fa-check-circle"></span> {{ Session::get('update_success') }}
       </div>
     @endif
     @if (Session::has('update_error'))
@@ -161,7 +161,7 @@
             </div>
             <div class="row">
               <div class="col-md-3 pull-right project-btn">
-                <button class="btn btn-primary" type="submit"><i class="fa fa-send"></i> Send</a>
+                <button class="btn btn-primary" type="submit"><span class="fa fa-send"></i> Send</a>
               </div>
             </div>
           </form>

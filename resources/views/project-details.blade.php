@@ -205,36 +205,36 @@
             <h4>Desired features</h4>
             <div class="row">
               @if($project['projectType']['feature1'])
-              <div class="col-xs-4"><div class="desired-feature"><i class="fa fa-cart-plus"></i><p>Check out</p></div></div>
+              <div class="col-xs-4"><div class="desired-feature"><span class="fa fa-cart-plus"></span><p>Check out</p></div></div>
               @else
-               <div class="col-xs-4"><div class="desired-feature"><i class="fa fa-exclamation-triangle"></i><p>Unspecified</p></div></div>
+               <div class="col-xs-4"><div class="desired-feature"><span class="fa fa-exclamation-triangle"></span><p>Unspecified</p></div></div>
               @endif
               @if($project['projectType']['feature2'])
-              <div class="col-xs-4"><div class="desired-feature"><i class="fa fa-desktop"></i> <i class="fa fa-tablet"></i> <i class="fa  fa-mobile"></i><p>Responsive</p></div></div>
+              <div class="col-xs-4"><div class="desired-feature"><span class="fa fa-desktop"></span> <span class="fa fa-tablet"></span> <span class="fa  fa-mobile"></span><p>Responsive</p></div></div>
               @else
-               <div class="col-xs-4"><div class="desired-feature"><i class="fa fa-exclamation-triangle"></i><p>Unspecified</p></div></div>
+               <div class="col-xs-4"><div class="desired-feature"><span class="fa fa-exclamation-triangle"></span><p>Unspecified</p></div></div>
               @endif
               @if($project['projectType']['feature3'])
-              <div class="col-xs-4"><div class="desired-feature"><i class="fa fa-users"></i><p>Membership</p></div></div>
+              <div class="col-xs-4"><div class="desired-feature"><span class="fa fa-users"></span><p>Membership</p></div></div>
               @else
-               <div class="col-xs-4"><div class="desired-feature"><i class="fa fa-exclamation-triangle"></i><p>Unspecified</p></div></div>
+               <div class="col-xs-4"><div class="desired-feature"><span class="fa fa-exclamation-triangle"></span><p>Unspecified</p></div></div>
               @endif
             </div>
             <div class="row">
               @if($project['projectType']['feature5'])
-              <div class="col-xs-4"><div class="desired-feature"><i class="fa fa-cloud-upload"></i><p>Cloud based</p></div></div>
+              <div class="col-xs-4"><div class="desired-feature"><span class="fa fa-cloud-upload"></span><p>Cloud based</p></div></div>
               @else
-               <div class="col-xs-4"><div class="desired-feature"><i class="fa fa-exclamation-triangle"></i><p>Unspecified</p></div></div>
+               <div class="col-xs-4"><div class="desired-feature"><span class="fa fa-exclamation-triangle"></span><p>Unspecified</p></div></div>
               @endif
               @if($project['projectType']['feature6'])
-              <div class="col-xs-4"><div class="desired-feature"><i class="fa fa-dashboard"></i><p>Admin panel</p></div></div>
+              <div class="col-xs-4"><div class="desired-feature"><span class="fa fa-dashboard"></span><p>Admin panel</p></div></div>
               @else
-               <div class="col-xs-4"><div class="desired-feature"><i class="fa fa-exclamation-triangle"></i><p>Unspecified</p></div></div>
+               <div class="col-xs-4"><div class="desired-feature"><span class="fa fa-exclamation-triangle"></span><p>Unspecified</p></div></div>
               @endif
               @if($project['projectType']['feature7'])
-              <div class="col-xs-4"><div class="desired-feature"><i class="fa fa-hdd-o"></i><p>Back-up</p></div></div>
+              <div class="col-xs-4"><div class="desired-feature"><span class="fa fa-hdd-o"></span><p>Back-up</p></div></div>
               @else
-               <div class="col-xs-4"><div class="desired-feature"><i class="fa fa-exclamation-triangle"></i><p>Unspecified</p></div></div>
+               <div class="col-xs-4"><div class="desired-feature"><span class="fa fa-exclamation-triangle"></span><p>Unspecified</p></div></div>
               @endif
             </div>
           </div>
@@ -266,9 +266,9 @@
           <div class="col-md-4">
             <h4>Schedule</h4>
             <div class="row">
-              <div class="col-xs-5"><div class="desired-feature"><i class="fa fa-calendar-check-o"></i><p class="green">{{$project['start_date']}}</p></div></div>
+              <div class="col-xs-5"><div class="desired-feature"><span class="fa fa-calendar-check-o"></span><p class="green">{{$project['start_date']}}</p></div></div>
               <div class="col-xs-2 schedule-line"></div>
-              <div class="col-xs-5 pull-right"><div class="desired-feature"><i class="fa fa-calendar-check-o"></i><p class="green">{{$project['end_date']}}</p></div></div>
+              <div class="col-xs-5 pull-right"><div class="desired-feature"><span class="fa fa-calendar-check-o"></span><p class="green">{{$project['end_date']}}</p></div></div>
             </div>
             <div class="row">
               <div class="col-xs-4"><div class="date-holder"><p>Start</p></diV></div>
@@ -279,25 +279,25 @@
             <h4>Technical specifications</h4>
             <div class="row">
               @if($project['projectType']['feature9']!='')
-              <div class="col-xs-4"><div class="tech-specification-holder"><i class="fa fa-file-pdf-o"></i><p class="text-muted">Requirements doc 1</p></div></div>
+              <div class="col-xs-4"><div class="tech-specification-holder"><span class="fa fa-file-pdf-o"></span><p class="text-muted">Requirements doc 1</p></div></div>
               @endif
               @if($project['projectType']['feature10']!='')
-              <div class="col-xs-4"><div class="tech-specification-holder"><i class="fa fa-file-pdf-o"></i><p class="text-muted">Requirements doc 2</p></div></div>
+              <div class="col-xs-4"><div class="tech-specification-holder"><span class="fa fa-file-pdf-o"></span><p class="text-muted">Requirements doc 2</p></div></div>
               @endif
               @if($project['projectType']['feature11']!='')
-              <div class="col-xs-4"><div class="tech-specification-holder"><i class="fa fa-file-pdf-o"></i><p class="text-muted">Requirements doc 3</p></div></div>
+              <div class="col-xs-4"><div class="tech-specification-holder"><span class="fa fa-file-pdf-o"></span><p class="text-muted">Requirements doc 3</p></div></div>
               @endif
             </div>
             <div class="row">
               @if($project['projectType']['feature9']!='')
-              <div class="col-xs-4"><a href="{{asset($project['projectType']['feature9'])}}"  target="_blank" class="btn btn-primary details-btn"><i class="fa  fa-download"></i> <small>Download</small></a></div>
+              <div class="col-xs-4"><a href="{{asset($project['projectType']['feature9'])}}"  target="_blank" class="btn btn-primary details-btn"><span class="fa  fa-download"></span> <small>Download</small></a></div>
               @else
               @endif
               @if($project['projectType']['feature10']!='')
-              <div class="col-xs-4"><a href="{{asset($project['projectType']['feature10'])}}" target="_blank" class="btn btn-primary details-btn"><i class="fa  fa-download"></i> <small>Download</small></a></div>
+              <div class="col-xs-4"><a href="{{asset($project['projectType']['feature10'])}}" target="_blank" class="btn btn-primary details-btn"><span class="fa  fa-download"></span> <small>Download</small></a></div>
               @endif
               @if($project['projectType']['feature11']!='')
-              <div class="col-xs-4"><a href="{{asset($project['projectType']['feature11'])}}" target="_blank" class="btn btn-primary details-btn"><i class="fa  fa-download"></i> <small>Download</small></a></div>
+              <div class="col-xs-4"><a href="{{asset($project['projectType']['feature11'])}}" target="_blank" class="btn btn-primary details-btn"><span class="fa  fa-download"></span> <small>Download</small></a></div>
               @endif
             </div>
           </div>
@@ -310,7 +310,7 @@
                   @else
                   <li class="list-group-item">Desired price: <span class="bold">Ksh. {{round($project['desired_price'],2)}}</span></li>
                   @endif
-                  <li class="list-group-item">Star rating: <span class="bold"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></span></li>
+                  <li class="list-group-item">Star rating: <span class="bold"><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star-o"></span><span class="fa fa-star-o"></span></span></li>
                   <li class="list-group-item">view profile: <span class="bold"><a href="#" class="green">profile</a></span></li>
               </ul>
           </div>
@@ -361,15 +361,15 @@
           <div class="row">
             <div class="col-md-3 pull-right project-btn">
               @if(!Auth::user())
-              <a class="btn btn-primary bid-btn pull-right" href="/service-provider-sign-up"><i class="fa fa-bell"></i> Bid</a>
+              <a class="btn btn-primary bid-btn pull-right" href="/service-provider-sign-up"><span class="fa fa-bell"></span> Bid</a>
               @elseif($project['final_price']=='')
                 @if(session('daily_bidding_limit'))
-                  <button class="btn btn-primary bid-btn pull-right" disabled><i class="fa fa-bell-slash"></i> Bid (daily limit exhausted)</button>
+                  <button class="btn btn-primary bid-btn pull-right" disabled><span class="fa fa-bell-slash"></span> Bid (daily limit exhausted)</button>
                 @else
-                  <button class="btn btn-primary bid-btn pull-right" type="submit"><i class="fa fa-bell"></i> Bid</button>
+                  <button class="btn btn-primary bid-btn pull-right" type="submit"><span class="fa fa-bell"></span> Bid</button>
                 @endif
               @else
-              <button class="btn btn-primary bid-btn pull-right" disabled><i class="fa fa-bell-slash"></i> Bid</button>
+              <button class="btn btn-primary bid-btn pull-right" disabled><span class="fa fa-bell-slash"></span> Bid</button>
               @endif
             </div>
           </div>
@@ -468,19 +468,19 @@
 <div class="chat">
     <div id="toggle-chat" class="chat-btn" onclick="load_contacts()">
         <a class="but" href="#">
-            <i class="fa fa-comments" aria-hidden="true"></i><span id="notify-new_messages"></span>
+            <span class="fa fa-comments" aria-hidden="true"></span><span id="notify-new_messages"></span>
         </a>
     </div>
     <div class="chat-open">
         <div class="chat-container">
         <div class="contact-list">
-            <header><h5>Contacts</h5><a href="#" class="pull-right close"><i class="fa fa-times" aria-hidden="true"></i></a></header>
+            <header><h5>Contacts</h5><a href="#" class="pull-right close"><span class="fa fa-times" aria-hidden="true"></span></a></header>
             <ul id="provider-list">
 
             </ul>
         </div>
         <div class="contact-message">
-        <header><a class="back" href="#"><i class="fa fa-chevron-left" aria-hidden="true"></i></a> <h5 id="chat_window_header"></h5><a href="#" class="pull-right close"><i class="fa fa-times" aria-hidden="true"></i></a></header>
+        <header><a class="back" href="#"><span class="fa fa-chevron-left" aria-hidden="true"></span></a> <h5 id="chat_window_header"></h5><a href="#" class="pull-right close"><span class="fa fa-times" aria-hidden="true"></span></a></header>
         <div id="message-list" class="scroll">
         </div>
         <div class="input">
@@ -502,7 +502,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6">
-        <p>Copyright <i class="fa fa-copyright"></i> {{ date('Y') }} webdesignerscenter.com</p>
+        <p>Copyright <span class="fa fa-copyright"></span> {{ date('Y') }} webdesignerscenter.com</p>
       </div>
       <div class="col-md-6">
         <ul class="list-inline pull-right">
@@ -514,8 +514,8 @@
     <div class="row">
       <div class="col-md-6 pull-right col-md-offset-2 social">
         <ul class="list-inline pull-right">
-          <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
-          <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+          <li><a href="#"><span class="fa fa-facebook-square"></span></a></li>
+          <li><a href="#"><span class="fa fa-twitter"></span></a></li>
         </ul>
       </div>
     </div>
