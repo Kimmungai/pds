@@ -742,5 +742,12 @@ footer a
   color: #000 !important;
   background-color: #000 !important;
 }
-/*chat starts here*/
-/*chat ends here*/
+.choosen-caption
+{
+  height: 100px;
+  width: 100px;
+  background-size: cover;
+  border-radius: 5px;
+  margin-top: 1em;
+  border: 1px solid #000;
+}

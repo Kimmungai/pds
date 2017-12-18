@@ -143,10 +143,12 @@
                 <div class="col-md-10">
                   @if($data['caption']=='')
                     <span>An image to describe the project</span>
+                    <input name="caption" type="file" class="form-control"  style="height:auto;">
                   @else
-                    <span>Choose new file</span>
+                    <span>choose new</span>
+                    <input name="caption" type="file" class="form-control"  style="height:auto;">
+                    <div class="choosen-caption" style="background:url('{{url($data['caption'])}}') center no-repeat;"></div>
                   @endif
-                  <input name="caption" type="file" class="form-control"  style="height:auto;">
                 </div>
               </div>
               <div class="row">
@@ -187,7 +189,7 @@
                   <label for="name">Title<span class="red">*</span></label>
                 </div>
                 <div class="col-md-10">
-                  <input name="title" type="text" class="form-control" required />
+                  <input name="title" type="text" class="form-control" value="{{ old('title') }}"  />
                   @if ($errors->has('title'))
                     <span class="red">
                         <strong>{{ $errors->first('title') }}</strong>
@@ -200,25 +202,25 @@
                   <label for="name">Category<span class="red">*</span></label>
                 </div>
                 <div class="col-md-10">
-                  <div class="col-md-3"><input type="radio" name="category" value="1"  />&nbsp;Mobile App</div>
+                  <div class="col-md-3"><input type="radio" name="category" value="1"  <?php if(old('category')==1) {?>checked <?php }?> />&nbsp;Mobile App</div>
                   @if ($errors->has('mobile-app'))
                     <span class="red">
                         <strong>{{ $errors->first('mobile-app') }}</strong>
                     </span>
                   @endif
-                  <div class="col-md-3"><input type="radio" name="category" value="2"  />&nbsp;E-commerce</div>
+                  <div class="col-md-3"><input type="radio" name="category" value="2"  <?php if(old('category')==2) {?>checked <?php }?> />&nbsp;E-commerce</div>
                   @if ($errors->has('e-commerce'))
                     <span class="red">
                         <strong>{{ $errors->first('e-commerce') }}</strong>
                     </span>
                   @endif
-                  <div class="col-md-3"><input type="radio" name="category" value="3"  />&nbsp;Blog</div>
+                  <div class="col-md-3"><input type="radio" name="category" value="3"  <?php if(old('category')==3) {?>checked <?php }?>/>&nbsp;Blog</div>
                   @if ($errors->has('blog'))
                     <span class="red">
                         <strong>{{ $errors->first('blog') }}</strong>
                     </span>
                   @endif
-                  <div class="col-md-3"><input type="radio" value="4" name="category"   />&nbsp;Website</div>
+                  <div class="col-md-3"><input type="radio" value="4" name="category"   <?php if(old('category')==4) {?>checked <?php }?> />&nbsp;Website</div>
                   @if ($errors->has('website'))
                     <span class="red">
                         <strong>{{ $errors->first('website') }}</strong>
@@ -233,6 +235,11 @@
                 <div class="col-md-10">
                   <span>An image to describe the project</span>
                   <input name="caption" type="file" class="form-control"  style="height:auto;">
+                  @if ($errors->has('caption'))
+                    <span class="red">
+                        <strong>{{ $errors->first('caption') }}</strong>
+                    </span>
+                  @endif
                 </div>
               </div>
               <div class="row">
@@ -240,7 +247,7 @@
                   <label for="name">Description<span class="red">*</span></label>
                 </div>
                 <div class="col-md-10">
-                  <textarea rows="5" name="description" class="form-control" placeholder="Give a brief overview of the project goals" required></textarea>
+                  <textarea rows="5" name="description" class="form-control" placeholder="Give a brief overview of the project goals" required>{{old('description')}}</textarea>
                   @if ($errors->has('description'))
                     <span class="red">
                         <strong>{{ $errors->first('description') }}</strong>

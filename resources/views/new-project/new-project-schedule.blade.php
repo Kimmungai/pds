@@ -160,7 +160,7 @@
                    <label for="name">Start date<span class="red">*</span></label>
                  </div>
                  <div class="col-md-10">
-                   <input id="start_date" name="start_date" type="text" class="form-control" required/>
+                   <input id="start_date" name="start_date" type="text" class="form-control" value="{{ old('start_date') }}" required/>
                    @if ($errors->has('start_date'))
                      <span class="red">
                          <strong>{{ $errors->first('start_date') }}</strong>
@@ -173,7 +173,7 @@
                    <label for="name">End date<span class="red">*</span></label>
                  </div>
                  <div class="col-md-10">
-                   <input name="end_date" id="end_date" type="text" class="form-control" required/>
+                   <input name="end_date" id="end_date" type="text" class="form-control" value="{{ old('end_date') }}" required/>
                    @if ($errors->has('end_date'))
                      <span class="red">
                          <strong>{{ $errors->first('end_date') }}</strong>
@@ -186,7 +186,7 @@
                    <label for="name">Ready to pay price</label>
                  </div>
                  <div class="col-md-10">
-                   <input name="desired_price" type="text" class="form-control" placeholder="Amount in Ksh.." />
+                   <input name="desired_price" type="text" class="form-control" value="{{ old('desired_price') }}" placeholder="Amount in Ksh.." />
                    @if ($errors->has('desired_price'))
                      <span class="red">
                          <strong>{{ $errors->first('desired_price') }}</strong>
@@ -199,7 +199,7 @@
                    <label for="name">Message to bidders</label>
                  </div>
                  <div class="col-md-10">
-                   <textarea name="message_to_bidders" rows="5" class="form-control" placeholder="Give a brief overview of the project goals"></textarea>
+                   <textarea name="message_to_bidders" rows="5" class="form-control" placeholder="Give a brief overview of the project goals">{{ old('message_to_bidders') }}</textarea>
                    @if ($errors->has('message_to_bidders'))
                      <span class="red">
                          <strong>{{ $errors->first('message_to_bidders') }}</strong>
