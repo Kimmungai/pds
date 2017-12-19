@@ -14,6 +14,8 @@ use Auth;
 use Session;
 use Mail;
 use App\Mail\membershipExpiry;
+use App\Mail\acknowledgeEnquiry;
+use App\Mail\sendAdminEnquiry;
 
 class site extends Controller
 {
@@ -58,14 +60,20 @@ class site extends Controller
         'prospective_email' => 'required|email',
         'prospective_phone' => 'nullable|numeric|min:5',
         'prospective_message' => 'required',
+        'prospective_subject' => 'required|max:255',
       ]);
       $new_enquiry=new Enquiry;
       $new_enquiry->name=$request->input('prospective_name');
       $new_enquiry->email=$request->input('prospective_email');
       $new_enquiry->phone=$request->input('prospective_phone');
+      $new_enquiry->subject=$request->input('prospective_subject');
       $new_enquiry->message=$request->input('prospective_message');
       if($new_enquiry->save())
       {
+        $acknowledge_enquiry=new acknowledgeEnquiry($new_enquiry);
+        Mail::to($new_enquiry->email)->send($acknowledge_enquiry);
+        $notify_admin_enquiry=new sendAdminEnquiry($new_enquiry);
+        Mail::to('enquiry@webdesignerscenter.com')->send($notify_admin_enquiry);
         session::flash('update_success', 'Enquiry sent successfully! Our team will get back to you soon.');
       }
       else

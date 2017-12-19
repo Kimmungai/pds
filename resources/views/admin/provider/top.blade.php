@@ -113,7 +113,7 @@
       <div class="row projects-view">
         <?php $count=0;?>
         @if(!count($all_projects))
-        <h3>No results found</h3>
+        <h3>No projects found</h3>
         @endif
         @foreach($all_projects as $project)
         <div class="col-md-6">

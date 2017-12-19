@@ -63,7 +63,7 @@ class providers extends Controller
       'company_fax' => 'nullable|max:255',
       'company_tel' => 'required|numeric|min:5',
       'company_industry' => 'required|max:255',
-      'company_website' => 'required|max:255',
+      'company_website' => 'required|url|max:255',
       'company_description' => 'required|max:255',
     ]);
     $user_company=new Company;
@@ -139,7 +139,7 @@ class providers extends Controller
       'company_fax' => 'nullable|max:255',
       'company_tel' => 'required|numeric|min:5',
       'company_industry' => 'required|max:255',
-      'company_website' => 'required|max:255',
+      'company_website' => 'required|url|max:255',
       'company_description' => 'required|max:255',
     ]);
     if(Company::where('user_id','=',Auth::id())->update([

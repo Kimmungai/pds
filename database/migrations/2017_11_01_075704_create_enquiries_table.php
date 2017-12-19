@@ -18,7 +18,8 @@ class CreateEnquiriesTable extends Migration
             $table->string('name');
             $table->string('email');
             $table->string('phone')->nullable();
-            $table->string('message');
+            $table->string('subject');
+            $table->text('message');
             $table->timestamps();
         });
     }

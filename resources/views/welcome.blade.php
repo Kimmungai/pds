@@ -359,6 +359,24 @@
             </div>
             <div class="row">
               <div class="col-md-2">
+                <label for="name">Subject<span class="red">*</span></label>
+              </div>
+              <div class="col-md-10">
+                <select name="prospective_subject" class="form-control">
+                  <option <?php if(old('prospective_subject')=='General enquiry'){?>selected<?php }?>>General enquiry</option>
+                  <option <?php if(old('prospective_subject')=='Bidding'){?>selected<?php }?>>Bidding</option>
+                  <option <?php if(old('prospective_subject')=='Registration'){?>selected<?php }?>>Registration</option>
+                  <option <?php if(old('prospective_subject')=='Service Provider Registration'){?>selected<?php }?>>Service Provider Registration</option>
+                </select>
+                @if ($errors->has('prospective_subject'))
+                  <span class="red">
+                      <strong>{{ $errors->first('prospective_subject') }}</strong>
+                  </span>
+                @endif
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-2">
                 <label for="name">Email<span class="red">*</span></label>
               </div>
               <div class="col-md-10">

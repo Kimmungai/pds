@@ -86,7 +86,7 @@ return [
     'timezone'             => 'The :attribute must be a valid zone.',
     'unique'               => 'The :attribute has already been taken.',
     'uploaded'             => 'The :attribute failed to upload. Ensure the file is less than 1 MB',
-    'url'                  => 'The :attribute format is invalid.',
+    'url'                  => 'The :attribute format is invalid. Example format http://www.webdesignerscenter.com/',
 
     /*
     |--------------------------------------------------------------------------

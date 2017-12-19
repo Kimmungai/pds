@@ -312,7 +312,7 @@
             <!-- End Caption-->
           <!-- Example Pie Chart Card-->
           <div class="card mb-3">
-            <div class="card-header" onclick="display_effect('pie-chart')">
+            <div id="quick-form-sec" class="card-header" onclick="display_effect('pie-chart')">
               <i class="fa fa-pie-chart"></i> <span class="project-title"></span> bidding companies composition</div>
             <div id="pie-chart" class="card-body">
               <canvas id="myPieChart" width="100%" height="100"></canvas>
@@ -326,12 +326,12 @@
             <div class="card mb-3">
               <div class="card-header" onclick="display_effect('quick-form')">
                 <i class="fa fa-bell-o"></i> Quick action / New project</div>
-              <div id="quick-form" class="list-group list-group-flush small no-display">
+              <div id="quick-form" class="list-group list-group-flush small <?php if(!old('title')){?>no-display<?php }?>">
                 <a class="list-group-item list-group-item-action">
                   <div class="media">
                     <img class="d-flex mr-3 rounded-circle" src="{{asset('/img/required.png')}}" alt="">
                     <div class="media-body">
-                      <input name="title" type="text" class="form-control" placeholder="Project title"/>
+                      <input name="title" type="text" class="form-control" placeholder="Project title" value="{{old('title')}}" required/>
                       @if ($errors->has('title'))
                         <span class="red">
                             <strong>{{ $errors->first('title') }}</strong>
@@ -344,12 +344,12 @@
                   <div class="media">
                     <img class="d-flex mr-3 rounded-circle" src="{{asset('/img/required.png')}}" alt="">
                     <div class="media-body">
-                      <select name="category" class="form-control">
+                      <select name="category" class="form-control" required>
                         <option selected disabled value="0">Project category</option>
-                        <option value="1">Mobile App</option>
-                        <option value="2">E-commerce</option>
-                        <option value="3">Blog</option>
-                        <option value="4">Website</option>
+                        <option value="1" <?php if(old('category')==1){?>selected<?php }?>>Mobile App</option>
+                        <option value="2" <?php if(old('category')==2){?>selected<?php }?>>E-commerce</option>
+                        <option value="3" <?php if(old('category')==3){?>selected<?php }?>>Blog</option>
+                        <option value="4" <?php if(old('category')==4){?>selected<?php }?>>Website</option>
                       </select>
                       @if ($errors->has('category'))
                         <span class="red">
@@ -363,14 +363,14 @@
                   <div class="media">
                     <img class="d-flex mr-3 rounded-circle" src="{{asset('/img/required.png')}}" alt="">
                     <div class="media-body">
-                      <input name="feature1" type="checkbox" value="1"  />&nbsp;Shopping cart&nbsp;</br>
-                      <input name="feature2" type="checkbox" value="1" />&nbsp;Responsive&nbsp;</br>
-                      <input name="feature3" type="checkbox" value="1" />&nbsp;Membership&nbsp;</br>
-                      <input name="feature4" type="checkbox" value="1" />&nbsp;Notification&nbsp;</br>
-                      <input name="feature5" type="checkbox" value="1" />&nbsp;Cloud hosting&nbsp;</br>
-                      <input name="feature6" type="checkbox" value="1" />&nbsp;Admin panel&nbsp;</br>
-                      <input name="feature7" type="checkbox" value="1" />&nbsp;Back-up&nbsp;</br>
-                      <input name="feature8" type="checkbox" value="1" />&nbsp;Bulk sms&nbsp;
+                      <input name="feature1" type="checkbox" value="1"  <?php if(old('feature1')==1){?>checked<?php }?> />&nbsp;Shopping cart&nbsp;</br>
+                      <input name="feature2" type="checkbox" value="1" <?php if(old('feature2')==1){?>checked<?php }?> />&nbsp;Responsive&nbsp;</br>
+                      <input name="feature3" type="checkbox" value="1" <?php if(old('feature3')==1){?>checked<?php }?> />&nbsp;Membership&nbsp;</br>
+                      <input name="feature4" type="checkbox" value="1"  <?php if(old('feature4')==1){?>checked<?php }?> />&nbsp;Notification&nbsp;</br>
+                      <input name="feature5" type="checkbox" value="1" <?php if(old('feature5')==1){?>checked<?php }?> />&nbsp;Cloud hosting&nbsp;</br>
+                      <input name="feature6" type="checkbox" value="1" <?php if(old('feature6')==1){?>checked<?php }?> />&nbsp;Admin panel&nbsp;</br>
+                      <input name="feature7" type="checkbox" value="1" <?php if(old('feature7')==1){?>checked<?php }?> />&nbsp;Back-up&nbsp;</br>
+                      <input name="feature8" type="checkbox" value="1" <?php if(old('feature8')==1){?>checked<?php }?> />&nbsp;Bulk sms&nbsp;
                     </div>
                   </div>
                 </a>
@@ -378,7 +378,7 @@
                   <div class="media">
                     <img class="d-flex mr-3 rounded-circle" src="{{asset('/img/required.png')}}" alt="">
                     <div class="media-body">
-                      <input name="start_date" id="start_date" type="text" class="form-control" placeholder="Start date"/>
+                      <input name="start_date" id="start_date" type="text" class="form-control" placeholder="Start date"  value="{{old('start_date')}}" required/>
                       @if ($errors->has('start_date'))
                         <span class="red">
                             <strong>{{ $errors->first('start_date') }}</strong>
@@ -391,7 +391,7 @@
                   <div class="media">
                     <img class="d-flex mr-3 rounded-circle" src="{{asset('/img/required.png')}}" alt="">
                     <div class="media-body">
-                      <input name="end_date" id="end_date" type="text" class="form-control" placeholder="End date"/>
+                      <input name="end_date" id="end_date" type="text" class="form-control" placeholder="End date" value="{{old('end_date')}}" required/>
                       @if ($errors->has('end_date'))
                         <span class="red">
                             <strong>{{ $errors->first('end_date') }}</strong>
@@ -404,7 +404,7 @@
                   <div class="media">
                     <img class="d-flex mr-3 rounded-circle" src="{{asset('/img/required.png')}}" alt="">
                     <div class="media-body">
-                      <textarea name="description" type="text" class="form-control" placeholder="Give a brief overview of the project goals"></textarea>
+                      <textarea name="description" type="text" class="form-control" placeholder="Give a brief overview of the project goals" required>{{old('description')}}</textarea>
                       @if ($errors->has('description'))
                         <span class="red">
                             <strong>{{ $errors->first('description') }}</strong>
@@ -642,5 +642,24 @@
        e.preventDefault();
      }
     </script>
+    <script>
+    $( function() {
+    $( "#start_date" ).datepicker({
+      changeMonth: true,
+      changeYear: true
+    });
+    } );
+    $( function() {
+    $( "#end_date" ).datepicker({
+      changeMonth: true,
+      changeYear: true
+    });
+    } );
+    </script>
+    @if(old('title'))
+    <script>
+    $('html,body').animate({scrollTop: $("#quick-form-sec").offset().top },2000);
+    </script>
+    @endif
     <!--dynamically load a projects details ends here-->
 @endsection
