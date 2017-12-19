@@ -139,3 +139,5 @@ Route::get('/new-chat-messages', 'dynamic@new_chat_messages')->middleware('auth'
 Route::get('/pull-chat-messages', 'dynamic@pull_chat_messages')->middleware('auth');
 Route::get('/load-contacts', 'dynamic@load_contacts')->middleware('auth');
 Route::get('/check-new-messages', 'dynamic@check_new_messages')->middleware('auth');
+//identify online users
+Route::get('/user-online-activity', 'dynamic@user_online_activity')->middleware('auth');

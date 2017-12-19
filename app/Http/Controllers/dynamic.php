@@ -161,4 +161,11 @@ class dynamic extends Controller
     $unread_messages=count(ChatMessage::where('recipient_id','=',Auth::id())->where('read','=',0)->get());
     return $unread_messages;
   }
+  public function user_online_activity()
+  {
+    User::where('id','=',Auth::id())->update([
+      'is_online' => $_GET['status'],
+    ]);
+    return;
+  }
 }
