@@ -275,7 +275,7 @@
                   status:status,
                 },
                 function(data,status){
-                alert(data)
+  
               });
         }
         </script><!--online status check ends here-->
