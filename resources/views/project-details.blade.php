@@ -50,7 +50,7 @@
         <header>
           <div class="container">
             <div class="row">
-              <div class="col-md-1 hidden-xs">
+              <div class="col-md-1 hidden-xs hidden-sm">
                 <a href="/"><div class="pds-logo">
                   <!--<img class="img-responsive" src="{{ asset('/img/logo.png') }}" alt="WebDesignersCenter.com">-->
                 </div></a>
@@ -58,7 +58,7 @@
               <div class="col-md-7">
                 <h1 class="site-title"><a  href="/">Web Designers Center</a></h1>
               </div>
-              <div class="col-md-3 provider-btn hidden-xs">
+              <div class="col-md-3 provider-btn hidden-xs hidden-sm">
                 @if(!Auth::user())
                 <a class="btn btn-primary" href="/service-provider-sign-up">Become a service provider</a>
                 @endif

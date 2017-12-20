@@ -36,7 +36,7 @@
         <header>
           <div class="container">
             <div class="row">
-              <div class="col-md-1 hidden-xs">
+              <div class="col-md-1 hidden-xs hidden-sm">
                 <a href="/"><div class="pds-logo">
                   <!--<img class="img-responsive" src="{{ asset('/img/logo.png') }}" alt="WebDesignersCenter.com">-->
                 </div></a>
@@ -44,7 +44,7 @@
               <div class="col-md-7">
                 <h1 class="site-title"><a  href="/">Web Designers Center</a></h1>
               </div>
-              <div class="col-md-3 provider-btn hidden-xs">
+              <div class="col-md-3 provider-btn hidden-xs hidden-sm">
                 @if(!Auth::user())
                 <a class="btn btn-primary" href="/service-provider-sign-up">Become a service provider</a>
                 @endif
@@ -100,17 +100,17 @@
               </div>
               <div class="col-md-6">
                 <ul class="list-inline pull-right">
-                  <li><a href="#">About</a></li>
-                  <li><a href="#">Terms & privacy</a></li>
+                  <li><a href="/about-us">About</a></li>
+                  <li><a href="{{asset('/agreement/general-terms-conditions.pdf')}}" target="_blank">Terms & conditions</a></li>
                 </ul>
               </div>
             </div>
             <div class="row">
               <div class="col-md-6 pull-right col-md-offset-2 social">
                 <ul class="list-inline pull-right">
-                  <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
-                  <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
-                  <li><a href="#"><i class="fa fa-twitter-square"></i></a></li>
+                  <li><a href="https://www.linkedin.com/company/13608183/" target="_blank"><i class="fa fa-linkedin-square"></i></a></li>
+                  <li><a href="https://www.facebook.com/Web-Designers-Center-1908267229501969/" target="_blank"><i class="fa fa-facebook-square"></i></a></li>
+                  <li><a href="https://twitter.com/webDcenter" target="_blank"><i class="fa fa-twitter-square"></i></a></li>
                 </ul>
               </div>
             </div>

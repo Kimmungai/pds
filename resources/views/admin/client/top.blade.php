@@ -498,7 +498,8 @@
                     </div>
                   </div>
                 </a>
-                <button type="submit" class="btn btn-success btn-lg"><i class="fa fa-send"></i> Post</button>
+                <p style="padding:1em;">By clicking "post" you accept all <a href="{{asset('/agreement/project-posting.pdf')}}" target="_blank">terms and conditions</a></p>
+               <button type="submit" class="btn btn-success btn-lg pull-right"><i class="fa fa-send"></i> Post</button>
               </div>
             </div>
           </form>

@@ -119,6 +119,19 @@
                 </div>
                 <div class="row">
                   <div class="col-md-2">
+                    <label for="name">Agreement<span class="red">*</span></label>
+                  </div>
+                  <div class="col-md-10">
+                    <input name="terms" id="terms" type="radio" value="1" onchange="enable_post_button()" required/><span> &nbsp;<a href="{{asset('/agreement/project-posting.pdf')}}" target="_blank">I agree to all terms and conditions</a></span>
+                    @if ($errors->has('terms'))
+                      <span class="red">
+                          <strong>{{ $errors->first('terms') }}</strong>
+                      </span>
+                    @endif
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-2">
                     <label for="name">Ready to pay price</label>
                   </div>
                   <div class="col-md-10">
@@ -148,7 +161,7 @@
                     <a class="btn btn-primary" href="/new-project-features-back"><span class="fa  fa-chevron-left "></span> Back</a>
                   </div>
                   <div class="col-xs-offset-6 col-xs-3  project-btn">
-                    <button type="submit" class="btn btn-primary"><span class="fa fa-send"></span> Post</button>
+                    <button id="post" type="submit" class="btn btn-primary disabled"><span class="fa fa-send"></span> Post</button>
                   </div>
                 </div>
               </form>
@@ -177,6 +190,19 @@
                    @if ($errors->has('end_date'))
                      <span class="red">
                          <strong>{{ $errors->first('end_date') }}</strong>
+                     </span>
+                   @endif
+                 </div>
+               </div>
+               <div class="row">
+                 <div class="col-md-2">
+                   <label for="name">Agreement<span class="red">*</span></label>
+                 </div>
+                 <div class="col-md-10">
+                   <input name="terms" id="terms" type="radio" value="1" onchange="enable_post_button()" required/><span> &nbsp;<a href="{{asset('/agreement/project-posting.pdf')}}" target="_blank">I agree to all terms and conditions</a></span>
+                   @if ($errors->has('terms'))
+                     <span class="red">
+                         <strong>{{ $errors->first('terms') }}</strong>
                      </span>
                    @endif
                  </div>
@@ -212,7 +238,7 @@
                    <a class="btn btn-primary" href="/new-project-features-back"><span class="fa  fa-chevron-left "></span> Back</a>
                  </div>
                  <div class="col-xs-offset-6 col-xs-3  project-btn">
-                   <button type="submit" class="btn btn-primary"><span class="fa fa-send"></span> Post</button>
+                   <button id="post" type="submit" class="btn btn-primary disabled"><span class="fa fa-send"></span> Post</button>
                  </div>
                </div>
              </form>
@@ -238,5 +264,11 @@ $( "#end_date" ).datepicker({
   changeYear: true
 });
 } );
+</script>
+<script>
+  function enable_post_button()
+  {
+    $('#post').removeClass('disabled');
+  }
 </script>
 @endsection

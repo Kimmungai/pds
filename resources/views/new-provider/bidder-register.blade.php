@@ -174,6 +174,19 @@
                 </div>
               </div>
               <div class="row">
+                <div class="col-md-2">
+                  <label for="name">Agreement<span class="red">*</span></label>
+                </div>
+                <div class="col-md-10">
+                  <input name="terms" id="terms" type="radio" value="1" onchange="enable_post_button()" required/><span> &nbsp;<a href="{{asset('/agreement/provider-agreement.pdf')}}" target="_blank">I have read and agree to all the terms of service</a></span>
+                  @if ($errors->has('terms'))
+                    <span class="red">
+                        <strong>{{ $errors->first('terms') }}</strong>
+                    </span>
+                  @endif
+                </div>
+              </div>
+              <div class="row">
                 <p><a href="/login">Already registered? Login here</a></p>
               </div>
             <div class="row">
@@ -184,7 +197,7 @@
                 @if (Session::has('deactivate-next'))
                   <button class="btn btn-primary" disabled>Next <span class="fa  fa-chevron-right "></span></button>
                 @else
-                  <button class="btn btn-primary" type="submit">Next <span class="fa  fa-chevron-right "></span></button>
+                  <button id="post" class="btn btn-primary disabled" type="submit">Next <span class="fa  fa-chevron-right "></span></button>
                 @endif
               </div>
             </div>
@@ -194,4 +207,10 @@
     </div>
   </div>
 </section>
+<script>
+  function enable_post_button()
+  {
+    $('#post').removeClass('disabled');
+  }
+</script>
 @endsection
