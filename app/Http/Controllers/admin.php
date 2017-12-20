@@ -49,7 +49,7 @@ class admin extends Controller
         case 2://provider=1 positive numbers
         case 3://provider=1 positive numbers
         case 4://provider=1 positive numbers
-          $all_projects=Project::with('user')->where($field,$criteria_sign,$criteria)->whereHas('projectType', function ($query) {if(session('filter')){$result_filter=session('filter');$sign='=';}else{$result_filter='';$sign='!=';}$query->where('category', $sign, $result_filter);})->orderBy('created_at',$result_order)->paginate(4);
+          $all_projects=Project::with('user')->where($field,$criteria_sign,$criteria)->whereHas('projectType', function ($query) {if(session('filter')){$result_filter=session('filter');$sign='=';}else{$result_filter='';$sign='!=';}$query->where('category', $sign, $result_filter);})->where('end_date','<>','')->orderBy('created_at',$result_order)->paginate(4);
           $all_projects_types=ProjectType::orderBy('created_at',$result_order)->whereHas('project',function($query){
             if(session('bid_filtering') && session('bid_filtering')==1){
               $field='final_price';

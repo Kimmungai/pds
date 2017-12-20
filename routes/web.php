@@ -64,6 +64,10 @@ Route::get('/new-provider-company', function () {
     return view('new-provider.bidder-register-company-details');
 })->middleware('auth');
 
+Route::get('/forgot-pass', function () {
+    return view('auth.forgotPass');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

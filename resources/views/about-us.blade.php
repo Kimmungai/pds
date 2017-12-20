@@ -56,7 +56,7 @@
     </div>
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
-        <p>Brief overview of Web Designers Center</p>
+        <p>Learn more about our the services we offer</p>
       </div>
     </div>
     <div class="row">
@@ -69,7 +69,7 @@
 </div>
 </div>
 <section class="enquire">
-  <div class="container"><div class="row"><h2>Company History</h2></div></div>
+  <div class="container"><div class="row"><h2>About Our service</h2></div></div>
   <div class="container section-decoration">
     @if (Session::has('update_success'))
       <div class="alert alert-success">
@@ -83,11 +83,11 @@
     @endif
     <div class="row">
       <div class="strip"></div>
-      <div class="col-md-6 company-history">
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-      </div>
       <div class="col-md-6">
         <div class="office-pic"></div>
+      </div>
+      <div class="col-md-6 company-history">
+        <p>When you post your project at <a href="/">web Designers Center</a>, competent service providers will bid for it. You will then have a chance to select the best bidder based on the attractiveness of their offer as well as their reputation. You can check out the profile of anyone who bids on your project including their past projects. We are committed to ensuring you find the best service provider for your project!</p>
       </div>
     </div>
   </div>

@@ -57,7 +57,7 @@
     </div>
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
-        <p>Brief overview of Web Designers Center</p>
+        <p>Join today to access posted projects for bidding</p>
       </div>
     </div>
     <div class="row">

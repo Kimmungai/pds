@@ -50,7 +50,7 @@ class site extends Controller
         $orderFilter='created_at';$orderCriteria='desc';
       }
       $provider_companies=Company::with('user')->orderby('created_at','desc')->paginate(3);
-      $projects=Project::with('user','projectType','bid')->where($filter,$sign,$criteria)->orderBy($orderFilter,$orderCriteria)->paginate(2);
+      $projects=Project::with('user','projectType','bid')->where($filter,$sign,$criteria)->where('end_date','<>','')->orderBy($orderFilter,$orderCriteria)->paginate(2);
       return view('welcome',compact('provider_companies','projects'));
     }
     public function enquiry(Request $request)
@@ -136,7 +136,7 @@ class site extends Controller
       {
         $orderFilter='created_at';$orderCriteria='desc';
       }
-      $projects=Project::with('user','projectType','bid')->where($filter,$sign,$criteria)->orderBy($orderFilter,$orderCriteria)->paginate(4);
+      $projects=Project::with('user','projectType','bid')->where($filter,$sign,$criteria)->where('end_date','<>','')->orderBy($orderFilter,$orderCriteria)->paginate(4);
       return view('projects',compact('projects'));
     }
     public function set_alerts(Request $request)

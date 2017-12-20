@@ -10,7 +10,7 @@
         <meta property="og:url"           content="{{url()->current()}}" />
         <meta property="og:type"          content="website" />
         <meta property="og:title"         content="Welcome to Web Designers Center" />
-        <meta property="og:description"   content="When you post your project at webd Designers Center, competent service providers will place bid on your project. You will then have a chance to select the best bidder based on the offer and the service provider's reputation!" />
+        <meta property="og:description"   content="When you post your project at web Designers Center, competent service providers will bid for it. You will then have a chance to select the best bidder based on the offer and the service provider's reputation!" />
 
         <link rel="manifest" href="{{ asset('/site.webmanifest') }}">
         <link rel="apple-touch-icon" href="{{ asset('/icon.png') }}">
@@ -252,10 +252,6 @@
               });
         }
         </script>
-        <script>
-        setInterval(pull_chat_messages, 1000);
-        setInterval(check_new_messages, 3000);
-        </script>
         <script>//online status check starts here
         var activity=0;
         $(document).ready(function(){
@@ -266,19 +262,25 @@
         function add_activity()
         {
           activity += 1;
-          if(activity > 500){send_report(1);activity=0;}else{if(activity == 100 || activity == 200 ){send_report(0);}}
+          if(activity == 1500 || activity== 0){send_report();}
         }
-        function send_report(status)
+        function send_report()
         {
-          $.get("/user-online-activity",
-                {
-                  status:status,
-                },
-                function(data,status){
-  
-              });
+          if(activity > 1000){var status=1;activity=0;}else{var status=0;}
+            $.get("/user-online-activity",
+                  {
+                    status:status,
+                  },
+                  function(data,status){
+
+                });
         }
         </script><!--online status check ends here-->
+        <script>
+        setInterval(pull_chat_messages, 1000);
+        setInterval(check_new_messages, 3000);
+        setInterval(send_report, 300000);
+        </script>
         @endif
 </body>
 </html>

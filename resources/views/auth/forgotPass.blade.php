@@ -5,19 +5,17 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Reset Password</div>
+                <div class="panel-heading">Login</div>
 
                 <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('password.request') }}">
+                    <form class="form-horizontal" method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}
-
-                        <input type="hidden" name="token" value="{{ $token }}">
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="email" class="col-md-4 control-label">E-Mail Address</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ $email or old('email') }}" required autofocus>
+                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
 
                                 @if ($errors->has('email'))
                                     <span class="help-block">
@@ -41,24 +39,25 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-
-                                @if ($errors->has('password_confirmation'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password_confirmation') }}</strong>
-                                    </span>
-                                @endif
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
+                                    </label>
+                                </div>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
+                            <div class="col-md-8 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
-                                    Reset Password
+                                    Login
                                 </button>
+
+                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    Forgot Your Password?
+                                </a>
                             </div>
                         </div>
                     </form>
@@ -119,13 +118,13 @@
 </div>
 </div>
 <section class="enquire">
-  <div class="container"><div class="row"><h2>Create new password</h2></div></div>
+  <div class="container"><div class="row"><h2>Password Reset</h2></div></div>
   <div class="container section-decoration">
     <div class="row">
       <div class="strip"></div>
       <div class="col-md-8 col-md-offset-2">
         <article>
-          <h5>New Password Form</h5>
+          <h5>Password Reset</h5>
           @if (Session::has('email_verified'))
             <div class="alert alert-success">
                 {{ Session::get('email_verified') }}
@@ -136,15 +135,19 @@
                 {{ Session::get('email_verified_error') }}
             </div>
           @endif
-          <form method="POST" action="{{ route('password.request') }}">
+          @if (session('status'))
+              <div class="alert alert-success">
+                  {{ session('status') }}
+              </div>
+          @endif
+          <form method="POST" action="{{ route('password.email') }}">
             {{ csrf_field() }}
-            <input type="hidden" name="token" value="{{ $token }}">
             <div class="row">
               <div class="col-md-2{{ $errors->has('email') ? ' has-error' : '' }}">
                 <label for="name">Email</label>
               </div>
               <div class="col-md-10">
-                <input type="email" name="email" class="form-control" value="{{ $email or old('email') }}" required autofocus />
+                <input type="email" name="email" class="form-control" value="{{ old('email') }}" required autofocus />
                 @if ($errors->has('email'))
                     <span class="red">
                         <strong>{{ $errors->first('email') }}</strong>
@@ -153,34 +156,8 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-md-2">
-                <label for="name">Password</label>
-              </div>
-              <div class="col-md-10">
-                <input type="password" class="form-control" name="password" required />
-                @if ($errors->has('password'))
-                    <span class="red">
-                        <strong>{{ $errors->first('password') }}</strong>
-                    </span>
-                @endif
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-2">
-                <label for="name">Confirm Password</label>
-              </div>
-              <div class="col-md-10">
-                <input type="password" class="form-control" name="password_confirmation" required />
-                @if ($errors->has('password_confirmation'))
-                    <span class="red">
-                        <strong>{{ $errors->first('password_confirmation') }}</strong>
-                    </span>
-                @endif
-              </div>
-            </div>
-            <div class="row">
               <div class="col-md-3 pull-right project-btn">
-                <button type="submit" class="btn btn-primary">Reset Password</button>
+                <button type="submit" class="btn btn-primary">Send Reset Link</button>
               </div>
             </div>
           </form>

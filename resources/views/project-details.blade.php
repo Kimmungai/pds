@@ -125,7 +125,7 @@
     </div>
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
-        <p>Have leading companies place their offers!</p>
+        <p>The provided details of {{$project['title']}} project</p>
       </div>
     </div>
     <div class="row">

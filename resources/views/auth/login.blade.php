@@ -105,7 +105,7 @@
     </div>
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
-        <p>Brief overview of Web Designers Center</p>
+        <p>Let companies bid for your project and select the best!</p>
       </div>
     </div>
     <div class="row">
@@ -176,7 +176,7 @@
                 <label for="name"><a href="/sign-up">Create an account</a></label>
               </div>
               <div class="col-md-5 login-create-account-p">
-                <label for="name"><a href="{{ route('password.request') }}">Reset password</a></label>
+                <label for="name"><a href="/forgot-pass">Reset password</a></label>
               </div>
               <div class="col-md-3 pull-right project-btn">
                 <button type="submit" class="btn btn-primary">Login</button>
