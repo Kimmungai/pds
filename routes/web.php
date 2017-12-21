@@ -11,12 +11,12 @@
 |
 */
 
-Route::get('/', 'site@index');
+Route::get('/', 'site@index')->name('Home');
 Route::get('/closed-bids/{backTo}', 'site@filter_closed')->name('Closed bids');
 Route::get('/open-bids/{backTo}', 'site@filter_open')->name('Open bids');
 Route::get('/all-bids/{backTo}', 'site@filter_all')->name('All bids');
 Route::get('/sort-projects/{backTo}', 'site@sort')->name('All bids');
-Route::get('/projects','site@projects_display');
+Route::get('/projects','site@projects_display')->name('All Projects');
 Route::get('/provider', function () {
     return view('admin.provider.top');
 });
@@ -46,14 +46,14 @@ Route::get('/client-chats', function () {
 });
 Route::get('/about-us', function () {
     return view('about-us');
-});
+})->name('About Us');
 Route::get('/new-project', function () {
     return view('new-project.new-project');
-})->middleware('client');
+})->name('New Project')->middleware('client');
 
 Route::get('/sign-up', function () {
     return view('client-register');
-});
+})->name('Sign Up');
 Route::get('/service-provider-sign-up', function () {
     return view('new-provider.bidder-register');
 });
@@ -77,7 +77,7 @@ Route::post('/sign-up', 'clients@create')->name('create_client');
 Route::get('register/verify/{token}','Auth\RegisterController@verify');//verify email addresses
 Route::get('/profile','admin@profile')->name('profile')->middleware('auth');
 Route::get('/client-user-profile','clients@client_profile')->name('client_profile')->middleware('auth');
-Route::get('/client-public-profile/{client_id}','clients@client_public_profile')->name('client_public_profile');
+Route::get('/client-public-profile/{client_id}','clients@client_public_profile')->name('Client Profile');
 Route::get('/client-alerts','clients@alerts')->name('Client Alerts')->middleware('auth');
 Route::put('/update-basic-details','admin@update_basic_details')->name('Basic_details_update')->middleware('auth');
 Route::put('/update-personal-details','admin@update_personal_details')->name('Personal_details_update')->middleware('auth');
@@ -107,7 +107,7 @@ Route::put('/company-promotion-update', 'providers@update_company_promotion')->n
 Route::get('/provider-membership','providers@membership')->name('Provider Membership')->middleware('provider');
 Route::get('/provider-chats','providers@chats')->name('Provider Chats')->middleware('auth');
 Route::get('/provider-alerts','providers@alerts')->name('Provider Alerts')->middleware('auth');
-Route::get('/provider-profile/{provider_id}','providers@public_profile')->name('Provider public profile');
+Route::get('/provider-profile/{provider_id}','providers@public_profile')->name('Provider Profile');
 Route::get('/provider-renew-membership','providers@renew_membership')->middleware('provider');
 //Projects
 Route::post('/new-project', 'projects@create')->name('Create Project')->middleware('client');
@@ -117,7 +117,7 @@ Route::post('/new-project-features', 'projects@project_features_create')->name('
 Route::get('/new-project-features-back','projects@new_project_features_back')->name('Back to features')->middleware('client');
 Route::post('/new-project-schedule', 'projects@project_schedule_create')->name('Project Schedule')->middleware('client');
 Route::get('/new-project-schedule','projects@new_project_schedule_form')->name('Project schedule form')->middleware('client');
-Route::get('/new-project-features','projects@new_project_features_form')->name('Project schedule form')->middleware('client');
+Route::get('/new-project-features','projects@new_project_features_form')->name('Project Features Form')->middleware('client');
 Route::put('/quick-new-project', 'projects@quick_new_project')->name('New Project')->middleware('client');
 Route::get('/load-project-details','dynamic@project_details')->name('Dynamic project loading');
 Route::get('/project-details/{project_id}','projects@single_project_details')->name('single project details');

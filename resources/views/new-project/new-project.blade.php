@@ -21,7 +21,7 @@
       <li class="visible-xs-block"><a href="/service-provider-sign-up">Become a service provider</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-        <li><a href="/new-project">New Project</a></li>
+        <li class="active"><a href="/new-project">New Project</a></li>
 
       @if(Auth::user())
         <li><a href="/profile"><span class="glyphicon glyphicon-user"></span> {{Auth::user()->first_name}}</a></li>

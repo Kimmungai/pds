@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Welocome to WebDesignersCenter.com</title>
+        <title>{{$project['title']}} details |Welocome to WebDesignersCenter.com</title>
         <meta name="description" content="Check out {{$project['title']}} project that was posted at {{ config('app.name') }} {{\Carbon\Carbon::createFromTimeStamp(strtotime($project['created_at']))->diffForHumans()}}.  {{count($project['bid'])}} bids have been placed so far.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta property="og:url"           content="{{url()->current()}}" />

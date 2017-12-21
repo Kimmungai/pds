@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Welcome to Web Designers Center</title>
+        <title>{{Route::currentRouteName()}} | Welcome to Web Designers Center</title>
         <meta name="description" content="We connect you to competent service providers. Every time you post a project, various companies place bids giving you a chance to choose the best among them.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 

@@ -184,6 +184,7 @@ class projects extends Controller
         'end_date' => 'required|max:255|date_format:m/d/Y',
         'desired_price' => 'nullable|numeric',
         'message_to_bidders' => 'nullable',
+        'terms' => 'required',
       ]);
       Project::where('id','=',session('new_project_id'))->update([
         'start_date' => $request->input('start_date'),

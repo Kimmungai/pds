@@ -431,8 +431,8 @@ header h1{
 }
 .step
 {
-  width: 200px;
-  height: 200px;
+  width: 16em;
+  height: 16em;
   border-radius: 50%;
   background-color: #373b3e;
   margin:1em auto;
@@ -441,8 +441,7 @@ header h1{
 {
   color: #fff;
   text-align: center;
-  font-size: 1.4em;
-  max-width: 195px;
+  font-size: 20px;
 }
 .step p i
 {
@@ -646,7 +645,8 @@ footer a
 .company-history p
 {
   padding: 1em 0;
-  font-size: 1.4em;
+  font-size: 1.5em;
+  font-family: OswaldMedium;
 }
 .office-pic
 {
