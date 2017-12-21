@@ -295,15 +295,38 @@
                   else {
                     $('#notify-new_messages').removeClass('notify');
                     $('#notify-new_messages').html('');
-                    $('.notify-new_messages').removeClass('notify');
-                    $('.notify-new_messages').html('');
                   }
               });
         }
         </script>
+        <script>//online status check starts here
+        var activity=0;
+        $(document).ready(function(){
+          $('body').mousemove(function(){
+            add_activity()
+          });
+        });
+        function add_activity()
+        {
+          activity += 1;
+          if(activity == 1500 || activity== 0){send_report();}
+        }
+        function send_report()
+        {
+          if(activity > 1000){var status=1;activity=0;}else{var status=0;}
+            $.get("/user-online-activity",
+                  {
+                    status:status,
+                  },
+                  function(data,status){
+
+                });
+        }
+        </script><!--online status check ends here-->
         <script>
         setInterval(pull_chat_messages, 1000);
         setInterval(check_new_messages, 3000);
+        setInterval(send_report, 300000);
         </script>
         <script>
         function page_refresh()

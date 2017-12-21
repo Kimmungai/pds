@@ -59,14 +59,14 @@ Route::get('/service-provider-sign-up', function () {
 })->name('New Bidder Sign Up');
 Route::get('/service-provider-subscription', function () {
     return view('new-provider.bidder-register-subscription-details');
-})->middleware('auth');
+})->name('Bidder subscription')->middleware('auth');
 Route::get('/new-provider-company', function () {
     return view('new-provider.bidder-register-company-details');
 })->name('New Company Details')->middleware('auth');
 
 Route::get('/forgot-pass', function () {
     return view('auth.forgotPass');
-});
+})->name('Forgot Password');
 
 Auth::routes();
 

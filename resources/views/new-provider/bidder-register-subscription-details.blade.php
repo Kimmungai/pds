@@ -98,6 +98,18 @@
               </div>
             @endif
             <div class="row">
+              <div class="col-xs-3  project-btn">
+                <a class="btn btn-primary " href="/provider-company-registration-back"><span class="fa  fa-chevron-left "></span> Back</a>
+              </div>
+              <div class="col-xs-3 col-xs-offset-6 project-btn">
+                @if(Session::has('finish_registration'))
+                <a class="btn btn-primary" href="/profile">Finish Registration</a>
+                @else
+                <a class="btn btn-primary" href="#" onclick="alert('PLease select a membership plan first')">Finish Registration</a>
+                @endif
+              </div>
+            </div>
+            <div class="row">
               <p class="p-center">Please select one of the plans. For paid plans, all payments will be processed through paypal</p>
               <p class="payment-icons p-center"><span class="fa fa-cc-paypal"></span> <span class="fa fa-cc-visa"></span> <span class="fa fa-cc-mastercard"></span></p>
 

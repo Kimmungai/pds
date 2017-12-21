@@ -222,6 +222,53 @@
   </section>
   </div>
   </div>
+@else
+<div class="container">
+<div class="row">
+  <section class="main-body">
+
+    <div class="container section-decoration">
+      <div class="row second-nav">
+        <h2>Latest projects</h2>
+        @if (Session::has('update_success'))
+          <div class="alert alert-success">
+              <span class="fa fa-check-circle"></span> {{ Session::get('update_success') }}
+          </div>
+        @endif
+        @if (Session::has('update_error'))
+          <div class="alert alert-danger">
+              {{ Session::get('update_error') }}
+          </div>
+        @endif
+        <div class="strip"></div>
+        <div class="col-md-8">
+          <nav class="breadcrumb">
+            <a class="btn btn-default <?php if(!session('bid_types')){?>active<?php }?>" href="/all-bids/0">All bids <span class="glyphicon glyphicon-list"></span></a>
+            <a class="btn btn-default <?php if(session('bid_types') && session('bid_types')==1){?>active<?php }?>" href="/closed-bids/0">Closed bids <span class="glyphicon glyphicon-folder-close"></span></a>
+            <a class="btn btn-default <?php if(session('bid_types') && session('bid_types')==2){?>active<?php }?>" href="/open-bids/0">Open bids <span class="glyphicon glyphicon-folder-open"></span></a>
+          </nav>
+       </div>
+       <div class="col-md-1 col-md-offset-1 sort-label">
+         <label for="sort-projects"><span class="glyphicon glyphicon-sort-by-attributes"></span> Sort:</label>
+       </div>
+       <div class="col-md-2">
+         <nav class="breadcrumb sort-panel">
+           <form id="sort-projects" action="/sort-projects/0" method="GET" />
+           <select class="form-control" name="sort-projects" onchange="submit_form('sort-projects')">
+             <option value="1" <?php if(!session('sort_projects')){?> selected <?php }?>>Newest - Oldest</option>
+             <option value="2" <?php if(session('sort_projects') && session('sort_projects')==2){?> selected <?php }?>>Oldest - Newest</option>
+             <option value="3" <?php if(session('sort_projects') && session('sort_projects')==3){?> selected <?php }?>>Expensive - Cheapest</option>
+             <option value="4" <?php if(session('sort_projects') && session('sort_projects')==4){?> selected <?php }?>>Cheapest - Expensive</option>
+           </select>
+          </form>
+         </nav>
+       </div>
+     </div>
+     <h1>No projects found!</h1>
+  </div>
+</section>
+</div>
+</div>
 @endif
 @if(count($provider_companies))
 <section class="service-providers">
