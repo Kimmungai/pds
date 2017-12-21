@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Mail\EmailVerification;
 use App\User;
+use App\Project;
 use App\UserAlerts;
 use Mail;
 use Session;
@@ -59,7 +60,10 @@ class clients extends Controller
     }
     public function client_public_profile($client_id)
     {
+      //$client_type=UserMembership::where('user_id','=',$client_id)->value('type');
+      $limit='';
       $client=User::with('project')->where('id','=',$client_id)->first();
-      return view('client-public-profile',compact('client'));
+      $projects=Project::with('user','projectType','bid')->where('user_id','=',$client_id)->where('end_date','<>','')->limit($limit)->paginate(4);
+      return view('client-public-profile',compact('client','projects'));
     }
 }

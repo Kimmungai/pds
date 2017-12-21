@@ -25,6 +25,7 @@ class providers extends Controller
       'last_name' => 'required|max:255',
       'email' => 'required|email|unique:users',
       'password' => 'required|min:8',
+      'terms' => 'required',
       'password_confirmation' => 'required|min:8|same:password',
     ]);
 
@@ -359,9 +360,21 @@ class providers extends Controller
   }
   public function public_profile($provider_id)
   {
+    $provider_type=UserMembership::where('user_id','=',$provider_id)->value('type');
+    if($provider_type==0 || $provider_type==1){$limit='';}else if($provider_type==2){$limit=2;}else if($provider_type==3){$limit=5;}else if($provider_type==4){$limit='';}
     $provider=User::with('company')->where('id','=',$provider_id)->first();
     $projects_completed=count(Project::where('winner','=',$provider_id)->get());
-    return view('provider-public-profile',compact('provider','projects_completed'));
+
+    if($provider_type==0 || $provider_type==1)
+    {
+      $projects=[];
+    }
+    else
+    {
+      $projects=Project::with('user','projectType','bid')->where('winner','=',$provider_id)->where('end_date','<>','')->offset($limit)->paginate(4);
+    }
+
+    return view('provider-public-profile',compact('provider','projects_completed','projects'));
   }
   public function renew_membership()
   {
