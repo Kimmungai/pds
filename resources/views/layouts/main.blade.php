@@ -11,6 +11,7 @@
         <meta property="og:type"          content="website" />
         <meta property="og:title"         content="Welcome to Web Designers Center" />
         <meta property="og:description"   content="When you post your project at web Designers Center, competent service providers will bid for it. You will then have a chance to select the best bidder based on the offer and the service provider's reputation!" />
+        <meta property="og:image"         content="{{ url('/img/logo.png') }}" />
 
         <link rel="manifest" href="{{ asset('/site.webmanifest') }}">
         <link rel="apple-touch-icon" href="{{ asset('/icon.png') }}">
