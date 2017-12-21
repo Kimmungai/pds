@@ -6,6 +6,7 @@
         <title>{{$project['title']}} details |Welocome to WebDesignersCenter.com</title>
         <meta name="description" content="Check out {{$project['title']}} project that was posted at {{ config('app.name') }} {{\Carbon\Carbon::createFromTimeStamp(strtotime($project['created_at']))->diffForHumans()}}.  {{count($project['bid'])}} bids have been placed so far.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="keywords" content="{{$project['title']}} bidders, New project, {{$project['title']}} bids, {{$project['title']}} details, web designers center, New project">
         <meta property="og:url"           content="{{url()->current()}}" />
         <meta property="og:type"          content="website" />
         <meta property="og:title"         content="{{$project['title']}} | {{ config('app.name') }}" />

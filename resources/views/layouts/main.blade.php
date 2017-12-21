@@ -6,7 +6,7 @@
         <title>{{Route::currentRouteName()}} | Welcome to Web Designers Center</title>
         <meta name="description" content="We connect you to competent service providers. Every time you post a project, various companies place bids giving you a chance to choose the best among them.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        <meta name="keywords" content="Web design, Mobile app, E-learning, Website project, Blog project, Online bidding, Nairobi web Designers, Kenya online projects, service providers, bidders">
         <meta property="og:url"           content="{{url()->current()}}" />
         <meta property="og:type"          content="website" />
         <meta property="og:title"         content="Welcome to Web Designers Center" />
@@ -21,9 +21,13 @@
         <link rel="stylesheet" href="{{ asset('/css/normalize.css') }}">
         <link rel="stylesheet" href="{{ asset('/css/main.css') }}">
         <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
-        <link rel="stylesheet" href="{{ asset('/css/persistent_chat.css') }}">
+        @if(Auth::user())
+          <link rel="stylesheet" href="{{ asset('/css/persistent_chat.css') }}">
+        @endif
         <!-- Admin Custom styles for calender-->
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+        @if(Route::getCurrentRoute()->uri() != '/')
+          <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+        @endif
     </head>
     <body>
         <!--[if lte IE 9]>
@@ -135,14 +139,19 @@
             window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
             ga('create','UA-109033027-1','auto');ga('send','pageview')
         </script>
-        <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+        <!--<script src="https://www.google-analytics.com/analytics.js" async defer></script>-->
         <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-109033027-1"></script>
+        <!--<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109033027-1"></script>
         <script>
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
           gtag('config', 'UA-109033027-1');
+        </script>-->
+        <script src="https://cdn.jsdelivr.net/ga-lite/latest/ga-lite.min.js" async></script>
+        <script>
+          var galite = galite || {};
+          galite.UA = 'UA-109033027-1'; // Insert your tracking code here
         </script>
         <script>
         function submit_form(id)

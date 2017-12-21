@@ -56,13 +56,13 @@ Route::get('/sign-up', function () {
 })->name('Sign Up');
 Route::get('/service-provider-sign-up', function () {
     return view('new-provider.bidder-register');
-});
+})->name('New Bidder Sign Up');
 Route::get('/service-provider-subscription', function () {
     return view('new-provider.bidder-register-subscription-details');
 })->middleware('auth');
 Route::get('/new-provider-company', function () {
     return view('new-provider.bidder-register-company-details');
-})->middleware('auth');
+})->name('New Company Details')->middleware('auth');
 
 Route::get('/forgot-pass', function () {
     return view('auth.forgotPass');
@@ -74,18 +74,18 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::redirect('/home', '/', 301);
 Route::redirect('/register', '/sign-up', 301);
 Route::post('/sign-up', 'clients@create')->name('create_client');
-Route::get('register/verify/{token}','Auth\RegisterController@verify');//verify email addresses
+Route::get('register/verify/{token}','Auth\RegisterController@verify')->name('Email Verification');//verify email addresses
 Route::get('/profile','admin@profile')->name('profile')->middleware('auth');
 Route::get('/client-user-profile','clients@client_profile')->name('client_profile')->middleware('auth');
 Route::get('/client-public-profile/{client_id}','clients@client_public_profile')->name('Client Profile');
 Route::get('/client-alerts','clients@alerts')->name('Client Alerts')->middleware('auth');
-Route::put('/update-basic-details','admin@update_basic_details')->name('Basic_details_update')->middleware('auth');
-Route::put('/update-personal-details','admin@update_personal_details')->name('Personal_details_update')->middleware('auth');
-Route::put('/update-password-change','admin@update_password_change')->name('Password_update')->middleware('auth');
-Route::put('/update-contact-details','admin@update_contact_details')->name('Contact_details_update')->middleware('auth');
-Route::get('/delete-account', 'admin@delete_account')->name('delete_account')->middleware('auth');
-Route::post('/provider-registration', 'providers@create')->name('create_provider');
-Route::get('register/provider-verify/{token}','Auth\RegisterController@provider_verify');//verify provideremail addresses
+Route::put('/update-basic-details','admin@update_basic_details')->name('Basic Details Update')->middleware('auth');
+Route::put('/update-personal-details','admin@update_personal_details')->name('Personal Details Update')->middleware('auth');
+Route::put('/update-password-change','admin@update_password_change')->name('Password Update')->middleware('auth');
+Route::put('/update-contact-details','admin@update_contact_details')->name('Contact Details Update')->middleware('auth');
+Route::get('/delete-account', 'admin@delete_account')->name('delete Account')->middleware('auth');
+Route::post('/provider-registration', 'providers@create')->name('create New Provider');
+Route::get('register/provider-verify/{token}','Auth\RegisterController@provider_verify')->name('Email Validation');//verify provideremail addresses
 Route::post('/provider-company-registration', 'providers@create_provider_company')->name('provider_company')->middleware('auth');
 Route::post('/provider-membership', 'providers@provider_membership')->name('provider membership')->middleware('auth');
 Route::get('/provider-company-registration-back', 'providers@create_provider_company_back')->name('provider company back')->middleware('auth');
@@ -104,11 +104,11 @@ Route::get('/provider-company','admin@company_details')->name('Company Details')
 Route::put('/incorp-details', 'providers@update_company_incorp_details')->name('Incorp details update')->middleware('auth');
 Route::put('/contacts-update', 'providers@company_contacts_update')->name('company contacts update')->middleware('auth');
 Route::put('/company-promotion-update', 'providers@update_company_promotion')->name('company promotion update')->middleware('auth');
-Route::get('/provider-membership','providers@membership')->name('Provider Membership')->middleware('provider');
+Route::get('/provider-membership','providers@membership')->name('Bidder Membership')->middleware('provider');
 Route::get('/provider-chats','providers@chats')->name('Provider Chats')->middleware('auth');
 Route::get('/provider-alerts','providers@alerts')->name('Provider Alerts')->middleware('auth');
-Route::get('/provider-profile/{provider_id}','providers@public_profile')->name('Provider Profile');
-Route::get('/provider-renew-membership','providers@renew_membership')->middleware('provider');
+Route::get('/provider-profile/{provider_id}','providers@public_profile')->name('Bidder Profile');
+Route::get('/provider-renew-membership','providers@renew_membership')->name('Membership Renewal')->middleware('provider');
 //Projects
 Route::post('/new-project', 'projects@create')->name('Create Project')->middleware('client');
 Route::get('/project-basic-back/{id}','projects@basic_back')->name('Back to basic')->middleware('auth');
