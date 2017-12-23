@@ -72,7 +72,7 @@
         <h4>Description</h4>
         @if($provider['company']['company_youtube']!='')
         <iframe width="100%" height="315"
-          src="http://www.youtube.com/embed/{{$provider['company']['company_youtube']}}?autoplay=1" allowFullScreen>
+          src="https://www.youtube.com/embed/{{$provider['company']['company_youtube']}}?autoplay=1" allowFullScreen>
         </iframe>
         @endif
         <p>{{$provider['company']->company_description}}</p>

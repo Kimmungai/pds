@@ -487,7 +487,7 @@ class projects extends Controller
           {
             $bidder_details=User::where('id','=',$bidder['user_id'])->first();
             $notify_bidders=new NewProjectNotification($client,$new_project,$bidder_details);
-            Mail::to($bidder_details['email'])->send($notify_bidders);
+            Mail::to($bidder_details['email'])->queue($notify_bidders);
           }
         }
       }

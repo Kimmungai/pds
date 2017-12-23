@@ -40,7 +40,7 @@ class providers extends Controller
     $email=new ProviderEmailVerification($newUser);
     if($newUser->save())
     {
-      Mail::to($request->input('email'))->send($email);
+      Mail::to($request->input('email'))->queue($email);
       $newUserAlert=new UserAlerts;
       $newUserAlert->user_id=$newUser->id;
       $newUserAlert->save();

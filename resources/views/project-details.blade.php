@@ -655,6 +655,7 @@ function check_new_messages()
           {
             $('#notify-new_messages').addClass('notify');
             $('#notify-new_messages').html(data);
+            load_contacts();
           }
           else {
             $('#notify-new_messages').removeClass('notify');

@@ -32,9 +32,9 @@ class admin extends Controller
         $criteria_sign='<>';
         $criteria=null;
       }else if(session('bid_filtering') && session('bid_filtering')==3){
-        $field='id';
-        $criteria_sign='<>';
-        $criteria=null;
+        $field='winner';
+        $criteria_sign='=';
+        $criteria=Auth::id();
       }else {
         $field='id';
         $criteria_sign='<>';

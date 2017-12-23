@@ -95,9 +95,9 @@ class site extends Controller
       if($new_enquiry->save())
       {
         $acknowledge_enquiry=new acknowledgeEnquiry($new_enquiry);
-        Mail::to($new_enquiry->email)->send($acknowledge_enquiry);
+        Mail::to($new_enquiry->email)->queue($acknowledge_enquiry);
         $notify_admin_enquiry=new sendAdminEnquiry($new_enquiry);
-        Mail::to('enquiry@webdesignerscenter.com')->send($notify_admin_enquiry);
+        Mail::to('enquiry@webdesignerscenter.com')->queue($notify_admin_enquiry);
         session::flash('update_success', 'Enquiry sent successfully! Our team will get back to you soon.');
       }
       else
@@ -232,7 +232,7 @@ class site extends Controller
            if(UserAlerts::where('user_id','=',$provider['user_id'])->value('alert4'))//check if user wants membership expiry alert
            {
              $user_membership_email=new membershipExpiry($provider);
-             Mail::to($provider['user']['email'])->send($user_membership_email);
+             Mail::to($provider['user']['email'])->queue($user_membership_email);
            }
          }
       }

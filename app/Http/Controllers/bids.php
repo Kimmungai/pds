@@ -100,8 +100,8 @@ class bids extends Controller
           $winnerProject=Project::with(['projectType','bid'])->where('id','=',$bid_details['project_id'])->where('user_id','=',Auth::id())->where('winner','=',$winner['id'])->first();
           $email_winner=new winnerNotification($winner,$winnerProject);
           $email_client=new clientBidChoiceNotification($winner,$winnerProject);
-          Mail::to($winner['email'])->send($email_winner);
-          Mail::to(Auth::user()->email)->send($email_client);
+          Mail::to($winner['email'])->queue($email_winner);
+          Mail::to(Auth::user()->email)->queue($email_client);
           //notify subscribers of bid clousure
           $client=User::where('id','=',Auth::id())->first();
           $this->notify_bid_closed($client,$winnerProject,$winner);
@@ -117,7 +117,7 @@ class bids extends Controller
       if($clientOptions['alert5'])
       {
         $notify_bid_to_client=new BidEvent($bid,$client,$project,$bidder);
-        Mail::to($client['email'])->send($notify_bid_to_client);
+        Mail::to($client['email'])->queue($notify_bid_to_client);
       }
     }
     private function notify_bid_closed($client,$project,$winner)
@@ -131,7 +131,7 @@ class bids extends Controller
           if($winner['id'] != $subscriber_details['id'])
           {
             $notify_subscriber=new BidClosingNotification($client,$project,$subscriber_details,$winner);
-            Mail::to($subscriber_details['email'])->send($notify_subscriber);
+            Mail::to($subscriber_details['email'])->queue($notify_subscriber);
           }
         }
       }
