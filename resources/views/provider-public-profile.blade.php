@@ -76,7 +76,6 @@
         </iframe>
         @endif
         <p>{{$provider['company']->company_description}}</p>
-        <a href="{{$provider['company']['company_website']}}" class="btn btn-primary pull-right details-btn buttonAnchor space-below" target="_blank"><span class="fa fa-external-link "></span> Website</a>
       </div>
       <div class="col-md-3">
         <ul class="list-group public-profile-details">
@@ -98,9 +97,11 @@
           <li class="list-group-item">Completed projects: <strong>{{$projects_completed}}</strong></li>
           <li class="list-group-item">Address: <strong>{{$provider['company']->company_address}}</strong></li>
         </ul>
-        <ul class="list-group public-profile-details">
-
-        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <a href="{{$provider['company']['company_website']}}" class="btn btn-primary pull-right details-btn buttonAnchor space-below" target="_blank"><span class="fa fa-external-link "></span> Website</a>
       </div>
     </div>
     <hr>
