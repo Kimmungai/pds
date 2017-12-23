@@ -65,7 +65,7 @@
         @if($provider->avatar == '')
         <div class="public-profile-pic" style="background:url('/avatar/avatar.jpg') no-repeat center;"></div>
         @else
-        <div class="public-profile-pic" style="background:url('{{$provider->avatar}}') no-repeat center;"></div>
+        <div class="public-profile-pic" style="background:url('/{{$provider->avatar}}') no-repeat center;"></div>
         @endif
       </div>
       <div class="col-md-7 public-profile">
