@@ -339,7 +339,10 @@
 
     <script>
   $( function() {
-    $( "#dob" ).datepicker();
+    $( "#dob" ).datepicker({
+      changeMonth: true,
+      changeYear: true
+    });
   } );
   </script>
 @endsection

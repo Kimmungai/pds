@@ -28,6 +28,8 @@ class CreateCompaniesTable extends Migration
             $table->text('company_description');
             $table->string('company_website');
             $table->string('company_industry');
+            $table->string('company_youtube')->nullable();
+            $table->integer('rank')->default(100);
             $table->timestamps();
         });
     }

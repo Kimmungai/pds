@@ -152,7 +152,7 @@
                   <div class="form-group row">
                     <label for="example-search-input" class="col-md-3 col-form-label">Reg. Date</label>
                     <div class="col-md-9">
-                      <input name="company_incoporation_date" class="form-control" type="text" value="{{$company['company_incoporation_date']}}" required>
+                      <input id="company_incoporation_date" name="company_incoporation_date" class="form-control" type="text" value="{{$company['company_incoporation_date']}}" required>
                       @if ($errors->has('company_incoporation_date'))
                         <span class="red">
                             <strong>{{ $errors->first('company_incoporation_date') }}</strong>
@@ -223,7 +223,7 @@
                   <div class="form-group row">
                     <label for="example-search-input" class="col-md-3 col-form-label">Website</label>
                     <div class="col-md-9">
-                      <input name="company_website" class="form-control" type="text" value="{{$company['company_website']}}" required>
+                      <input name="company_website" class="form-control" type="url" value="{{$company['company_website']}}" required>
                       @if ($errors->has('company_website'))
                         <span class="red">
                             <strong>{{ $errors->first('company_website') }}</strong>
@@ -247,6 +247,17 @@
               <div class="card mb-3">
                 <div class="card-body">
                   <h6 class="card-title mb-1"><a href="#">Company Promotion</a></h6>
+                  <div class="form-group row">
+                    <label for="example-search-input" class="col-md-3 col-form-label">Youtube video</label>
+                    <div class="col-md-9">
+                      <input type="url" class="form-control" name="company_youtube" placeholder="Promotional youtube video" value="<?php if($company['company_youtube']!=''){?>https://www.youtube.com/watch?v=<?php }?>{{ $company['company_youtube'] }}">
+                      @if ($errors->has('company_youtube'))
+                        <span class="red">
+                            <strong>{{ $errors->first('company_youtube') }}</strong>
+                        </span>
+                      @endif
+                    </div>
+                  </div>
                   <div class="form-group row">
                     <label for="example-search-input" class="col-md-3 col-form-label">Industry</label>
                     <div class="col-md-9">
@@ -294,7 +305,10 @@
 
     <script>
   $( function() {
-    $( "#dob" ).datepicker();
+    $( "#company_incoporation_date" ).datepicker({
+      changeMonth: true,
+      changeYear: true
+    });
   } );
   </script>
 @endsection

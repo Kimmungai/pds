@@ -254,6 +254,7 @@
                   {
                     $('#notify-new_messages').addClass('notify');
                     $('#notify-new_messages').html(data);
+                    load_contacts();
                   }
                   else {
                     $('#notify-new_messages').removeClass('notify');
@@ -289,7 +290,7 @@
         <script>
         setInterval(pull_chat_messages, 1000);
         setInterval(check_new_messages, 3000);
-        setInterval(send_report, 300000);
+        setInterval(send_report, 60000);
         </script>
         @endif
 </body>

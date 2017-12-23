@@ -215,10 +215,23 @@
                   <label for="name">Website url<span class="red">*</span></label>
                 </div>
                 <div class="col-md-10">
-                  <input type="text" name="company_website" class="form-control" value="{{ $data['company_website'] }}" required/>
+                  <input type="url" name="company_website" class="form-control" value="{{ $data['company_website'] }}" required/>
                   @if ($errors->has('company_website'))
                     <span class="red">
                         <strong>{{ $errors->first('company_website') }}</strong>
+                    </span>
+                  @endif
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-2">
+                  <label for="name">Youtube video</label>
+                </div>
+                <div class="col-md-10">
+                  <input type="url" name="company_youtube" class="form-control" value="<?php if($data['company_youtube']!=''){?>https://www.youtube.com/watch?v=<?php }?>{{ $data['company_youtube'] }}" />
+                  @if ($errors->has('company_youtube'))
+                    <span class="red">
+                        <strong>{{ $errors->first('company_youtube') }}</strong>
                     </span>
                   @endif
                 </div>
@@ -362,10 +375,23 @@
                 <label for="name">Website url<span class="red">*</span></label>
               </div>
               <div class="col-md-10">
-                <input type="text" name="company_website" class="form-control" value="{{ old('company_website') }}" required/>
+                <input type="url" name="company_website" class="form-control" value="{{ old('company_website') }}" required/>
                 @if ($errors->has('company_website'))
                   <span class="red">
                       <strong>{{ $errors->first('company_website') }}</strong>
+                  </span>
+                @endif
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-2">
+                <label for="name">Youtube video</label>
+              </div>
+              <div class="col-md-10">
+                <input type="url" name="company_youtube" class="form-control" value="{{ old('company_youtube') }}" />
+                @if ($errors->has('company_youtube'))
+                  <span class="red">
+                      <strong>{{ $errors->first('company_youtube') }}</strong>
                   </span>
                 @endif
               </div>

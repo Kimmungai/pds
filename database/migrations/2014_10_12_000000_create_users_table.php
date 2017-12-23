@@ -33,6 +33,7 @@ class CreateUsersTable extends Migration
             $table->string('dob')->nullable();
             $table->integer('rating')->default(0);
             $table->tinyInteger('is_online')->default(0);
+            $table->string('video')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

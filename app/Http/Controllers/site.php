@@ -49,7 +49,31 @@ class site extends Controller
       {
         $orderFilter='created_at';$orderCriteria='desc';
       }
-      $provider_companies=Company::with('user')->orderby('created_at','desc')->paginate(3);
+      ##provider sorting starts here ##
+      if(session('sort_providers') && session('sort_providers')==1)
+      {
+        $providerFilter='rank';$providerCriteria='desc';
+        session()->forget('sort_providers');
+      }
+      else if(session('sort_providers') && session('sort_providers')==2)
+      {
+        $providerFilter='rank';$providerCriteria='asc';
+      }
+      else if(session('sort_providers') && session('sort_providers')==3)
+      {
+        $providerFilter='created_at';$providerCriteria='desc';
+      }
+      else if(session('sort_providers') && session('sort_providers')==4)
+      {
+        $providerFilter='created_at';$providerCriteria='asc';
+      }
+      else
+      {
+        $providerFilter='created_at';$providerCriteria='desc';
+        session()->forget('sort_providers');
+      }
+      ##provider sorting ends here ##
+      $provider_companies=Company::with('user')->orderBy($providerFilter,$providerCriteria)->paginate(3);
       $projects=Project::with('user','projectType','bid')->where($filter,$sign,$criteria)->where('end_date','<>','')->orderBy($orderFilter,$orderCriteria)->paginate(2);
       return view('welcome',compact('provider_companies','projects'));
     }
@@ -104,6 +128,11 @@ class site extends Controller
     {
       session(['sort_projects'=>$request->input('sort-projects')]);
       if($backTo){return $this->projects_display();}
+      return $this->index();;
+    }
+    public function sort_providers(Request $request)
+    {
+      session(['sort_providers'=>$request->input('sort-providers')]);
       return $this->index();;
     }
     function projects_display()

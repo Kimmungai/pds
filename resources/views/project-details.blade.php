@@ -166,6 +166,11 @@
               @endif
           </div>
         @endif
+        @if ($errors->has('price'))
+          <div class="alert alert-danger">
+            Some errors were found in the bidding <a href="#bid-form"><u>form</u></a>
+          </div>
+        @endif
         <div class="row">
           <h2>{{$project['title']}}</h2>
           <div class="strip"></div>
@@ -322,7 +327,7 @@
   </div>
 </div>
 @if(!Auth::user() || $project['user_id'] != Auth::id())
-<section class="enquire">
+<section id="bid-form" class="enquire">
   <div class="container"><div class="row"><h2></h2></div></div>
   <div class="container section-decoration">
     <div class="row">
@@ -658,9 +663,34 @@ function check_new_messages()
       });
 }
 </script>
+<script>//online status check starts here
+var activity=0;
+$(document).ready(function(){
+  $('body').mousemove(function(){
+    add_activity()
+  });
+});
+function add_activity()
+{
+  activity += 1;
+  if(activity == 1500 || activity== 0){send_report();}
+}
+function send_report()
+{
+  if(activity > 1000){var status=1;activity=0;}else{var status=0;}
+    $.get("/user-online-activity",
+          {
+            status:status,
+          },
+          function(data,status){
+
+        });
+}
+</script><!--online status check ends here-->
 <script>
 setInterval(pull_chat_messages, 1000);
 setInterval(check_new_messages, 3000);
+setInterval(send_report, 60000);
 </script>
 @endif
 </body>

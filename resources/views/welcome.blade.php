@@ -276,17 +276,19 @@
     <div class="row second-nav">
      <h2>Available Bidders</h2>
      <div class="strip"></div>
-     <div class="col-md-1 col-md-offset-9 sort-label">
+     <div class="col-md-1 col-md-offset-8 sort-label">
        <label for="sort-projects"><span class="glyphicon glyphicon-sort-by-attributes"></span> Sort:</label>
      </div>
-     <div class="col-md-2">
+     <div class="col-md-3">
        <nav class="breadcrumb sort-panel">
-         <select class="form-control" name="sort-projects">
-           <option>Newest - Oldest</option>
-           <option>Oldest - Newest</option>
-           <option>Expensive - Cheapest</option>
-           <option>Cheapest - Expensive</option>
+         <form id="sort-providers" action="/sort-providers" method="GET" />
+         <select class="form-control" name="sort-providers" onchange="submit_form('sort-providers')">
+           <option value="1" <?php if(!session('sort_providers')){?> selected <?php }?>>Ranking high - Ranking low</option>
+           <option value="2" <?php if(session('sort_providers') && session('sort_providers')==2){?> selected <?php }?>>Ranking low - Ranking high</option>
+           <option value="3" <?php if(session('sort_providers') && session('sort_providers')==3){?> selected <?php }?>>Newest - Oldest</option>
+           <option value="4" <?php if(session('sort_providers') && session('sort_providers')==4){?> selected <?php }?>>Oldest - Newest</option>
          </select>
+        </form>
        </nav>
      </div>
     </div>
@@ -295,6 +297,7 @@
    <div class="container section-decoration">
      <div class="row provider">
        @foreach($provider_companies as $provider_company)
+        @if(count($provider_company->user->userMembership))
        <div class="col-md-4">
          <article>
            <h4>{{$provider_company['company_name']}}</h4>
@@ -343,6 +346,7 @@
            </div>
          </article>
        </div>
+        @endif
        @endforeach
      </div>
      <nav aria-label="...">

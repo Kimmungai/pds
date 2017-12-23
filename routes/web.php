@@ -16,6 +16,7 @@ Route::get('/closed-bids/{backTo}', 'site@filter_closed')->name('Closed bids');
 Route::get('/open-bids/{backTo}', 'site@filter_open')->name('Open bids');
 Route::get('/all-bids/{backTo}', 'site@filter_all')->name('All bids');
 Route::get('/sort-projects/{backTo}', 'site@sort')->name('All bids');
+Route::get('/sort-providers', 'site@sort_providers')->name('Bidders sorting');
 Route::get('/projects','site@projects_display')->name('All Projects');
 Route::get('/provider', function () {
     return view('admin.provider.top');
