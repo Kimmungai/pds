@@ -66,7 +66,7 @@ class providers extends Controller
       'company_industry' => 'required|max:255',
       'company_website' => 'required|url|max:255',
       'company_youtube' => 'nullable|url|max:255',
-      'company_description' => 'required|max:255',
+      'company_description' => 'required',
     ]);
     if($request->input('company_youtube')!=''){$youtube_video=substr($request->input('company_youtube'),strrpos($request->input('company_youtube'),'=')+1);}else{$youtube_video='';}
     $user_company=new Company;
@@ -145,7 +145,7 @@ class providers extends Controller
       'company_industry' => 'required|max:255',
       'company_website' => 'required|url|max:255',
       'company_youtube' => 'nullable|url|max:255',
-      'company_description' => 'required|max:255',
+      'company_description' => 'required',
     ]);
     if($request->input('company_youtube')!=''){$youtube_video=substr($request->input('company_youtube'),strrpos($request->input('company_youtube'),'=')+1);}else{$youtube_video='';}
     if(Company::where('user_id','=',Auth::id())->update([
@@ -334,7 +334,7 @@ class providers extends Controller
   {
     $validatedData = $request->validate([
       'company_industry' => 'required|max:255',
-      'company_description' => 'required|max:255',
+      'company_description' => 'required',
       'company_youtube' => 'nullable|url|max:255',
     ]);
     if($request->input('company_youtube')!=''){$youtube_video=substr($request->input('company_youtube'),strrpos($request->input('company_youtube'),'=')+1);}else{$youtube_video='';}
