@@ -89,11 +89,11 @@
               </div>
             @endif
            @if(isset($data))
-             <form action="/new-project-schedule" method="POST"/>
+             <form action="/new-project-schedule" method="POST">
               {{ csrf_field() }}
                 <div class="row">
                   <div class="col-md-2">
-                    <label for="name">Start date<span class="red">*</span></label>
+                    <label >Start date<span class="red">*</span></label>
                   </div>
                   <div class="col-md-10">
                     <input id="start_date" name="start_date" type="text" class="form-control" value="{{$data['start_date']}}" required/>
@@ -106,7 +106,7 @@
                 </div>
                 <div class="row">
                   <div class="col-md-2">
-                    <label for="name">End date<span class="red">*</span></label>
+                    <label >End date<span class="red">*</span></label>
                   </div>
                   <div class="col-md-10">
                     <input name="end_date" id="end_date" type="text" class="form-control" value="{{$data['end_date']}}" required/>
@@ -119,7 +119,7 @@
                 </div>
                 <div class="row">
                   <div class="col-md-2">
-                    <label for="name">Agreement<span class="red">*</span></label>
+                    <label >Agreement<span class="red">*</span></label>
                   </div>
                   <div class="col-md-10">
                     <input name="terms" id="terms" type="radio" value="1" onchange="enable_post_button()" required/><span> &nbsp;<a href="{{asset('/agreement/project-posting.pdf')}}" target="_blank">I agree to all terms and conditions</a></span>
@@ -132,7 +132,7 @@
                 </div>
                 <div class="row">
                   <div class="col-md-2">
-                    <label for="name">Ready to pay price</label>
+                    <label >Ready to pay price</label>
                   </div>
                   <div class="col-md-10">
                     <input name="desired_price" type="text" class="form-control" value="{{$data['desired_price']}}" placeholder="Amount in Ksh.." />
@@ -145,7 +145,7 @@
                 </div>
                 <div class="row">
                   <div class="col-md-2">
-                    <label for="name">Message to bidders</label>
+                    <label >Message to bidders</label>
                   </div>
                   <div class="col-md-10">
                     <textarea name="message_to_bidders" rows="5" class="form-control" placeholder="Give a brief overview of the project goals">{{$data['message_to_bidders']}}</textarea>
@@ -166,11 +166,11 @@
                 </div>
               </form>
             @else
-            <form action="/new-project-schedule" method="POST"/>
+            <form action="/new-project-schedule" method="POST">
              {{ csrf_field() }}
                <div class="row">
                  <div class="col-md-2">
-                   <label for="name">Start date<span class="red">*</span></label>
+                   <label >Start date<span class="red">*</span></label>
                  </div>
                  <div class="col-md-10">
                    <input id="start_date" name="start_date" type="text" class="form-control" value="{{ old('start_date') }}" required/>
@@ -183,7 +183,7 @@
                </div>
                <div class="row">
                  <div class="col-md-2">
-                   <label for="name">End date<span class="red">*</span></label>
+                   <label >End date<span class="red">*</span></label>
                  </div>
                  <div class="col-md-10">
                    <input name="end_date" id="end_date" type="text" class="form-control" value="{{ old('end_date') }}" required/>
@@ -196,7 +196,7 @@
                </div>
                <div class="row">
                  <div class="col-md-2">
-                   <label for="name">Agreement<span class="red">*</span></label>
+                   <label >Agreement<span class="red">*</span></label>
                  </div>
                  <div class="col-md-10">
                    <input name="terms" id="terms" type="radio" value="1" onchange="enable_post_button()" required/><span> &nbsp;<a href="{{asset('/agreement/project-posting.pdf')}}" target="_blank">I agree to all terms and conditions</a></span>
@@ -209,7 +209,7 @@
                </div>
                <div class="row">
                  <div class="col-md-2">
-                   <label for="name">Ready to pay price</label>
+                   <label >Ready to pay price</label>
                  </div>
                  <div class="col-md-10">
                    <input name="desired_price" type="text" class="form-control" value="{{ old('desired_price') }}" placeholder="Amount in Ksh.." />
@@ -222,7 +222,7 @@
                </div>
                <div class="row">
                  <div class="col-md-2">
-                   <label for="name">Message to bidders</label>
+                   <label >Message to bidders</label>
                  </div>
                  <div class="col-md-10">
                    <textarea name="message_to_bidders" rows="5" class="form-control" placeholder="Give a brief overview of the project goals">{{ old('message_to_bidders') }}</textarea>

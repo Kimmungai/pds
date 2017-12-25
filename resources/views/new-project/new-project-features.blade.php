@@ -94,11 +94,11 @@
               </div>
             @endif
             @if(isset($data) && isset($category))
-              <form action="/new-project-features" method="POST" enctype="multipart/form-data" />
+              <form action="/new-project-features" method="POST" enctype="multipart/form-data" >
                 {{ csrf_field() }}
                 <div class="row">
                   <div class="col-md-2">
-                    <label for="name">Userbility<span class="red">*</span>(click to select)</label>
+                    <label >Userbility<span class="red">*</span>(click to select)</label>
                   </div>
                   <div class="col-md-10">
                     <div class="col-md-3"><div id="feature-div-1" class="new-project-desire-feature <?php if($category['feature2']) { ?>green-bg<?php } ?>" onclick="select_feature('feature2',this.id)"><span class="fa fa-desktop"></span> <span class="fa fa-tablet"></span> <span class="fa  fa-mobile"></span><p>Responsive</p> </div></div>
@@ -113,7 +113,7 @@
                 </div>
                 <div class="row">
                   <div class="col-md-2">
-                    <label for="name">Back-end<span class="red">*</span>(click to select)</label>
+                    <label >Back-end<span class="red">*</span>(click to select)</label>
                   </div>
                   <div class="col-md-10">
                     <div class="col-md-3"><div id="feature-div-5" class="new-project-desire-feature <?php if($category['feature5']){ ?>green-bg<?php } ?>" onclick="select_feature('feature5',this.id)"><span class="fa fa-cloud-upload"></span><p>Cloud hosting</p> </div></div>
@@ -128,7 +128,7 @@
                 </div>
                 <div class="row">
                   <div class="col-md-2">
-                    <label for="name">Technical specifications</label>
+                    <label >Technical specifications</label>
                   </div>
                   <div class="col-md-10">
                     <!--<label class="btn btn-default btn-file">
@@ -144,7 +144,7 @@
                 </div>
                 <div class="row">
                   <div class="col-md-2">
-                    <label for="name"></label>
+                    <label ></label>
                   </div>
                   <div class="col-md-10">
                     @if($category['feature10']=='')
@@ -157,7 +157,7 @@
                 </div>
                 <div class="row">
                   <div class="col-md-2">
-                    <label for="name"></label>
+                    <label ></label>
                   </div>
                   <div class="col-md-10">
                     @if($category['feature11']=='')
@@ -170,7 +170,7 @@
                 </div>
                 <div class="row">
                   <div class="col-md-2">
-                    <label for="name">Other details</label>
+                    <label >Other details</label>
                   </div>
                   <div class="col-md-10">
                     <textarea rows="5" class="form-control" placeholder="Describe any other details concerning the project" name="other-features">{{$category['other_features']}}</textarea>
@@ -186,11 +186,11 @@
                 </div>
               </form>
             @else
-            <form action="/new-project-features" method="POST" enctype="multipart/form-data" />
+            <form action="/new-project-features" method="POST" enctype="multipart/form-data" >
               {{ csrf_field() }}
               <div class="row">
                 <div class="col-md-2">
-                  <label for="name">Userbility<span class="red">*</span>(click to select)</label>
+                  <label >Userbility<span class="red">*</span>(click to select)</label>
                 </div>
                 <div class="col-md-10">
                   <div class="col-md-3"><div id="feature-div-1" class="new-project-desire-feature " onclick="select_feature('feature2',this.id)"><span class="fa fa-desktop"></span> <span class="fa fa-tablet"></span> <span class="fa  fa-mobile"></span><p>Responsive</p> </div></div>
@@ -205,7 +205,7 @@
               </div>
               <div class="row">
                 <div class="col-md-2">
-                  <label for="name">Back-end<span class="red">*</span>(click to select)</label>
+                  <label >Back-end<span class="red">*</span>(click to select)</label>
                 </div>
                 <div class="col-md-10">
                   <div class="col-md-3"><div id="feature-div-5" class="new-project-desire-feature " onclick="select_feature('feature5',this.id)"><span class="fa fa-cloud-upload"></span><p>Cloud hosting</p> </div></div>
@@ -220,7 +220,7 @@
               </div>
               <div class="row">
                 <div class="col-md-2">
-                  <label for="name">Technical specifications</label>
+                  <label >Technical specifications</label>
                 </div>
                 <div class="col-md-10">
                   <!--<label class="btn btn-default btn-file">
@@ -232,7 +232,7 @@
               </div>
               <div class="row">
                 <div class="col-md-2">
-                  <label for="name"></label>
+                  <label ></label>
                 </div>
                 <div class="col-md-10">
                   <span>Choose a software specification document 2</span>
@@ -241,7 +241,7 @@
               </div>
               <div class="row">
                 <div class="col-md-2">
-                  <label for="name"></label>
+                  <label ></label>
                 </div>
                 <div class="col-md-10">
                 <span>Choose a software specification document 3</span>
@@ -250,7 +250,7 @@
               </div>
               <div class="row">
                 <div class="col-md-2">
-                  <label for="name">Other details</label>
+                  <label >Other details</label>
                 </div>
                 <div class="col-md-10">
                   <textarea rows="5" class="form-control" placeholder="Describe any other details concerning the project" name="other-features"></textarea>

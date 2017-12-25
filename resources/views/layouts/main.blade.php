@@ -18,7 +18,6 @@
         <!-- Place favicon.ico in the root directory -->
         <link rel="stylesheet" href="{{ asset('/css/font-awesome.min.css') }}">
         <link rel="stylesheet" href="{{ asset('/css/bootstrap.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('/css/bootstrap-theme.css') }}">
         <link rel="stylesheet" href="{{ asset('/css/normalize.css') }}">
         <link rel="stylesheet" href="{{ asset('/css/main.css') }}">
         <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
@@ -68,19 +67,19 @@
         <div class="chat">
             <div id="toggle-chat" class="chat-btn" onclick="load_contacts()">
                 <a class="but" href="#">
-                    <i class="fa fa-comments" aria-hidden="true"></i><span id="notify-new_messages"></span>
+                    <span class="fa fa-comments" aria-hidden="true"></span><span id="notify-new_messages"></span>
                 </a>
             </div>
             <div class="chat-open">
                 <div class="chat-container">
                 <div class="contact-list">
-                    <header><h5>Contacts</h5><a href="#" class="pull-right close"><i class="fa fa-times" aria-hidden="true"></i></a></header>
+                    <header><h5>Contacts</h5><a href="#" class="pull-right close"><span class="fa fa-times" aria-hidden="true"></span></a></header>
                     <ul id="provider-list">
 
                     </ul>
                 </div>
                 <div class="contact-message">
-                <header><a class="back" href="#"><i class="fa fa-chevron-left" aria-hidden="true"></i></a> <h5 id="chat_window_header"></h5><a href="#" class="pull-right close"><i class="fa fa-times" aria-hidden="true"></i></a></header>
+                <header><a class="back" href="#"><span class="fa fa-chevron-left" aria-hidden="true"></span></a> <h5 id="chat_window_header"></h5><a href="#" class="pull-right close"><span class="fa fa-times" aria-hidden="true"></span></a></header>
                 <div id="message-list" class="scroll">
                 </div>
                 <div class="input">
@@ -101,7 +100,7 @@
           <div class="container">
             <div class="row">
               <div class="col-md-6">
-                <p>Copyright <i class="fa fa-copyright"></i> {{ date('Y') }} webdesignerscenter.com</p>
+                <p>Copyright <span class="fa fa-copyright"></span> {{ date('Y') }} webdesignerscenter.com</p>
               </div>
               <div class="col-md-6">
                 <ul class="list-inline pull-right">
@@ -113,9 +112,9 @@
             <div class="row">
               <div class="col-md-6 pull-right col-md-offset-2 social">
                 <ul class="list-inline pull-right">
-                  <li><a href="https://www.linkedin.com/company/13608183/" target="_blank"><i class="fa fa-linkedin-square"></i></a></li>
-                  <li><a href="https://www.facebook.com/Web-Designers-Center-1908267229501969/" target="_blank"><i class="fa fa-facebook-square"></i></a></li>
-                  <li><a href="https://twitter.com/webDcenter" target="_blank"><i class="fa fa-twitter-square"></i></a></li>
+                  <li><a href="https://www.linkedin.com/company/13608183/" target="_blank"><span class="fa fa-linkedin-square"></span></a></li>
+                  <li><a href="https://www.facebook.com/Web-Designers-Center-1908267229501969/" target="_blank"><span class="fa fa-facebook-square"></span></a></li>
+                  <li><a href="https://twitter.com/webDcenter" target="_blank"><span class="fa fa-twitter-square"></span></a></li>
                 </ul>
               </div>
             </div>

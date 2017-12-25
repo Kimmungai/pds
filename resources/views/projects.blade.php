@@ -84,7 +84,7 @@
             </nav>
          </div>
          <div class="col-md-1 col-md-offset-1 sort-label">
-           <label for="sort-projects"><span class="glyphicon glyphicon-sort-by-attributes"></span> Sort:</label>
+           <label><span class="glyphicon glyphicon-sort-by-attributes"></span> Sort:</label>
          </div>
          <div class="col-md-2">
            <nav class="breadcrumb sort-panel">
@@ -241,11 +241,11 @@
             </nav>
          </div>
          <div class="col-md-1 col-md-offset-1 sort-label">
-           <label for="sort-projects"><span class="glyphicon glyphicon-sort-by-attributes"></span> Sort:</label>
+           <label><span class="glyphicon glyphicon-sort-by-attributes"></span> Sort:</label>
          </div>
          <div class="col-md-2">
            <nav class="breadcrumb sort-panel">
-             <form id="sort-projects" action="/sort-projects/0" method="GET" />
+             <form id="sort-projects" action="/sort-projects/0" method="GET">
              <select class="form-control" name="sort-projects" onchange="submit_form('sort-projects')">
                <option value="1" <?php if(!session('sort_projects')){?> selected <?php }?>>Newest - Oldest</option>
                <option value="2" <?php if(session('sort_projects') && session('sort_projects')==2){?> selected <?php }?>>Oldest - Newest</option>
@@ -256,7 +256,7 @@
            </nav>
          </div>
        </div>
-       <h1>No projects found!</h1>
+       <h3>No projects found!</h3>
     </div>
   </section>
   </div>

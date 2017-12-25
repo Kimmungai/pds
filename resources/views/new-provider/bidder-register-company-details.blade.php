@@ -103,7 +103,7 @@
                 <input type="hidden" name="_method" value="PUT"/>
               <div class="row">
                 <div class="col-md-2">
-                  <label for="name">Company name<span class="red">*</span></label>
+                  <label >Company name<span class="red">*</span></label>
                 </div>
                 <div class="col-md-10">
                   <input type="text" name="company_name" class="form-control" value="{{ $data['company_name'] }}" />
@@ -116,7 +116,7 @@
               </div>
               <div class="row">
                 <div class="col-md-2">
-                  <label for="name">Company legal name<span class="red">*</span></label>
+                  <label >Company legal name<span class="red">*</span></label>
                 </div>
                 <div class="col-md-10">
                   <input type="text" name="company_legal_name" class="form-control" value="{{ $data['company_legal_name'] }}" required/>
@@ -129,7 +129,7 @@
               </div>
               <div class="row">
                 <div class="col-md-2">
-                  <label for="name">Reg no<span class="red">*</span></label>
+                  <label >Reg no<span class="red">*</span></label>
                 </div>
                 <div class="col-md-10">
                   <input type="text" name="company_reg_no" class="form-control" value="{{ $data['company_reg_no'] }}" required/>
@@ -142,7 +142,7 @@
               </div>
               <div class="row">
                 <div class="col-md-2">
-                  <label for="name">Incorporation date<span class="red">*</span></label>
+                  <label >Incorporation date<span class="red">*</span></label>
                 </div>
                 <div class="col-md-10">
                   <input id="incorporation_date" type="text" name="company_incoporation_date" class="form-control" value="{{ $data['company_incoporation_date'] }}" required/>
@@ -155,7 +155,7 @@
               </div>
               <div class="row">
                 <div class="col-md-2">
-                  <label for="name">Address<span class="red">*</span></label>
+                  <label >Address<span class="red">*</span></label>
                 </div>
                 <div class="col-md-10">
                   <input type="text" name="company_address" class="form-control" value="{{ $data['company_address'] }}" required/>
@@ -168,7 +168,7 @@
               </div>
               <div class="row">
                 <div class="col-md-2">
-                  <label for="name">Telephone<span class="red">*</span></label>
+                  <label >Telephone<span class="red">*</span></label>
                 </div>
                 <div class="col-md-10">
                   <input type="text" name="company_tel" class="form-control" value="{{ $data['company_tel'] }}" required/>
@@ -181,7 +181,7 @@
               </div>
               <div class="row">
                 <div class="col-md-2">
-                  <label for="name">Fax</label>
+                  <label >Fax</label>
                 </div>
                 <div class="col-md-10">
                   <input type="text" name="company_fax" class="form-control" value="{{ $data['company_fax'] }}"/>
@@ -194,7 +194,7 @@
               </div>
               <div class="row">
                 <div class="col-md-2">
-                  <label for="name">Industry<span class="red">*</span></label>
+                  <label >Industry<span class="red">*</span></label>
                 </div>
                 <div class="col-md-10">
                   <select class="form-control" name="company_industry">
@@ -212,7 +212,7 @@
               </div>
               <div class="row">
                 <div class="col-md-2">
-                  <label for="name">Website url<span class="red">*</span></label>
+                  <label >Website url<span class="red">*</span></label>
                 </div>
                 <div class="col-md-10">
                   <input type="url" name="company_website" class="form-control" value="{{ $data['company_website'] }}" required/>
@@ -225,7 +225,7 @@
               </div>
               <div class="row">
                 <div class="col-md-2">
-                  <label for="name">Youtube video</label>
+                  <label >Youtube video</label>
                 </div>
                 <div class="col-md-10">
                   <input type="url" name="company_youtube" class="form-control" value="<?php if($data['company_youtube']!=''){?>https://www.youtube.com/watch?v=<?php }?>{{ $data['company_youtube'] }}" />
@@ -238,7 +238,7 @@
               </div>
               <div class="row">
                 <div class="col-md-2">
-                  <label for="name">Description<span class="red">*</span></label>
+                  <label >Description<span class="red">*</span></label>
                 </div>
                 <div class="col-md-10">
                   <textarea rows="5" class="form-control" name="company_description" placeholder="Give a brief description of your company" required>{{ $data['company_description'] }}</textarea>
@@ -263,7 +263,7 @@
               {{ csrf_field() }}
             <div class="row">
               <div class="col-md-2">
-                <label for="name">Company name<span class="red">*</span></label>
+                <label >Company name<span class="red">*</span></label>
               </div>
               <div class="col-md-10">
                 <input type="text" name="company_name" class="form-control" value="{{ old('company_name') }}" required/>
@@ -276,7 +276,7 @@
             </div>
             <div class="row">
               <div class="col-md-2">
-                <label for="name">Company legal name<span class="red">*</span></label>
+                <label >Company legal name<span class="red">*</span></label>
               </div>
               <div class="col-md-10">
                 <input type="text" name="company_legal_name" class="form-control" value="{{ old('company_legal_name') }}" required/>
@@ -289,7 +289,7 @@
             </div>
             <div class="row">
               <div class="col-md-2">
-                <label for="name">Reg no<span class="red">*</span></label>
+                <label >Reg no<span class="red">*</span></label>
               </div>
               <div class="col-md-10">
                 <input type="text" name="company_reg_no" class="form-control" value="{{ old('company_reg_no') }}" required/>
@@ -302,7 +302,7 @@
             </div>
             <div class="row">
               <div class="col-md-2">
-                <label for="name">Incorporation date<span class="red">*</span></label>
+                <label >Incorporation date<span class="red">*</span></label>
               </div>
               <div class="col-md-10">
                 <input id="incorporation_date" type="text" name="company_incoporation_date" class="form-control" value="{{ old('company_incoporation_date') }}" required/>
@@ -315,7 +315,7 @@
             </div>
             <div class="row">
               <div class="col-md-2">
-                <label for="name">Address<span class="red">*</span></label>
+                <label >Address<span class="red">*</span></label>
               </div>
               <div class="col-md-10">
                 <input type="text" name="company_address" class="form-control" value="{{ old('company_address') }}" required/>
@@ -328,7 +328,7 @@
             </div>
             <div class="row">
               <div class="col-md-2">
-                <label for="name">Telephone<span class="red">*</span></label>
+                <label >Telephone<span class="red">*</span></label>
               </div>
               <div class="col-md-10">
                 <input type="text" name="company_tel" class="form-control" value="{{ old('company_tel') }}" required/>
@@ -341,7 +341,7 @@
             </div>
             <div class="row">
               <div class="col-md-2">
-                <label for="name">Fax</label>
+                <label >Fax</label>
               </div>
               <div class="col-md-10">
                 <input type="text" name="company_fax" class="form-control" value="{{ old('company_fax') }}"/>
@@ -354,7 +354,7 @@
             </div>
             <div class="row">
               <div class="col-md-2">
-                <label for="name">Industry<span class="red">*</span></label>
+                <label >Industry<span class="red">*</span></label>
               </div>
               <div class="col-md-10">
                 <select class="form-control" name="company_industry">
@@ -372,7 +372,7 @@
             </div>
             <div class="row">
               <div class="col-md-2">
-                <label for="name">Website url<span class="red">*</span></label>
+                <label >Website url<span class="red">*</span></label>
               </div>
               <div class="col-md-10">
                 <input type="url" name="company_website" class="form-control" value="{{ old('company_website') }}" required/>
@@ -385,7 +385,7 @@
             </div>
             <div class="row">
               <div class="col-md-2">
-                <label for="name">Youtube video</label>
+                <label >Youtube video</label>
               </div>
               <div class="col-md-10">
                 <input type="url" name="company_youtube" class="form-control" value="{{ old('company_youtube') }}" />
@@ -398,7 +398,7 @@
             </div>
             <div class="row">
               <div class="col-md-2">
-                <label for="name">Description<span class="red">*</span></label>
+                <label >Description<span class="red">*</span></label>
               </div>
               <div class="col-md-10">
                 <textarea rows="5" class="form-control" name="company_description" placeholder="Give a brief description of your company" required>{{ old('company_description') }}</textarea>

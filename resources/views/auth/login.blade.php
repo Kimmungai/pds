@@ -139,7 +139,7 @@
             {{ csrf_field() }}
             <div class="row">
               <div class="col-md-2{{ $errors->has('email') ? ' has-error' : '' }}">
-                <label for="name">Email</label>
+                <label >Email</label>
               </div>
               <div class="col-md-10">
                 <input type="email" name="email" class="form-control" value="{{ old('email') }}" required autofocus />
@@ -152,7 +152,7 @@
             </div>
             <div class="row">
               <div class="col-md-2">
-                <label for="name">Password</label>
+                <label >Password</label>
               </div>
               <div class="col-md-10">
                 <input type="password" class="form-control" name="password" required />
@@ -165,7 +165,7 @@
             </div>
             <div class="row">
               <div class="col-md-2">
-                <label for="name"></label>
+                <label ></label>
               </div>
               <div class="col-md-10">
                 <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
@@ -173,10 +173,10 @@
             </div>
             <div class="row">
               <div class="col-md-4 login-create-account-p">
-                <label for="name"><a href="/sign-up">Create an account</a></label>
+                <label ><a href="/sign-up">Create an account</a></label>
               </div>
               <div class="col-md-5 login-create-account-p">
-                <label for="name"><a href="/forgot-pass">Reset password</a></label>
+                <label ><a href="/forgot-pass">Reset password</a></label>
               </div>
               <div class="col-md-3 pull-right project-btn">
                 <button type="submit" class="btn btn-primary">Login</button>

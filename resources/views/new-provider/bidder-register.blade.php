@@ -97,7 +97,7 @@
               {{ csrf_field() }}
               <div class="row">
                 <div class="col-md-2">
-                  <label for="name">First name<span class="red">*</span></label>
+                  <label >First name<span class="red">*</span></label>
                 </div>
                 <div class="col-md-10">
                   <input type="text" class="form-control" name="first_name" value="{{ old('first_name') }}"  required autofocus/>
@@ -110,7 +110,7 @@
               </div>
               <div class="row">
                 <div class="col-md-2">
-                  <label for="name">Middle name</label>
+                  <label >Middle name</label>
                 </div>
                 <div class="col-md-10">
                   <input type="text" class="form-control" name="middle_name" value="{{ old('middle_name') }}" />
@@ -123,7 +123,7 @@
               </div>
               <div class="row">
                 <div class="col-md-2">
-                  <label for="name">Last name<span class="red">*</span></label>
+                  <label >Last name<span class="red">*</span></label>
                 </div>
                 <div class="col-md-10">
                   <input type="text" class="form-control" name="last_name" value="{{ old('last_name') }}" required/>
@@ -136,7 +136,7 @@
               </div>
               <div class="row">
                 <div class="col-md-2">
-                  <label for="name">Email<span class="red">*</span></label>
+                  <label >Email<span class="red">*</span></label>
                 </div>
                 <div class="col-md-10">
                   <input type="email" class="form-control" name="email" value="{{ old('email') }}" required/>
@@ -149,7 +149,7 @@
               </div>
               <div class="row">
                 <div class="col-md-2">
-                  <label for="name">Password<span class="red">*</span></label>
+                  <label >Password<span class="red">*</span></label>
                 </div>
                 <div class="col-md-10">
                   <input type="password" class="form-control" name="password" required/>
@@ -162,7 +162,7 @@
               </div>
               <div class="row">
                 <div class="col-md-2">
-                  <label for="name">Confirm password<span class="red">*</span></label>
+                  <label >Confirm password<span class="red">*</span></label>
                 </div>
                 <div class="col-md-10">
                   <input type="password" class="form-control" name="password_confirmation" required/>
@@ -175,7 +175,7 @@
               </div>
               <div class="row">
                 <div class="col-md-2">
-                  <label for="name">Agreement<span class="red">*</span></label>
+                  <label >Agreement<span class="red">*</span></label>
                 </div>
                 <div class="col-md-10">
                   <input name="terms" id="terms" type="radio" value="1" onchange="enable_post_button()" required/><span> &nbsp;<a href="{{asset('/agreement/provider-agreement.pdf')}}" target="_blank">I have read and agree to all the terms of service</a></span>
@@ -201,6 +201,7 @@
                 @endif
               </div>
             </div>
+          </form>
           </article>
         </div>
       </div>

@@ -340,7 +340,7 @@
           <h5 class="green">Your offer</h5>
           <div class="row">
             <div class="col-md-2">
-              <label for="name">Amount</label>
+              <label >Amount</label>
             </div>
             <div class="col-md-10">
               <input name="price" type="text" class="form-control" value="{{old('price')}}"  required/>
@@ -353,7 +353,7 @@
           </div>
           <div class="row">
             <div class="col-md-2">
-              <label for="name">Message</label>
+              <label >Message</label>
             </div>
             <div class="col-md-10">
               <textarea name="message" class="form-control">{{old('message')}}</textarea>
