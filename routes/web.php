@@ -93,12 +93,13 @@ Route::get('/provider-company-registration-back', 'providers@create_provider_com
 Route::put('/provider-company-registration-update', 'providers@update_provider_company')->name('provider company update')->middleware('auth');
 Route::get('/service-provider-sign-up-back', 'providers@create_provider_back')->name('sign up update_success')->middleware('auth');
 Route::put('/provider-registration-update', 'providers@provider_registration_update')->name('provider sign up update')->middleware('auth');
-Route::get('/payment-basic-sucess','providers@payment_basic_sucess')->name('Basic Sucess')->middleware('auth');
+
+/*Route::get('/payment-basic-sucess','providers@payment_basic_sucess')->name('Basic Sucess')->middleware('auth');
 Route::get('/payment-basic-aborted','providers@payment_basic_aborted')->name('Basic Aborted')->middleware('auth');
 Route::get('/payment-silver-sucess','providers@payment_silver_sucess')->name('Silver Sucess')->middleware('auth');
 Route::get('/payment-silver-aborted','providers@payment_silver_aborted')->name('silver Aborted')->middleware('auth');
 Route::get('/payment-gold-sucess','providers@payment_gold_sucess')->name('Gold Sucess')->middleware('auth');
-Route::get('/payment-gold-aborted','providers@payment_gold_aborted')->name('Gold Aborted')->middleware('auth');
+Route::get('/payment-gold-aborted','providers@payment_gold_aborted')->name('Gold Aborted')->middleware('auth');*/
 //provider
 Route::get('/provider-user-profile','providers@provider_profile')->name('Provider Profile')->middleware('auth');
 Route::get('/provider-company','admin@company_details')->name('Company Details')->middleware('auth');

@@ -63,9 +63,9 @@
       <div class="strip"></div>
       <div class="col-md-2">
         @if($provider->avatar == '')
-        <div class="public-profile-pic" style="background:url('/avatar/avatar.jpg') no-repeat center;"></div>
+        <div class="public-profile-pic"><img src="{{asset('/avatar/avatar.jpg')}}" alt="{{$provider->first_name}}"></div>
         @else
-        <div class="public-profile-pic" style="background:url('/{{$provider->avatar}}') no-repeat center;"></div>
+        <div class="public-profile-pic"><img src="/{{$provider->avatar}}" alt="{{$provider->first_name}}"></div>
         @endif
       </div>
       <div class="col-md-7 public-profile">

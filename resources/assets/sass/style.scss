@@ -755,6 +755,11 @@ footer a
     width: 11em;
     background-size: cover;
     border-radius: 50%;
+    overflow: hidden;
+    object-fit: cover;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
 }
 .public-profile
 {
