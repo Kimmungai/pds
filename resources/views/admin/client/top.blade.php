@@ -431,7 +431,7 @@
 
                     <div class="media-body">
                       <label class="btn btn-default btn-file">
-                        Caption: <input name="caption" type="file" style="display: auto;">
+                        Caption: <input name="caption" type="file" style="display: auto;" accept="image/*">
                         @if ($errors->has('caption'))
                           <span class="red">
                               <strong>{{ $errors->first('caption') }}</strong>
@@ -446,7 +446,7 @@
 
                     <div class="media-body">
                       <label class="btn btn-default btn-file">
-                        Doc 1: <input name="feature9" type="file" style="display: auto;">
+                        Doc 1: <input name="feature9" type="file" style="display: auto;" accept=".pdf*">
                         @if ($errors->has('feature9'))
                           <span class="red">
                               <strong>{{ $errors->first('feature9') }}</strong>
@@ -461,7 +461,7 @@
 
                     <div class="media-body">
                       <label class="btn btn-default btn-file">
-                        Doc 2: <input name="feature10" type="file" style="display: auto;">
+                        Doc 2: <input name="feature10" type="file" style="display: auto;" accept=".pdf*">
                         @if ($errors->has('feature10'))
                           <span class="red">
                               <strong>{{ $errors->first('feature10') }}</strong>
@@ -476,7 +476,7 @@
 
                     <div class="media-body">
                       <label class="btn btn-default btn-file">
-                        Doc 3: <input name="feature11" type="file" style="display: auto;">
+                        Doc 3: <input name="feature11" type="file" style="display: auto;" accept=".pdf*">
                         @if ($errors->has('feature11'))
                           <span class="red">
                               <strong>{{ $errors->first('feature11') }}</strong>

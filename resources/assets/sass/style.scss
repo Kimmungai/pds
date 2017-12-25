@@ -40,10 +40,17 @@ header h1{
 }
 .pds-logo
 {
-  height: 122px;
+  /*height: 122px;
   width: 180px;
   background: url('/img/logo.png') no-repeat center;
-  margin: 0.5em;
+  margin: 0.5em;*/
+  width: 8em;
+  height: 8em;
+  overflow: hidden;
+  object-fit: cover;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
 }
 .provider-btn
 {
@@ -221,8 +228,12 @@ header h1{
 {
   height: 156px;
   margin: 0 1em;
-  background-size: cover;
   border-radius: 5px;
+  overflow: hidden;
+  object-fit: cover;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
 }
 .desired-feature
 {
@@ -362,10 +373,13 @@ header h1{
   height: 8em;
   width: 100%;
   border-radius: 5px;
-  background-size: cover;
-  box-shadow: 0.25em 0.25em 0.25em #333333;
   margin: 1em auto;
   margin-left: 0.3em;
+  overflow: hidden;
+  object-fit: cover;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
 }
 .gold
 {
@@ -503,7 +517,11 @@ header h1{
 .map
 {
   height: 400px;
-  background-size: cover;
+  overflow: hidden;
+  object-fit: cover;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
 }
 .enquire article .row
 {
@@ -664,10 +682,12 @@ footer a
 .office-pic
 {
     margin: 1em auto;
-    background:url('/img/office.jpg') no-repeat center;
     height: 350px;
-    background-size: cover;
-    box-shadow: 0.1em 0.1em 0.1em #333333;
+    overflow: hidden;
+    object-fit: cover;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
 }
 /*About us page ends here*/
 /*login/ sign up starts here*/
@@ -776,4 +796,8 @@ footer a
   border-radius: 5px;
   margin-top: 1em;
   border: 1px solid #000;
+}
+img {
+    flex: 1;
+    height: 100%;
 }

@@ -139,7 +139,7 @@
                   @else
                     <span>Choose new document 1</span>
                   @endif
-                  <input name="feature9" type="file" class="form-control"  style="height:auto;">
+                  <input name="feature9" type="file" class="form-control"  style="height:auto;" accept=".pdf*">
                   </div>
                 </div>
                 <div class="row">
@@ -152,7 +152,7 @@
                     @else
                       <span>Choose new document 2</span>
                     @endif
-                    <input name="feature10" type="file" class="form-control"  style="height:auto;">
+                    <input name="feature10" type="file" class="form-control"  style="height:auto;" accept=".pdf*">
                   </div>
                 </div>
                 <div class="row">
@@ -165,7 +165,7 @@
                     @else
                       <span>Choose new document 3</span>
                     @endif
-                  <input name="feature11" type="file" class="form-control"  style="height:auto;">
+                  <input name="feature11" type="file" class="form-control"  style="height:auto;" accept=".pdf*">
                   </div>
                 </div>
                 <div class="row">
@@ -227,7 +227,7 @@
                     Browse (max 500kb) <input name="feature9" type="file" style="display: none;">
                 </label> <span>Choose a software specification document 1</span>-->
                 <span>Choose a software specification document 1</span>
-                <input name="feature9" type="file" class="form-control"  style="height:auto;">
+                <input name="feature9" type="file" class="form-control"  style="height:auto;" accept=".pdf*">
                 </div>
               </div>
               <div class="row">
@@ -236,7 +236,7 @@
                 </div>
                 <div class="col-md-10">
                   <span>Choose a software specification document 2</span>
-                  <input name="feature10" type="file" class="form-control"  style="height:auto;">
+                  <input name="feature10" type="file" class="form-control"  style="height:auto;" accept=".pdf*">
                 </div>
               </div>
               <div class="row">
@@ -245,7 +245,7 @@
                 </div>
                 <div class="col-md-10">
                 <span>Choose a software specification document 3</span>
-                <input name="feature11" type="file" class="form-control"  style="height:auto;">
+                <input name="feature11" type="file" class="form-control"  style="height:auto;" accept=".pdf*">
                 </div>
               </div>
               <div class="row">

@@ -136,19 +136,19 @@
             </div>
             <div class="col-md-6">
               @if($project['caption']=='')
-                @if(!$project['projectType']['category'])
-                  <div class="project-pic" style="background:url('{{asset('/avatar/avatar.jpg')}}') no-repeat center;"></div>
-                @elseif($project['projectType']['category']==1)
-                  <div class="project-pic" style="background:url('{{asset('/avatar/mobile.jpg')}}') no-repeat center;"></div>
-                @elseif($project['projectType']['category']==2)
-                  <div class="project-pic" style="background:url('{{asset('/avatar/e-commerce.jpg')}}') no-repeat center;"></div>
-                @elseif($project['projectType']['category']==3)
-                  <div class="project-pic" style="background:url('{{asset('/avatar/blog.jpg')}}') no-repeat center;"></div>
-                @elseif($project['projectType']['category']==4)
-                  <div class="project-pic" style="background:url('{{asset('/avatar/website.jpg')}}') no-repeat center;"></div>
-                @endif
+                 @if(!$project['projectType']['category'])
+                   <div class="project-pic"></div>
+                 @elseif($project['projectType']['category']==1)
+                   <div class="project-pic"><img src="{{asset('/avatar/mobile.jpg')}}" alt="Mobile App Project"></div>
+                 @elseif($project['projectType']['category']==2)
+                   <div class="project-pic"><img src="{{asset('/avatar/e-commerce.jpg')}}" alt="E-commerce Project"></div>
+                 @elseif($project['projectType']['category']==3)
+                   <div class="project-pic"><img src="{{asset('/avatar/blog.jpg')}}" alt="Blog Project"></div>
+                 @elseif($project['projectType']['category']==4)
+                   <div class="project-pic"><img src="{{asset('/avatar/website.jpg')}}" alt="Website Project"></div>
+                 @endif
               @else
-              <div class="project-pic" style="background:url('{{ url($project['caption']) }}') no-repeat center;"></div>
+              <div class="project-pic"><img src="{{ url($project['caption']) }}" alt="{{$project['title']}}"></div>
               @endif
             </div>
           </div>

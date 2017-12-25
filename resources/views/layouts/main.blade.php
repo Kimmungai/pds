@@ -43,7 +43,7 @@
             <div class="row">
               <div class="col-md-1 hidden-xs hidden-sm">
                 <a href="/"><div class="pds-logo">
-                  <!--<img class="img-responsive" src="{{ asset('/img/logo.png') }}" alt="WebDesignersCenter.com">-->
+                  <img class="img-responsive" src="{{ asset('/img/logo.png') }}" alt="Web Designers Center">
                 </div></a>
               </div>
               <div class="col-md-7">

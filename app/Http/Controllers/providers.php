@@ -277,7 +277,7 @@ class providers extends Controller
       'company_legal_name' => 'required|max:255',
       'company_reg_no' => 'required|max:255',
       'company_incoporation_date' => 'nullable|max:255|date_format:m/d/Y',
-      'company_reg_cert' => 'nullable|image|mimes:jpeg,png,jpg,svg|max:2048',
+      'company_reg_cert' => 'nullable|mimes:pdf|max:2000',
     ]);
     if(Company::where('user_id','=',Auth::id())->update([
       'company_name' => $request->input('company_name'),

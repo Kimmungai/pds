@@ -149,18 +149,18 @@
              <div class="col-md-6">
                @if($project['caption']=='')
                   @if(!$project['projectType']['category'])
-                    <div class="project-pic" style="background:url('{{asset('/avatar/avatar.jpg')}}') no-repeat center;"></div>
+                    <div class="project-pic"></div>
                   @elseif($project['projectType']['category']==1)
-                    <div class="project-pic" style="background:url('{{asset('/avatar/mobile.jpg')}}') no-repeat center;"></div>
+                    <div class="project-pic"><img src="{{asset('/avatar/mobile.jpg')}}" alt="Mobile App Project"></div>
                   @elseif($project['projectType']['category']==2)
-                    <div class="project-pic" style="background:url('{{asset('/avatar/e-commerce.jpg')}}') no-repeat center;"></div>
+                    <div class="project-pic"><img src="{{asset('/avatar/e-commerce.jpg')}}" alt="E-commerce Project"></div>
                   @elseif($project['projectType']['category']==3)
-                    <div class="project-pic" style="background:url('{{asset('/avatar/blog.jpg')}}') no-repeat center;"></div>
+                    <div class="project-pic"><img src="{{asset('/avatar/blog.jpg')}}" alt="Blog Project"></div>
                   @elseif($project['projectType']['category']==4)
-                    <div class="project-pic" style="background:url('{{asset('/avatar/website.jpg')}}') no-repeat center;"></div>
+                    <div class="project-pic"><img src="{{asset('/avatar/website.jpg')}}" alt="Website Project"></div>
                   @endif
                @else
-               <div class="project-pic" style="background:url('{{ url($project['caption']) }}') no-repeat center;"></div>
+               <div class="project-pic"><img src="{{ url($project['caption']) }}" alt="{{$project['title']}}"></div>
                @endif
              </div>
            </div>
@@ -304,9 +304,9 @@
            <div class="row provider-details">
              <div class="col-xs-5">
                @if($provider_company['user']['avatar']=='')
-                 <div class="provider-logo" style="background:url('{{asset('/avatar/avatar.jpg')}}') center no-repeat;"></div>
+                 <div class="provider-logo"><img src="{{asset('/avatar/avatar.jpg')}}" alt="" ></div>
                @else
-                 <div class="provider-logo" style="background:url('{{ url($provider_company['user']['avatar']) }}') no-repeat center;"></div>
+                 <div class="provider-logo"><img src="{{url($provider_company['user']['avatar'])}}" alt="" ></div>
                @endif
              </div>
              <div class="col-xs-7">
@@ -386,8 +386,8 @@
     <div class="row">
       <div class="strip"></div>
       <div class="col-md-6">
-        <div class="map" style="background:url('/img/map.jpg') no-repeat center;">
-
+        <div class="map">
+          <img src="{{asset('/img/map.jpg')}}" alt="At your service">
         </div>
       </div>
       <div class="col-md-6">

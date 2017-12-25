@@ -143,10 +143,10 @@
                 <div class="col-md-10">
                   @if($data['caption']=='')
                     <span>An image to describe the project</span>
-                    <input name="caption" type="file" class="form-control"  style="height:auto;">
+                    <input name="caption" type="file" class="form-control"  style="height:auto;" accept="image/*">
                   @else
                     <span>choose new</span>
-                    <input name="caption" type="file" class="form-control"  style="height:auto;">
+                    <input name="caption" type="file" class="form-control"  style="height:auto;" accept="image/*">
                     <div class="choosen-caption" style="background:url('{{url($data['caption'])}}') center no-repeat;"></div>
                   @endif
                 </div>
@@ -234,7 +234,7 @@
                 </div>
                 <div class="col-md-10">
                   <span>An image to describe the project</span>
-                  <input name="caption" type="file" class="form-control"  style="height:auto;">
+                  <input name="caption" type="file" class="form-control"  style="height:auto;" accept="image/*">
                   @if ($errors->has('caption'))
                     <span class="red">
                         <strong>{{ $errors->first('caption') }}</strong>

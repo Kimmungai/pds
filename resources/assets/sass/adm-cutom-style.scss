@@ -5,6 +5,11 @@
   margin: 1em auto;
   border-radius: 50%;
   background-size: contain;
+  overflow: hidden;
+  object-fit: cover;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
 }
 .red{
   color: red;
@@ -55,9 +60,13 @@ button:hover{
 .project-icon
 {
   height: 9em;
-  width: 9em;
+  width: 90%;
   margin: 0 auto;
-  border-radius: 50%;
+  overflow: hidden;
+  object-fit: cover;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
 }
 .nopadding
 {

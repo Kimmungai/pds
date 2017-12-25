@@ -82,14 +82,14 @@
                 <div class="card-body">
                   <h6 class="card-title mb-1">Basic details</h6>
                   @if($user['avatar']=='')
-                    <div class="avatar" style="background:url('{{asset('/avatar/avatar.jpg')}}') center no-repeat;"></div>
+                    <div class="avatar"><img src="{{asset('/avatar/avatar.jpg')}}" alt="Use"></div>
                   @else
-                    <div class="avatar" style="background:url('{{ url($user['avatar']) }}') center no-repeat;"></div>
+                    <div class="avatar"><img src="{{ url($user['avatar']) }}" alt="{{ url($user['first_name']) }}"></div>
                   @endif
                   <div class="form-group row">
                     <label for="example-search-input" class="col-md-3 col-form-label">Picture</label>
                     <div class="col-md-9">
-                        <input name="avatar" type="file" class="form-control" style="height:auto;">
+                        <input name="avatar" type="file" class="form-control" style="height:auto;" accept="image/*">
                         @if ($errors->has('avatar'))
                           <span class="red">
                               <strong>{{ $errors->first('avatar') }}</strong>

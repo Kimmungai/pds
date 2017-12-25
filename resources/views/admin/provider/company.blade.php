@@ -99,22 +99,34 @@
               <input type="hidden" name="_method" value="PUT" />
               <div class="card mb-3">
                 <div class="card-body">
-                  <h6 class="card-title mb-1"><a href="#">Company Incorporation details</a></h6>
-                  @if($company['company_reg_cert']=='')
+                  <h6 class="card-title mb-1"><a href="#">Company Registration details</a></h6>
+                  <!--@if($company['company_reg_cert']=='')
                     <div class="avatar" style="background:url('{{asset('/avatar/avatar.jpg')}}') center no-repeat;"></div>
                   @else
                     <div class="avatar" style="background:url('{{ url($company['company_reg_cert']) }}') center no-repeat;"></div>
-                  @endif
+                  @endif-->
                   <div class="form-group row">
                     <label for="example-search-input" class="col-md-3 col-form-label">Reg. cert.</label>
+                    @if($company['company_reg_cert']=='')
                     <div class="col-md-9">
-                        <input name="company_reg_cert" type="file" class="form-control" style="height:auto;">
+                        <input name="company_reg_cert" type="file" class="form-control" style="height:auto;" accept=".pdf*">
                         @if ($errors->has('company_reg_cert'))
                           <span class="red">
                               <strong>{{ $errors->first('company_reg_cert') }}</strong>
                           </span>
                         @endif
                     </div>
+                    @else
+                    <div class="col-md-9">
+                      <p><big><span class="fa fa-file-pdf-o"></span></big> Uploaded!</p><a href="#" onclick="show_file_input('company_reg_cert')" style="color:inherit;">change</a> <a target="_blank" href="{{url($company['company_reg_cert'])}}" style="color:inherit;">download</a>
+                        <input id="company_reg_cert" name="company_reg_cert" type="file" class="form-control no-display" style="height:auto;" accept=".pdf*">
+                        @if ($errors->has('company_reg_cert'))
+                          <span class="red">
+                              <strong>{{ $errors->first('company_reg_cert') }}</strong>
+                          </span>
+                        @endif
+                    </div>
+                    @endif
                   </div>
                   <div class="form-group row">
                     <label for="example-search-input" class="col-md-3 col-form-label">Name</label>
@@ -310,5 +322,10 @@
       changeYear: true
     });
   } );
+  function show_file_input(id)
+  {
+    $('#'+id).click();
+    $('#'+id).removeClass('no-display');
+  }
   </script>
 @endsection

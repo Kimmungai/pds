@@ -84,7 +84,9 @@
     <div class="row">
       <div class="strip"></div>
       <div class="col-md-6">
-        <div class="office-pic"></div>
+        <div class="office-pic">
+            <img src="{{asset('/img/office.jpg')}}" alt="We will get you the right service provider!" >
+        </div>
       </div>
       <div class="col-md-6 company-history">
         <p>When you post your project at <a href="/">web Designers Center</a>, competent service providers will bid for it. You will then have a chance to select the best bidder based on the attractiveness of their offer as well as their reputation. You can check out the profile of anyone who bids on your project including their past projects. We are committed to ensuring you find the best service provider for your project!</p>
@@ -98,8 +100,8 @@
     <div class="row">
       <div class="strip"></div>
       <div class="col-md-6">
-        <div class="map" style="background:url('/img/map.jpg') no-repeat center;">
-
+        <div class="map">
+          <img src="{{asset('/img/map.jpg')}}" alt="At your service">
         </div>
       </div>
       <div class="col-md-6">
