@@ -246,7 +246,7 @@ class site extends Controller
       {
         if(strtotime($project['valid_period']) < strtotime(Carbon::now()))
         {
-          Project::where('id','=',$project['id'])->update(['final_price' => -1]);
+          Project::where('id','=',$project['id'])->update(['final_price' => 0]);
         }
       }
     }
