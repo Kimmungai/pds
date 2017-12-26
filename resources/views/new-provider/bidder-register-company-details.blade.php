@@ -173,7 +173,7 @@
                   <label >Telephone<span class="red">*</span></label>
                 </div>
                 <div class="col-md-10">
-                  <input type="text" name="company_tel" class="form-control" value="{{ $data['company_tel'] }}" required/>
+                  <input type="number" name="company_tel" class="form-control" value="{{ $data['company_tel'] }}" required/>
                   @if ($errors->has('company_tel'))
                     <span class="red">
                         <strong>{{ $errors->first('company_tel') }}</strong>
@@ -333,7 +333,7 @@
                 <label >Telephone<span class="red">*</span></label>
               </div>
               <div class="col-md-10">
-                <input type="text" name="company_tel" class="form-control" value="{{ old('company_tel') }}" required/>
+                <input type="number" name="company_tel" class="form-control" value="{{ old('company_tel') }}" required/>
                 @if ($errors->has('company_tel'))
                   <span class="red">
                       <strong>{{ $errors->first('company_tel') }}</strong>

@@ -244,7 +244,7 @@
                         <label for="price"><strong>Amount</strong></label>
                       </div>
                       <div class="col-md-8">
-                        <input name="price" type="text" class="form-control" required/>
+                        <input name="price" type="number" class="form-control" required/>
                         @if ($errors->has('price'))
                           <span class="red">
                               <strong>{{ $errors->first('price') }}</strong>

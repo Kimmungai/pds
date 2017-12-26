@@ -191,7 +191,7 @@
                   <div class="form-group row">
                     <label for="example-search-input" class="col-md-3 col-form-label">Telephone</label>
                     <div class="col-md-9">
-                      <input name="company_tel" class="form-control" type="text" value="{{$company['company_tel']}}" required>
+                      <input name="company_tel" class="form-control" type="number" value="{{$company['company_tel']}}" required>
                       @if ($errors->has('company_tel'))
                         <span class="red">
                             <strong>{{ $errors->first('company_tel') }}</strong>
@@ -213,7 +213,7 @@
                   <div class="form-group row">
                     <label for="example-search-input" class="col-md-3 col-form-label">Company Email</label>
                     <div class="col-md-9">
-                      <input name="company_email" class="form-control" type="text" value="{{$company['company_email']}}">
+                      <input name="company_email" class="form-control" type="email" value="{{$company['company_email']}}">
                       @if ($errors->has('company_email'))
                         <span class="red">
                             <strong>{{ $errors->first('company_email') }}</strong>

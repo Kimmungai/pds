@@ -168,7 +168,7 @@
                     <div class="form-group row">
                       <label for="example-search-input" class="col-md-3 col-form-label">Phone</label>
                       <div class="col-md-9">
-                        <input name="phone" class="form-control" type="text" value="{{$user['phone']}}">
+                        <input name="phone" class="form-control" type="number" value="{{$user['phone']}}">
                         @if ($errors->has('phone'))
                           <span class="red">
                               <strong>{{ $errors->first('phone') }}</strong>
@@ -217,7 +217,7 @@
                   <div class="form-group row">
                     <label for="example-search-input" class="col-md-3 col-form-label">ID no.</label>
                     <div class="col-md-9">
-                      <input name="id_no" class="form-control" type="text" value="{{$user['id_no']}}">
+                      <input name="id_no" class="form-control" type="number" value="{{$user['id_no']}}">
                       @if ($errors->has('id_no'))
                         <span class="red">
                             <strong>{{ $errors->first('id_no') }}</strong>

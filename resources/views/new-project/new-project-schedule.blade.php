@@ -136,7 +136,7 @@
                     <label >Ready to pay price</label>
                   </div>
                   <div class="col-md-10">
-                    <input name="desired_price" type="text" class="form-control" value="{{$data['desired_price']}}" placeholder="Amount in Ksh.." />
+                    <input name="desired_price" type="number" class="form-control" value="{{$data['desired_price']}}" placeholder="Amount in Ksh.." />
                     @if ($errors->has('desired_price'))
                       <span class="red">
                           <strong>{{ $errors->first('desired_price') }}</strong>
@@ -213,7 +213,7 @@
                    <label >Ready to pay price</label>
                  </div>
                  <div class="col-md-10">
-                   <input name="desired_price" type="text" class="form-control" value="{{ old('desired_price') }}" placeholder="Amount in Ksh.." />
+                   <input name="desired_price" type="number" class="form-control" value="{{ old('desired_price') }}" placeholder="Amount in Ksh.." />
                    @if ($errors->has('desired_price'))
                      <span class="red">
                          <strong>{{ $errors->first('desired_price') }}</strong>

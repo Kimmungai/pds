@@ -417,7 +417,7 @@
                   <div class="media">
                     <img class="d-flex mr-3 rounded-circle" src="{{asset('/img/not-required.png')}}" alt="">
                     <div class="media-body">
-                      <input name="desired_price" type="text" class="form-control" placeholder="Ready to pay price"/>
+                      <input name="desired_price" type="number" class="form-control" placeholder="Ready to pay price"/>
                       @if ($errors->has('desired_price'))
                         <span class="red">
                             <strong>{{ $errors->first('desired_price') }}</strong>

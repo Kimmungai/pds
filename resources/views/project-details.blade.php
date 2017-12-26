@@ -53,7 +53,7 @@
             <div class="row">
               <div class="col-md-1 hidden-xs hidden-sm">
                 <a href="/"><div class="pds-logo">
-                  <!--<img class="img-responsive" src="{{ asset('/img/logo.png') }}" alt="WebDesignersCenter.com">-->
+                  <img class="img-responsive" src="{{ asset('/img/logo.png') }}" alt="Web Designers Center">
                 </div></a>
               </div>
               <div class="col-md-7">
@@ -344,7 +344,7 @@
               <label >Amount</label>
             </div>
             <div class="col-md-10">
-              <input name="price" type="text" class="form-control" value="{{old('price')}}"  required/>
+              <input name="price" type="number" class="form-control" value="{{old('price')}}"  required/>
               @if ($errors->has('price'))
                 <span class="red">
                     <strong>{{ $errors->first('price') }}</strong>
