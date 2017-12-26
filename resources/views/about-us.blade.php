@@ -1,4 +1,4 @@
-</span>@extends('layouts.main')
+@extends('layouts.main')
 
 @section('content')
 <div class="container">
@@ -107,12 +107,12 @@
       </div>
       <div class="col-md-6">
         <article>
-         <form action="/make-enquiry" method="POST" />
+         <form action="/make-enquiry" method="POST">
            {{csrf_field()}}
             <h5>Contact Form</h5>
             <div class="row">
               <div class="col-md-2">
-                <label for="name">Name<span class="red">*</span></label>
+                <label >Name<span class="red">*</span></label>
               </div>
               <div class="col-md-10">
                 <input name="prospective_name" type="text" class="form-control" value="{{old('prospective_name')}}" required/>
@@ -125,7 +125,7 @@
             </div>
             <div class="row">
               <div class="col-md-2">
-                <label for="name">Subject<span class="red">*</span></label>
+                <label >Subject<span class="red">*</span></label>
               </div>
               <div class="col-md-10">
                 <select name="prospective_subject" class="form-control">
@@ -143,7 +143,7 @@
             </div>
             <div class="row">
               <div class="col-md-2">
-                <label for="name">Email<span class="red">*</span></label>
+                <label >Email<span class="red">*</span></label>
               </div>
               <div class="col-md-10">
                 <input name="prospective_email" type="email" class="form-control" value="{{old('prospective_email')}}" required/>
@@ -156,7 +156,7 @@
             </div>
             <div class="row">
               <div class="col-md-2">
-                <label for="name">Phone</label>
+                <label >Phone</label>
               </div>
               <div class="col-md-10">
                 <input name="prospective_phone" type="text" class="form-control" value="{{old('prospective_phone')}}" />
@@ -169,7 +169,7 @@
             </div>
             <div class="row">
               <div class="col-md-2">
-                <label for="name">Message<span class="red">*</span></label>
+                <label >Message<span class="red">*</span></label>
               </div>
               <div class="col-md-10">
                 <textarea name="prospective_message" class="form-control" required>{{old('prospective_message')}}</textarea>
@@ -182,7 +182,7 @@
             </div>
             <div class="row">
               <div class="col-md-3 pull-right project-btn">
-                <button class="btn btn-primary" type="submit"><span class="fa fa-send"></i> Send</a>
+                <button class="btn btn-primary" type="submit"><span class="fa fa-send"></span> Send</button>
               </div>
             </div>
           </form>

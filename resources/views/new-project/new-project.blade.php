@@ -83,7 +83,7 @@
         </div>
         <div class="row">
           @if(isset($data))
-          <form action="/new-project-basic-update" method="POST" enctype="multipart/form-data" />
+          <form action="/new-project-basic-update" method="POST" enctype="multipart/form-data">
           <input type="hidden" name="_method" value="PUT"/>
           {{ csrf_field() }}
             <article>
@@ -95,7 +95,7 @@
               @endif
               <div class="row">
                 <div class="col-md-2">
-                  <label for="name">Title<span class="red">*</span></label>
+                  <label >Title<span class="red">*</span></label>
                 </div>
                 <div class="col-md-10">
                   <input name="title" type="text" class="form-control" required value="{{$data['title']}}" />
@@ -108,7 +108,7 @@
               </div>
               <div class="row">
                 <div class="col-md-2">
-                  <label for="name">Category<span class="red">*</span></label>
+                  <label >Category<span class="red">*</span></label>
                 </div>
                 <div class="col-md-10">
                   <div class="col-md-3"><input type="radio" value="1" name="category"  <?php if($category['category']==1){ ?>checked  <?php } ?>/>&nbsp;Mobile App</div>
@@ -139,7 +139,7 @@
               </div>
               <div class="row">
                 <div class="col-md-2">
-                  <label for="name">Caption</label>
+                  <label >Caption</label>
                 </div>
                 <div class="col-md-10">
                   @if($data['caption']=='')
@@ -154,7 +154,7 @@
               </div>
               <div class="row">
                 <div class="col-md-2">
-                  <label for="name">Description<span class="red">*</span></label>
+                  <label >Description<span class="red">*</span></label>
                 </div>
                 <div class="col-md-10">
                   <textarea rows="5" name="description" class="form-control" placeholder="Give a brief overview of the project goals" required>{{$data['description']}}</textarea>
@@ -170,13 +170,13 @@
                   <button class="btn btn-primary" href="/"><span class="fa  fa-chevron-left "></span> Home</button>
                 </div>
                 <div class="col-xs-offset-6 col-xs-3  project-btn">
-                  <button class="btn btn-primary" type="submit">Next <span class="fa  fa-chevron-right "></span></a>
+                  <button class="btn btn-primary" type="submit">Next <span class="fa  fa-chevron-right "></span></button>
                 </div>
               </div>
             </article>
           </form>
           @else
-          <form action="/new-project" method="POST" enctype="multipart/form-data" />
+          <form action="/new-project" method="POST" enctype="multipart/form-data" >
           {{ csrf_field() }}
             <article>
               <h5>Project basic details</h5>
@@ -187,7 +187,7 @@
               @endif
               <div class="row">
                 <div class="col-md-2">
-                  <label for="name">Title<span class="red">*</span></label>
+                  <label >Title<span class="red">*</span></label>
                 </div>
                 <div class="col-md-10">
                   <input name="title" type="text" class="form-control" value="{{ old('title') }}"  />
@@ -200,7 +200,7 @@
               </div>
               <div class="row">
                 <div class="col-md-2">
-                  <label for="name">Category<span class="red">*</span></label>
+                  <label >Category<span class="red">*</span></label>
                 </div>
                 <div class="col-md-10">
                   <div class="col-md-3"><input type="radio" name="category" value="1"  <?php if(old('category')==1) {?>checked <?php }?> />&nbsp;Mobile App</div>
@@ -231,7 +231,7 @@
               </div>
               <div class="row">
                 <div class="col-md-2">
-                  <label for="name">Caption</label>
+                  <label >Caption</label>
                 </div>
                 <div class="col-md-10">
                   <span>An image to describe the project</span>
@@ -245,7 +245,7 @@
               </div>
               <div class="row">
                 <div class="col-md-2">
-                  <label for="name">Description<span class="red">*</span></label>
+                  <label >Description<span class="red">*</span></label>
                 </div>
                 <div class="col-md-10">
                   <textarea rows="5" name="description" class="form-control" placeholder="Give a brief overview of the project goals" required>{{old('description')}}</textarea>
@@ -261,7 +261,7 @@
                   <button class="btn btn-primary" href="/"><span class="fa  fa-chevron-left "></span> Home</button>
                 </div>
                 <div class="col-xs-offset-6 col-xs-3  project-btn">
-                  <button class="btn btn-primary" type="submit">Next <span class="fa  fa-chevron-right "></span></a>
+                  <button class="btn btn-primary" type="submit">Next <span class="fa  fa-chevron-right "></span></button>
                 </div>
               </div>
             </article>

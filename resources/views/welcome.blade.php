@@ -97,11 +97,11 @@
             </nav>
          </div>
          <div class="col-md-1 col-md-offset-1 sort-label">
-           <label for="sort-projects"><span class="glyphicon glyphicon-sort-by-attributes"></span> Sort:</label>
+           <label><span class="glyphicon glyphicon-sort-by-attributes"></span> Sort:</label>
          </div>
          <div class="col-md-2">
            <nav class="breadcrumb sort-panel">
-             <form id="sort-projects" action="/sort-projects/0" method="GET" />
+             <form id="sort-projects" action="/sort-projects/0" method="GET">
              <select class="form-control" name="sort-projects" onchange="submit_form('sort-projects')">
                <option value="1" <?php if(!session('sort_projects')){?> selected <?php }?>>Newest - Oldest</option>
                <option value="2" <?php if(session('sort_projects') && session('sort_projects')==2){?> selected <?php }?>>Oldest - Newest</option>
@@ -250,11 +250,11 @@
           </nav>
        </div>
        <div class="col-md-1 col-md-offset-1 sort-label">
-         <label for="sort-projects"><span class="glyphicon glyphicon-sort-by-attributes"></span> Sort:</label>
+         <label><span class="glyphicon glyphicon-sort-by-attributes"></span> Sort:</label>
        </div>
        <div class="col-md-2">
          <nav class="breadcrumb sort-panel">
-           <form id="sort-projects" action="/sort-projects/0" method="GET" />
+           <form id="sort-projects" action="/sort-projects/0" method="GET">
            <select class="form-control" name="sort-projects" onchange="submit_form('sort-projects')">
              <option value="1" <?php if(!session('sort_projects')){?> selected <?php }?>>Newest - Oldest</option>
              <option value="2" <?php if(session('sort_projects') && session('sort_projects')==2){?> selected <?php }?>>Oldest - Newest</option>
@@ -265,7 +265,7 @@
          </nav>
        </div>
      </div>
-     <h1>No projects found!</h1>
+     <h3>No projects found!</h3>
   </div>
 </section>
 </div>
@@ -278,11 +278,11 @@
      <h2>Available Bidders</h2>
      <div class="strip"></div>
      <div class="col-md-1 col-md-offset-8 sort-label">
-       <label for="sort-projects"><span class="glyphicon glyphicon-sort-by-attributes"></span> Sort:</label>
+       <label><span class="glyphicon glyphicon-sort-by-attributes"></span> Sort:</label>
      </div>
      <div class="col-md-3">
        <nav class="breadcrumb sort-panel">
-         <form id="sort-providers" action="/sort-providers" method="GET" />
+         <form id="sort-providers" action="/sort-providers" method="GET" >
          <select class="form-control" name="sort-providers" onchange="submit_form('sort-providers')">
            <option value="1" <?php if(!session('sort_providers')){?> selected <?php }?>>Ranking high - Ranking low</option>
            <option value="2" <?php if(session('sort_providers') && session('sort_providers')==2){?> selected <?php }?>>Ranking low - Ranking high</option>
@@ -393,12 +393,12 @@
       </div>
       <div class="col-md-6">
         <article>
-         <form action="/make-enquiry" method="POST" />
+         <form action="/make-enquiry" method="POST" >
            {{csrf_field()}}
             <h5>Contact Form</h5>
             <div class="row">
               <div class="col-md-2">
-                <label for="name">Name<span class="red">*</span></label>
+                <label>Name<span class="red">*</span></label>
               </div>
               <div class="col-md-10">
                 <input name="prospective_name" type="text" class="form-control" value="{{old('prospective_name')}}" required/>
@@ -411,7 +411,7 @@
             </div>
             <div class="row">
               <div class="col-md-2">
-                <label for="name">Subject<span class="red">*</span></label>
+                <label>Subject<span class="red">*</span></label>
               </div>
               <div class="col-md-10">
                 <select name="prospective_subject" class="form-control">
@@ -429,7 +429,7 @@
             </div>
             <div class="row">
               <div class="col-md-2">
-                <label for="name">Email<span class="red">*</span></label>
+                <label>Email<span class="red">*</span></label>
               </div>
               <div class="col-md-10">
                 <input name="prospective_email" type="email" class="form-control" value="{{old('prospective_email')}}" required/>
@@ -442,7 +442,7 @@
             </div>
             <div class="row">
               <div class="col-md-2">
-                <label for="name">Phone</label>
+                <label>Phone</label>
               </div>
               <div class="col-md-10">
                 <input name="prospective_phone" type="text" class="form-control" value="{{old('prospective_phone')}}" />
@@ -455,7 +455,7 @@
             </div>
             <div class="row">
               <div class="col-md-2">
-                <label for="name">Message<span class="red">*</span></label>
+                <label>Message<span class="red">*</span></label>
               </div>
               <div class="col-md-10">
                 <textarea name="prospective_message" class="form-control" required>{{old('prospective_message')}}</textarea>
@@ -468,7 +468,7 @@
             </div>
             <div class="row">
               <div class="col-md-3 pull-right project-btn">
-                <button class="btn btn-primary" type="submit"><span class="fa fa-send"></span> Send</a>
+                <button class="btn btn-primary" type="submit"><span class="fa fa-send"></span> Send</button>
               </div>
             </div>
           </form>
