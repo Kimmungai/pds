@@ -71,6 +71,7 @@
 <nav class="navbar-inverse pds-menu-bar">
 <div class="container">
   <div class="navbar-header">
+    <a class="navbar-brand visible-sm visible-xs" href="/">Home</a>
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>

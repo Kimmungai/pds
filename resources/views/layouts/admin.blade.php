@@ -19,7 +19,7 @@
     <!-- Custom styles for chat-->
     <link href="{{asset('/css/chat.css')}}" rel="stylesheet">
     <!-- Admin Custom styles for chat-->
-    <link href="{{asset('/css/adm-cutom-style.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ mix('/css/adm-cutom-style.css') }}">
     <!-- Admin Custom styles for calender-->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
     <link rel="stylesheet" href="{{ asset('/css/persistent_chat.css') }}">
