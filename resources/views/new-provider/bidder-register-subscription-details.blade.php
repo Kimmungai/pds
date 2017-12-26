@@ -37,7 +37,7 @@
             </form>
         </li>
       @else
-        <li><a href="/sign-up"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li class="active"><a href="/sign-up"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
         <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
       @endif
     </ul>

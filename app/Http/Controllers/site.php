@@ -236,6 +236,18 @@ class site extends Controller
            }
          }
       }
-      return'';
+      $this->close_expired_projects();
+      return;
+    }
+    public function close_expired_projects()
+    {
+      $all_open_projects=Project::where('final_price','=',null)->get();
+      foreach($all_open_projects as $project)
+      {
+        if(strtotime($project['valid_period']) < strtotime(Carbon::now()))
+        {
+          Project::where('id','=',$project['id'])->update(['final_price' => -1]);
+        }
+      }
     }
 }

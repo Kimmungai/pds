@@ -166,7 +166,7 @@
                  <li class="list-group-item">Average price: <span class="bold red">Ksh. {{round($project['avg_price'],2)}}</span></li>
                  @endif
                  @if($project['final_price']=='')
-                 <li class="list-group-item">Bid closing: <span class="bold">{{\Carbon\Carbon::createFromTimeStamp(strtotime($project['end_date']))->diffForHumans()}}</span></li>
+                 <li class="list-group-item">Bid closing: <span class="bold">{{\Carbon\Carbon::createFromTimeStamp(strtotime($project['valid_period']))->diffForHumans()}}</span></li>
                  @else
                  <li class="list-group-item">Bid closed: <span class="bold">{{\Carbon\Carbon::createFromTimeStamp(strtotime($project['updated_at']))->diffForHumans()}}</span></li>
                  @endif
