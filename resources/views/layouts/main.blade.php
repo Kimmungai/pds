@@ -3,7 +3,11 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>{{Route::currentRouteName()}} | Welcome to Web Designers Center</title>
+        @if(Route::getCurrentRoute()->uri() != '/')
+          <title>{{Route::currentRouteName()}} | Welcome to Web Designers Center | Official Site</title>
+        @else
+          <title>{{Route::currentRouteName()}} | Welcome to Web Designers Center</title>
+        @endif
         <meta name="description" content="We connect you to competent service providers. Every time you post a project, various companies place bids giving you a chance to choose the best among them.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="keywords" content="Web design, Mobile app, E-learning, Website project, Blog project, Online bidding, Nairobi web Designers, Kenya online projects, service providers, bidders">
@@ -42,7 +46,7 @@
             <div class="row">
               <div class="col-md-1 hidden-xs hidden-sm">
                 <a href="/"><div class="pds-logo">
-                  <img class="img-responsive" src="{{ asset('/img/logo.png') }}" alt="Web Designers Center">
+                  <img class="img-responsive" src="{{ asset('/img/logo.png') }}" alt="Web Designers Center Logo">
                 </div></a>
               </div>
               <div class="col-md-7">

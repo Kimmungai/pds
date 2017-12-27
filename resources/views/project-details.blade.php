@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>{{$project['title']}} details |Welocome to WebDesignersCenter.com</title>
+        <title>{{$project['title']}} project | Welcome to Web Designers Center | Official site</title>
         <meta name="description" content="Check out {{$project['title']}} project that was posted at {{ config('app.name') }} {{\Carbon\Carbon::createFromTimeStamp(strtotime($project['created_at']))->diffForHumans()}}.  {{count($project['bid'])}} bids have been placed so far.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="keywords" content="{{$project['title']}} bidders, New project, {{$project['title']}} bids, {{$project['title']}} details, web designers center, New project">
@@ -181,31 +181,31 @@
             @if(!$project['projectType']['category'])
               <h4>Unspecified project type</h4>
               @if($project['caption']=='')
-              <div class="project-pic" style="background:url('{{asset('/avatar/avatar.jpg')}}') no-repeat center;"></div>
+              <div class="project-pic"><img src="{{asset('/avatar/mobile.jpg')}}" alt="Mobile App Project"></div>
               @endif
             @elseif($project['projectType']['category']==1)
               <h4>A Mobile App Project</h4>
               @if($project['caption']=='')
-              <div class="project-pic" style="background:url('{{asset('/avatar/mobile.jpg')}}') no-repeat center;"></div>
+              <div class="project-pic"><img src="{{asset('/avatar/e-commerce.jpg')}}" alt="E-commerce Project"></div>
               @endif
             @elseif($project['projectType']['category']==2)
               <h4>An E-commerce Project</h4>
               @if($project['caption']=='')
-              <div class="project-pic" style="background:url('{{asset('/avatar/e-commerce.jpg')}}') no-repeat center;"></div>
+              <div class="project-pic"><img src="{{asset('/avatar/blog.jpg')}}" alt="Blog Project"></div>
               @endif
             @elseif($project['projectType']['category']==3)
               <h4>A Blog Project</h4>
               @if($project['caption']=='')
-              <div class="project-pic" style="background:url('{{asset('/avatar/blog.jpg')}}') no-repeat center;"></div>
+              <div class="project-pic"><img src="{{asset('/avatar/blog.jpg')}}" alt="Blog Project"></div>
               @endif
             @elseif($project['projectType']['category']==4)
             <h4>A website Project</h4>
               @if($project['caption']=='')
-              <div class="project-pic" style="background:url('{{asset('/avatar/website.jpg')}}') no-repeat center;"></div>
+              <div class="project-pic"><img src="{{asset('/avatar/website.jpg')}}" alt="Website Project"></div>
               @endif
             @endif
             @if($project['caption']!='')
-            <div class="project-pic" style="background:url('{{ url($project['caption']) }}') no-repeat center;"></div>
+            <div class="project-pic"><img src="{{ url($project['caption']) }}" alt="{{$project['title']}}"></div>
             @endif
           </div>
           <div class="col-md-4">
@@ -469,7 +469,6 @@
       </div>
     </section>
   </div>
-</div>
 <!--chat starts here-->
 @if(Auth::user())
 <div class="chat">

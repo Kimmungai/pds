@@ -58,7 +58,7 @@
     </div>
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
-        <p>Let companies bid for your project and select the best!</p>
+        <p>Let Web design companies compete for your project through bidding!</p>
       </div>
     </div>
     <div class="row">
@@ -71,10 +71,9 @@
 </div>
 </div>
 @if(count($projects))
-  <div class="container">
+<div class="container">
   <div class="row">
     <section class="main-body">
-
       <div class="container section-decoration">
         <div class="row second-nav">
           <h2>Latest projects</h2>
@@ -221,8 +220,9 @@
    </div>`
   </div><!--projects end here-->
   </section>
-  </div>
-  </div>
+</div>
+</div>
+</div>
 @else
 <div class="container">
 <div class="row">

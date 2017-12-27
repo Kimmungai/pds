@@ -57,7 +57,7 @@
     </div>
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
-        <p>Leading companies give their offers!</p>
+        <p>Leading developers companies will give their offers!</p>
       </div>
     </div>
     <div class="row">
