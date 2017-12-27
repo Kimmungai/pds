@@ -3,12 +3,16 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>{{Route::currentRouteName()}} | Welcome to Web Designers Center | Official Site</title>
         @if(Route::getCurrentRoute()->uri() != '/')
-          <title>{{Route::currentRouteName()}} | Welcome to Web Designers Center | Official Site</title>
+          <meta name="description" content="Post your web project to receive bids from competent companies. You can view the profile of each bidder, chat with a bidder and choose the best offer for your project!">
+        @elseif(Route::getCurrentRoute()->uri() != '/projects')
+          <meta name="description" content="Sign up today as a bidder and access various web, e-commerce, mobile apps, blogs and many other projects. You also get to create a profile for your business for potential clients to view!">
+        @elseif(Route::getCurrentRoute()->uri() != '/about-us')
+          <meta name="description" content="Understand how we connect clients to professional tech companies. Through our bidding system, clients get best market prices for their projects while service providers access lucrative projects available for bidding!">
         @else
-          <title>{{Route::currentRouteName()}} | Welcome to Web Designers Center</title>
+          <meta name="description" content="At web designers center, we strive to enable a win-win environment for both clients and web developers. As a client you get the best quotes for your projects while service providers access a larger pool of projects. Don't miss out!">
         @endif
-        <meta name="description" content="We connect you to competent service providers. Every time you post a project, various companies place bids giving you a chance to choose the best among them.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="keywords" content="Web design, Mobile app, E-learning, Website project, Blog project, Online bidding, Nairobi web Designers, Kenya online projects, service providers, bidders">
         <meta property="og:url"           content="{{url()->current()}}" />

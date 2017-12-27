@@ -90,7 +90,8 @@
         </div>
       </div>
       <div class="col-md-6 company-history">
-        <p>When you post your project at <a href="/">web Designers Center</a>, competent service providers will bid for it. You will then have a chance to select the best bidder based on the attractiveness of their offer as well as their reputation. You can check out the profile of anyone who bids on your project including their past projects. We are committed to ensuring you find the best service provider for your project!</p>
+        <p>When you post your project at <a href="/">web Designers Center</a>, competent service providers will bid for it. You will then have a chance to select the best bidder based on the attractiveness of their offer as well as their reputation. You can check out the profile of anyone who bids on your project including their past projects. We are committed to ensuring you find the best service provider for your project!
+        Every project will close automatically after 10 days regardless of the bidding status!</p>
         <div class="row project-btn">
             <div class="col-md-3"><a class="btn btn-primary" href="/new-project">Post a new project</a></div>
             <div class="col-md-3"><a class="btn btn-primary" href="/projects">View web projects</a></div>

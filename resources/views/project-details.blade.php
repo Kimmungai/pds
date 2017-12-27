@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>{{$project['title']}} project | Welcome to Web Designers Center | Official site</title>
+        <title>{{$project['title']}} project posted! | Welcome to Web Designers Center | Official site</title>
         <meta name="description" content="Check out {{$project['title']}} project that was posted at {{ config('app.name') }} {{\Carbon\Carbon::createFromTimeStamp(strtotime($project['created_at']))->diffForHumans()}}.  {{count($project['bid'])}} bids have been placed so far.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="keywords" content="{{$project['title']}} bidders, New project, {{$project['title']}} bids, {{$project['title']}} details, web designers center, New project">
