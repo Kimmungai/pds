@@ -11,13 +11,13 @@
 |
 */
 
-Route::get('/', 'site@index')->name('Web Design Company');
+Route::get('/', 'site@index')->name('Web Design');
 Route::get('/closed-bids/{backTo}', 'site@filter_closed')->name('Closed bids');
 Route::get('/open-bids/{backTo}', 'site@filter_open')->name('Open bids');
 Route::get('/all-bids/{backTo}', 'site@filter_all')->name('All bids');
 Route::get('/sort-projects/{backTo}', 'site@sort')->name('All bids');
 Route::get('/sort-providers', 'site@sort_providers')->name('Bidders sorting');
-Route::get('/projects','site@projects_display')->name('website developer jobs');
+Route::get('/projects','site@projects_display')->name('website developement projects');
 Route::get('/provider', function () {
     return view('admin.provider.top');
 });
@@ -47,7 +47,7 @@ Route::get('/client-chats', function () {
 });
 Route::get('/about-us', function () {
     return view('about-us');
-})->name('About Us');
+})->name('Web desing projects');
 Route::get('/new-project', function () {
     return view('new-project.new-project');
 })->name('New Project')->middleware('client');

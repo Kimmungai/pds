@@ -183,7 +183,7 @@ class projects extends Controller
         'start_date' => 'required|max:255|date_format:m/d/Y',
         'end_date' => 'required|max:255|date_format:m/d/Y',
         'desired_price' => 'nullable|numeric',
-        'message_to_bidders' => 'nullable',
+        'message_to_bidders' => 'nullable|max:255',
         'terms' => 'required',
       ]);
       Project::where('id','=',session('new_project_id'))->update([
@@ -234,7 +234,7 @@ class projects extends Controller
         'start_date' => 'required|max:255|date_format:m/d/Y',
         'end_date' => 'required|max:255|date_format:m/d/Y',
         'desired_price' => 'nullable|numeric',
-        'message_to_bidders' => 'nullable',
+        'message_to_bidders' => 'nullable|max:255',
         'caption' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:1000',
         "feature9" => "nullable|mimes:pdf|max:2000",
         "feature10" => "nullable|mimes:pdf|max:2000",

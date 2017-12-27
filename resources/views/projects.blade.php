@@ -57,7 +57,7 @@
     </div>
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
-        <p>Leading developers companies will give their offers!</p>
+        <p>Leading developer companies will give their offers!</p>
       </div>
     </div>
     <div class="row">
@@ -89,7 +89,7 @@
          </div>
          <div class="col-md-2">
            <nav class="breadcrumb sort-panel">
-             <form id="sort-projects" action="/sort-projects/1" method="GET" />
+             <form id="sort-projects" action="/sort-projects/1" method="GET">
              <select class="form-control" name="sort-projects" onchange="submit_form('sort-projects')">
                <option value="1" <?php if(!session('sort_projects')){?> selected <?php }?>>Newest - Oldest</option>
                <option value="2" <?php if(session('sort_projects') && session('sort_projects')==2){?> selected <?php }?>>Oldest - Newest</option>
@@ -177,7 +177,6 @@
                  @endif
                </ul>
              </div>
-             <div class="row project-info">
                <div class="col-md-6">
                  <h4 class="text-muted">Client information</h4>
                    <ul class="list-group">
@@ -201,10 +200,10 @@
                    <a href="/project-details/{{$project['id']}}" class="btn btn-primary bid-btn pull-right"><span class="fa  fa-bell-o"></span> Place a bid</a>
                 </div>
                 @endif
+            </div>
         </article>
-     </div>
+      </div>
      @endforeach
-  </div>
   <nav aria-label="...">
     <ul class="pagination pull-right">
       {{$projects->links()}}

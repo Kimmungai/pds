@@ -53,7 +53,7 @@
             <div class="row">
               <div class="col-md-1 hidden-xs hidden-sm">
                 <a href="/"><div class="pds-logo">
-                  <img class="img-responsive" src="{{ asset('/img/logo.png') }}" alt="Web Designers Center">
+                  <img class="img-responsive" src="{{ asset('/img/logo.png') }}" alt="Web Designers Center Logo">
                 </div></a>
               </div>
               <div class="col-md-7">
@@ -141,7 +141,7 @@
 </div>
 <div class="container">
   <div class="row">
-    <section class="main-body">
+    <div class="main-body">
       <div class="container project-details-controls">
         <div class="row">
           <div class="col-md-4">
@@ -283,6 +283,10 @@
             </div>
           </div>
           <div class="col-md-4">
+            @if($project['projectType']['feature9']=='' && $project['projectType']['feature10']=='' && $project['projectType']['feature11']=='')
+              <h4>Message to bidders</h4>
+              <p class="company-description">{{$project['message_to_bidders']}}</p>
+            @else
             <h4>Technical specifications</h4>
             <div class="row">
               @if($project['projectType']['feature9']!='')
@@ -307,6 +311,7 @@
               <div class="col-xs-4"><a href="{{asset($project['projectType']['feature11'])}}" target="_blank" class="btn btn-primary details-btn"><span class="fa  fa-download"></span> <small>Download</small></a></div>
               @endif
             </div>
+            @endif
           </div>
           <div class="col-md-4">
             <h4>Client information</h4>
@@ -323,13 +328,12 @@
           </div>
         </div>
       </div>
-      </div>
-    </section>
+    </div>
   </div>
 </div>
 @if(!Auth::user() || $project['user_id'] != Auth::id())
-<section id="bid-form" class="enquire">
-  <div class="container"><div class="row"><h2></h2></div></div>
+<div id="bid-form" class="enquire">
+  <div class="container"><div class="row"></div></div>
   <div class="container section-decoration">
     <div class="row">
       <div class="strip"></div>
@@ -385,7 +389,7 @@
       </div>
     </div>
   </div>
-</section>
+</div>
 @endif
 <section class="enquire">
   <div class="container"><div class="row"><h2>Bidding companies</h2></div></div>
@@ -453,7 +457,7 @@
 <!--footer nav starts here-->
 <div class="container">
   <div class="row">
-    <section class="main-body">
+    <div class="main-body">
       <div class="container project-details-controls-footer">
         <div class="row">
           <div class="col-md-4">
@@ -465,10 +469,9 @@
          </div>
        </div>
     </div>
-
-      </div>
-    </section>
   </div>
+ </div>
+</div>
 <!--chat starts here-->
 @if(Auth::user())
 <div class="chat">

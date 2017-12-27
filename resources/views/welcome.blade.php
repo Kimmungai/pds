@@ -188,7 +188,6 @@
                   @endif
                 </ul>
               </div>
-              <div class="row project-info">
                 <div class="col-md-6">
                   <h4 class="text-muted">Client information</h4>
                     <ul class="list-group">
@@ -212,15 +211,14 @@
                   <a href="/project-details/{{$project['id']}}" class="btn btn-primary bid-btn pull-right"><span class="fa  fa-bell-o"></span> Place a bid</a>
                </div>
                @endif
+            </div>
          </article>
-     </div>
+      </div>
      @endforeach
-   </div>
     <p class="view-more"><a href="/projects">View more</a></p>
    </div>`
   </div><!--projects end here-->
   </section>
-</div>
 </div>
 </div>
 @else
@@ -305,9 +303,9 @@
            <div class="row provider-details">
              <div class="col-xs-5">
                @if($provider_company['user']['avatar']=='')
-                 <div class="provider-logo"><img src="{{asset('/avatar/avatar.jpg')}}" alt="" ></div>
+                 <div class="provider-logo"><img src="{{asset('/avatar/avatar.jpg')}}" alt="bidder logo" ></div>
                @else
-                 <div class="provider-logo"><img src="{{url($provider_company['user']['avatar'])}}" alt="" ></div>
+                 <div class="provider-logo"><img src="{{url($provider_company['user']['avatar'])}}" alt="{{$provider_company['user']['first_name']}} logo" ></div>
                @endif
              </div>
              <div class="col-xs-7">
@@ -388,7 +386,7 @@
       <div class="strip"></div>
       <div class="col-md-6">
         <div class="map">
-          <img src="{{asset('/img/map.jpg')}}" alt="At your service">
+          <img src="{{asset('/img/map.jpg')}}" alt="Enquiry area">
         </div>
       </div>
       <div class="col-md-6">
