@@ -5,20 +5,20 @@
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <title>{{Route::currentRouteName()}} | Welcome to Web Designers Center | Official Site</title>
         @if(Route::getCurrentRoute()->uri() != '/')
-          <meta name="description" content="Post your web project to receive bids from competent companies. You can view the profile of each bidder, chat with a bidder and choose the best offer for your project!">
+          <meta name="description" content="Simply create a project, get bids from industry leaders, review each bidder’s profile and choose the best offer!">
         @elseif(Route::getCurrentRoute()->uri() != '/projects')
-          <meta name="description" content="Sign up today as a bidder and access various web, e-commerce, mobile apps, blogs and many other projects. You also get to create a profile for your business for potential clients to view!">
+          <meta name="description" content="Create a service provider account to access the various web, e-commerce, mobile apps, blogs and many other projects. ">
         @elseif(Route::getCurrentRoute()->uri() != '/about-us')
-          <meta name="description" content="Understand how we connect clients to professional tech companies. Through our bidding system, clients get best market prices for their projects while service providers access lucrative projects available for bidding!">
+          <meta name="description" content="Through our bidding system, clients get best market prices for their projects while service providers access lucrative projects available for bidding!">
         @else
-          <meta name="description" content="At web designers center, we strive to enable a win-win environment for both clients and web developers. As a client you get the best quotes for your projects while service providers access a larger pool of projects. Don't miss out!">
+          <meta name="description" content="At web designers center, we strive to sustain a win-win environment for both clients and web developers through our high-tech bidding system. ">
         @endif
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="keywords" content="Web design, Mobile app, E-learning, Website project, Blog project, Online bidding, Nairobi web Designers, Kenya online projects, service providers, bidders">
         <meta property="og:url"           content="{{url()->current()}}" />
         <meta property="og:type"          content="website" />
         <meta property="og:title"         content="Welcome to Web Designers Center" />
-        <meta property="og:description"   content="When you post your project at web Designers Center, competent service providers will bid for it. You will then have a chance to select the best bidder based on the offer and the service provider's reputation!" />
+        <meta property="og:description"   content="Create your web, mobile app, blog.. projects and receive competitive prices from various tech companies in our system!" />
         <meta property="og:image"         content="{{ url('/img/logo.png') }}" />
 
         <link rel="manifest" href="{{ asset('/site.webmanifest') }}">
