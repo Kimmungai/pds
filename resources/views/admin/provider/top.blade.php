@@ -150,10 +150,10 @@
                     @elseif($all_projects_types[$count]['category']==3)
                       <div class="project-icon"><img class="img-responsive" src="{{asset('/avatar/blog.jpg')}}" alt="Blog Project"></div>
                     @elseif($all_projects_types[$count]['category']==4)
-                      <div class="project-icon"><img class="img-responsive" src="{{asset('/avatar/website.jpg')}}" alt="Website Project"></div>
+                      <div class="project-icon"><img  src="{{asset('/avatar/website.jpg')}}" alt="Website Project"></div>
                     @endif
                   @else
-                    <div class="project-icon"><img class="img-responsive" src="{{ url($project['caption']) }}" alt="{{$project['title']}}"></div>
+                    <div class="project-icon"><img  src="{{ url($project['caption']) }}" alt="{{$project['title']}}"></div>
                   @endif
                   @if($project['final_price']=='')
                   <h5>OPEN</h5>
@@ -200,7 +200,7 @@
                       @if($project['desired_price']=='')
                       <li class="list-group-item">Target: <strong>-</strong></li>
                       @else
-                      <li class="list-group-item">Target: <strong>KSH. {{$project['desired_price']}}</strong></li>
+                      <li class="list-group-item">Target: <strong>KSH. {{number_format($project['desired_price'])}}</strong></li>
                       @endif
                       <li class="list-group-item">User: <strong>{{$project['user']['first_name']}}</strong> <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></li>
                     </div>
