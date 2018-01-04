@@ -118,7 +118,7 @@ $style = [
                                                     </tr>
                                                     @if($project->desired_price != '')
                                                     <tr>
-                                                     <td>Target price:</td><td><strong>Ksh. {{$project->desired_price}}</strong></td>
+                                                     <td>Target price:</td><td><strong>$ {{$project->desired_price}}</strong></td>
                                                     </tr>
                                                     @endif
                                                     <tr>
@@ -138,11 +138,11 @@ $style = [
                                                     </tr>
                                                     @if($project->avg_price!='')
                                                     <tr>
-                                                     <td>Average price:</td><td><strong style="color:red;">Ksh. {{$project->avg_price}}</strong></td>
+                                                     <td>Average price:</td><td><strong style="color:red;">$ {{$project->avg_price}}</strong></td>
                                                     </tr>
                                                     @else
                                                     <tr>
-                                                     <td>Average price:</td><td><strong style="color:red;">Ksh. 0</strong></td>
+                                                     <td>Average price:</td><td><strong style="color:red;">$ 0</strong></td>
                                                     </tr>
                                                     @endif
                                                     <tr>

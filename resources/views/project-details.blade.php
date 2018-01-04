@@ -255,11 +255,11 @@
                @endif
                 <li class="list-group-item">No. of placed bids: <span class="bold">{{count($project['bid'])}}</span></li>
                 @if($project['final_price']!='')
-                <li class="list-group-item">Final price: <span class="bold red">Ksh. {{number_format(round($project['final_price'],2))}}</span></li>
+                <li class="list-group-item">Final price: <span class="bold red">$ {{number_format(round($project['final_price'],2))}}</span></li>
                 @elseif($project['avg_price']=='')
                 <li class="list-group-item">Average price: <span class="bold red">-</span></li>
                 @else
-                <li class="list-group-item">Average price: <span class="bold red">Ksh. {{number_format(round($project['avg_price'],2))}}</span></li>
+                <li class="list-group-item">Average price: <span class="bold red">$ {{number_format(round($project['avg_price'],2))}}</span></li>
                 @endif
                 @if($project['final_price']=='')
                 <li class="list-group-item">Bid closing: <span class="bold">{{\Carbon\Carbon::createFromTimeStamp(strtotime($project['valid_period']))->diffForHumans()}}</span></li>
@@ -320,7 +320,7 @@
                   @if($project['desired_price']=='')
                   <li class="list-group-item">Desired price: <span class="bold">Unspecified</span></li>
                   @else
-                  <li class="list-group-item">Desired price: <span class="bold">Ksh. {{number_format(round($project['desired_price'],2))}}</span></li>
+                  <li class="list-group-item">Desired price: <span class="bold">$ {{number_format(round($project['desired_price'],2))}}</span></li>
                   @endif
                   <li class="list-group-item">Star rating: <span class="bold"><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star-o"></span><span class="fa fa-star-o"></span></span></li>
                   <li class="list-group-item">view profile: <span class="bold"><a href="#" class="green">profile</a></span></li>
@@ -423,7 +423,7 @@
                 <td>{{\Carbon\Carbon::createFromTimeStamp(strtotime($bid['created_at']))->diffForHumans()}}</td>
                 <td><a href="https://unsplash.com">{{$companies[$count]['company']['company_name']}}</a></td>
                 <td>{{$bid['message']}}</td>
-                <td class="red">Ksh. {{round($bid['bid_price'],2)}}</td>
+                <td class="red">$ {{round($bid['bid_price'],2)}}</td>
                 <td><a href="{{$companies[$count]['company']['company_website']}}" target="_blank">visit</a></td>
                 @if(Auth::user())
                   @if($project['user_id'] == Auth::id())

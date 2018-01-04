@@ -73,7 +73,7 @@ class bids extends Controller
         $bidder=User::with('company')->where('id','=',Auth::id())->first();
         $client=User::where('id','=',$project['user_id'])->first();
         $clientOptions=UserAlerts::where('id','=',$project['user_id'])->first();
-        session::flash('update_success', 'Ksh. '.$request->input('price').'/= bid placed successfully!');
+        session::flash('update_success', '$ '.$request->input('price').'/= bid placed successfully!');
         $this->notify_stakeholders($new_bid,$client,$project,$bidder,$clientOptions);
       }
       else

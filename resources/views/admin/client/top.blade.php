@@ -620,7 +620,7 @@
                if(project_obj.project_type.feature9!=''){$('#feature9').html('Choose a new doc 1');}
                if(project_obj.project_type.feature10!=''){$('#feature10').html('Choose a new doc 2');}
                if(project_obj.project_type.feature11!=''){$('#feature11').html('Choose a new doc 3');}
-               if(project_obj.avg_price!=''){$('#average-offer').html('Ksh. '+project_obj.avg_price);}else{$('#average-offer').html('No offers yet');}
+               if(project_obj.avg_price!=''){$('#average-offer').html('$ '+project_obj.avg_price);}else{$('#average-offer').html('No offers yet');}
                load_charts(project_obj.bid,bidders_profiles,{{session('all_companies')}},project_obj);
                $('#all-bids-table').DataTable();
            });

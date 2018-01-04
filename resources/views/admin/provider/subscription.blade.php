@@ -93,7 +93,7 @@
                 <i class="fa fa-fw fa-star-o"></i>
               </div>
               <div class="mr-5"><big>Basic</big></div>
-              <p>Ksh. 10,000</p>
+              <p>$ 100</p>
             </div>
             <a class="card-footer text-white clearfix small z-1" href="#">
               @if($membership->type==2)
@@ -114,7 +114,7 @@
                 <i class="fa fa-fw fa-star-half-full"></i>
               </div>
               <div class="mr-5"><big>Silver</big></div>
-              <p>Ksh. 20,000</p>
+              <p>$ 200</p>
             </div>
             <a class="card-footer text-white clearfix small z-1" href="#">
               @if($membership->type==3)
@@ -135,7 +135,7 @@
                 <i class="fa fa-fw fa-star"></i>
               </div>
               <div class="mr-5"><big>Gold</big></div>
-              <p>Ksh. 35,000</p>
+              <p>$ 350</p>
             </div>
             <a class="card-footer text-white clearfix small z-1" href="#">
               @if($membership->type==4)
@@ -184,9 +184,9 @@
               <div class="col-10">
                 <select class="form-control" id="selected-plan" onchange="scrollToPayment(this.value)">
                   <option value="1" disabled>Promotional plan (FREE)</option>
-                  <option value="2" <?php if($membership->type==2 || $membership->type==1){?>selected<?php }?>>Basic plan (Ksh. 10,000 / month)</option>
-                  <option value="3" <?php if($membership->type==3){?>selected<?php }?>>Silver plan (Ksh. 20,000 / month)</option>
-                  <option value="4" <?php if($membership->type==4){?>selected<?php }?>>Gold plan (Ksh. 35,000 / month)</option>
+                  <option value="2" <?php if($membership->type==2 || $membership->type==1){?>selected<?php }?>>Basic plan ($ 100 / month)</option>
+                  <option value="3" <?php if($membership->type==3){?>selected<?php }?>>Silver plan ($ 200 / month)</option>
+                  <option value="4" <?php if($membership->type==4){?>selected<?php }?>>Gold plan ($ 350 / month)</option>
                 </select>
               </div>
             </div>

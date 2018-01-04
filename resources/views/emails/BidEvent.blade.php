@@ -102,7 +102,7 @@ $style = [
                                                      <td>Bidder Company:</td><td><strong>{{$bidder['company']->company_name}}</strong></td>
                                                     </tr>
                                                     <tr>
-                                                     <td>Offer:</td><td><strong style="color:#f00;">Ksh. {{number_format($bid->bid_price)}}</strong></td>
+                                                     <td>Offer:</td><td><strong style="color:#f00;">$ {{number_format($bid->bid_price)}}</strong></td>
                                                     </tr>
                                                     <tr>
                                                      <td>Date:</td><td><strong>{{\Carbon\Carbon::createFromTimeStamp(strtotime($bid['created_at']))->diffForHumans()}}</strong></td>

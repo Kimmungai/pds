@@ -183,7 +183,7 @@
                           <th>Project Alerts</th><td><span class="fa fa-check green"></span></td>
                         </tr>
                         <tr>
-                          <th>Price</th><td><strong>Ksh. 10,000</strong></td>
+                          <th>Price</th><td><strong>$ 100</strong></td>
                         </tr>
                         <tr>
                           <th>Billing cycle</th>
@@ -200,9 +200,9 @@
                     </table>
                   </div>
                   @if((Session::has('plan') && Session('plan')!=2) || !Session::has('plan'))
-                    <button class="btn btn-primary form-control green-bg inactive-step" type="submit"> Subscribe (Ksh. 10,000)</button>
+                    <button class="btn btn-primary form-control green-bg inactive-step" type="submit"> Subscribe ($ 100)</button>
                   @else
-                    <button class="btn btn-primary form-control green-bg" type="submit"> Current plan (Ksh. 10,000)</button>
+                    <button class="btn btn-primary form-control green-bg" type="submit"> Current plan ($ 100)</button>
                   @endif
                 </form>
                 </div>
@@ -237,7 +237,7 @@
                           <th>Project Alerts</th><td><span class="fa fa-check green"></span></td>
                         </tr>
                         <tr>
-                          <th>Price</th><td><strong>Ksh. 20,000</strong></td>
+                          <th>Price</th><td><strong>$ 200</strong></td>
                         </tr>
                         <tr>
                           <th>Billing cycle</th>
@@ -254,9 +254,9 @@
                     </table>
                   </div>
                   @if((Session::has('plan') && Session('plan')!=3) || !Session::has('plan'))
-                    <button class="btn btn-primary form-control green-bg inactive-step" type="submit"> Subscribe (Ksh. 20,000)</button>
+                    <button class="btn btn-primary form-control green-bg inactive-step" type="submit"> Subscribe ($ 200)</button>
                   @else
-                    <button class="btn btn-primary form-control green-bg" type="submit"> Current plan (Ksh. 20,000)</button>
+                    <button class="btn btn-primary form-control green-bg" type="submit"> Current plan ($ 200)</button>
                   @endif
                 </form>
                 </div>
@@ -289,7 +289,7 @@
                           <th>Project Alerts</th><td><span class="fa fa-check green"></span></td>
                         </tr>
                         <tr>
-                          <th>Price</th><td><strong>Ksh. 35,000</strong></td>
+                          <th>Price</th><td><strong>$ 350</strong></td>
                         </tr>
                         <tr>
                           <th>Billing cycle</th>
@@ -306,9 +306,9 @@
                     </table>
                   </div>
                   @if((Session::has('plan') && Session('plan')!=4) || !Session::has('plan'))
-                    <button class="btn btn-primary form-control green-bg inactive-step" type="submit"> Subscribe (Ksh. 35,000)</button>
+                    <button class="btn btn-primary form-control green-bg inactive-step" type="submit"> Subscribe ($ 350)</button>
                   @else
-                    <button class="btn btn-primary form-control green-bg" type="submit"> Current plan (Ksh. 35,000)</button>
+                    <button class="btn btn-primary form-control green-bg" type="submit"> Current plan ($ 350)</button>
                   @endif
                 </div>
               </form>

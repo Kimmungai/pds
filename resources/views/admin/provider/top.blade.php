@@ -186,7 +186,7 @@
                   @if($project['avg_price']=='')
                   <h4><strong class="gold">No bids yet</strong></h4>
                   @else
-                  <h4>Avg price <strong class="gold">Ksh. {{number_format($project['avg_price'],2)}}</strong></h4>
+                  <h4>Avg price <strong class="gold">$ {{number_format($project['avg_price'],2)}}</strong></h4>
                   @endif
                 </div>
               </div>
@@ -200,7 +200,7 @@
                       @if($project['desired_price']=='')
                       <li class="list-group-item">Target: <strong>-</strong></li>
                       @else
-                      <li class="list-group-item">Target: <strong>KSH. {{number_format($project['desired_price'])}}</strong></li>
+                      <li class="list-group-item">Target: <strong>$ {{number_format($project['desired_price'])}}</strong></li>
                       @endif
                       <li class="list-group-item">User: <strong>{{$project['user']['first_name']}}</strong> <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></li>
                     </div>
