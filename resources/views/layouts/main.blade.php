@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="google-site-verification" content="p2naW7Ty4Uv1MLYKYwch9h5kvmtUOUk7emry0_ITiKg" />
         <title>{{Route::currentRouteName()}} | Welcome to Web Designers Center | Official Site</title>
         @if(Route::getCurrentRoute()->uri() != '/')
           <meta name="description" content="Simply create a project, get bids from industry leaders, review each bidder’s profile and choose the best offer!">
