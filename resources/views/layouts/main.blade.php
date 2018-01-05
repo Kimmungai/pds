@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="google-site-verification" content="p2naW7Ty4Uv1MLYKYwch9h5kvmtUOUk7emry0_ITiKg" />
+        <meta name="msvalidate.01" content="7360C3A933550859070D52E33151A1A9" />
         <title>{{Route::currentRouteName()}} | Welcome to Web Designers Center | Official Site</title>
         @if(Route::getCurrentRoute()->uri() != '/')
           <meta name="description" content="Simply create a project, get bids from industry leaders, review each bidder’s profile and choose the best offer!">
@@ -55,7 +56,7 @@
                 </div></a>
               </div>
               <div class="col-md-7">
-                <h1 class="site-title"><a  href="/">Web Designers Center</a></h1>
+                <h2 class="site-title"><a  href="/">Web Designers Center</a></h2>
               </div>
               <div class="col-md-3 provider-btn hidden-xs hidden-sm">
                 @if(!Auth::user())
