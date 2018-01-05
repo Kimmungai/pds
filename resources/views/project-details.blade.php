@@ -523,8 +523,9 @@
     <div class="row">
       <div class="col-md-6 pull-right col-md-offset-2 social">
         <ul class="list-inline pull-right">
-          <li><a href="#"><span class="fa fa-facebook-square"></span></a></li>
-          <li><a href="#"><span class="fa fa-twitter"></span></a></li>
+          <li><a href="https://www.linkedin.com/company/13608183/" target="_blank" title="linkedin"><span class="fa fa-linkedin-square"></span></a></li>
+          <li><a href="https://www.facebook.com/Web-Designers-Center-1908267229501969/" target="_blank" title="Facebook"><span class="fa fa-facebook-square"></span></a></li>
+          <li><a href="https://twitter.com/webDcenter" target="_blank" title="Twitter"><span class="fa fa-twitter-square"></span></a></li>
         </ul>
       </div>
     </div>
