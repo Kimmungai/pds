@@ -186,12 +186,12 @@
             @elseif($project['projectType']['category']==1)
               <h4>A Mobile App Project</h4>
               @if($project['caption']=='')
-              <div class="project-pic"><img src="{{asset('/avatar/e-commerce.jpg')}}" alt="E-commerce Project"></div>
+              <div class="project-pic"><img src="{{asset('/avatar/mobile.jpg')}}" alt="Mobile App Project"></div>
               @endif
             @elseif($project['projectType']['category']==2)
               <h4>An E-commerce Project</h4>
               @if($project['caption']=='')
-              <div class="project-pic"><img src="{{asset('/avatar/blog.jpg')}}" alt="Blog Project"></div>
+              <div class="project-pic"><img src="{{asset('/avatar/e-commerce.jpg')}}" alt="E-commerse Project"></div>
               @endif
             @elseif($project['projectType']['category']==3)
               <h4>A Blog Project</h4>
