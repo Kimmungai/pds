@@ -19,7 +19,7 @@
           @elseif($project['projectType']['category']==2)
             <meta property="og:image"         content="{{url('/avatar/e-commerce.jpg')}}" />
           @elseif($project['projectType']['category']==3)
-            <meta property="og:image"         content="{{url('/avatar/blog.jpg')}}" />>
+            <meta property="og:image"         content="{{url('/avatar/blog.jpg')}}" />
           @elseif($project['projectType']['category']==4)
             <meta property="og:image"         content="{{url('/avatar/website.jpg')}}" />
           @endif
@@ -37,8 +37,8 @@
         <link rel="stylesheet" href="{{ asset('/css/main.css') }}">
         <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
         <link rel="stylesheet" href="{{ asset('/css/persistent_chat.css') }}">
-        <!-- Admin Custom styles for calender-->
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+        <!-- Admin Custom styles for calender -->
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     </head>
     <body>
         <!--[if lte IE 9]>
