@@ -218,17 +218,19 @@
                    <a href="/project-details/{{$project['id']}}" class="btn btn-primary bid-btn pull-right"><span class="fa  fa-bell-o"></span> Place a bid</a>
                 </div>
                 @endif
+            </div>
+          </div>
         </article>
-     </div>
+        </div>
      @endforeach
-  </div>
   <nav aria-label="...">
     <ul class="pagination pull-right">
       {{$projects->links()}}
     </ul>
   </nav>
-   </div>`
   </div><!--projects end here-->
+</div>
+<hr>
   </section>
 </div>
 </div>
@@ -242,6 +244,7 @@
         <div class="strip"></div>
       </div>
     </div>
+    <hr>
   </section>
 </div>
 </div>

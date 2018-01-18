@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>{{$project['title']}} project posted! | Welcome to Web Designers Center | Official site</title>
+        <title>{{$project['title']}} project posted! | Projects at Web Designers Center | Official site</title>
         <meta name="description" content="Check out {{$project['title']}} project that was posted at {{ config('app.name') }} {{\Carbon\Carbon::createFromTimeStamp(strtotime($project['created_at']))->diffForHumans()}}.  {{count($project['bid'])}} bids have been placed so far.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="keywords" content="{{$project['title']}} bidders, New project, {{$project['title']}} bids, {{$project['title']}} details, web designers center, New project">
@@ -15,11 +15,11 @@
           @if(!$project['projectType']['category'])
             <meta property="og:image"         content="{{url('/avatar/avatar.jpg')}}" />
           @elseif($project['projectType']['category']==1)
-            <<meta property="og:image"         content="{{url('/avatar/mobile.jpg')}}" />
+            <meta property="og:image"         content="{{url('/avatar/mobile.jpg')}}" />
           @elseif($project['projectType']['category']==2)
             <meta property="og:image"         content="{{url('/avatar/e-commerce.jpg')}}" />
           @elseif($project['projectType']['category']==3)
-            <meta property="og:image"         content="{{url('/avatar/blog.jpg')}}" />>
+            <meta property="og:image"         content="{{url('/avatar/blog.jpg')}}" />
           @elseif($project['projectType']['category']==4)
             <meta property="og:image"         content="{{url('/avatar/website.jpg')}}" />
           @endif
@@ -37,8 +37,8 @@
         <link rel="stylesheet" href="{{ asset('/css/main.css') }}">
         <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
         <link rel="stylesheet" href="{{ asset('/css/persistent_chat.css') }}">
-        <!-- Admin Custom styles for calender-->
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+        <!-- Admin Custom styles for calender -->
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     </head>
     <body>
         <!--[if lte IE 9]>
@@ -421,7 +421,7 @@
               <tr>
                 <th scope="row">{{$bid['id']}}</th>
                 <td>{{\Carbon\Carbon::createFromTimeStamp(strtotime($bid['created_at']))->diffForHumans()}}</td>
-                <td><a href="https://unsplash.com">{{$companies[$count]['company']['company_name']}}</a></td>
+                <td><a href="{{$companies[$count]['company']['company_website']}}">{{$companies[$count]['company']['company_name']}}</a></td>
                 <td>{{$bid['message']}}</td>
                 <td class="red">$ {{round($bid['bid_price'],2)}}</td>
                 <td><a href="{{$companies[$count]['company']['company_website']}}" target="_blank">visit</a></td>
