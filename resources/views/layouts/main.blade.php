@@ -5,7 +5,7 @@
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="google-site-verification" content="p2naW7Ty4Uv1MLYKYwch9h5kvmtUOUk7emry0_ITiKg" />
         <meta name="msvalidate.01" content="7360C3A933550859070D52E33151A1A9" />
-        <title>{{Route::currentRouteName()}} | Welcome to Web Designers Center | Official Site</title>
+        <title>{{Route::currentRouteName()}} | Web Designers Center | Post Your Yeb Design Project| Get competitve bids </title>
         @if(Route::getCurrentRoute()->uri() != '/')
           <meta name="description" content="Simply create a project, get bids from industry leaders, review each bidder’s profile and choose the best offer!">
         @elseif(Route::getCurrentRoute()->uri() != '/projects')
