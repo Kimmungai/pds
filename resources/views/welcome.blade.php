@@ -70,6 +70,28 @@
 </div>
 </div>
 </div>
+<section class="how-it-works" id="how-it-works">
+  <div class="container section-decoration">
+    <div class="row"><h2>How it works</h2><div class="strip"></div></div>
+    <div class="row working-steps">
+      <div class="col-md-3">
+        <div class="step"><p><span class="badge">1</span><br /><span class="fa   fa-list"></span><br />Post the details of your project</p></div>
+      </div>
+      <div class="col-md-3">
+        <div class="step"><p><span class="badge">2</span><br /><span class="fa fa-briefcase"></span> <span class="fa fa-briefcase"></span><br />Let companies bid for your project</p></div>
+      </div>
+      <div class="col-md-3">
+        <div class="step"><p><span class="badge">3</span><br /><span class="fa fa-bell-o"></span><br />Select the best bid!</p></div>
+      </div>
+      <div class="col-md-3">
+        <div class="step"><p><span class="badge">4</span><br /><span class="fa fa-weixin"></span><br />Chat with the winner and finalize the deal</p></div>
+      </div>
+    </div>
+    <div class="row project-btn pull-right">
+        <div class="col-md-3"><a class="btn btn-primary" href="/new-project">Post a new project</a></div>
+    </div>
+  </div>
+</section>
 @if(count($projects))
 <div class="container">
   <div class="row">
@@ -357,28 +379,6 @@
    </div>
 </section>
 @endif
-<section class="how-it-works" id="how-it-works">
-  <div class="container section-decoration">
-    <div class="row"><h2>How it works</h2><div class="strip"></div></div>
-    <div class="row working-steps">
-      <div class="col-md-3">
-        <div class="step"><p><span class="badge">1</span><br /><span class="fa   fa-list"></span><br />Post the details of your project</p></div>
-      </div>
-      <div class="col-md-3">
-        <div class="step"><p><span class="badge">2</span><br /><span class="fa fa-briefcase"></span> <span class="fa fa-briefcase"></span><br />Let companies bid for your project</p></div>
-      </div>
-      <div class="col-md-3">
-        <div class="step"><p><span class="badge">3</span><br /><span class="fa fa-bell-o"></span><br />Select the best bid!</p></div>
-      </div>
-      <div class="col-md-3">
-        <div class="step"><p><span class="badge">4</span><br /><span class="fa fa-weixin"></span><br />Chat with the winner and finalize the deal</p></div>
-      </div>
-    </div>
-    <div class="row project-btn pull-right">
-        <div class="col-md-3"><a class="btn btn-primary" href="/new-project">Post a new project</a></div>
-    </div>
-  </div>
-</section>
 <section class="enquire">
   <div class="container"><div class="row"><h2>Make an enquiry</h2></div></div>
   <div class="container section-decoration">
