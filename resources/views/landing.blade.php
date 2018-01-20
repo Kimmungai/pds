@@ -22,7 +22,7 @@
     <link href="{{asset('/landing/vendor/magnific-popup/magnific-popup.css')}}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="{{asset('/landing/css/creative.min.css')}}" rel="stylesheet">
+    <link href="{{asset('/landing/css/creative.css')}}" rel="stylesheet">
 
   </head>
 
@@ -31,7 +31,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">Web Designers Center</a>
+        <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="{{asset('/img/logo.png')}}" class="img-responsive" height="50" width="50">Web Designers Center</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -64,7 +64,7 @@
             <hr>
           </div>
           <div class="col-lg-8 mx-auto">
-            <p class="text-faded mb-5">Simply create an e-commerce, mobile app, blog or other project, get bids from industry leaders, review each bidder’s profile and choose the best offer!</p>
+            <p class="text-faded mb-5 font-weight-bold text-uppercase">Simply create an e-commerce, mobile app, blog or other project, receive bids from market leading companies, review each bidder’s profile and choose the best offer!</p>
             <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Find Out More</a>
           </div>
         </div>
@@ -123,28 +123,28 @@
             <div class="service-box mt-5 mx-auto">
               <i class="fa fa-4x fa-globe text-primary mb-3 sr-icons"></i>
               <h3 class="mb-3">Web Design</h3>
-              <p class="text-muted mb-0">Our templates are updated regularly so they don't break.</p>
+              <p class="text-muted mb-0">Our bidders are experienced in responsive and adaptable designs using modern techniques.</p>
             </div>
           </div>
           <div class="col-lg-3 col-md-6 text-center">
             <div class="service-box mt-5 mx-auto">
               <i class="fa fa-4x fa-search text-primary mb-3 sr-icons"></i>
               <h3 class="mb-3">S.E.O</h3>
-              <p class="text-muted mb-0">You can use this theme as is, or you can make changes!</p>
+              <p class="text-muted mb-0">Do you need to improve the visibility of your site? Get competitive offers from S.E.O experts to get the job done!</p>
             </div>
           </div>
           <div class="col-lg-3 col-md-6 text-center">
             <div class="service-box mt-5 mx-auto">
               <i class="fa fa-4x fa-camera text-primary mb-3 sr-icons"></i>
               <h3 class="mb-3">Web Photography</h3>
-              <p class="text-muted mb-0">We update dependencies to keep things fresh.</p>
+              <p class="text-muted mb-0">We have bidders who specialize in website photography. They will ensure your photos are of high quality and convey necessary meaning to your users.</p>
             </div>
           </div>
           <div class="col-lg-3 col-md-6 text-center">
             <div class="service-box mt-5 mx-auto">
               <i class="fa fa-4x fa-graduation-cap text-primary mb-3 sr-icons"></i>
               <h3 class="mb-3">E-learning</h3>
-              <p class="text-muted mb-0">You have to make your websites with love these days!</p>
+              <p class="text-muted mb-0">Creating an e-learning portal can be daunting. Here you get to compare different service providers easily including checking out their portfolio.</p>
             </div>
           </div>
         </div>

@@ -16,4 +16,5 @@ mix.js('resources/assets/js/app.js', 'public/js')
    .sass('resources/assets/sass/app.scss', 'public/css')
    .sass('resources/assets/sass/style.scss', 'public/css')
    .sass('resources/assets/sass/persistent_chat.scss', 'public/css')
-   .sass('resources/assets/sass/adm-cutom-style.scss', 'public/css');
+   .sass('resources/assets/sass/adm-cutom-style.scss', 'public/css')
+   .sass('resources/assets/sass/landing/creative.scss', 'public/landing/css');
