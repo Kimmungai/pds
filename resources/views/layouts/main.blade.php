@@ -5,12 +5,12 @@
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="google-site-verification" content="p2naW7Ty4Uv1MLYKYwch9h5kvmtUOUk7emry0_ITiKg" />
         <meta name="msvalidate.01" content="7360C3A933550859070D52E33151A1A9" />
-        <title>{{Route::currentRouteName()}} | Welcome to Web Designers Center | Official Site</title>
-        @if(Route::getCurrentRoute()->uri() != '/')
+        <title>{{Route::currentRouteName()}} | Post Your Project and Get competitve bids </title>
+        @if(Route::getCurrentRoute()->uri() == '/')
           <meta name="description" content="Simply create a project, get bids from industry leaders, review each bidder’s profile and choose the best offer!">
-        @elseif(Route::getCurrentRoute()->uri() != '/projects')
+        @elseif(Route::getCurrentRoute()->uri() == '/projects')
           <meta name="description" content="Create a service provider account to access the various web, e-commerce, mobile apps, blogs and many other projects. ">
-        @elseif(Route::getCurrentRoute()->uri() != '/about-us')
+        @elseif(Route::getCurrentRoute()->uri() == '/about-us')
           <meta name="description" content="Through our bidding system, clients get best market prices for their projects while service providers access lucrative projects available for bidding!">
         @else
           <meta name="description" content="At web designers center, we strive to sustain a win-win environment for both clients and web developers through our high-tech bidding system. ">
