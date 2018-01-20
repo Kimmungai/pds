@@ -75,7 +75,7 @@ class site extends Controller
       ##provider sorting ends here ##
       $provider_companies=Company::with('user')->orderBy($providerFilter,$providerCriteria)->paginate(3);
       $projects=Project::with('user','projectType','bid')->where($filter,$sign,$criteria)->where('end_date','<>','')->orderBy($orderFilter,$orderCriteria)->paginate(2);
-      return view('welcome',compact('provider_companies','projects'));
+      return view('landing',compact('provider_companies','projects'));
     }
     public function enquiry(Request $request)
     {
