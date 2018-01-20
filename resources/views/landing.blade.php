@@ -5,8 +5,14 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="keywords" content="Web design, Mobile app, E-learning, Website project, Blog project, Online bidding, Nairobi web Designers, Kenya online projects, service providers, bidders">
+    <meta property="og:url"           content="{{url()->current()}}" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="Welcome to Web Designers Center" />
+    <meta property="og:description"   content="Create your web, mobile app, blog.. projects and receive competitive prices from various tech companies in our system!" />
+    <meta property="og:image"         content="{{ url('/img/logo.png') }}" />
+    <meta name="description" content="Simply create a project, get bids from industry leaders, review each bidder’s profile and choose the best offer!">
+    <meta name="author" content="Web Designers Center">
 
     <title>{{Route::currentRouteName()}} | Welcome to Web Designers Center </title>
 
@@ -156,7 +162,7 @@
         <div class="row">
           <div class="col-lg-4 col-md-6 text-center">
             <div class="service-box  mx-auto">
-              <img src="/landing/img/egalaxy.png" class="img-responsive rounded-circle mb-3" width="138" height="81"   >
+              <img src="/landing/img/egalaxy.PNG" class="img-responsive rounded-circle mb-3" width="138" height="81"   >
               <p class="text-white text-left">
                 EgalaxyKenya Offers A Cost Effective Solution For Companies And Individuals.
               </p>
@@ -165,14 +171,14 @@
           </div>
           <div class="col-lg-4 col-md-6 text-center">
             <div class="service-box  mx-auto">
-              <img src="/landing/img/topedge.png" class="img-responsive rounded-circle mb-3" width="138" height="81"   >
+              <img src="/landing/img/topedge.PNG" class="img-responsive rounded-circle mb-3" width="138" height="81"   >
               <p class="text-white text-left">We Pride Ourselves In Helping Our Customers Grow Their Online Businesses.</p>
               <a href="/provider-profile/2" class="btn btn-default">More..</a>
             </div>
           </div>
           <div class="col-lg-4 col-md-6 text-center mt-0">
             <div class="service-box  mx-auto">
-              <img src="/landing/img/pyneshoots.png" class="img-responsive rounded-circle mb-3" width="138" height="81"  >
+              <img src="/landing/img/pyneshoots.PNG" class="img-responsive rounded-circle mb-3" width="138" height="81"  >
               <p class="text-white text-left">Pyneshoots Works To Capture The Beauty Of The World.</p>
               <a href="/provider-profile/1" class="btn btn-default">More..</a>
             </div>
@@ -185,8 +191,8 @@
       <div class="container-fluid p-0">
         <div class="row no-gutters popup-gallery">
           <div class="col-lg-4 col-sm-6">
-            <a class="portfolio-box" href="/landing/img/portfolio/fullsize/1.png">
-              <img class="img-fluid" src="/landing/img/portfolio/thumbnails/1.png" height="175" width="100%" alt="">
+            <a class="portfolio-box" href="/landing/img/portfolio/fullsize/1.PNG">
+              <img class="img-fluid" src="/landing/img/portfolio/thumbnails/1.PNG" height="175" width="100%" alt="">
               <div class="portfolio-box-caption">
                 <div class="portfolio-box-caption-content">
                   <div class="project-category text-faded">
@@ -200,8 +206,8 @@
             </a>
           </div>
           <div class="col-lg-4 col-sm-6">
-            <a class="portfolio-box" href="/landing/img/portfolio/fullsize/2.png">
-              <img class="img-fluid" src="/landing/img/portfolio/thumbnails/2.png" height="175" width="100%" alt="">
+            <a class="portfolio-box" href="/landing/img/portfolio/fullsize/2.PNG">
+              <img class="img-fluid" src="/landing/img/portfolio/thumbnails/2.PNG" height="175" width="100%" alt="">
               <div class="portfolio-box-caption">
                 <div class="portfolio-box-caption-content">
                   <div class="project-category text-faded">
@@ -215,8 +221,8 @@
             </a>
           </div>
           <div class="col-lg-4 col-sm-6">
-            <a class="portfolio-box" href="/landing/img/portfolio/fullsize/3.png">
-              <img class="img-fluid" src="/landing/img/portfolio/thumbnails/3.png" height="175" width="100%" alt="">
+            <a class="portfolio-box" href="/landing/img/portfolio/fullsize/3.PNG">
+              <img class="img-fluid" src="/landing/img/portfolio/thumbnails/3.PNG" height="175" width="100%" alt="">
               <div class="portfolio-box-caption">
                 <div class="portfolio-box-caption-content">
                   <div class="project-category text-faded">
