@@ -391,6 +391,12 @@
           });
         </script>
     @endif
+
+    <script src="https://cdn.jsdelivr.net/ga-lite/latest/ga-lite.min.js" async></script>
+    <script>
+      var galite = galite || {};
+      galite.UA = 'UA-109033027-1'; // Insert your tracking code here
+    </script>
   </body>
 
 </html>
