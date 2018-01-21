@@ -70,8 +70,8 @@
             <hr>
           </div>
           <div class="col-lg-8 mx-auto">
-            <p class="text-faded mb-5 font-weight-bold text-capitalize">Simply create an e-commerce, mobile app, blog or other project, receive bids from market leading companies, review each bidder’s profile and choose the best offer!</p>
-            <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Find Out More</a>
+            <p class="text-faded mb-5 font-weight-bold">Simply create an e-commerce, mobile app, blog or other projects, receive bids from market leading companies, review each bidder’s profile and choose the best offer!</p>
+            <a class="btn btn-primary btn-xl js-scroll-trigger" href="#how-it-works">Find Out More</a>
           </div>
         </div>
       </div>
@@ -129,31 +129,32 @@
             <div class="service-box mt-5 mx-auto">
               <i class="fa fa-4x fa-globe text-primary mb-3 sr-icons"></i>
               <h3 class="mb-3">Web Design</h3>
-              <p class="text-muted mb-0">Our bidders are experienced in responsive and adaptable designs using modern techniques.</p>
+              <p class="text-muted mb-0">Our bidders are experienced in creating responsive and adaptable websites using modern techniques.</p>
             </div>
           </div>
           <div class="col-lg-3 col-md-6 text-center">
             <div class="service-box mt-5 mx-auto">
               <i class="fa fa-4x fa-search text-primary mb-3 sr-icons"></i>
               <h3 class="mb-3">S.E.O</h3>
-              <p class="text-muted mb-0">Do you need to improve the visibility of your site? Get competitive offers from S.E.O experts to get the job done!</p>
+              <p class="text-muted mb-0">Do you need to improve the visibility of your site? Get competitive offers from S.E.O experts who will get the job done!</p>
             </div>
           </div>
           <div class="col-lg-3 col-md-6 text-center">
             <div class="service-box mt-5 mx-auto">
               <i class="fa fa-4x fa-camera text-primary mb-3 sr-icons"></i>
               <h3 class="mb-3">Web Photography</h3>
-              <p class="text-muted mb-0">We have bidders who specialize in website photography. They will ensure your photos are of high quality and convey necessary meaning to your users.</p>
+              <p class="text-muted mb-0">We have bidders who specialize in website photography. They will ensure your photos are of high quality and convey deep meaning to your users.</p>
             </div>
           </div>
           <div class="col-lg-3 col-md-6 text-center">
             <div class="service-box mt-5 mx-auto">
               <i class="fa fa-4x fa-graduation-cap text-primary mb-3 sr-icons"></i>
               <h3 class="mb-3">E-learning</h3>
-              <p class="text-muted mb-0">Creating an e-learning portal can be daunting. Here you get to compare different service providers easily including checking out their portfolio.</p>
+              <p class="text-muted mb-0">Creating an e-learning portal shouldn't be daunting any more. Find bidders with vast experience in developing e-learning packages here.</p>
             </div>
           </div>
         </div>
+        <a class="btn btn-primary pull-right mt-4" href="/sign-up">Post your first project</a>
       </div>
     </section>
     <section class="bg-dark text-white">
