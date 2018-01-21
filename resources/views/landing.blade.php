@@ -37,7 +37,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="{{asset('/img/logo.png')}}" class="img-responsive" height="50" width="50">Web Designers Center</a>
+        <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="{{asset('/img/logo.png')}}" class="img-responsive" height="50" width="50" alt="Web Designers Center">Web Designers Center</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -162,7 +162,7 @@
         <div class="row">
           <div class="col-lg-4 col-md-6 text-center">
             <div class="service-box  mx-auto">
-              <img src="/landing/img/egalaxy.PNG" class="img-responsive rounded-circle mb-3" width="138" height="81"   >
+              <img src="/landing/img/egalaxy.PNG" class="img-responsive rounded-circle mb-3" width="138" height="81"   alt="EgalaxyKenya">
               <p class="text-white text-left">
                 EgalaxyKenya Offers A Cost Effective Solution For Companies And Individuals.
               </p>
@@ -171,14 +171,14 @@
           </div>
           <div class="col-lg-4 col-md-6 text-center">
             <div class="service-box  mx-auto">
-              <img src="/landing/img/topedge.PNG" class="img-responsive rounded-circle mb-3" width="138" height="81"   >
+              <img src="/landing/img/topedge.PNG" class="img-responsive rounded-circle mb-3" width="138" height="81"  alt="Top Edge" >
               <p class="text-white text-left">We Pride Ourselves In Helping Our Customers Grow Their Online Businesses.</p>
               <a href="/provider-profile/2" class="btn btn-default">More..</a>
             </div>
           </div>
           <div class="col-lg-4 col-md-6 text-center mt-0">
             <div class="service-box  mx-auto">
-              <img src="/landing/img/pyneshoots.PNG" class="img-responsive rounded-circle mb-3" width="138" height="81"  >
+              <img src="/landing/img/pyneshoots.PNG" class="img-responsive rounded-circle mb-3" width="138" height="81"  alt="Pyne shoots">
               <p class="text-white text-left">Pyneshoots Works To Capture The Beauty Of The World.</p>
               <a href="/provider-profile/1" class="btn btn-default">More..</a>
             </div>
@@ -192,7 +192,7 @@
         <div class="row no-gutters popup-gallery">
           <div class="col-lg-4 col-sm-6">
             <a class="portfolio-box" href="/landing/img/portfolio/fullsize/1.PNG">
-              <img class="img-fluid" src="/landing/img/portfolio/thumbnails/1.PNG" height="175" width="100%" alt="">
+              <img class="img-fluid" src="/landing/img/portfolio/thumbnails/1.PNG" height="175" width="100%" alt="Project one">
               <div class="portfolio-box-caption">
                 <div class="portfolio-box-caption-content">
                   <div class="project-category text-faded">
@@ -207,7 +207,7 @@
           </div>
           <div class="col-lg-4 col-sm-6">
             <a class="portfolio-box" href="/landing/img/portfolio/fullsize/2.PNG">
-              <img class="img-fluid" src="/landing/img/portfolio/thumbnails/2.PNG" height="175" width="100%" alt="">
+              <img class="img-fluid" src="/landing/img/portfolio/thumbnails/2.PNG" height="175" width="100%" alt="Project two">
               <div class="portfolio-box-caption">
                 <div class="portfolio-box-caption-content">
                   <div class="project-category text-faded">
@@ -222,7 +222,7 @@
           </div>
           <div class="col-lg-4 col-sm-6">
             <a class="portfolio-box" href="/landing/img/portfolio/fullsize/3.PNG">
-              <img class="img-fluid" src="/landing/img/portfolio/thumbnails/3.PNG" height="175" width="100%" alt="">
+              <img class="img-fluid" src="/landing/img/portfolio/thumbnails/3.PNG" height="175" width="100%" alt="Project three">
               <div class="portfolio-box-caption">
                 <div class="portfolio-box-caption-content">
                   <div class="project-category text-faded">
@@ -251,7 +251,7 @@
         </div>
         <div class="row">
           <div class="col-lg-4 mr-auto text-center">
-            <img src="img/map.jpg" width="100%" class="img-responsive mt-5 rounded-circle">
+            <img src="img/map.jpg" width="100%" class="img-responsive mt-5 rounded-circle" alt="@ your service">
           </div>
           <div class="col-lg-6 mr-auto text-center">
             <i class="fa fa-envelope-o fa-3x mb-3 sr-contact"></i>
