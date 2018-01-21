@@ -392,11 +392,16 @@
         </script>
     @endif
 
-    <script src="https://cdn.jsdelivr.net/ga-lite/latest/ga-lite.min.js" async></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-109033027-1"></script>
     <script>
-      var galite = galite || {};
-      galite.UA = 'UA-109033027-1'; // Insert your tracking code here
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-109033027-1');
     </script>
+
   </body>
 
 </html>
