@@ -70,7 +70,7 @@
             <hr>
           </div>
           <div class="col-lg-8 mx-auto">
-            <p class="text-faded mb-5 font-weight-bold text-uppercase">Simply create an e-commerce, mobile app, blog or other project, receive bids from market leading companies, review each bidder’s profile and choose the best offer!</p>
+            <p class="text-faded mb-5 font-weight-bold text-capitalize">Simply create an e-commerce, mobile app, blog or other project, receive bids from market leading companies, review each bidder’s profile and choose the best offer!</p>
             <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Find Out More</a>
           </div>
         </div>
