@@ -5,6 +5,7 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="msvalidate.01" content="7360C3A933550859070D52E33151A1A9" />
     <meta name="keywords" content="Web design, Mobile app, E-learning, Website project, Blog project, Online bidding, Nairobi web Designers, Kenya online projects, service providers, bidders">
     <meta property="og:url"           content="{{url()->current()}}" />
     <meta property="og:type"          content="website" />
