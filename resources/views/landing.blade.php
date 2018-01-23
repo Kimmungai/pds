@@ -10,9 +10,9 @@
     <meta property="og:url"           content="{{url()->current()}}" />
     <meta property="og:type"          content="website" />
     <meta property="og:title"         content="Welcome to Web Designers Center" />
-    <meta property="og:description"   content="Create your web, mobile app, blog.. projects and receive competitive prices from various tech companies in our system!" />
+    <meta property="og:description"   content="Submit a website, mobile app, blog, etc project and receive bids from various tech companies in our system!" />
     <meta property="og:image"         content="{{ url('/img/logo.png') }}" />
-    <meta name="description" content="Simply create a project, get bids from industry leaders, review each bidder’s profile and choose the best offer!">
+    <meta name="description" content="Simply post a project, get bids from industry leaders, review each bidder’s profile and choose the best offer!">
     <meta name="author" content="Web Designers Center">
 
     <title>{{Route::currentRouteName()}} | Welcome to Web Designers Center </title>

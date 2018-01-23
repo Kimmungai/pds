@@ -7,7 +7,7 @@
         <meta name="msvalidate.01" content="7360C3A933550859070D52E33151A1A9" />
         <title>{{Route::currentRouteName()}} | Post Your Project and Get competitve bids </title>
         @if(Route::getCurrentRoute()->uri() == '/')
-          <meta name="description" content="Simply create a project, get bids from industry leaders, review each bidder’s profile and choose the best offer!">
+          <meta name="description" content="Simply post a project, get bids from industry leaders, review each bidder’s profile and choose the best offer!">
         @elseif(Route::getCurrentRoute()->uri() == '/projects')
           <meta name="description" content="Create a service provider account to access the various web, e-commerce, mobile apps, blogs and many other projects. ">
         @elseif(Route::getCurrentRoute()->uri() == '/about-us')
@@ -20,7 +20,7 @@
         <meta property="og:url"           content="{{url()->current()}}" />
         <meta property="og:type"          content="website" />
         <meta property="og:title"         content="Welcome to Web Designers Center" />
-        <meta property="og:description"   content="Create your web, mobile app, blog.. projects and receive competitive prices from various tech companies in our system!" />
+        <meta property="og:description"   content="Submit a website, mobile app, blog, etc project and receive bids from various tech companies in our system!" />
         <meta property="og:image"         content="{{ url('/img/logo.png') }}" />
 
         <link rel="manifest" href="{{ asset('/site.webmanifest') }}">
